@@ -3,15 +3,42 @@
 <head>
 <title>Web1-html</title>
 <meta charset="utf-8">
+<style>
+a{color:black; text-decoration: none;}
+h1{
+  border-bottom: 1px solid gray;
+  margin:0px; padding-bottom: 10px;
+  text-align: center;
+}
+ol{border-right: 1px solid gray;
+  width: 100px; margin:0px; padding:30px
+}
+#grid{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+@media(max-width:700px) {
+  #grid{
+    display: block;
+  }
+  ol{
+    border-right: none;
+  }
+  h1{border-bottom: none;}
+
+}
+
+</style>
 </head>
 <h1><a href="index.html">WEB</a></h1>
 <body>
+  <div id="grid">
 <ol>
-  <li><a href="1.html">HTML</a></li>
+  <li><a href="1.html" style="color:red">HTML</a></li>
   <li><a href="2.html">CSS </a></li>
   <li><a href="3.html">JavaScript</a></li>
 </ol>
-
+<div id="art">
 <h2>HTML이란 무엇일까</h2>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <a href="https://www.w3.org/TR/html5/" target="_blank" title="html5 specification">Hypertext Markup Language (HTML)</a> is the standard markup language for <strong>creating <u>web</u> pages</strong> and web applications.<p>
@@ -24,11 +51,11 @@
 
 특정한 프로그래밍 언어로 쓰인 프로그램은 기계어로 번역되어 컴퓨터에 의해 실행되며, 어떤 프로그래밍 언어도 기계어로 번역이 가능하다. 어떤 언어에서는 기계어 대신 p-부호로 불리는 바리를 생성하기도 한다. 프로그래머가 기계 부호로 직접 작성하는 것도 가능하지만, 이는 굉장히 어려운 작업이다. 때문에 낮은 수준에서의 컴퓨터 제어가 필요한 경우 프로그래머들은 기계어 명령어에 대한 일대일 연상 기호 대응인 어셈블리어를 사용한다.<br>
 
-서로 다른 프로그래밍 언어는 다른 프로그래밍 유형을 지원하기 때문에, 분야에 따라 적합한 언어가 존재한다. 또한 언어마다 프로그래머가 알고리즘을 구현할 때 그 구체적인 방법과 수준의 차이가 있기 때문에, 사용의 편의성과 성능 사이에서 적절한 타협이 이루어진다. 또한 프로그래밍의 언어 중 하나이며 컴퓨터에게 명령을 전달할 수 있다.<p>
+서로 다른 프로그래밍 언어는 다른 프로그래밍 유형을 지원하기 때문에, 분야에 따라 적합한 언어가 존재한다. 또한 언어마다 프로그래머가 알고리즘을 구현할 때 그 구체적인 방법과 수준의 차이가 있기 때문에, 사용의 편의성과 성능 사이에서 적절한 타협이 이루어진다. 또한 프로그래밍의 언어 중 하나이며 컴퓨터에게 명령을 전달할 수 있다.<p></div></div>
 
   <div id="disqus_thread"></div>
 <script>
-  
+
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
     s.src = 'https://first-test-6.disqus.com/embed.js';
