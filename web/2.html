@@ -10,6 +10,7 @@ body{margin:0;}
     text-decoration: none;
   }
   h1{
+    border-bottom: 1px solid gray;
     font-size: 3rem; text-align: center;
     border-bottom: 1px solid: gray;margin:0;
     padding:20px;
@@ -17,25 +18,34 @@ body{margin:0;}
   #active{
     color:red;
   }
-  .saw{
-    color:gray;
+
   }
-  ol{
+  #grid ol{
     border-right: 1px solid gray;
     width:100px; margin: 0;
-    padding:20px;
+    padding:20px; padding-left: 33px
+  }
+  #grid{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+  }
+  #article{
+    padding-left: 25px;
+    border-left: 1px solid gray;
+
   }
 
 </style>
 </head>
-<h1><a href="index.html">WEB</a></h1>
 <body>
+<h1><a href="index.html">WEB</a></h1>
+  <div id="grid">
 <ol>
-  <li><a href="1.html"class="saw">HTML</a></li>
-  <li><a href="2.html"class="saw" id="active" >CSS </a></li>
+  <li><a href="1.html">HTML</a></li>
+  <li><a href="2.html" id="active" >CSS </a></li>
   <li><a href="3.html">JavaScript</a></li>
 </ol>
-
+<div id="article">
 <h2>css</h2><p>
 종속형 시트 또는 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS)는 마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어(style sheet language)로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이며, 레이아웃과 스타일을 정의할 때의 자유도가 높다.
 </p><p>
@@ -47,23 +57,6 @@ body{margin:0;}
 특정한 프로그래밍 언어로 쓰인 프로그램은 기계어로 번역되어 컴퓨터에 의해 실행되며, 어떤 프로그래밍 언어도 기계어로 번역이 가능하다. 어떤 언어에서는 기계어 대신 p-부호로 불리는 바리를 생성하기도 한다. 프로그래머가 기계 부호로 직접 작성하는 것도 가능하지만, 이는 굉장히 어려운 작업이다. 때문에 낮은 수준에서의 컴퓨터 제어가 필요한 경우 프로그래머들은 기계어 명령어에 대한 일대일 연상 기호 대응인 어셈블리어를 사용한다.<br>
 </p><p>
 서로 다른 프로그래밍 언어는 다른 프로그래밍 유형을 지원하기 때문에, 분야에 따라 적합한 언어가 존재한다. 또한 언어마다 프로그래머가 알고리즘을 구현할 때 그 구체적인 방법과 수준의 차이가 있기 때문에, 사용의 편의성과 성능 사이에서 적절한 타협이 이루어진다. 또한 프로그래밍의 언어 중 하나이며 컴퓨터에게 명령을 전달할 수 있다.<p>
-  <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://first-test-6.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</body>
+
+</div>
+</div>
