@@ -5,14 +5,34 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <h1><a href="index.html">WEB</a></h1>
+  <h1><a href="index.html">WEB</a><br>
+    <input type="button" name="" value="night"onclick="
+    var target=  document.querySelector('body');
+    var tar_a=  document.querySelector('a');
+    var tar_ol=  document.querySelector('ol');
+    if (this.value==='night'){
+  target.style.backgroundColor='black';
+  target.style.color='white';
+  tar_a.style.color='white';
+  tar_ol.style.color='white';
+this.value='day';}
+  else{
+target.style.backgroundColor='white';
+target.style.color='black';
+tar_a.style.color='black';
+tar_ol.style.color='black';
+this.value='night';
+}
+    ">
+  </h1>
+
   <div id="grid">
 <ol>
   <li><a href="1.html">HTML</a></li>
   <li><a href="2.html">CSS </a></li>
   <li><a href="3.html" style="color:red">JavaScript</a></li>
+
 </ol>
 <div id="article">
 <h2>JavaScript</h2>
