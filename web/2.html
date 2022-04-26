@@ -15,15 +15,22 @@ var tar_ol=document.querySelector('ol');
 if(this.value==='night'){
 target.style.backgroundColor='black';
 target.style.color='white';
-  tar_a.style.color='white';
-  tar_ol.style.color='white';
+var alist=document.querySelectorAll('a');
+var i=0;
+while(i<alist.length){
+  alist[i].style.color='powderblue';
+  i=i+1;
+}
   this.value='day'
 }
 else{
   target.style.backgroundColor='white';
   target.style.color='black';
-    tar_a.style.color='black';
-    tar_ol.style.color='black';
+  var alist=document.querySelectorAll('a');
+  var i=0;
+  while(i<alist.length){
+    alist[i].style.color='black';
+    i=i+1;}
     this.value='night'
 }
 ">
