@@ -4,35 +4,41 @@
 <title>Web1-JavaScript</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1><a href="index.html">WEB</a><br>
-    <input type="button" name="" value="night"onclick="
-    var target=  document.querySelector('body');
-    var tar_a=  document.querySelector('a');
-    var tar_ol=  document.querySelector('ol');
-    if (this.value==='night'){
-  target.style.backgroundColor='black';
-  target.style.color='white';
+
+<script>
+function nihgt_day_handler(self){
+  var target=  document.querySelector('body');
+  var tar_a=  document.querySelector('a');
+  var tar_ol=  document.querySelector('ol');
+  if (self.value==='night'){
+target.style.backgroundColor='black';
+target.style.color='white';
 var alist=document.querySelectorAll('a');
- var i=0;
- while(i<alist.length){
-   alist[i].style.color='powderblue';
-   i=i+1;
- }
-this.value='day';}
-  else{
-    var alist=document.querySelectorAll('a');
-    var i=0;
-    while(i<alist.length){
-      alist[i].style.color='black';
-      i=i+1;
-    }
+var i=0;
+while(i<alist.length){
+ alist[i].style.color='powderblue';
+ i=i+1;
+}
+self.value='day';}
+else{
+  var alist=document.querySelectorAll('a');
+  var i=0;
+  while(i<alist.length){
+    alist[i].style.color='black';
+    i=i+1;
+  }
 target.style.backgroundColor='white';
 target.style.color='black';
 
-this.value='night';
+self.value='night';
 }
+}
+</script>
+
+</head>
+<body>
+  <h1><a href="index.html">WEB</a><br>
+    <input type="button" name="" value="night"onclick=" nihgt_day_handler(this);
     ">
   </h1>
 
