@@ -4,48 +4,14 @@
 <title>Web1-css</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
-<script>
-var Links={
-  setcolor:function(color) {
-    var alist=document.querySelectorAll('a');
-    var i=0;
-    while(i<alist.length){
-      alist[i].style.color=color;
-      i=i+1;
-    }
-  }
-}
-var Body={
-  setcolor:function(color){
-    document.querySelector('body').style.color=color;
-  },
-  setbackgroundColor:function(color){
-    document.querySelector('body').style.backgroundColor=color;
-  }
-}
-  function night_day_handler(self){
-    var tar_a=document.querySelector('a');
-    var tar_ol=document.querySelector('ol');
-    if(self.value==='night'){
-    Body.setbackgroundColor('black');
-    Body.setcolor('white');
-    Links.setcolor('powderblue');
-    self.value='day';
-    }
-    else{
-      Body.setbackgroundColor('white');
-      Body.setcolor('black');
-    Links.setcolor('black');
-    self.value='night';
-    }
-  }
+<script src="colorset.js">
 </script>
 </head>
 <body>
 <h1><a href="index.html">WEB</a>
 <br>
 <input type="button"  value="night" onclick="
-night_day_handler(this);
+nihgt_day_handler(this);
 ">
 </h1>
   <div id="grid">
