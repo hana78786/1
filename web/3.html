@@ -6,13 +6,18 @@
 <link rel="stylesheet" href="style.css">
 
 <script>
+var Body={
+  setcolor:function(color){
+  document.querySelector('body').style.color=color;
+},
+setbackgroundColor:function(color){
+document.querySelector('body').style.backgroundColor=color;}}
 function nihgt_day_handler(self){
-  var target=  document.querySelector('body');
   var tar_a=  document.querySelector('a');
   var tar_ol=  document.querySelector('ol');
   if (self.value==='night'){
-target.style.backgroundColor='black';
-target.style.color='white';
+Body.setcolor('white');
+Body.setbackgroundColor('black');
 var alist=document.querySelectorAll('a');
 var i=0;
 while(i<alist.length){
@@ -27,8 +32,8 @@ else{
     alist[i].style.color='black';
     i=i+1;
   }
-target.style.backgroundColor='white';
-target.style.color='black';
+Body.setbackgroundColor('white');
+Body.setcolor('black');
 
 self.value='night';
 }
