@@ -21,7 +21,6 @@ public class HelloWorldGUIApp {
 				frame.setLocation(dim.width/2-400/2, dim.height/2-300/2);
 				frame.pack();
 				frame.setVisible(true);
-				
 			}
 		});
 	}
