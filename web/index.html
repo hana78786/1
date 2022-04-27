@@ -4,34 +4,7 @@
 <title>Web1-welcome</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
-<script>
-  function night_day_handler(self){
-    var target=document.querySelector('body');
-    var tar_a=document.querySelector('a');
-    var tar_ol=document.querySelector('ol');
-  if(self.value==='night'){
-  target.style.backgroundColor='black';
-  target.style.color='white';
-  var alist=document.querySelectorAll('a');
-  var i=0;
-  while(i<alist.length){
-  alist[i].style.color='powderblue';
-  i=i+1;
-  }
-  self.value='day';
-  }
-  else{
-  target.style.backgroundColor='white';
-  target.style.color='black';
-  var alist=document.querySelectorAll('a');
-  var i=0;
-  while(i<alist.length){
-    alist[i].style.color='black';
-    i=i+1;
-  }
-  self.value='night';
-  }
-  }
+<script src="colorset.js">
 </script>
 </head>
 </head>
@@ -39,7 +12,7 @@
 <h1><a href="index.html">WEB</a>
   <br>
   <input type="button" name="" value="night" onclick="
-night_day_handler(this);
+nihgt_day_handler(this);
   ">
 </h1>
 <div id="grid">
