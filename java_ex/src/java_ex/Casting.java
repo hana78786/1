@@ -12,7 +12,8 @@ public class Casting {
 		
 
 		String number = Integer.toString(10);
-
+		
+		System.out.println(number);
 		System.out.println(number.getClass());
 		
 		
