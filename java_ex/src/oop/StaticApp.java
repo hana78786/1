@@ -13,15 +13,17 @@ class Foo{
 
 	public static void classMethod() {
 		System.out.println(classVar);
-//		System.out.println(instanceVar);
+		Foo f1=new Foo();
+		System.out.println(f1.instanceVar);
 	}}
 public class StaticApp {
 
 	public static void main(String[] args) {
 		System.out.println(Foo.classVar);
-//		System.out.println(Foo.instanceVar);
+		Foo f1=new Foo();
+		System.out.println(f1.instanceVar);
 		Foo.classMethod();
-//		Foo.instacneMethod();
+		f1.instanceMethod();
 		
 		Foo f1=new Foo();
 		f1.classVar="f1 class var";
