@@ -16,31 +16,20 @@ public class pumi {
 //	[[1],[2]] 	[[3],[4]] 	[[4],[6]]
 	}
 
-	public static void main(String[] args) {
-		Scanner scan=new Scanner(System.in);
-		a=scan.nextInt();
-		b=scan.nextInt();
-		c=scan.nextInt();
-		d=scan.nextInt();
-		
-		System.out.println(solution(arr1, arr2));
-	}
-	public static int a;
-	public static int b;
-	public static int c;
-	public static int d;
-	public static int[][] arr1 = {
-			{1,2}
-	};
-	public static int[][] arr2 = {
-			{3,4}		
-	};
-    public static int[][] solution(int[][] arr1, int[][] arr2) {
- 
-        int[][] answer = {
-        		{a+c,b+d}
-        };
-        
-        return answer;
+	public static void main(String[] args) { 
+	
+		int[][] arr1= {	{1,2},{3,4}
+		  };
+		  int[][] arr2= {{3,4},{5,6}
+		  };
+		  int[][]result=new int[2][2];
+		  
+		  for (int i=0;i<result.length;i++) {
+			  int sum = 0;
+			  for(int j=0;j<result.length;j++) {
+				  arr1[i][result.length]+=arr2[i][result.length];
+			  }
+			  arr1[i][result.length]=sum;
+		  };
 	
 }}
