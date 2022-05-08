@@ -19,7 +19,14 @@ public class phone_num {
 	number.substring(1,i-4);
 	System.out.println(number.substring(0,i-4));
 String y = number.substring(0,i-4);
-String t=number.replace(y,"*");
+int c=y.length();
+
+String d = null;
+ for(int j=0;j<c;j++) {
+	d="*";};
+	System.out.println(d);
+String t=number.replace(y,d);
+
 System.out.println(t);
 
 	}
