@@ -15,6 +15,12 @@ public class phone_num {
 	ab.replace(1, 16, "[0-9]");
 	System.out.println(ab);
 		
+	int i=number.length();
+	number.substring(1,i-4);
+	System.out.println(number.substring(0,i-4));
+String y = number.substring(0,i-4);
+String t=number.replace(y,"*");
+System.out.println(t);
 
 	}
 
