@@ -10,13 +10,13 @@ public class phone_num {
 	}
 
 	public static void main(String[] args) {
-	String number = "01027143368";
+	String number = "01012345678";
 	StringBuffer ab= new StringBuffer(number);
 	ab.replace(1, 16, "[0-9]");
 	System.out.println(ab);
 		
 	int i=number.length();
-	number.substring(1,i-4);
+	number.substring(0,i-4);//
 	System.out.println(number.substring(0,i-4));
 String y = number.substring(0,i-4);
 int c=y.length();
@@ -24,7 +24,6 @@ int c=y.length();
 String d = "";
 d(c, d);
 String t=number.replace(y,d);
-
 System.out.println(t);
 
 	}
