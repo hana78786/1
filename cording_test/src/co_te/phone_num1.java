@@ -7,21 +7,19 @@ public class phone_num1 {
 
 	public static void main(String[] args) {
 		String phone_number="01012345678";
-		int i=phone_number.length();
-	       String y=	phone_number.substring(0,i-4); 
-	        int c=y.length();   
-	        String d = "";
-	       d(c, d);
-	   String t=phone_number.replace(y,d);   
-	   System.out.print(t);
-	       }
-	
-	      public static String d(int c, String d) {
-	   		for(int j=0;j<c;j++) {
-	   			d="*";
-	   			System.out.print(d);
-	   		};
-	   		return d;
-	   	} 
+	    int i=phone_number.length();
+	    String y=	phone_number.substring(0,i-4); 
+	     int c=y.length();   
+	     String d = "*";
+	    		
+	String answer=phone_number.replace(y,d);    
+	        return;
+	    }
+	   public static String d(int c, String d) {
+			for(int j=0;j<c;j++) {
+				d="*";
+			};
+			return d;
+		} 
 	   }
 
