@@ -14,15 +14,19 @@ public class phone_num1 {
 	     int c=y.length();   //c는 phone_number값에서 처음부터 뒤 5자리 값까지의 자리수
 	     					// 여기에서는 8
 	    
-	String answer=phone_number.replace(y,repeat(c,"*"));   
+	String answer=phone_number.replace(y,e(c));   
 	System.out.println(answer);
-	        return ;
+	e(c);
 	    }
 
-	public static String repeat(int c,String d) {
-	    String sum = "";
-	   for(int j=0;j<c;j++) {sum=sum+d;};
-	    return sum;
+	  public static String e(int c) {   
+		  	String e="";
+		  for(int j=0;j<c;j++) {
+		     String d="*";
+		     e=e+d;
+		      }
+		  System.out.println(e);
+			return e;  
 	    
 	   
 	}
