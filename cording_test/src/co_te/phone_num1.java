@@ -6,19 +6,22 @@ public class phone_num1 {
 	
 
 	public static void main(String[] args) {
-		String phone_number="01012345678";
+		String phone_number="12345678910";
 	    int i=phone_number.length();
-	    String y=	phone_number.substring(0,i-4); 
-	     int c=y.length();   
-	     String d = "*";
-	    		
-	String answer=phone_number.replace(y,d);    
+	    String y=	phone_number.substring(0,i-4); //y=01012345
+	     int c=y.length();   //c는 phone_number값에서 처음부터 뒤 5자리 값까지의 자리수
+	     					// 여기에서는 8
+	     
+	     
+	String answer=phone_number.replace(y,d(c,"*"));   
+	System.out.println(answer);
 	        return;
 	    }
 	   public static String d(int c, String d) {
-			for(int j=0;j<c;j++) {
-				d="*";
-			};
+		   String[] e=new String[c];
+		     for(int j=0;j<c;j++) {
+		    	 e[j]="*";
+		     }
 			return d;
 		} 
 	   }
