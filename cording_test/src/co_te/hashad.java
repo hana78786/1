@@ -17,10 +17,12 @@ public class hashad {
 		};
 
 		int sum=0;
+		for(int f=0;f<a;f++) {
+			sum+=str_y[f];
 		
 		boolean answer;
 		if(x%sum==0) {answer=true;}
 		else { answer=false;}
         return answer;
-    }
-}
+    }}}
+
