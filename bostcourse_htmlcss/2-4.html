@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>table태그</title>
+    <style media="screen">
+      td{border: 1px solid; width: 100px; height: 50px}
+      th
+      {border: 1px solid;}
+      </style>
+  </head>
+  <body>
+    <table>
+    <tr>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    </table>
+
+    <table>
+      <caption>Monthly Savings</caption>
+      <thead>
+        <tr>
+          <th>Monthly</th><th>Savings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> January</td><td>$100</td>
+        </tr>
+        <tr>
+          <td>Febrary</td><td rowspan="2">$80</td>
+        </tr>
+        <tr>
+          <td>March</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Sum</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
