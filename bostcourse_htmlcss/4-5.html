@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>부분속성</title>
+    <style media="screen">
+      p[class~="color"]{font-style:italic;}
+      p[class^="color"]{text-decoration:underline}
+      p[class$="color"]{font-weight: bolder;}
+      p[class*="color"]{color:green}
+
+    </style>
+  </head>
+  <body>
+    <p class="color hot">red</p>
+<p class="cool color">blue</p>
+<p class="colorful nature">rainbow</p>
+
+<p>
+선언된 스타일 :   p[class~="color"]{font-style:italic;}<br>
+  p[class^="color"]{font-style:underline}<br>
+  p[class$="color"]{font-weight: bolder;}<br>
+  p[class*="color"]{color:green}</p>
+  </body>
+</html>
