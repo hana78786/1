@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>문소 구조 관련 선택자</title>
+    <style media="screen">
+      div span{color:red;}
+      div >span{color:green;}
+      div+span{color:blue;}
+      body>div table+ul{color:darkblue;}
+    </style>
+  </head>
+  <body>
+    <div>
+    <h1><span>HTML</span>: Hyper Text Markup Language</h1>
+    <span>CSS는 문서를 꾸며줍니다</span>
+</div>
+<span>Javascript는 문서를 능동적으로 제어할수 있습니다.</span>
+<p>HTML과 CSS와 JAVASCRIPT를 이용해서 멋진 웹 사이트를 제작할 수 있습니다.</p>
+<div>
+  <table>
+    <tr>
+      <td>1</td><td>2</td>
+    </tr>
+    <tr>
+      <td>1</td><td>2</td>
+    </tr>
+  </table>
+  <ul>
+    <li>목록</li>
+    <li>목록</li>
+  </ul>
+</div>
+  </body>
+</html>
