@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <title>여러 요소에 스타일 적용하기</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        .red-text{color:red;}
+        a{
+          color:skyblue;
+          text-decoration: underline;
+        }
+        a:visited {color:darkblue;}
+        input:active {background-color: yellow; color:gray;}
+        a:focus{background-color:black; color:silver;}
+        h3{color : orange; border-bottom: 1px solid orange;}
+        h2{border-bottom: 1px solid red;}
+    </style>
+</head>
+
+<body>
+
+
+<h2 class="red-text">고양이 사진첩</h2>
+<main>
+    <p  class="red-text"><a href="https://pixabay.com/ko/images/search/cat/" target="_blank">여기</a>를 클릭하면 더 많은 고양이 사진을 볼 수 있습니다.</p>
+
+
+    <a href="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" target="_blank"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                     alt="바닥에 등을 대고 누워있는 주황색 고양이"></a>
+
+        <h3>고양이가 좋아하는 것:</h3>
+        <ul>
+            <li><a href="https://ko.wikipedia.org/wiki/%EA%B0%9C%EB%B0%95%ED%95%98" target="_blank">캣닙</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/%EB%A0%88%EC%9D%B4%EC%A0%80_%ED%8F%AC%EC%9D%B8%ED%84%B0" target="_blank">레이저 포인터</a></li>
+            <li><a title="고양이는 라자냐를 좋아하지 않아! 생선을 좋아해!">라자냐</a></li>
+        </ul>
+        <h3>고양이가 싫어하는 것 TOP3:</h3>
+        <ol>
+            <li>막 대하는 것</li>
+            <li>천둥</li>
+            <li>다른 고양이</li>
+        </ol>
+    </div>
+<fieldset>
+  <legend>고양이 사진 입력 정보</legend>
+    <form action="https://freecatphotoapp.com/submit-cat-photo">
+        <label><input type="radio" name="indoor-outdoor" checked> 집 고양이</label>
+        <label><input type="radio" name="indoor-outdoor"> 야생 고양이</label><br>
+        <label><input type="checkbox" name="personality" checked> 사랑스러운 성격</label>
+        <label><input type="checkbox" name="personality"> 느긋한 성격</label>
+        <label><input type="checkbox" name="personality"> 에너지 넘치는 성격</label><br>
+        <input type="text" placeholder="내 고양이 사진 URL 주소" required>
+        <button type="submit">올리기</button>
+    </form>
+  </fieldset>
+</main>
+</body>
+
+
+</html>
