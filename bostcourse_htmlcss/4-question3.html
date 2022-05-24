@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <title>구체성 이해하기</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+
+        body {
+            background-color: black;
+            font-family: monospace;
+            color: green;
+        }
+        .pink {
+          color:pink;
+
+        }
+        #skyblue{
+          color:skyblue;
+        }
+
+        p{background-color: white !important;
+        color: black
+      !important;}
+
+      h1.red{background-color: red;}
+        .red{background-color: orange;}
+
+    </style>
+</head>
+<body>
+<h1 class="pink">Hello World!</h1>
+이 값은 class 선언에 의해 색상이 변경되었습니다.
+
+<h1 class="pink" id="skyblue">Hello World!</h1>
+이 값은 class선언에 포함되었으나 id선언에 의해 색상이 변경되었습니다.
+
+<h1>Hello World!</h1>
+이 값은 body태그 선언문에 의해 색상이 변경되었습니다.<br>
+어떤 class나 id의 값을 가지고 있지 않습니다.
+
+<h1 class="pink" id="skyblue" style= "color:white">Hello World!</h1>
+이 값은 class와 id 선언에 포함되었으나 inline태그 선언에 의해 색상이 변경되었습니다<br>
+<p class="pink" id="skyblue">이 내용은 class와 id의 선언이 있지만 !important선언을 우선시 하여 색상이 변경되었습니다</p>
+
+<h1 class="red" id="skyblue">Hello World!</h1>
+이 값은 class와 h1태그의 값의 구체성을 더 높게 표기한 선언으로 배경 색상이 변경되었습니다.
+</body>
+</html>
