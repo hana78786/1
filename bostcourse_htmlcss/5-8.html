@@ -10,11 +10,31 @@
     .normal{
       font-variant: normal;
     }
+
+    .normal1{
+      /* style | size | family */
+font: oblique 2em "돋움", dotum, sans-serif;
+            }
+    .normal2{
+/* style | variant | weight | size/line-height | family */
+font: oblique small-caps bold 16px/1.5 '돋움';
+            }
+    .normal3{
+/* The font used in system dialogs */
+font: message-box;
+}
+    .normal4{
+font: icon;
+    }
   </style>
 </head>
 
 <body>
   <p>Font-Variant: Small-Caps</p>
   <p class="normal">Font-Variant: Small-Caps</p>
+    <p class="normal1">font: oblique 2em "돋움", dotum, sans-serif;</p>
+      <p class="normal2">font: oblique small-caps bold 16px/1.5 '돋움';</p>
+        <p class="normal3">font: message-box;</p>
+          <p class="normal4">font: icon;</p>
 </body>
 </html>
