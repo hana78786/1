@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>line-height</title>
+  <style>
+    .parent {
+        width: 200px;
+        font-size: 10px;
+        line-height: normal;
+
+    }
+
+    .parent-1 {
+        width: 200px;
+        font-size: 10px;
+        line-height: 20px;
+
+    }
+    .parent-2 {
+        width: 200px;
+        font-size: 10px;
+        line-height: 2;
+    }
+    .parent-3 {
+        width: 200px;
+        font-size: 10px;
+        line-height: 200%;
+    }
+    .child {
+        font-size: 20px;
+    }
+  </style>
+</head>
+
+<body><p>
+  <div class="parent">
+    <div class="child">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem,
+      harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+      Adipisci, delectus.
+    </div>
+    이 값은 line-height: normal;으로 선언되어있음
+    </p><p>
+    <div class="parent-1">
+        <div class="child">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem,
+          harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+          Adipisci, delectus.
+        </div>이 값은 line-height: 20px;으로 선언되어있음
+          </p><p>
+        <div class="parent-2">
+          <div class="child">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem,
+            harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+            Adipisci, delectus.
+          </div>이 값은 line-height: 2;으로 선언되어있음
+  </div>  </p><p>
+  <div class="parent-3">
+    <div class="child">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem,
+      harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+      Adipisci, delectus.
+    </div>  </div>이 값은 line-height: 200%;으로 선언되어있음
+</p>
+</body>
+</html>
