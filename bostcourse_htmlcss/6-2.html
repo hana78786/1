@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <title>위치 속성 fixed를 사용해 툴팁 만들어보기</title>
+    <meta charset="utf-8">
+
+    <style>
+        .tooltip {
+          /* 처음엔 툴팁이 숨어있습니다. */
+          display: none;
+          background: white;
+          border: 1px solid black;
+          color: black;
+          font-weight: 400;
+          font-size: 0.875rem;
+          padding: 9px;
+          padding-bottom: 11px;
+  /*과제의 예시 값과 비슷해 보이도록 padding을 지정했습니다*/
+        }
+
+        /*
+           마우스를 오버했을 때, 툴팁을 보여줍니다.
+        */
+        .tooltip-trigger:hover .tooltip {
+          display: block;
+          position: absolute;
+          min-width: 150px;
+
+
+        }
+
+        p {
+            max-width: 300px;
+        }
+
+        .tooltip-trigger {
+            font-weight: bold;
+            color: seagreen;
+            text-decoration: none;
+            display:inline-block;
+        }
+      </style>
+</head>
+
+<body>
+    <p>
+        말풍선 또는 툴팁(tooltip)은 공통
+        <a href="/" class="tooltip-trigger">
+            그래픽 유저 인터페이스
+          <span class="tooltip">
+            Graphic User Interface
+          </span>
+        </a>
+        요소로, 마우스 포인터라 불리는 커서와 함께 동작한다. 사용자가 커서로 항목을 클릭하지 않고 가리키면 조그마한 상자가 항목 위에 나타나서 보충 설명을 보여준다.
+      </p>
+</body>
+</html>
