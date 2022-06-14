@@ -1,0 +1,10 @@
+package com.kh.variable;
+
+public class TestVariable {
+	public static void main(String [] args) {
+		int kh; //변수의 선언
+		
+		System.out.println(kh);
+	}
+
+}

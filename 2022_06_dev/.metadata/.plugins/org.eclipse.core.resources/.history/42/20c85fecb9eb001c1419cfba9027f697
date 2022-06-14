@@ -1,0 +1,10 @@
+package com.kh.variable;
+
+public class TestVariable {
+	public static void main(String[] args) {
+		int kh; // 변수의 선언
+		kh = 1; // 변수의 초기화 값을 대입함
+		System.out.println(kh+1);
+	}
+
+}
