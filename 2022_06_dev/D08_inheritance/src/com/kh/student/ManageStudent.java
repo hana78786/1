@@ -8,8 +8,7 @@ public class ManageStudent {
 	private int math;
 	private String name;
 	Student[] student;
-	public int i;
-	public int c;
+	private int c;
 	public ManageStudent() {
 	student = new Student[3];
 	student[0] =new Student(name,eng,kor,math);
@@ -49,7 +48,7 @@ public class ManageStudent {
 	}
 
 	public void printResult() {
-		for(i=0;i<3;i++) {
+		for(int i=0;i<3;i++) {
 		System.out.println(student[i].getName()+"�� ����");
 		System.out.println("���� ���� : " + student[i].getKor());
 		System.out.println("���� ���� : " + student[i].getEng());
