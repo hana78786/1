@@ -3,50 +3,60 @@ package com.kh.student;
 import java.util.Scanner;
 
 public class ManageStudent {
-//	private int kor;
-//	private int eng;
-//	private int math;
-//	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	private String name;
 	Student[] student;
+	public int i;
+	public int c;
 	public ManageStudent() {
 	student = new Student[3];
+	student[0] =new Student(name,eng,kor,math);
+	student[1] =new Student(name,eng,kor,math);
+	student[2] =new Student(name,eng,kor,math);
+	c=0;
+	
 	}
 
 	public void showMenu() {
-		System.out.println("===== ÇÐ»ý ¼ºÀû°ü¸® ÇÁ·Î±×·¥ =====");
-		System.out.println("1. ÇÐ»ý ¼ºÀû ÀÔ·Â");
-		System.out.println("2. ÇÐ»ý ¼ºÀû Ãâ·Â");
-		System.out.println("3. ÇÁ·Î±×·¥ Á¾·á");
-		System.out.print("¼±ÅÃ : ");
+		System.out.println("===== ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ =====");
+		System.out.println("1. ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½");
+		System.out.println("2. ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
+		System.out.println("3. ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ : ");
 	}
 
 	public void incertInfomation() {
-		System.out.println("===== ÇÐ»ý Á¤º¸ ÀÔ·Â =====");
+		System.out.println("===== ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ =====");
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("ÇÐ»ý ÀÌ¸§ ÀÔ·Â : ");
+		System.out.print("ï¿½Ð»ï¿½ ï¿½Ì¸ï¿½ ï¿½Ô·ï¿½ : ");
 		String name = scanner.nextLine();
-		System.out.print("±¹¾î : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ : ");
 		int kor = scanner.nextInt();
-		System.out.print("¿µ¾î : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ : ");
 		int eng = scanner.nextInt();
-		System.out.print("¼öÇÐ : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ : ");
 		int math = scanner.nextInt();
-		student.setName(name);
-		student.setEng(eng);
-		student.setKor(kor);
-		student.setMath(math);
-
+		student[c].setName(name);
+		student[c].setEng(eng);
+		student[c].setKor(kor);
+		student[c].setMath(math);
+		c++;
+		if(c>=3) {
+			c=c%3;
+		}
 	}
 
 	public void printResult() {
-		
-		System.out.println(student.getName()+"ÀÇ ¼ºÀû");
-		System.out.println("±¹¾î Á¡¼ö : " + student.getKor());
-		System.out.println("¿µ¾î Á¡¼ö : " + student.getEng());
-		System.out.println("¼öÇÐ Á¡¼ö : " + student.getMath());
-		System.out.println("ÃÑÁ¡ : " + student.printTotal());
-		System.out.println("Æò±Õ : "+student.printAvg());
-		
+		for(i=0;i<3;i++) {
+		System.out.println(student[i].getName()+"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + student[i].getKor());
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + student[i].getEng());
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + student[i].getMath());
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + student[i].printTotal());
+		System.out.println("ï¿½ï¿½ï¿½ : "+student[i].printAvg());
+		}
 
 	}
 }

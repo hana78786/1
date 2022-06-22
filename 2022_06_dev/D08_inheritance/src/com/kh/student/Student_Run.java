@@ -6,25 +6,25 @@ public class Student_Run {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		ManageStudent mStu = new ManageStudent();
-		Á¾·á : while (true) {
+		Exit : while (true) {
 			mStu.showMenu();
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:
-				//¼ºÀûÀÔ·Â
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½
 				mStu.incertInfomation();
 				break;
 			case 2:
-				//¼ºÀû Ãâ·Â
+				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				mStu.printResult();
 				break;
 			case 3:
-				//Á¾·á
-				System.out.println("Á¾·áÇÕ´Ï´Ù");
-				break Á¾·á;
+				//ï¿½ï¿½ï¿½ï¿½
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½");
+				break Exit;
 			default:
-				//ÀÔ·Â¿À·ù
-				System.out.println("Àß¸ø ÀÔ·Â ÇÏ¼Ì½À´Ï´Ù.");
+				//ï¿½Ô·Â¿ï¿½ï¿½ï¿½
+				System.out.println("ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
 				break;
 			}
 
