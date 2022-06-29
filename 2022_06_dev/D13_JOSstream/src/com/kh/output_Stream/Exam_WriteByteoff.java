@@ -1,4 +1,4 @@
-package com.kh.inputstream;
+package com.kh.output_Stream;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

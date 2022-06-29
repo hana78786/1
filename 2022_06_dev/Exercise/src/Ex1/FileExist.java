@@ -24,7 +24,7 @@ public static void main(String[] args) {
 			System.out.println("\t<file1>\t\t\t" + file.getName());
 		}
 		else {
-			System.out.println("\t\t\t + fil1.lenght + "\t" +file1.get);
+			System.out.println("\t\t\t + fil1.lenght + "\t" +file.getName());
 		}
 	}
 }
