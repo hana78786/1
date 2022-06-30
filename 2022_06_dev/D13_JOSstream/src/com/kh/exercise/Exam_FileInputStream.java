@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Exam_FileInputStream {
+	
+
 	public static void main(String[] args) {
 		InputStream is = null;
 		
@@ -18,7 +20,7 @@ public class Exam_FileInputStream {
 //			data = is.toString();
 //			System.out.println(data); //왜 안되지?
 			//is는 stream이기때문이 직접적으로 String으로는 바뀔수 없대!
-			System.out.println(is.getAbsolutePath());
+//			System.out.println(is.read(b));
 
 			int readByte =0;
 			byte[] buf = new byte[200];
