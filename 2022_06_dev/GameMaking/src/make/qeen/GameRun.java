@@ -46,6 +46,7 @@ public class GameRun {
 				System.out.println("1. 능력치를 확인한다");
 				System.out.println("2. 스케줄을 작성한다.");
 				System.out.println("3. 상점에 간다.");
+				System.out.println(">>");
 				try {
 					int sel = scan.nextInt();
 					if (sel == 1) {

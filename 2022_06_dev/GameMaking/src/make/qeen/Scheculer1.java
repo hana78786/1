@@ -2,7 +2,7 @@ package make.qeen;
 
 public class Scheculer1 {
 
-	public int money = 10000;
+	public int money = 200;
 	public int power;
 	public int music;
 	public int cook;

@@ -84,6 +84,7 @@ public class GamePrint {
 			YesNo = 0;
 
 			System.out.println("공주님의 이름은 무엇인가요?");
+			System.out.print(">>");
 			name = scan.next();
 
 			try {
@@ -215,8 +216,8 @@ public class GamePrint {
 	private void runSchedule() {
 		for (int i = 4; i > 0; i--) {//한번당 4번 실행되는 스케쥴입니다
 			System.out.println("스케쥴을 실행합니다.");
-			System.out.println(name + " 공주님의 " + (month - i) + "월 스케쥴은" + gameTurn[turn - i] + " 입니다");
-			System.out.println(gameTurn[turn - i] + "을 실행합니다");
+			System.out.println(name + " 공주님의 " + (month - i) + "월 스케쥴은 " + gameTurn[turn - i] + " 입니다");
+			System.out.println(gameTurn[turn - i] + "을/를 실행합니다");
 			
 			if((month-i)==birthMon) {//생일 월이 되면 선물을 받습니다
 				try {
@@ -337,6 +338,7 @@ public class GamePrint {
 			System.out.println("1. 농부알바 / 급료 20g");
 			System.out.println("2. 식당알바 / 급료 15g");
 			System.out.println("3. 보모알바 / 급료 15g");
+			System.out.println(">>");
 			sel = scan.next();
 			switch (sel) {
 			case "1":
@@ -393,6 +395,7 @@ public class GamePrint {
 			System.out.println("1. 음악교실 / 교육비 : 50g");
 			System.out.println("2. 무술교실 / 교육비 : 50g");
 			System.out.println("3. 그림교실 / 교육비 : 50g");
+			System.out.println(">>");
 			sel = scan.next();
 			switch (sel) {
 			case "1":
@@ -481,8 +484,8 @@ public class GamePrint {
 			System.out.println("2. 복권을 산다");
 			System.out.println("3. 상점을 나간다");
 			System.out.println("-----------------------");
-			int sel = scan.nextInt();
 			System.out.print(">>");
+			int sel = scan.nextInt();
 			switch (sel) {
 			case 1:// 물건 메뉴
 				sale();
@@ -559,7 +562,8 @@ public class GamePrint {
 					sche.money +=Money*2; // 3배의 당첨금
 				}else{
 					System.out.println("꽝...");
-					sche.money -= Money; // 판돈을 잃습니다.
+					sche.money -= Money; //
+					System.out.println(Money+"g을 잃으셨습니다");//판돈을 잃습니다.
 				}
 				break 종료;
 
@@ -580,8 +584,8 @@ public class GamePrint {
 				System.out.println("------물건을 구입합니다------");
 				System.out.println("1. 악보 : 음악 10 상승/ 30g");
 				System.out.println("2. 인형 : 스트레스 30하락/ 30g");
-				System.out.println("3. 목검 : 힘 10 상승 근성 5 상승/ 30g");
-				System.out.println("4. 책  : 학력 10 상승 예절 10 상승/ 30g");
+				System.out.println("3. 목검 : 힘 10 상승, 근성 5 상승/ 30g");
+				System.out.println("4. 책  : 학력 10 상승, 예절 10 상승/ 30g");
 				System.out.println("5. 냄비 : 요리 10 상승/ 30g");
 				System.out.println("6.  붓 : 그림 10 상승/ 30g");
 				System.out.println("7. 구입종료");
