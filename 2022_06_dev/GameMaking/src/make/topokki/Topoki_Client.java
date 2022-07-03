@@ -339,6 +339,18 @@ public class Topoki_Client {
 				e.printStackTrace();
 			}
 		}
+		
+		try {
+			dis.close();
+			dos.close();
+			is.close();
+			os.close();
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

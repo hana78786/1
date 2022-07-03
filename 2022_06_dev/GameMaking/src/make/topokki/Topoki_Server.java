@@ -72,9 +72,11 @@ public class Topoki_Server {
 					if ((answer.equalsIgnoreCase("o") && quizAnswer[a] == true)
 							|| (answer.equalsIgnoreCase("x") && quizAnswer[a] == false)) {
 						dos.writeUTF("정답");
+						System.out.println("클라이언트가 정답을 맞췄습니다");
 					} else if ((answer.equalsIgnoreCase("x") && quizAnswer[a] == true)
 							|| (answer.equalsIgnoreCase("o") && quizAnswer[a] == false)) {
 						dos.writeUTF("오답");
+						System.out.println("클라이언트가 정답을 맞추지 못했습니다.");
 					} else {
 
 					}
@@ -84,6 +86,18 @@ public class Topoki_Server {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		
+		System.out.println("게임을 종료합니다.");
+		try {
+			dis.close();
+			dos.close();
+			is.close();
+			os.close();
+			severSocket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
