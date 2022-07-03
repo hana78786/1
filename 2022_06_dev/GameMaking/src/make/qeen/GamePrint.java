@@ -15,64 +15,64 @@ public class GamePrint {
 	String[] gameTurn = new String[65];
 	Scheculer1 sche = new Scheculer1();
 
-	public void prinPrint(){
+	public void prinPrint() {
 		try {
 			Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠉⣿⣿⣷⠄⢼⣿⣿⣇⣀⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⠙⠟⠉⠀⠈⠛⠉⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢂⣠⣤⣶⣶⣶⣶⣶⣦⣤⣀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⣿⡿⠉⠻⠿⠙⠿⠟⠙⠿⠟⠻⣿⣿⣿⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⡟⠀⠀⠒⠛⠃⠀⠀⠐⠛⠒⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠛⠃⠀⠀⡼⠶⡄⠀⠀⢠⠷⢦⠀⠀⠘⠛⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠁⠀⠉⠀⠀⠈⠀⠈⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣿⡄⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢠⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠉⠉⠁⠀⠀⠀⠀⠀⠘⠤⠤⠃⠀⠀⠀⠀⠀⠀⠉⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠉⠛⠿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣦⡀⠀⠀⠀⠀⠀⠀⠉⠉⠻⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣷⡆⢀⡀⠀⠀⢀⣠⣶⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣆⡀⠀⠀⢀⡀⠐⣶⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣷⣤⣴⣿⣿⣿⣿⣿⡿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠚⢿⣿⣿⣿⣿⣿⣶⣦⣾⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣄⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⣀⡀⣀⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣿⣶⣶⣷⣶⣷⣶⣿⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
-		Thread.sleep(100);
-		System.out.println("⣿⣿⣿⣿⣿⣿      ~  Q e e n  M a k e r ~    ⣿⣿⣿⣿⣿");
-		System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠉⣿⣿⣷⠄⢼⣿⣿⣇⣀⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⠙⠟⠉⠀⠈⠛⠉⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢂⣠⣤⣶⣶⣶⣶⣶⣦⣤⣀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⣿⡿⠉⠻⠿⠙⠿⠟⠙⠿⠟⠻⣿⣿⣿⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⡟⠀⠀⠒⠛⠃⠀⠀⠐⠛⠒⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠛⠃⠀⠀⡼⠶⡄⠀⠀⢠⠷⢦⠀⠀⠘⠛⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠁⠀⠉⠀⠀⠈⠀⠈⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣿⡄⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢠⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠉⠉⠁⠀⠀⠀⠀⠀⠘⠤⠤⠃⠀⠀⠀⠀⠀⠀⠉⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠉⠛⠿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣦⡀⠀⠀⠀⠀⠀⠀⠉⠉⠻⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣷⡆⢀⡀⠀⠀⢀⣠⣶⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣆⡀⠀⠀⢀⡀⠐⣶⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣷⣤⣴⣿⣿⣿⣿⣿⡿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠚⢿⣿⣿⣿⣿⣿⣶⣦⣾⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣄⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⣀⡀⣀⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣿⣶⣶⣷⣶⣷⣶⣿⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+			Thread.sleep(100);
+			System.out.println("⣿⣿⣿⣿⣿⣿      ~  Q e e n  M a k e r ~    ⣿⣿⣿⣿⣿");
+			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -181,11 +181,11 @@ public class GamePrint {
 			String sel = scan.next();
 			switch (sel) {
 			case "1":
-				scheWork();//아르바이트 선택
+				scheWork();// 아르바이트 선택
 				month++;
 				break;
 			case "2":
-				scheStudy();//공부선택
+				scheStudy();// 공부선택
 				month++;
 				break;
 			case "3":
@@ -195,7 +195,7 @@ public class GamePrint {
 				month++;
 				turn++;
 				break;
-			case "4"://강제 엔딩을 볼수있습니다.
+			case "4":// 강제 엔딩을 볼수있습니다.
 				i = 4;
 				turn = 64;
 				break;
@@ -212,14 +212,13 @@ public class GamePrint {
 
 	}
 
-	
 	private void runSchedule() {
-		for (int i = 4; i > 0; i--) {//한번당 4번 실행되는 스케쥴입니다
+		for (int i = 4; i > 0; i--) {// 한번당 4번 실행되는 스케쥴입니다
 			System.out.println("스케쥴을 실행합니다.");
 			System.out.println(name + " 공주님의 " + (month - i) + "월 스케쥴은 " + gameTurn[turn - i] + " 입니다");
 			System.out.println(gameTurn[turn - i] + "을/를 실행합니다");
-			
-			if((month-i)==birthMon) {//생일 월이 되면 선물을 받습니다
+
+			if ((month - i) == birthMon) {// 생일 월이 되면 선물을 받습니다
 				try {
 					Thread.sleep(200);
 					System.out.println("-------------------------");
@@ -229,7 +228,7 @@ public class GamePrint {
 					Thread.sleep(200);
 					System.out.println("[100g를 받았습니다]");
 					Thread.sleep(200);
-					sche.money+=100;
+					sche.money += 100;
 					System.out.println("-------------------------");
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
@@ -262,15 +261,15 @@ public class GamePrint {
 
 	}
 
-	public void ending() { //엔딩을 보는 메소드
-		Ending end = new Ending(); //엔딩을 모아놓은 클래스 
+	public void ending() { // 엔딩을 보는 메소드
+		Ending end = new Ending(); // 엔딩을 모아놓은 클래스
 
 		try {
 			System.out.println(name + " 공주님은 드디어 20살이 되었습니다.");
 			Thread.sleep(100);
 			System.out.println(name + " 공주님에겐 어떤 미래가 기다리고 있을까요?");
 			Thread.sleep(1000);
-			
+
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -280,13 +279,13 @@ public class GamePrint {
 				&& sche.manner < 10) {
 			end.neet();// 모든 능력치가 10 미만이면 백수엔딩입니다.
 		} else if (sche.art < 30 || sche.study < 30 || sche.music < 30 || sche.cook < 30 || sche.strong < 30
-				|| sche.manner < 30) {//모든 능력치가 30미만이면 아르바이트엔딩입니다
+				|| sche.manner < 30) {// 모든 능력치가 30미만이면 아르바이트엔딩입니다
 			if (sche.farm > sche.cafe && sche.farm > sche.child) {
 				// 농부알바를 제일 많이 했다면 농부엔딩
 				end.endFarm();
 
 			} else if (sche.cafe > sche.child) {
-				//식당알바를 제일 많이 했다면 식당직원 엔딩
+				// 식당알바를 제일 많이 했다면 식당직원 엔딩
 				end.endCafe();
 			} else if (sche.child > 0) {
 				// 보모 알바를 제일 많이 했다면 보모엔딩
@@ -297,32 +296,32 @@ public class GamePrint {
 			}
 
 		} else if (sche.art < 60 || sche.study < 60 || sche.music < 60 || sche.cook < 60 || sche.strong < 60
-				|| sche.manner < 60) {//모든 능력치가 30이상 60미만일때 직업엔딩을 봅니다
-			if (sche.martial > sche.artSchool && sche.martial > sche.musicSchool) {
-				//무술수업을 가장 많으면 장군엔딩
+				|| sche.manner < 60) {// 모든 능력치가 30이상 60미만일때 직업엔딩을 봅니다
+			if (sche.martial > sche.artSchool && sche.martial > sche.musicSchool && sche.power > 40) {
+				// 힘이 40이상이고 무술수업을 가장 많으면 장군엔딩
 				end.genal();
-			} else if (sche.artSchool > sche.musicSchool) {
-				//그럼수업이 가장 많으면 화가 엔딩
+			} else if (sche.artSchool > sche.musicSchool && sche.art > 40) {
+				// 그럼수업이 가장 많이 받고 미술이 40 이상이면 화가 엔딩
 				end.artist();
-			} else if (sche.musicSchool > 0) {
-				//음악수업이 가장 많으면 음악가 엔딩
+			} else if (sche.musicSchool > 0 && sche.music > 40) {
+				// 음악수업이 가장 많으면서 음악이 40이상이면 음악가 엔딩
 				end.musician();
 			} else {
-				//수업을 받지 않았다면 공무원엔딩
+				// 수업을 받지 않았거나 40넘는 페라메터가 없으면 공무원엔딩
 				end.servent();
 			}
 		} else if (sche.art >= 60 && sche.study >= 60 && sche.music >= 60 && sche.cook >= 60 && sche.strong >= 60
 				&& sche.manner >= 60) {
-			//모든 능력치가 60이 넘으면 여왕엔딩
+			// 모든 능력치가 60이 넘으면 여왕엔딩
 			end.Qeen();
 		} else {
-			//만약 모든것에 해당사항이 없다면 공무원엔딩 아마 이 부분은 없겠지만 많에 하나를 위해 넣었습니다
+			// 만약 모든것에 해당사항이 없다면 공무원엔딩 아마 이 부분은 없겠지만 만의 하나를 위해 넣었습니다
 			end.servent();
 		}
 
 	}
 
-	public void scheWork() {//아르바이트 스케쥴 메소드
+	public void scheWork() {// 아르바이트 스케쥴 메소드
 		String sel = "";
 		종료: while (!sel.equals("1") || !sel.equals("2") || !sel.equals("3")) {
 			System.out.println("아르바이트를 합니다");
@@ -445,7 +444,7 @@ public class GamePrint {
 
 	}
 
-	public void printParameter() {// 능력치 표현 메소드 원래 gettersetter로 하고 싶었는데 안됐어요... 
+	public void printParameter() {// 능력치 표현 메소드 원래 gettersetter로 하고 싶었는데 안됐어요...
 		System.out.println("----------- 현재 상태 ----------");
 		System.out.println("힘 : " + sche.power + "  " + "근성 : " + sche.strong);
 		System.out.println("학력 : " + sche.study + "  " + "요리 : " + sche.cook);
@@ -455,7 +454,7 @@ public class GamePrint {
 		System.out.println("----------------------------");
 	}
 
-	public void store() {//상점 메소드
+	public void store() {// 상점 메소드
 		// TODO Auto-generated method stub
 		System.out.println("⡟⣭⣭⣭⣭⣭⣭⣭⣭⣭⣭⣭⡭⠍⠍⠭⠩⠩⠭⠉⠭⠉⠩⠭⠍⠩⠩⢩⣭⣭⣭⣭⣭⣭⣭⣭⣭⣭⣭⢻");
 		System.out.println("⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸");
@@ -505,7 +504,7 @@ public class GamePrint {
 		}
 	}
 
-	public void rotto() {//복권메소드 복권을 사서 물건을 안사면 상위 엔딩은 안나옵니다.
+	public void rotto() {// 복권메소드 복권을 사서 물건을 안사면 상위 엔딩은 안나옵니다.
 		int ruckyNum = 0;
 		// TODO Auto-generated method stub
 		종료: while (true) {
@@ -516,15 +515,15 @@ public class GamePrint {
 			System.out.println("얼마를 구입하시겠습니까?");
 			try {
 				System.out.print(">>");
-				int Money = scan.nextInt();//값을 입력받아 복권을 삽니다
+				int Money = scan.nextInt();// 값을 입력받아 복권을 삽니다
 				if (Money > sche.money) {
 					System.out.println("돈이 부족합니다");
 					break 종료; // 소지금보다 많이사면 강제 종료
 				}
-				
-				System.out.println("복권 번호를 입력하세요 7 이하의 수를 3번 입력합니다.");//밸런스를 위해 애매한 1~7 숫자를 썼습니다.
+
+				System.out.println("복권 번호를 입력하세요 7 이하의 수를 3번 입력합니다.");// 밸런스를 위해 애매한 1~7 숫자를 썼습니다.
 				int rootoNum[] = new int[3];
-				for (int i = 0; i < 3; i++) {//3개를 입력받습니다, 7보다 큰 수를 입력하면 강제 종료 
+				for (int i = 0; i < 3; i++) {// 3개를 입력받습니다, 7보다 큰 수를 입력하면 강제 종료
 					System.out.print(">>");
 					rootoNum[i] = scan.nextInt();
 					if (rootoNum[i] > 7 || rootoNum[i] < 1) {
@@ -532,7 +531,7 @@ public class GamePrint {
 						break 종료;
 					}
 				}
-				
+
 				Random random = new Random();
 				int ranNum[] = new int[3];
 				for (int i = 0; i < 3; i++) {// 중복 랜덤 숫자 방지
@@ -545,8 +544,8 @@ public class GamePrint {
 				}
 
 				System.out.println("당첨번호 : " + ranNum[0] + ", " + ranNum[1] + ", " + ranNum[2]);
-				System.out.println("내가 고른 번호 : " + rootoNum[0]+ ", " + rootoNum[1] + ", " + rootoNum[2]);
-				
+				System.out.println("내가 고른 번호 : " + rootoNum[0] + ", " + rootoNum[1] + ", " + rootoNum[2]);
+
 				for (int i = 0; i < 3; i++) { // 점수를 계산합니다.
 					for (int j = 0; j < 3; j++) {
 						if (ranNum[i] == rootoNum[j]) {
@@ -554,16 +553,16 @@ public class GamePrint {
 						}
 					}
 				}
-				
-				System.out.println(ruckyNum+"개가 맞았습니다");
-				if(ruckyNum>=2) {
+
+				System.out.println(ruckyNum + "개가 맞았습니다");
+				if (ruckyNum >= 2) {
 					System.out.println("당첨되셨습니다!");
-					System.out.println(Money*3+"g을 얻으셨습니다");
-					sche.money +=Money*2; // 3배의 당첨금
-				}else{
+					System.out.println(Money * 3 + "g을 얻으셨습니다");
+					sche.money += Money * 2; // 3배의 당첨금
+				} else {
 					System.out.println("꽝...");
 					sche.money -= Money; //
-					System.out.println(Money+"g을 잃으셨습니다");//판돈을 잃습니다.
+					System.out.println(Money + "g을 잃으셨습니다");// 판돈을 잃습니다.
 				}
 				break 종료;
 
@@ -576,7 +575,7 @@ public class GamePrint {
 		}
 	}
 
-	public void sale() {//물건구입 메소드 물건을 안사면 상위 엔딩은 못보니다
+	public void sale() {// 물건구입 메소드 물건을 안사면 상위 엔딩은 못보니다
 		// TODO Auto-generated method stub
 		종료: while (true) {
 			try {
