@@ -64,7 +64,7 @@ public class Topoki_Server {
 					
 					dos.writeUTF(quizNum[a]);
 
-					System.out.println(a);
+					System.out.println(a+"번 문제");
 					System.out.println(quizNum[a]);
 					System.out.println("정답은 " + quizAnswer[a]);
 

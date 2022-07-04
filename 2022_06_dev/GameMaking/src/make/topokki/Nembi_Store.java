@@ -70,7 +70,7 @@ public class Nembi_Store {
 				System.out.print("ox로 대답하세요 >>");
 				ox = scan.next();
 				if (ox.equalsIgnoreCase("o")) {
-					if (tock < 1 && gochujang < 1 && odeng < 1 && dangmen < 1 && egg < 1 && dashida < 1) {
+					if (tock < 1 || gochujang < 1 || odeng < 1 || dangmen < 1 || egg < 1 || dashida < 1) {
 						System.out.println("재료가 부족합니다");
 						break;
 					} else {
@@ -156,7 +156,6 @@ public class Nembi_Store {
 			System.out.println("⣿⣧⣠⣤⣤⣤⣤⣤⣠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣀⣼⣿");
 			Thread.sleep(300);
 
-
 			종료: while (true) {
 				System.out.println("=====================");
 				System.out.println("무엇을 구입하시겠습니까?");
@@ -173,50 +172,68 @@ public class Nembi_Store {
 				case "1":
 					System.out.println("떡볶이를 1개 구매합니다");
 					Thread.sleep(100);
-					if(tc.money<3000) {System.out.println("금액이 부족합니다");
-					Thread.sleep(100);
-						}else {tc.money = tc.money - 3000;
-						tock++;}
+					if (tc.money < 3000) {
+						System.out.println("금액이 부족합니다");
+						Thread.sleep(100);
+					} else {
+						tc.money = tc.money - 3000;
+						tock++;
+					}
 					break;
 				case "2":
 					System.out.println("고추장을 1개 구매합니다");
 					Thread.sleep(100);
-					if(tc.money<5000) {System.out.println("금액이 부족합니다");
-					Thread.sleep(100);
-						}else {tc.money = tc.money - 5000;
-						gochujang++;}
+					if (tc.money < 5000) {
+						System.out.println("금액이 부족합니다");
+						Thread.sleep(100);
+					} else {
+						tc.money = tc.money - 5000;
+						gochujang++;
+					}
 					break;
 				case "3":
 					System.out.println("어묵을 1개 구매합니다");
 					Thread.sleep(100);
-					if(tc.money<5000) {System.out.println("금액이 부족합니다");
-					Thread.sleep(100);
-						}else {tc.money = tc.money - 5000;
-						odeng++;}
+					if (tc.money < 5000) {
+						System.out.println("금액이 부족합니다");
+						Thread.sleep(100);
+					} else {
+						tc.money = tc.money - 5000;
+						odeng++;
+					}
 					break;
 				case "4":
 					System.out.println("넓적당면을 1개 구매합니다");
 					Thread.sleep(100);
-					if(tc.money<8000) {System.out.println("금액이 부족합니다");
-					Thread.sleep(100);
-						}else {tc.money = tc.money - 8000;
-						dangmen++;}
+					if (tc.money < 8000) {
+						System.out.println("금액이 부족합니다");
+						Thread.sleep(100);
+					} else {
+						tc.money = tc.money - 8000;
+						dangmen++;
+					}
 					break;
 				case "5":
 					System.out.println("삶은 달걀을 1개 구매합니다");
 					Thread.sleep(100);
-					if(tc.money<1000) {System.out.println("금액이 부족합니다");
-					Thread.sleep(100);
-						}else {tc.money = tc.money - 1000;
-						egg++;}
+					if (tc.money < 1000) {
+						System.out.println("금액이 부족합니다");
+						Thread.sleep(100);
+					} else {
+						tc.money = tc.money - 1000;
+						egg++;
+					}
 					break;
 				case "6":
 					System.out.println("고양이맛 다싯다 1개 구매합니다");
 					Thread.sleep(100);
-					if(tc.money<2000) {System.out.println("금액이 부족합니다");
-					Thread.sleep(100);
-						}else {tc.money = tc.money - 2000;
-						dashida++;}
+					if (tc.money < 2000) {
+						System.out.println("금액이 부족합니다");
+						Thread.sleep(100);
+					} else {
+						tc.money = tc.money - 2000;
+						dashida++;
+					}
 					break;
 				case "7":
 					break 종료;

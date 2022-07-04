@@ -46,7 +46,9 @@ public class GameRun {
 				System.out.println("1. 능력치를 확인한다");
 				System.out.println("2. 스케줄을 작성한다.");
 				System.out.println("3. 상점에 간다.");
-				System.out.println(">>");
+				System.out.println("4. 게임을 저장한다.");
+				System.out.println("5. 게임을 로드한다.");
+				System.out.print(">>");
 				try {
 					int sel = scan.nextInt();
 					if (sel == 1) {
@@ -56,7 +58,11 @@ public class GameRun {
 						
 					} else if (sel == 3) {
 						gp.store(); // 상점으로 간다
-						
+					} else if (sel == 4) {
+						gp.save();//저장
+					} else if (sel == 5) {
+						gp.load(); // 로드
+					
 					} else {
 						System.out.println("잘못누르셨습니다"); //메뉴가 다시 나온다
 					}

@@ -214,35 +214,49 @@ public class Topoki_Client {
 
 								System.out.println("참가비를 입력해주세요 :");
 								gameMoney = scan.nextInt();
+								
+								//참가금 부족할때코드//
 								if (gameMoney > money) {
 									System.out.println("돈이 부족합니다.");
-									noMoney = true;
+									noMoney = true; //참가금 부족 변수 참
 									
+									break;//와일문 탈출
+								}//부족코드 종료
+								else if(gameMoney<1) {//금액을 1보다 작게 입력하면 게임불가
+									System.out.println("금액을 잘못입력하셨습니다");
+									noMoney = true;
 									break;
+									
 								}
+								
+								//참가금이 충분할때는 게임 진행//
 								System.out.println("=======================");
-
+								
+								
+								//문제를 랜덤으로 뽑기 시작//
+								for (int i = 0; i < 3; i++) {// 중복 방지 코드
+									ranArr[i] = random.nextInt(10);
+									for (int j = 0; j < i; j++) {
+										if (ranArr[i] == ranArr[j]) {
+											i--;
+										}
+									}
+								}
+								///////// 문제 랜덤뽑기 종료//////
+								
+								//////////////문제 3개 출력시작////////////
 								for (int a = 0; a < 3; a++) {
 									System.out.println((a + 1) + "번 문제 :");
 
-									for (int i = 0; i < 3; i++) {// 중복 방지 코드
-										ranArr[i] = random.nextInt(10);
-										for (int j = 0; j < i; j++) {
-											if (ranArr[i] == ranArr[j]) {
-												i--;
-											}
-										}
-									}
-									///////// 문제 랜덤뽑기 종료////
-
+									//랜덤번호 결과값 보낼 준비
 									int i = ranArr[a];
 									dos.writeInt(i);
 									///// 랜덤으로 뽑은 번호 전송///
 
 									String quiz = dis.readUTF();
-									/// 랜덤으로 뽑힌 문제 송신/////
+									/// 랜덤으로 뽑힌 문제 수신/////
 									System.out.println(quiz);
-									/// 송신받은 문제 출력////
+									/// 수신받은 문제 출력////
 
 									//////// 문제 풀기 시작/////
 									while (true) {
@@ -257,12 +271,13 @@ public class Topoki_Client {
 											System.out.println("잘못된입력입니다");
 											continue; // 오류입력시 문제 풀기 시작점으로 돌아간다
 										}
-									} /// 문제 풀기 종료/////
+									} /// 문제 풀기 종료/////////////////////
 
-									////// 풀었던 문자의 정답을 수신/////
 									
+									////// 풀었던 문자의 정답을 수신/////
 									ansOx = dis.readUTF();
 									
+									//채점 결과 출력//
 									if (ansOx.equals("정답")) {
 										answer++;// 정답일때는 정답횟수 올라감
 										System.out.println("정답입니다!");
@@ -272,10 +287,13 @@ public class Topoki_Client {
 									count++;
 									////// 수신받은 정답 체점 끝////////
 
-								} // 직접 문제 내는for반복문
-							} // 퀴즈 3번 반복 와일
-								//////// 문제 3개 풀이 종료///////////////
-							if(noMoney==false) {
+								} // 문제3개 출력 for반복문종료
+							} //문제풀이 와일 반복문 종료
+							
+								//////// 퀴즈게임 종료///////////////
+							
+							
+							if(noMoney==false) {//참가금이 충분할때
 
 							if (answer == 3) {
 								System.out.println("우승하셨습니다!" + gameMoney * 3 + "원을 상금으로 받습니다!");
@@ -290,7 +308,7 @@ public class Topoki_Client {
 								game=true;
 								break;
 							}
-							}else {noMoney=false;}
+							}else {noMoney=false;}//참가금이 부족할때, 참가금을 초기화하고 진행
 
 						} else if (Ox.equalsIgnoreCase("x")) {
 							System.out.println("퀴즈 게임을 종료합니다");

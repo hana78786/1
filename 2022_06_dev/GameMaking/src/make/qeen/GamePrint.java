@@ -1,8 +1,18 @@
 package make.qeen;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class GamePrint {
 	Scanner scan = new Scanner(System.in);
@@ -14,6 +24,10 @@ public class GamePrint {
 	static int turn = 0;
 	String[] gameTurn = new String[65];
 	Scheculer1 sche = new Scheculer1();
+	InputStream is = null;
+	OutputStream os = null;
+	Writer write = null;
+	Reader reader = null;
 
 	public void prinPrint() {
 		try {
@@ -519,6 +533,9 @@ public class GamePrint {
 				if (Money > sche.money) {
 					System.out.println("돈이 부족합니다");
 					break 종료; // 소지금보다 많이사면 강제 종료
+				} else if (Money < 1) {// 금액을 1미만으로 입력하면 강제종료
+					System.out.println("금액을 잘못입력하셨습니다");
+					break;
 				}
 
 				System.out.println("복권 번호를 입력하세요 7 이하의 수를 3번 입력합니다.");// 밸런스를 위해 애매한 1~7 숫자를 썼습니다.
@@ -672,6 +689,85 @@ public class GamePrint {
 				e.printStackTrace();
 			}
 
+		}
+
+	}
+
+	public void save() {
+		System.out.println("게임을 저장합니다.");
+
+		try {
+			write = new FileWriter("save.txt");
+			write.write(name + "/");
+			write.write(birthMon + "/");
+			write.write(birthDay + "/");
+			write.write(month + "/" + year + "/" + turn + "/");
+			write.write(sche.art + "/" + sche.artSchool + "/" + sche.cafe + "/" + sche.child + "/" + sche.cook + "/"
+					+ sche.farm + "/" + sche.manner + "/" + sche.martial + "/" + sche.money + "/" + sche.music + "/"
+					+ sche.musicSchool + "/" + sche.power + "/" + sche.stress + "/" + sche.strong + "/" + sche.study);
+			write.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				write.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	public void load() {
+		// TODO Auto-generated method stub
+
+		String readStr = "";
+		BufferedReader bfr = null;
+
+		try {
+			reader = new FileReader("save.txt");
+			bfr = new BufferedReader(reader);
+			readStr = bfr.readLine();
+			System.out.println(readStr);
+			StringTokenizer st = new StringTokenizer(readStr + "/");
+			name = st.nextToken();
+			System.out.println(name);
+			birthMon = Integer.parseInt(st.nextToken());
+			birthDay = Integer.parseInt(st.nextToken());
+			month = Integer.parseInt(st.nextToken());
+			year = Integer.parseInt(st.nextToken());
+			turn = Integer.parseInt(st.nextToken());
+			sche.art = Integer.parseInt(st.nextToken());
+			sche.artSchool = Integer.parseInt(st.nextToken());
+			sche.cafe = Integer.parseInt(st.nextToken());
+			sche.child = Integer.parseInt(st.nextToken());
+			sche.cook = Integer.parseInt(st.nextToken());
+			sche.farm = Integer.parseInt(st.nextToken());
+			sche.manner = Integer.parseInt(st.nextToken());
+			sche.martial = Integer.parseInt(st.nextToken());
+			sche.money = Integer.parseInt(st.nextToken());
+			sche.music = Integer.parseInt(st.nextToken());
+			sche.musicSchool = Integer.parseInt(st.nextToken());
+			sche.power = Integer.parseInt(st.nextToken());
+			sche.stress = Integer.parseInt(st.nextToken());
+			sche.strong = Integer.parseInt(st.nextToken());
+			sche.study = Integer.parseInt(st.nextToken());
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				reader.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}
