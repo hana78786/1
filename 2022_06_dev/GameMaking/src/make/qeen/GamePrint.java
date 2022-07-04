@@ -730,8 +730,7 @@ public class GamePrint {
 			reader = new FileReader("save.txt");
 			bfr = new BufferedReader(reader);
 			readStr = bfr.readLine();
-			System.out.println(readStr);
-			StringTokenizer st = new StringTokenizer(readStr + "/");
+			StringTokenizer st = new StringTokenizer(readStr, "/");
 			name = st.nextToken();
 			System.out.println(name);
 			birthMon = Integer.parseInt(st.nextToken());
