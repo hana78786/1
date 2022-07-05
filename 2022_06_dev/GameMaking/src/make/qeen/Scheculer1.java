@@ -2,26 +2,29 @@ package make.qeen;
 
 public class Scheculer1 {
 
-	public int money = 200;
-	public int power;
-	public int music;
-	public int cook;
-	public int strong;
-	public int manner;
-	public int art;
-	public int freindly;
-	public int study;
-	public int stress;
+
+	int money = 200;
+	int power;
+	int music;
+	int cook;
+	int strong;
+	int manner;
+	int art;
+	int freindly;
+	int study;
+	int stress;
 
 	// 아르바이트
-	public int farm;
-	public int cafe;
-	public int child;
+	int farm;
+	int cafe;
+	int child;
 
 	// 교육
-	public int martial;
-	public int artSchool;
-	public int musicSchool;
+	int martial;
+	int artSchool;
+	int musicSchool;
+	
+
 
 	public void farm() {// 농장알바
 		System.out.println("--------------------");

@@ -29,6 +29,7 @@ public class GamePrint {
 	Writer write = null;
 	Reader reader = null;
 
+	
 	public void prinPrint() {
 		try {
 			Thread.sleep(100);
