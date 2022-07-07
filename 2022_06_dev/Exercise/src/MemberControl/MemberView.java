@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class MemberView {
 Scanner scan = new Scanner(System.in);
 	public int pirntMenu() {
+		Scanner scan = new Scanner(System.in);
+
 		System.out.println("================");
 		System.out.println("1. 회원정보 전체조회");
 		System.out.println("2. 회원 아이디로 조회");

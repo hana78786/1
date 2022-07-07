@@ -461,7 +461,7 @@ public class GamePrint {
 
 	public void printParameter() {// 능력치 표현 메소드 원래 gettersetter로 하고 싶었는데 안됐어요...
 		System.out.println("----------- 현재 상태 ----------");
-		System.out.println("힘 : " + sche.power + "  " + "근성 : " + sche.strong);
+		System.out.println("힘 : " + sche.getPower() + "  " + "근성 : " + sche.strong);
 		System.out.println("학력 : " + sche.study + "  " + "요리 : " + sche.cook);
 		System.out.println("음악 : " + sche.music + "  " + "미술 : " + sche.art);
 		System.out.println("예절 : " + sche.manner);

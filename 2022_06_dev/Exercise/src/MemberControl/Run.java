@@ -89,7 +89,7 @@ public class Run {
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("입력오류");
-				break;
+				continue;
 			}
 		}
 
