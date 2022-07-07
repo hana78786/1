@@ -51,4 +51,12 @@ public class Controller {
 		Member member = mList.get(index);
 		return member;
 	}
+
+	public void chageMemverinfo(int index, Member mChange) {
+		// TODO Auto-generated method stub
+//		mList.remove(index);
+//		mList.add(index, mChange);
+		mList.set(index, mChange);
+		
+	}
 }
