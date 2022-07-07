@@ -1,4 +1,4 @@
-package make.qeen;
+package make.qeen1;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -19,7 +19,9 @@ public class GamePrint {
 	static String name;
 	static int birthMon = 100;
 	static int birthDay = 100;
-	
+	static int month = 1;
+	static int year = 15;
+	static int turn = 0;
 	String[] gameTurn = new String[65];
 	Scheculer1 sche = new Scheculer1();
 	InputStream is = null;
@@ -28,7 +30,7 @@ public class GamePrint {
 	Reader reader = null;
 
 	
-	public void prinPrint(int year, int month, int turn) {
+	public void prinPrint() {
 		try {
 			Thread.sleep(100);
 			System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
@@ -178,7 +180,7 @@ public class GamePrint {
 
 	}
 
-	public String schedule(int year, int month, int turn) {// 스케쥴을 실행하는 메소드
+	public void schedule() {// 스케쥴을 실행하는 메소드
 
 		System.out.println(name + " 공주님의 스케줄을 정합니다. 스케줄은 1달에 1번씩 4번 고를수 있습니다.");
 		for (int i = 0; i < 4; i++) { // 스케쥴은 한번에 4개씩 입력할수 있습니다. 일년에 3번 스케쥴을 선택합니다.
@@ -194,14 +196,12 @@ public class GamePrint {
 			String sel = scan.next();
 			switch (sel) {
 			case "1":
-				turn = scheWork(turn);// 아르바이트 선택
+				scheWork();// 아르바이트 선택
 				month++;
-				
 				break;
 			case "2":
-				turn = scheStudy(turn);// 공부선택
+				scheStudy();// 공부선택
 				month++;
-				
 				break;
 			case "3":
 				System.out.println("휴식합니다");
@@ -209,7 +209,6 @@ public class GamePrint {
 				System.out.println(gameTurn[turn]);
 				month++;
 				turn++;
-				
 				break;
 			case "4":// 강제 엔딩을 볼수있습니다.
 				i = 4;
@@ -222,15 +221,13 @@ public class GamePrint {
 			}
 		}
 		if (turn < 64) {
-			runSchedule(month, year, turn);// 턴이 충분하지 않으면 스케쥴을 실행합니다.
-			return turn+"/"+month;
+			runSchedule();// 턴이 충분하지 않으면 스케쥴을 실행합니다.
 		} else {
 		}
-		return turn+"/"+month;
 
 	}
 
-	private void runSchedule(int month, int year, int turn) {
+	private void runSchedule() {
 		for (int i = 4; i > 0; i--) {// 한번당 4번 실행되는 스케쥴입니다
 			System.out.println("스케쥴을 실행합니다.");
 			System.out.println(name + " 공주님의 " + (month - i) + "월 스케쥴은 " + gameTurn[turn - i] + " 입니다");
@@ -246,7 +243,7 @@ public class GamePrint {
 					Thread.sleep(200);
 					System.out.println("[100g를 받았습니다]");
 					Thread.sleep(200);
-					sche.setMoney(sche.getMoney() + 100);
+					sche.money += 100;
 					System.out.println("-------------------------");
 					Thread.sleep(200);
 				} catch (InterruptedException e) {
@@ -293,53 +290,53 @@ public class GamePrint {
 			e.printStackTrace();
 		}
 
-		if (sche.getArt() < 10 && sche.getStudy() < 10 && sche.getMusic() < 10 && sche.getCook() < 10 && sche.getStrong() < 10
-				&& sche.getManner() < 10) {
-			end.neet(name);// 모든 능력치가 10 미만이면 백수엔딩입니다.
-		} else if (sche.getArt() < 30 || sche.getStudy() < 30 || sche.getMusic() < 30 || sche.getCook() < 30 || sche.getStrong() < 30
-				|| sche.getManner() < 30) {// 모든 능력치가 30미만이면 아르바이트엔딩입니다
-			if (sche.getFarm() > sche.getCafe() && sche.getFarm() > sche.getChild()) {
+		if (sche.art < 10 && sche.study < 10 && sche.music < 10 && sche.cook < 10 && sche.strong < 10
+				&& sche.manner < 10) {
+			end.neet();// 모든 능력치가 10 미만이면 백수엔딩입니다.
+		} else if (sche.art < 30 || sche.study < 30 || sche.music < 30 || sche.cook < 30 || sche.strong < 30
+				|| sche.manner < 30) {// 모든 능력치가 30미만이면 아르바이트엔딩입니다
+			if (sche.farm > sche.cafe && sche.farm > sche.child) {
 				// 농부알바를 제일 많이 했다면 농부엔딩
-				end.endFarm(name);
+				end.endFarm();
 
-			} else if (sche.getCafe() > sche.getChild()) {
+			} else if (sche.cafe > sche.child) {
 				// 식당알바를 제일 많이 했다면 식당직원 엔딩
-				end.endCafe(name);
-			} else if (sche.getChild() > 0) {
+				end.endCafe();
+			} else if (sche.child > 0) {
 				// 보모 알바를 제일 많이 했다면 보모엔딩
-				end.endChild(name);
+				end.endChild();
 			} else {
 				// 알바를 하지 않았다면 프리터 엔딩
-				end.freetor(name);
+				end.freetor();
 			}
 
-		} else if (sche.getArt() < 60 || sche.getStudy() < 60 || sche.getMusic() < 60 || sche.getCook() < 60 || sche.getStrong() < 60
-				|| sche.getManner() < 60) {// 모든 능력치가 30이상 60미만일때 직업엔딩을 봅니다
-			if (sche.getMartial() > sche.getArtSchool() && sche.getMartial() > sche.getMusicSchool() && sche.getPower() > 40) {
+		} else if (sche.art < 60 || sche.study < 60 || sche.music < 60 || sche.cook < 60 || sche.strong < 60
+				|| sche.manner < 60) {// 모든 능력치가 30이상 60미만일때 직업엔딩을 봅니다
+			if (sche.martial > sche.artSchool && sche.martial > sche.musicSchool && sche.power > 40) {
 				// 힘이 40이상이고 무술수업을 가장 많으면 장군엔딩
-				end.genal(name);
-			} else if (sche.getArtSchool() > sche.getMusicSchool() && sche.getArt() > 40) {
+				end.genal();
+			} else if (sche.artSchool > sche.musicSchool && sche.art > 40) {
 				// 그럼수업이 가장 많이 받고 미술이 40 이상이면 화가 엔딩
-				end.artist(name);
-			} else if (sche.getMusicSchool() > 0 && sche.getMusic() > 40) {
+				end.artist();
+			} else if (sche.musicSchool > 0 && sche.music > 40) {
 				// 음악수업이 가장 많으면서 음악이 40이상이면 음악가 엔딩
-				end.musician(name);
+				end.musician();
 			} else {
 				// 수업을 받지 않았거나 40넘는 페라메터가 없으면 공무원엔딩
-				end.servent(name);
+				end.servent();
 			}
-		} else if (sche.getArt() >= 60 && sche.getStudy() >= 60 && sche.getMusic() >= 60 && sche.getCook() >= 60 && sche.getStrong() >= 60
-				&& sche.getManner() >= 60) {
+		} else if (sche.art >= 60 && sche.study >= 60 && sche.music >= 60 && sche.cook >= 60 && sche.strong >= 60
+				&& sche.manner >= 60) {
 			// 모든 능력치가 60이 넘으면 여왕엔딩
-			end.Qeen(name);
+			end.Qeen();
 		} else {
 			// 만약 모든것에 해당사항이 없다면 공무원엔딩 아마 이 부분은 없겠지만 만의 하나를 위해 넣었습니다
-			end.servent(name);
+			end.servent();
 		}
 
 	}
 
-	public int scheWork(int turn) {// 아르바이트 스케쥴 메소드
+	public void scheWork() {// 아르바이트 스케쥴 메소드
 		String sel = "";
 		종료: while (!sel.equals("1") || !sel.equals("2") || !sel.equals("3")) {
 			System.out.println("아르바이트를 합니다");
@@ -396,17 +393,15 @@ public class GamePrint {
 				}
 
 				turn++;
-
 				break 종료;
 			default:
 				System.out.println("잘못된 입력입니다");
 				break;
 			}
 		}
-		return turn;
 	}
 
-	public int scheStudy(int turn) {// 공부 스케쥴 메소드
+	public void scheStudy() {// 공부 스케쥴 메소드
 		String sel = "";
 		종료: while (!sel.equals("1") || !sel.equals("2") || !sel.equals("3")) {
 			System.out.println("공부를 합니다");
@@ -429,7 +424,6 @@ public class GamePrint {
 				}
 
 				turn++;
-				
 				break 종료;
 			case "2":
 				System.out.println("무술교실을 선택하셨습니다");
@@ -443,7 +437,6 @@ public class GamePrint {
 				}
 
 				turn++;
-				
 				break 종료;
 			case "3":
 				System.out.println("그림교실을 선택하셨습니다");
@@ -457,24 +450,22 @@ public class GamePrint {
 				}
 
 				turn++;
-				
 				break 종료;
 			default:
 				System.out.println("잘못된 입력입니다");
 				break;
 			}
 		}
-		return turn;
 
 	}
 
 	public void printParameter() {// 능력치 표현 메소드 원래 gettersetter로 하고 싶었는데 안됐어요...
 		System.out.println("----------- 현재 상태 ----------");
-		System.out.println("힘 : " + sche.getPower() + "  " + "근성 : " + sche.getStrong());
-		System.out.println("학력 : " + sche.getStudy() + "  " + "요리 : " + sche.getCook());
-		System.out.println("음악 : " + sche.getMusic() + "  " + "미술 : " + sche.getArt());
-		System.out.println("예절 : " + sche.getManner());
-		System.out.println("재산 : " + sche.getMoney() + "  " + "스트레스 : " + sche.getStress());
+		System.out.println("힘 : " + sche.getPower() + "  " + "근성 : " + sche.strong);
+		System.out.println("학력 : " + sche.study + "  " + "요리 : " + sche.cook);
+		System.out.println("음악 : " + sche.music + "  " + "미술 : " + sche.art);
+		System.out.println("예절 : " + sche.manner);
+		System.out.println("재산 : " + sche.money + "  " + "스트레스 : " + sche.stress);
 		System.out.println("----------------------------");
 	}
 
@@ -540,7 +531,7 @@ public class GamePrint {
 			try {
 				System.out.print(">>");
 				int Money = scan.nextInt();// 값을 입력받아 복권을 삽니다
-				if (Money > sche.getMoney()) {
+				if (Money > sche.money) {
 					System.out.println("돈이 부족합니다");
 					break 종료; // 소지금보다 많이사면 강제 종료
 				} else if (Money < 1) {// 금액을 1미만으로 입력하면 강제종료
@@ -585,10 +576,10 @@ public class GamePrint {
 				if (ruckyNum >= 2) {
 					System.out.println("당첨되셨습니다!");
 					System.out.println(Money * 3 + "g을 얻으셨습니다");
-					sche.setMoney(sche.getMoney() + Money * 2); // 3배의 당첨금
+					sche.money += Money * 2; // 3배의 당첨금
 				} else {
 					System.out.println("꽝...");
-					sche.setMoney(sche.getMoney() - Money); //
+					sche.money -= Money; //
 					System.out.println(Money + "g을 잃으셨습니다");// 판돈을 잃습니다.
 				}
 				break 종료;
@@ -617,7 +608,7 @@ public class GamePrint {
 				System.out.println("7. 구입종료");
 				System.out.print(">>");
 				int sel = scan.nextInt();
-				if (sche.getMoney() < 30) {
+				if (sche.money < 30) {
 					System.out.println("돈이 부족합니다.");
 					break 종료;
 				}
@@ -625,8 +616,8 @@ public class GamePrint {
 				case 1:
 					System.out.println("악보를 구입하셨습니다.");
 					Thread.sleep(200);
-					sche.setMusic(sche.getMusic() + 10);
-					sche.setMoney(sche.getMoney() - 30);
+					sche.music += 10;
+					sche.money -= 30;
 					System.out.println("음악이 10 상승합니다, 재산이 30g 하락합니다");
 					Thread.sleep(200);
 					System.out.println("-----------------------------");
@@ -634,8 +625,8 @@ public class GamePrint {
 				case 2:
 					System.out.println("인형을 구입하셨습니다.");
 					Thread.sleep(200);
-					sche.setStress(sche.getStress() - 30);
-					sche.setMoney(sche.getMoney() - 30);
+					sche.stress -= 30;
+					sche.money -= 30;
 					System.out.println("스트레스가 30 하락합니다, 재산이 30g 하락합니다");
 					Thread.sleep(200);
 					System.out.println("-----------------------------");
@@ -643,9 +634,9 @@ public class GamePrint {
 				case 3:
 					System.out.println("목검을 구입하셨습니다.");
 					Thread.sleep(200);
-					sche.setPower(sche.getPower() + 10);
-					sche.setStrong(sche.getStrong() + 5);
-					sche.setMoney(sche.getMoney() - 30);
+					sche.power += 10;
+					sche.strong += 5;
+					sche.money -= 30;
 					System.out.println("힘이 10 상승 합니다 근성이 5 상승합니다, 재산이 30g 하락합니다");
 					Thread.sleep(200);
 					System.out.println("-----------------------------");
@@ -653,9 +644,9 @@ public class GamePrint {
 				case 4:
 					System.out.println("책을 구입하셨습니다.");
 					Thread.sleep(200);
-					sche.setStudy(sche.getStudy() + 10);
-					sche.setManner(sche.getManner() + 10);
-					sche.setMoney(sche.getMoney() - 30);
+					sche.study += 10;
+					sche.manner += 10;
+					sche.money -= 30;
 					System.out.println("학력이 10 상승합니다 예절이 10 상승합니다, 재산이 30g 하락합니다");
 					Thread.sleep(200);
 					System.out.println("-----------------------------");
@@ -663,8 +654,8 @@ public class GamePrint {
 				case 5:
 					System.out.println("냄비를 구입하셨습니다.");
 					Thread.sleep(200);
-					sche.setCook(sche.getCook() + 10);
-					sche.setMoney(sche.getMoney() - 30);
+					sche.cook += 10;
+					sche.money -= 30;
 					System.out.println("요리가 10 상승합니다, 재산이 30g 하락합니다");
 					Thread.sleep(200);
 					System.out.println("-----------------------------");
@@ -672,8 +663,8 @@ public class GamePrint {
 				case 6:
 					System.out.println("붓을 구입하셨습니다.");
 					Thread.sleep(200);
-					sche.setArt(sche.getArt() + 10);
-					sche.setMoney(sche.getMoney() - 30);
+					sche.art += 10;
+					sche.money -= 30;
 					System.out.println("그림이 10 상승합니다, 재산이 30g 하락합니다");
 					Thread.sleep(200);
 					System.out.println("-----------------------------");
@@ -703,7 +694,7 @@ public class GamePrint {
 
 	}
 
-	public void save(int month, int year, int turn) {
+	public void save() {
 		System.out.println("게임을 저장합니다.");
 
 		try {
@@ -712,9 +703,9 @@ public class GamePrint {
 			write.write(birthMon + "/");
 			write.write(birthDay + "/");
 			write.write(month + "/" + year + "/" + turn + "/");
-			write.write(sche.getArt() + "/" + sche.getArtSchool() + "/" + sche.getCafe() + "/" + sche.getChild() + "/" + sche.getCook() + "/"
-					+ sche.getFarm() + "/" + sche.getManner() + "/" + sche.getMartial() + "/" + sche.getMoney() + "/" + sche.getMusic() + "/"
-					+ sche.getMusicSchool() + "/" + sche.getPower() + "/" + sche.getStress() + "/" + sche.getStrong() + "/" + sche.getStudy());
+			write.write(sche.art + "/" + sche.artSchool + "/" + sche.cafe + "/" + sche.child + "/" + sche.cook + "/"
+					+ sche.farm + "/" + sche.manner + "/" + sche.martial + "/" + sche.money + "/" + sche.music + "/"
+					+ sche.musicSchool + "/" + sche.power + "/" + sche.stress + "/" + sche.strong + "/" + sche.study);
 			write.flush();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -730,14 +721,11 @@ public class GamePrint {
 
 	}
 
-	public String load() {
+	public void load() {
 		// TODO Auto-generated method stub
 
 		String readStr = "";
 		BufferedReader bfr = null;
-		int month=0;
-		int year =0;
-		int turn =0;
 
 		try {
 			reader = new FileReader("save.txt");
@@ -751,21 +739,21 @@ public class GamePrint {
 			month = Integer.parseInt(st.nextToken());
 			year = Integer.parseInt(st.nextToken());
 			turn = Integer.parseInt(st.nextToken());
-			sche.setArt(Integer.parseInt(st.nextToken()));
-			sche.setArtSchool(Integer.parseInt(st.nextToken()));
-			sche.setCafe(Integer.parseInt(st.nextToken()));
-			sche.setChild(Integer.parseInt(st.nextToken()));
-			sche.setCook(Integer.parseInt(st.nextToken()));
-			sche.setFarm(Integer.parseInt(st.nextToken()));
-			sche.setManner(Integer.parseInt(st.nextToken()));
-			sche.setMartial(Integer.parseInt(st.nextToken()));
-			sche.setMoney(Integer.parseInt(st.nextToken()));
-			sche.setMusic(Integer.parseInt(st.nextToken()));
-			sche.setMusicSchool(Integer.parseInt(st.nextToken()));
-			sche.setPower(Integer.parseInt(st.nextToken()));
-			sche.setStress(Integer.parseInt(st.nextToken()));
-			sche.setStrong(Integer.parseInt(st.nextToken()));
-			sche.setStudy(Integer.parseInt(st.nextToken()));
+			sche.art = Integer.parseInt(st.nextToken());
+			sche.artSchool = Integer.parseInt(st.nextToken());
+			sche.cafe = Integer.parseInt(st.nextToken());
+			sche.child = Integer.parseInt(st.nextToken());
+			sche.cook = Integer.parseInt(st.nextToken());
+			sche.farm = Integer.parseInt(st.nextToken());
+			sche.manner = Integer.parseInt(st.nextToken());
+			sche.martial = Integer.parseInt(st.nextToken());
+			sche.money = Integer.parseInt(st.nextToken());
+			sche.music = Integer.parseInt(st.nextToken());
+			sche.musicSchool = Integer.parseInt(st.nextToken());
+			sche.power = Integer.parseInt(st.nextToken());
+			sche.stress = Integer.parseInt(st.nextToken());
+			sche.strong = Integer.parseInt(st.nextToken());
+			sche.study = Integer.parseInt(st.nextToken());
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -781,8 +769,7 @@ public class GamePrint {
 				e.printStackTrace();
 			}
 		}
-		return month+"/"+year+"/"+turn;
-		
+
 	}
 
 }

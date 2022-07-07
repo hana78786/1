@@ -1,8 +1,7 @@
-package make.qeen;
+package make.qeen1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class GameRun {
 	static GamePrint gp = new GamePrint();
@@ -11,9 +10,6 @@ public class GameRun {
 	static boolean end= false;
 
 	public static void main(String[] args) {
-		int month = 1;
-		int year = 15;
-		int turn = 0;
 
 		try {
 
@@ -40,15 +36,10 @@ public class GameRun {
 					System.out.println("2. 게임을 불러온다.");
 					s = scan.nextInt();
 					if (s == 2) {
-						String yearMonthTurn=gp.load();
-						StringTokenizer st = new StringTokenizer(yearMonthTurn,"/");
-						month=Integer.parseInt(st.nextToken());
-						year=Integer.parseInt(st.nextToken());
-						turn=Integer.parseInt(st.nextToken());
-						
+						gp.load();
 						break;
 					} else if (s == 1) {
-						gp.prinPrint(year, month, turn);
+						gp.prinPrint();
 						break;
 					} else {
 						System.out.println("다시 선택해주세요");
@@ -60,21 +51,21 @@ public class GameRun {
 				}
 			}
 
-			종료: while (turn < 64) { // 턴은 60턴까지 작동하지만 만의 하나를 위해 넉넉하게 턴을 줘봤다
+			종료: while (gp.turn < 64) { // 턴은 60턴까지 작동하지만 만의 하나를 위해 넉넉하게 턴을 줘봤다
 
-				if (month == 13) { // 월이 13이 되면 1로 초기화 하고 나이를 한살 먹는다
-					month = 1;
-					year++;
+				if (gp.month == 13) { // 월이 13이 되면 1로 초기화 하고 나이를 한살 먹는다
+					gp.month = 1;
+					gp.year++;
 
 				}
-				if (year == 20) { // 나이가 20살이 되면 종료한다
+				if (gp.year == 20) { // 나이가 20살이 되면 종료한다
 					break 종료;
 				} else {
-					if (sche.getStress() < 0) {
-						sche.setStress(0);
+					if (sche.stress < 0) {
+						sche.stress = 0;
 					}
 					System.out.println("-----------------------------------------");
-					System.out.println("현재 나이 " + year + "살 " + month + "월");
+					System.out.println("현재 나이 " + gp.year + "살 " + gp.month + "월");
 					System.out.println("무엇을 할까요?");
 					System.out.println("1. 능력치를 확인한다");
 					System.out.println("2. 스케줄을 작성한다.");
@@ -88,20 +79,12 @@ public class GameRun {
 						if (sel == 1) {
 							gp.printParameter(); // 현재 능력치를 볼수있다
 						} else if (sel == 2) {
-							String turnMonth =gp.schedule(year, month, turn); // 스케쥴을 작성한다
-							StringTokenizer st = new StringTokenizer(turnMonth,"/");
-							turn = Integer.parseInt(st.nextToken());
-							month= Integer.parseInt(st.nextToken());
-							if (month == 13) { // 월이 13이 되면 1로 초기화 하고 나이를 한살 먹는다
-								month = 1;
-								year++;
-
-							}
+							gp.schedule(); // 스케쥴을 작성한다
 
 						} else if (sel == 3) {
 							gp.store(); // 상점으로 간다
 						} else if (sel == 4) {
-							gp.save(month, year, turn); // 저장한다
+							gp.save(); // 저장한다
 						} 
 						else if (sel == 5) {
 							System.out.println("게임을 종료합니다.");

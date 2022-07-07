@@ -1,28 +1,28 @@
-package make.qeen;
+package make.qeen1;
 
 public class Scheculer1 {
 
 
-	private int money = 200;
-	private int power;
-	private int music;
-	private int cook;
-	private int strong;
-	private int manner;
-	private int art;
-	private int freindly;
-	private int study;
-	private int stress;
+	int money = 200;
+	int power;
+	int music;
+	int cook;
+	int strong;
+	int manner;
+	int art;
+	int freindly;
+	int study;
+	int stress;
 
 	// 아르바이트
-	private int farm;
-	private int cafe;
-	private int child;
+	int farm;
+	int cafe;
+	int child;
 
 	// 교육
-	private int martial;
-	private int artSchool;
-	private int musicSchool;
+	int martial;
+	int artSchool;
+	int musicSchool;
 	
 
 	
@@ -168,7 +168,7 @@ public class Scheculer1 {
 			rest();
 
 		} else {
-			power +=2;
+			power = getPower()+2;
 			strong += 2;
 			money += 20;
 			farm++;
