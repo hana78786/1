@@ -2,6 +2,7 @@ package com.kh.music.run;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 
 import com.kh.music.controller.Controller;
 import com.kh.music.model.vo.Music;
@@ -42,32 +43,40 @@ public class Run {
 					break;
 				case 3:
 					System.out.println("전체 곡 목록을 출력합니다");
-					ArrayList<Music> mList = cont.musicList();
+					List mList = cont.musicList();
 					mv.printList(mList);
 					break;
 				case 4:
 					System.out.println("곡 명으로 검색합니다");
 					// index값 찾기
 					String songName = mv.serchSong();
-					int index = cont.serchIndex(songName);
-					if (index == -1) {
+					mList=cont.selectMusicByname(songName);
+					int Sucess = mv.printSerchAllSong(mList);
+					if (Sucess == -1) {
 						mv.displayErorr("곡명 검색 ");
 						break;
 					}
-					Music serchSong = cont.serchSong(index);
-					mv.printSerchSong(serchSong);
+					int index = cont.serchIndex(songName);//현재 필요없음
+					Music serchSong = cont.serchSong(index);//현재 필요없음
+//					mv.printSerchSong(serchSong);
 					break;
 				case 5:
 					System.out.println("곡을 삭제 합니다");
 					// index값 찾기
 					songName = mv.serchSong();
-					index = cont.serchIndex(songName);
+					List selectList=cont.selectMusicByname(songName);
+					index = mv.printSerchAllSongRemove(selectList);
 					if (index == -1) {
 						mv.displayErorr("곡명 검색 ");
-						
 						break;
 					}
-					cont.remove(index);
+//					index = cont.serchIndex(songName);
+//					if (index == -1) {
+//						mv.displayErorr("곡명 검색 ");
+//						
+//						break;
+//					}
+					cont.remove(index, selectList);
 					mv.displaySucess("곡 삭제 ");
 	
 					break;
@@ -75,19 +84,26 @@ public class Run {
 					System.out.println("곡 명으로 검색합니다");
 					// index값 찾기
 					songName = mv.serchSong();
-					index = cont.serchIndex(songName);
+					List selectList1=cont.selectMusicByname(songName);
+					index = mv.printSerchAllSongChange(selectList1);
 					if (index == -1) {
 						mv.displayErorr("곡명 검색 ");
 						break;
 					}
-					serchSong = cont.serchSong(index);
-					Music changeSong = mv.musicChangeInfo(serchSong);
+					index = cont.serchIndexChage(index, selectList1);
+					Music changeSong = mv.musicChangeInfo();
 					cont.setMusic(index, changeSong);
 					break;
 				case 7:
-					cont.sortAscending();
+					mv.pirntMessage("곡명 오름 차순 정렬");
+					cont.sortByTitle();
+					
+					
+					
 					break;
 				case 8:
+					mv.pirntMessage("가수명 내림 차순 정렬");
+					 cont.sortBySinger() ;
 					break;
 				case 0:
 					break;

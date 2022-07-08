@@ -16,9 +16,9 @@ import java.util.StringTokenizer;
 
 public class GamePrint {
 	Scanner scan = new Scanner(System.in);
-	static String name;
-	static int birthMon = 100;
-	static int birthDay = 100;
+	String name;
+	int birthMon = 100;
+	int birthDay = 100;
 	
 	String[] gameTurn = new String[65];
 	Scheculer1 sche = new Scheculer1();
