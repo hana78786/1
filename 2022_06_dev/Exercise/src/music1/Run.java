@@ -86,8 +86,12 @@ public class Run {
 					mv.displaySucess("곡 수정");
 					break;
 				case 7:// 곡명 오름자순
+					cont.sort();
+					mv.displaySucess("정렬");
 					break;
 				case 8:// 가수명 내림차순
+					cont.disort();
+					mv.displaySucess("정렬");
 					break;
 				case 0:
 					break;

@@ -2,7 +2,7 @@ package music1;
 
 import java.util.Comparator;
 
-public class Music implements Comparable<Music> {
+public class Music implements Comparable<Music>{
 	
 	String songTilte;
 	String singer;
@@ -23,10 +23,12 @@ public class Music implements Comparable<Music> {
 		return "Music [songTilte=" + songTilte + ", singer=" + singer + "]";
 	}
 
+	
 	@Override
 	public int compareTo(Music o) {
 		// TODO Auto-generated method stub
 		return this.songTilte.compareTo(o.getSongTilte());
 	}
+
 	
 }

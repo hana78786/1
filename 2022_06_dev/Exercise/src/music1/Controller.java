@@ -1,6 +1,7 @@
 package music1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Controller {
@@ -60,6 +61,16 @@ public class Controller {
 
 	public void setList(Music modifyMusic, int index) {
 		mList.set(index, modifyMusic);
+		
+	}
+
+	public void sort() {
+	Collections.sort(mList);
+	}
+
+	public void disort() {
+		Collections.sort(mList, new Desort());
+	
 		
 	}
 
