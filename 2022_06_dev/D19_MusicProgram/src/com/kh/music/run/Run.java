@@ -70,12 +70,7 @@ public class Run {
 						mv.displayErorr("°î¸í °Ë»ö ");
 						break;
 					}
-//					index = cont.serchIndex(songName);
-//					if (index == -1) {
-//						mv.displayErorr("°î¸í °Ë»ö ");
-//						
-//						break;
-//					}
+
 					cont.remove(index, selectList);
 					mv.displaySucess("°î »èÁ¦ ");
 	
