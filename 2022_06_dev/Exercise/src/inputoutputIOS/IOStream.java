@@ -123,7 +123,10 @@ public class IOStream {
 			
 			try {
 				writer = new FileWriter(name+".txt");
-				writer.write(name+"/"+age+"/"+address);
+				StringBuffer sb= new StringBuffer(name).append("/").append(age).append("/").append(address);
+				System.out.println(sb);
+				String a = new String(sb);
+				writer.write(a);
 				writer.flush();
 				
 
