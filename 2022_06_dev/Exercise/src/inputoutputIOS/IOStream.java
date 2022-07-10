@@ -83,27 +83,36 @@ public class IOStream {
 		
 		
 		//목표 파일을 불러와서 출력하기
-		reader = new FileReader(file+".txt");
+		is = new FileInputStream(file+".txt");
 		int readData;
 		String data="";
 		while(true) {
 			try {
-				readData = reader.read();
-				if(readData==-1)break;
-				data+=(char)readData;
+				byte[]b= new byte[100];
+				
+				
+				readData = is.read(b);
+				if(readData==-1) {
+					break;
+				}
+				data +=new String(b,0,readData);
+				
+				
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-		
-		
 		StringTokenizer st = new StringTokenizer(data,"/");
 		name = st.nextToken();
 		age = Integer.parseInt(st.nextToken());
 		address= st.nextToken();
 		System.out.println("불러오기 완료!");
+		
+		
+		
 
 	}
 
