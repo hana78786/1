@@ -1,10 +1,5 @@
 # 공부한 것들 모음
 
-## 1 : java
-
--  java 
-  -  Hello World출력
-
 ## 2022_06_dev : java
 
 - 학원 수강 
