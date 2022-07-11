@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class BufferedReaderEx {
 public static void main(String[] args) {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	System.out.println("입력하세요");
+	System.out.println("�׽�Ʈ");
 	try {
 		String str = br.readLine();
 		System.out.println(str);
