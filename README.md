@@ -17,7 +17,7 @@
   - 수업 실습
   - 과제 작성
 
-  결과물 :   https://hana78786.github.io/1/bostcourse_htmlcss/index.html
+  결과물 :   https://hana78786.github.io/Study_hana/bostcourse_htmlcss/index.html
 
 ## cording_test : java
 
@@ -54,4 +54,4 @@
 - html을 활용한 css 자바스크립트 연습
   - 간단한 사이트 작성
   - jQuery활용
-  - https://hana78786.github.io/1/web/
+  - https://hana78786.github.io/Study_hana/web/
