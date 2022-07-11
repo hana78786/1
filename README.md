@@ -29,7 +29,7 @@
 - 구구단 계산 프로그램 작성 
 - gugudan : 5~9단
 - a : 헬로월드 출력 및 구구단 프로그램, 입출력 가능한 구구단 프로그램 작성
-- helloworld : helloworld출력 및 구구단 class파일 생성
+- helloworld : helloworld출력
 
 ## Python :python
 
