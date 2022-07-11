@@ -10,13 +10,6 @@
     - 회원관리, 음악관리 프로그램 등..
   - 이후에 자바 이외에 다른 것들도 추가예정
 
-## HelloWorld : java
-
-- gugudan 
-  - 구구단 9단 5단작성
-- a
-  - 작성한 구구단들의 Class파일 생성
-
 ## bostcourse_htmlcss :html
 
 - 네이버 부스트코스 htmlCss 활동
@@ -31,11 +24,12 @@
 - 프로그래머스 코딩테스트
   - 레벨 1 가장 마지막 문제부터 순서대로 작성중
 
-## guguda : java
+## guguda1 : java
 
 - 구구단 계산 프로그램 작성 
 - gugudan : 5~9단
 - a : 헬로월드 출력 및 구구단 프로그램, 입출력 가능한 구구단 프로그램 작성
+- helloworld : helloworld출력 및 구구단 class파일 생성
 
 ## Python :python
 
