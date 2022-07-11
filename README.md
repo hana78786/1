@@ -1,0 +1,58 @@
+# 공부한 것들 모음
+
+## 1 : java
+
+-  java 
+  -  Hello World출력
+
+## HelloWorld : java
+
+- gugudan 
+  - 구구단 9단 5단작성
+- a
+  - 작성한 구구단들의 Class파일 생성
+
+## bostcourse_htmlcss :html
+
+- 네이버 부스트코스 htmlCss 활동
+
+  - 수업 실습
+  - 과제 작성
+
+  결과물 :   https://hana78786.github.io/1/bostcourse_htmlcss/index.html
+
+## cording_test : java
+
+- 프로그래머스 코딩테스트
+  - 레벨 1 가장 마지막 문제부터 순서대로 작성중
+
+## guguda : java
+
+- 구구단 계산 프로그램 작성 
+- gugudan : 5~9단
+- a : 헬로월드 출력 및 구구단 프로그램, 입출력 가능한 구구단 프로그램 작성
+
+# Python :python
+
+- 파이썬으로 작성한 프로그램
+  - 로봇 휴고움직이기
+  - 그림복사하기
+  - 별 출력하기
+  - 변수 선언하기
+
+
+
+## java_ex : java
+
+- 자바 연습용과제
+  - 메소드 사용하기
+  - 클래스 사용하기
+  - instance 생성하기
+  - input output
+
+## web : html
+
+- html을 활용한 css 자바스크립트 연습
+  - 간단한 사이트 작성
+  - jQuery활용
+  - https://hana78786.github.io/1/web/
