@@ -11,39 +11,41 @@ import java.util.Scanner;
 
 public class testServer {
 	public static void main(String[] args) throws IOException {
+		ServerSocket serverSocket = new ServerSocket(8886);
+		Socket socket = serverSocket.accept();
+		InputStream is = socket.getInputStream();
+		OutputStream os = socket.getOutputStream();
+		DataInputStream dis = new DataInputStream(is);
+		DataOutputStream dos = new DataOutputStream(os);
+		Scanner scan = new Scanner(System.in);
+		
+		String data="";
+//		while(!data.equals("끝")) {
+//			System.out.print("상대 :");
+//			byte[] b = new byte[5];
+//			int readByte = is.read(b);
+//			data = new String(b,0,readByte);
+//			System.out.println(data);
+//			
+//			System.out.print("나 :");
+//			data = scan.nextLine();
+//			byte b1[] = data.getBytes();
+//					os.write(b);
+//			System.out.println(data);
+//		}
+		
+		while(!data.equals("끝")) {
+			System.out.print("상대 :");
+			data = dis.readUTF();
+			System.out.println(data);
+			
+			System.out.println("나 :");
+			data = scan.nextLine();
+			dos.writeUTF(data);
+			
+			
+		}
 	
-	ServerSocket severSocket = null;
-	Socket socket=null;
-	InputStream in = null;
-	OutputStream os = null;
-	
-	severSocket = new ServerSocket(8889);
-	socket = severSocket.accept();
-	in = socket.getInputStream();
-	os = socket.getOutputStream();
-	System.out.print("상대: ");
-	byte[] b = new byte [100];
-	int read = 0;
-	String data = "";
-	
-	read = in.read(b);
-	data = new String(b,0,read);
-	
-	System.out.println(data);
-	System.out.print("나:");
-	Scanner scan = new Scanner(System.in);
-	data = scan.nextLine();
-	byte b1[] = data.getBytes();
-	
-	os.write(b1);
-
-	DataInputStream dis = new DataInputStream(in);
-	DataOutputStream dos = new DataOutputStream(os);
-	
-	
-	System.out.println("2"+dis.readUTF());
-	System.out.print("나 :");
-	dos.writeUTF(scan.next());
 
 	}
 	

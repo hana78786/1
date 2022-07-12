@@ -11,32 +11,39 @@ import java.util.Scanner;
 
 public class test_Client {
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		Socket socket = null;
-		InputStream in = null;
-		OutputStream os = null;
-		
-		socket = new Socket("127.0.0.1",8889);
-		in = socket.getInputStream();
-		os = socket.getOutputStream();
-		
-		System.out.print("나:");
-		Scanner scan = new Scanner (System.in);
-		String data = scan.nextLine();
-		byte b[] = data.getBytes();
-		os.write(b);
-		os.flush();
-		byte b1[] = new byte [100];
-		
-		int read = in.read(b1);
-		data = new String(b1,0,read);
-			
-		System.out.println(data);
-		
-		DataInputStream dis = new DataInputStream(in);
+		Socket socket = new Socket("127.0.0.1", 8886);
+		InputStream is = socket.getInputStream();
+		OutputStream os = socket.getOutputStream();
+		DataInputStream dis = new DataInputStream(is);
 		DataOutputStream dos = new DataOutputStream(os);
-		System.out.println("나:");
-		dos.writeUTF(scan.next());
-		System.out.println("2"+dis.readUTF());
+		Scanner scan = new Scanner(System.in);
+	
+		
+		String data = "";
+//		while (!data.equals("끝")) {
+//			System.out.print("나 :");
+//			data = scan.nextLine();
+//			byte[] b = data.getBytes();
+//			os.write(b);
+//			
+//			System.out.print("상대 :");
+//			byte b1[] = new byte[5];
+//			int readByte = is.read(b1);
+//			data = new String(b1,0,readByte);
+//			System.out.println(data);
+//
+//		}
+		while (!data.equals("끝")) {
+			System.out.println("나 :");
+			data= scan.nextLine();
+			dos.writeUTF(data);
+			
+			System.out.println("상대 :");
+			data = dis.readUTF();
+			System.out.println(data);
+
+		}
+
 	}
 
 }
