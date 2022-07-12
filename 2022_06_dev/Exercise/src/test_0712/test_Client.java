@@ -10,38 +10,48 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class test_Client {
-	public static void main(String[] args) throws UnknownHostException, IOException {
-		Socket socket = new Socket("127.0.0.1", 8886);
-		InputStream is = socket.getInputStream();
-		OutputStream os = socket.getOutputStream();
-		DataInputStream dis = new DataInputStream(is);
-		DataOutputStream dos = new DataOutputStream(os);
-		Scanner scan = new Scanner(System.in);
-	
-		
-		String data = "";
-//		while (!data.equals("끝")) {
-//			System.out.print("나 :");
-//			data = scan.nextLine();
-//			byte[] b = data.getBytes();
-//			os.write(b);
-//			
-//			System.out.print("상대 :");
-//			byte b1[] = new byte[5];
-//			int readByte = is.read(b1);
-//			data = new String(b1,0,readByte);
-//			System.out.println(data);
-//
-//		}
-		while (!data.equals("끝")) {
-			System.out.println("나 :");
-			data= scan.nextLine();
-			dos.writeUTF(data);
-			
-			System.out.println("상대 :");
-			data = dis.readUTF();
-			System.out.println(data);
+	public static void main(String[] args) {
+		try {
+			Socket socket = new Socket("127.0.0.1", 8886);
+			InputStream is = socket.getInputStream();
+			OutputStream os = socket.getOutputStream();
+			Scanner sc = new Scanner(System.in);
 
+//			while (true) {
+//
+//				byte b[] = new byte[100];
+//				int readByte = is.read(b);
+//				String data = new String(b, 0, readByte);
+//				System.out.println("상대 :" + data);
+//				if (data.equals("끝"))break;
+//				
+//				System.out.print("나:");
+//				data= sc.nextLine();
+//				byte b1[] =data.getBytes();
+//				os.write(b1);
+//				if (data.equals("끝"))break;
+//
+//			}
+			while (true) {
+				
+				DataInputStream dis = new DataInputStream(is);
+				String data= dis.readUTF();
+				
+				System.out.println("상대 :" + data);
+				if (data.equals("끝"))break;
+				
+				System.out.print("나:");
+				data=sc.nextLine();
+				DataOutputStream dos = new DataOutputStream(os);
+				dos.writeUTF(data);
+			
+				if (data.equals("끝"))break;
+				
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}

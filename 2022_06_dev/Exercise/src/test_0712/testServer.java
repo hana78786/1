@@ -10,41 +10,62 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class testServer {
-	public static void main(String[] args) throws IOException {
-		ServerSocket serverSocket = new ServerSocket(8886);
-		Socket socket = serverSocket.accept();
-		InputStream is = socket.getInputStream();
-		OutputStream os = socket.getOutputStream();
-		DataInputStream dis = new DataInputStream(is);
-		DataOutputStream dos = new DataOutputStream(os);
-		Scanner scan = new Scanner(System.in);
+	public static void main(String[] args) {
+		ServerSocket server = null;
+		InputStream in = null;
+		OutputStream os = null;
+		Scanner sc = new Scanner(System.in);
 		
-		String data="";
-//		while(!data.equals("끝")) {
-//			System.out.print("상대 :");
-//			byte[] b = new byte[5];
-//			int readByte = is.read(b);
-//			data = new String(b,0,readByte);
-//			System.out.println(data);
-//			
-//			System.out.print("나 :");
-//			data = scan.nextLine();
-//			byte b1[] = data.getBytes();
-//					os.write(b);
-//			System.out.println(data);
-//		}
-		
-		while(!data.equals("끝")) {
-			System.out.print("상대 :");
-			data = dis.readUTF();
-			System.out.println(data);
+		try {
+			server = new ServerSocket(8886);
+			Socket socket = server.accept();
+			in = socket.getInputStream();
+			os = socket.getOutputStream();
 			
-			System.out.println("나 :");
-			data = scan.nextLine();
-			dos.writeUTF(data);
+//			while(true) {
+//				System.out.print("나 :");
+//				String data = sc.nextLine();
+//				byte b[] = data.getBytes();
+//				os.write(b);
+//				if (data.equals("끝"))break;
+//				
+//				
+//				byte b1 [] = new byte[100];
+//				int readByte = in.read(b1);
+//				data = new String(b1,0,readByte);
+//				System.out.println("상대 :"+data);
+//				
+//				if (data.equals("끝"))break;
+//				
+//			}
+			while(true) {
+				System.out.print("나 :");
+				String data = sc.nextLine();
+				DataOutputStream dos = new DataOutputStream(os);
+				dos.writeUTF(data);
+				
+				if (data.equals("끝"))break;
+				
+				DataInputStream dis = new DataInputStream(in);
+				dis.readUTF();
+				
+				
+				System.out.println("상대 :"+data);
+				
+				if (data.equals("끝"))break;
+				
+			}
 			
 			
+			
+			
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 	
 
 	}
