@@ -18,9 +18,12 @@ Scanner sc = new Scanner(System.in);
 
 Socket sock = new Socket("127.0.0.1", 25000);
 
+//InputStream is = sock.getInputStream();
+//OutputStream os = sock.getOutputStream();
+//DataInputStream dis = new DataInputStream(is);
+//DataOutputStream dos = new DataOutputStream(os);
 
 DataInputStream dis = new DataInputStream(sock.getInputStream());
-
 DataOutputStream dos = new DataOutputStream(sock.getOutputStream());
 
 System.out.print("주민번호 뒷자리 6자리를 입력하세요 : ");
