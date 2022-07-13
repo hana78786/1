@@ -53,3 +53,6 @@ select * from department;
 delete from employee
 where emp_name = 'ÀåÃ¤Çö';
 
+
+select emp_id, emp_name, salary from employee;
+
