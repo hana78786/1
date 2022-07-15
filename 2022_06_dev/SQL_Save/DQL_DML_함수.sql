@@ -28,7 +28,7 @@ FROM
     dual;
 
 SELECT
-    length('hello')
+    lengthb('헬로')
 FROM
     dual;
 
@@ -58,11 +58,11 @@ SELECT
         -1,
         2
     ),
-    instr(
-        'hello world hi high',
-        'h',
-        -1,
-        3
+    instrb(
+        '안녕 나는 나야 헤헤헤',
+        '나',
+         1,
+        1
     ),
     instr(
         'hello world hi high',
@@ -95,6 +95,7 @@ SELECT
 FROM
     employee;
 -- ltrtim/rtrim
+
 
 SELECT
     ltrim('    kh')
@@ -342,7 +343,7 @@ FROM
     dual; --123.4 버림,1-> 소숫점 2째자리 버림
 
 SELECT
-    trunc(123.456,2)
+ floor(123.456)
 FROM
     dual;-- 123.45
 
@@ -528,11 +529,17 @@ SELECT
     TO_CHAR(90000,'999,999,999') --      90,000
 FROM
     dual;
+    
+    select to_char(100000,'l999,999,999') from dual;
 
 SELECT
     to_number('1,000,000','9,999,999') - to_number('550,000','9,999,999') -- 500,000를 500000으로 인식하기위해 위에 9,999,999를 붙여준것
 FROM
     dual; --앞 tonumber-뒤 tonumber값
+    
+    select 
+    to_number('10,000,000','99,999,999')
+    from dual;
 
 SELECT
     bonus * 100
@@ -569,6 +576,7 @@ SELECT
     ) "성별"
 FROM
     employee;
+    
 
 -- EMPLOYEE 테이블에서 출생년도 기준 60년대 생 직원에 대하여 
 -- 65년이전 출생자는 60년생 초반,65년 이후 출생자는 60년생 후반이라고 출력하시오
