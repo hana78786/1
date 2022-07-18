@@ -653,3 +653,22 @@ where a.DEPARTMENT_NO =(select department_no from TB_DEPARTMENT where department
 order by student_no desc;
 
 
+
+/*15. 휴학생이 아닌 학생 중 평점이 4.0 이상인 학생을 찾아 그 학생의 학번, 이름, 학과
+이름, 평점을 출력하는 SQL 문을 작성하시오.
+학번 이름 학과 이름 평점
+---------- -------------------- -------------------- ----------
+9811251 김충원 건축공학과 4.11111111
+9817035 김소라 토목공학과 4
+9931310 조기현 음악학과 4.05
+…
+…
+19 rows selected
+*/
+
+select student_no"학번", student_name"이름",
+(select department_name from tb_department where department_no = a.department_no)"학과",
+(select avg(point) from tb_grade where student_no = a.student_no)"평점" from TB_STUDENT a
+where absence_yn = 'N' and
+(select avg(point) from tb_grade where student_no = a.student_no) >= 4.0
+order by 3;
