@@ -632,3 +632,24 @@ right outer join TB_department
 using(department_no)
 where category = '예체능' and professor_no is null;
 
+
+/*14. 춘 기술대학교 서반아어학과 학생들의 지도교수를 게시하고자 핚다. 학생이름과
+지도교수 이름을 찾고 맊일 지도 교수가 없는 학생일 경우 "지도교수 미지정? 으로
+표시하도록 하는 SQL 문을 작성하시오. 단, 출력헤더는 ? 학생이름? , ? 지도교수? 로
+표시하며 고학번 학생이 먼저 표시되도록 핚다.
+학생이름 지도교수
+-------------------- --------------------
+주하나 허문표
+이희진 남명길
+… …
+최철현 백양임
+14 rows selected*/
+
+
+select student_name"학생이름", nvl(professor_name,'지도교수 미지정')"지도교수" from tb_student a
+left outer join TB_PROFESSOR
+on COACH_PROFESSOR_NO = TB_PROFESSOR.PROFESSOR_NO
+where a.DEPARTMENT_NO =(select department_no from TB_DEPARTMENT where department_name = '서반아어학과')
+order by student_no desc;
+
+
