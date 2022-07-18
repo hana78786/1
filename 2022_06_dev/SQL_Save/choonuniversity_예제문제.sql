@@ -671,4 +671,4 @@ select student_no"학번", student_name"이름",
 (select avg(point) from tb_grade where student_no = a.student_no)"평점" from TB_STUDENT a
 where absence_yn = 'N' and
 (select avg(point) from tb_grade where student_no = a.student_no) >= 4.0
-order by 3;
+order by 1;
