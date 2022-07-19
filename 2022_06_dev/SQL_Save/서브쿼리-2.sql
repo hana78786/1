@@ -112,3 +112,25 @@ where rownum between 1 and 9;
 /*서브쿼리를 이용한 인서트해보기*/
 
 
+--@실습문제
+--고객이 상품주문시 사용할 테이블 TBL_ORDER를 만들고, 다음과 같이 컬럼을 구성하세요
+-- ORDER_NO(주문NO) : PK
+-- USER_ID(고객아이디)
+-- PRODUCT_ID(주문상품아이디)
+-- PRODUCT_CNT(주문개수) 
+-- ORDER_DATE : DEFAULT SYSDATE
+
+-- ORDER_NO은 시퀀스 SEQ_ORDER_NO을 만들고, 다음 데이터를 추가하세요.(현재시각 기준)
+-- * kang님이 saewookkang상품을 5개 주문하셨습니다.
+-- * gam님이 gamjakkang상품을 30개 주문하셨습니다.
+-- * ring님이 onionring상품을 50개 주문하셨습니다.
+
+
+--@실습문제
+--kh계정 소유의 한 employee, job, department테이블의 일부정보를 사용자에게 공개하려고 한다.
+-- 사원아이디, 사원명, 직급명, 부서명, 관리자명, 입사일의 컬럼정보를 뷰 v_emp_info를 읽기 전용으로 생성하고,
+-- 뷰에 대한 조회권한을 사용자롤 role_public_emp을 만들어서 사용자 tester에게 부여하시오.
+
+
+
+
