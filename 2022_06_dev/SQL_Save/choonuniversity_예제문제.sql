@@ -534,8 +534,28 @@ CLASS_NAME PROFESSOR_NAME
 */
 
 select class_name, professor_name from TB_PROFESSOR
-join TB_CLASS
-using (department_no);
+join tb_class_professor
+using (professor_no)
+join tb_class
+using (class_no);
+
+sELECT TB_CLASS.CLASS_NAME,
+TB_PROFESSOR.PROFESSOR_NAME
+FROM TB_CLASS, TB_CLASS_PROFESSOR, TB_PROFESSOR
+WHERE TB_CLASS.CLASS_NO = TB_CLASS_PROFESSOR.CLASS_NO
+AND TB_CLASS_PROFESSOR.PROFESSOR_NO = TB_PROFESSOR.PROFESSOR_NO
+ORDER BY TB_PROFESSOR.PROFESSOR_NAME ASC, CLASS_NAME ASC;
+
+SELECT TB_CLASS.CLASS_NAME,
+TB_PROFESSOR.PROFESSOR_NAME
+FROM TB_CLASS
+JOIN TB_CLASS_PROFESSOR USING(CLASS_NO)
+JOIN TB_PROFESSOR USING(PROFESSOR_NO)
+ORDER BY TB_PROFESSOR.PROFESSOR_NAME ASC, CLASS_NAME ASC;
+
+
+
+
 
 /*9. 8 번의 결과 중 ‘인문사회’ 계열에 속핚 과목의 교수 이름을 찾으려고 핚다. 이에
 해당하는 과목 이름과 교수 이름을 출력하는 SQL 문을 작성하시오.
@@ -547,12 +567,15 @@ CLASS_NAME PROFESSOR_NAME
 …
 논문지도2 강혁
 197 rows selected*/
-select class_name, professor_name,category from TB_PROFESSOR
-join TB_CLASS
-using (department_no)
-join tb_department
-using(department_no)
-where category= '인문사회';
+
+
+select class_name, professor_name from TB_PROFESSOR a
+join tb_class_professor
+using (professor_no)
+join tb_class
+using (class_no)
+where a.department_no in (select department_no from tb_department where category = '인문사회')
+order by 2;
 
 
 
@@ -575,7 +598,7 @@ A612052 싞광현 4.1
 select student_no, student_name, round(avg(point),1) from tb_grade
 join tb_student
 using (student_no)
-where department_no = 059
+where department_no = (select department_no from tb_department where department_name='음악학과')
 group by student_no, student_name
 order by 1;
 
@@ -672,3 +695,88 @@ select student_no"학번", student_name"이름",
 where absence_yn = 'N' and
 (select avg(point) from tb_grade where student_no = a.student_no) >= 4.0
 order by 1;
+
+
+
+/*16. 홖경조경학과 젂공과목들의 과목 별 평점을 파악핛 수 있는 SQL 문을 작성하시오.
+CLASS_NO CLASS_NAME AVG(POINT)
+---------- ------------------------------ ----------
+C3016200 전통계승방법롞 3.67857142
+C3081300 조경계획방법롞 3.69230769
+C3087400 조경세미나 3.90909090
+C4139300 환경보전및관리특롞 3.02777777
+C4477600 조경시학 3.17647058
+C5009300 단지계획및설계스튜디오 3.375
+6 rows selected*/
+
+
+select class_no, class_name, avg(point) from tb_class 
+join tb_grade
+using (class_no)
+where department_no = (select department_no from tb_department where department_name = '환경조경학과')
+group by class_no, class_name
+order by 2;
+
+
+
+/*17. 춘 기술대학교에 다니고 있는 최경희 학생과 같은 과 학생들의 이름과 주소를 출력하는
+SQL 문을 작성하시오.
+STUDENT_NAME STUDENT_ADDRESS
+-------------------- ----------------------------------------------------------
+최경희 대구광역시 달서구 월성동 277-3 동서타운아파트 101-1403호
+정기원 서울시 송파구 가락2동 극동아파트 4-1505
+… …
+김희훈 인천시 부평구 십정 1동 323- 19호
+17 rows selected*/
+
+select student_name, student_address from tb_student
+where department_no = (select department_no from tb_student where student_name = '최경희');
+
+
+/*18. 국어국문학과에서 총 평점이 가장 높은 학생의 이름과 학번을 표시하는 SQL 문을
+작성하시오.
+STUDENT_NO STUDENT_NAME
+---------- --------------------
+9931165 송귺우*/
+
+
+
+select student_no, student_name,avg(point) "POINT" from tb_student a
+join tb_grade
+using (student_no)
+join tb_department
+using (department_no)
+where department_name = '국어국문학과' 
+group by student_no, student_name
+having avg(point) = (select max(avg(point)) from tb_student b
+join tb_grade
+using (student_no)
+join tb_department
+using (department_no)
+where department_name = '국어국문학과' 
+group by student_no, student_name);
+
+
+/*19. 춘 기술대학교의 "홖경조경학과"가 속핚 같은 계열 학과들의 학과 별 젂공과목 평점을
+파악하기 위핚 적젃핚 SQL 문을 찾아내시오. 단, 출력헤더는 "계열 학과명",
+"젂공평점"으로 표시되도록 하고, 평점은 소수점 핚 자리까지맊 반올림하여 표시되도록
+핚다.
+계열 학과명 전공평점
+-------------------- --------
+간호학과 3.3
+물리학과 3.3
+… …
+환경조경학과 3.4
+20 rows selected*/
+
+select department_name, round(avg(point),1) from TB_GRADE
+join tb_class
+using (class_no)
+join TB_DEPARTMENT
+using (department_no)
+where category in (select category from tb_department where department_name = '환경조경학과')
+group by department_name;
+
+
+
+

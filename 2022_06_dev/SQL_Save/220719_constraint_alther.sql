@@ -159,3 +159,8 @@ alter table shop_buy enable constraint r_user_id_shop_member;
 alter table shop_buy disable constraint r_user_id_shop_member;
 --비활성화
 --alter table 테이블이름 disable constraint 컨스랜트이름;
+
+
+select * from (select emp_name, emp_no, decode(substr(emp_no,8,1),'1','남',3,'남','여') "성별"
+from employee)
+where "성별" = '남';

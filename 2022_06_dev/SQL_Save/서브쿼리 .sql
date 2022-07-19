@@ -250,7 +250,7 @@ where not exists (select 1 from employee where sal_level < a.sal_level and job_c
 order by 1;
 
 select dept_code,emp_name, job_code, salary, sal_level from employee a
-where sal_level = (select min(sal_level)from employee where job_code = a.job_code and dept_code = a.dept_code)
+where sal_level = (select min(sal_level)from employee b where b.job_code = a.job_code and b.dept_code = a.dept_code)
 order by 1;
 
 --¹®Á¦5
