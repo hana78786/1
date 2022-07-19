@@ -265,6 +265,8 @@ having trunc(avg(salary))>=2200000 ;
 
 
 
+
+
 --문제6
 --직급의 연봉 평균보다 적게 받는 여자사원의
 --사원명,직급코드,부서코드,연봉을 이름 오름차순으로 조회하시오
@@ -275,3 +277,5 @@ select emp_name, job_code, dept_code, (salary+(salary*nvl(bonus,0)))*12 "연봉" f
 where substr(emp_no,8,1) in (2,4) and (salary+(salary*nvl(bonus,0)))*12 <
 (select avg((salary+(salary*nvl(bonus,0)))*12) from employee where job_code = a.job_code );
 
+
+commit;

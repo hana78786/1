@@ -1,0 +1,19 @@
+
+
+-- ROLE
+SELECT * FROM ROLE_SYS_PRIVS
+WHERE ROLE = 'DBA';
+
+GRANT CONNECT, RESOURCE TO KH; -- 지금 부여했던 것은 ROLE 객체를 통해 권한을 부여했던것
+
+CREATE ROLE EMP_ROLE;
+-- 나만의 ROLE객체를 만들어서
+--EMP_ROLE이라는 ROLE객체 생성
+GRANT SELECT ON KH.EMPLOYEE TO EMP_ROLE;
+-- 해당 ROLE객체에 권한을 부여하고
+--EMP_ROLE에 KH.EMPLOYEE를 SELECT할수있는 권한을 부여
+GRANT EMP_ROLE TO KHUSER;
+-- 나만의 ROLE을 사용자 계정에 권한부여를 해봄.
+-- EMP_ROLE을 KHUSER에 부여
+REVOKE EMP_ROLE FROM KHUSER;
+--KHUSER에게 주었던 EMP_ROLE의 권한을 삭제
