@@ -648,12 +648,7 @@ CLASS_NAME DEPARTMENT_NAME
 해부학실험 체육학과
 44 rows selected*/
 
-select class_name, department_name from TB_PROFESSOR
-right join tb_class
-using (department_no)
-right outer join TB_department
-using(department_no)
-where category = '예체능' and professor_no is null;
+
 
 
 /*14. 춘 기술대학교 서반아어학과 학생들의 지도교수를 게시하고자 핚다. 학생이름과
