@@ -345,6 +345,62 @@ end;
 -- '급여' / '보너스' / '입사일'
 -- 무조건 1위~5위 까지를 출력하는 PL/SQL을 만들어라.
 
+declare 
+vname employee.emp_name%type;
+vsal employee.salary%type;
+vbonus employee.bonus%type;
+vhire employee.hire_date%type;
+vnum number;
+a varchar2(30);
+
+begin
+for n in 1..5 loop
+a := '&a';
+if (a='월급') then
+
+
+select 랭크, salary, bonus, hire_date, emp_name
+into vnum, vsal, vbonus, vhire, vname
+from (select salary, bonus, hire_date, emp_name,RANK() OVER (ORDER BY
+salary DESC)"랭크" from employee order by 1)
+where 랭크 = n;
+
+dbms_output.put_line('------'||a||n||'위-----');
+if(vnum = n) then
+dbms_output.put_line('이름 '||vname);
+dbms_output.put_line('급여 '||vsal);
+end if;
+ 
+ elsif (a='보너스') then
+ select 랭크, salary, bonus, hire_date, emp_name
+into vnum, vsal, vbonus, vhire, vname
+from (select salary, bonus, hire_date, emp_name,RANK() OVER (ORDER BY
+bonus,emp_name desc)"랭크" from employee order by 1)
+where 랭크 = n;
+dbms_output.put_line('------'||a||n||'위-----');
+if(vnum = n) then
+dbms_output.put_line('이름 '||vname);
+dbms_output.put_line('보너스 '||vbonus*100||'%');
+end if;
+
+elsif (a='입사일') then
+ select 랭크, salary, bonus, hire_date, emp_name
+into vnum, vsal, vbonus, vhire, vname
+from (select salary, bonus, hire_date, emp_name,RANK() OVER (ORDER BY
+hire_date ASC)"랭크" from employee order by 1)
+where 랭크 = n;
+dbms_output.put_line('------'||a||n||'위-----');
+if(vnum = n) then
+dbms_output.put_line('이름 '||vname);
+dbms_output.put_line('입사일 '||vhire);
+end if;
+
+end if;
+
+end loop;
+end;
+/
+
 
 
 --no_data_found
@@ -384,5 +440,5 @@ exception
 end;
 /
 
-set serveroutput off;
+set serveroutput on;
 
