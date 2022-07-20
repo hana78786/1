@@ -36,8 +36,7 @@ not exists (select 1 from employee where a.salary>salary);
 
 select * from employee 
 where salary > (
-select avg(salary) from employee where dept_code = 'D5')
-and dept_code in ('D1','D2');
+select avg(salary) from employee where dept_code = 'D5');
 
 /*
 select dept_code from employee
