@@ -355,7 +355,7 @@ a varchar2(30);
 
 begin
 for n in 1..5 loop
-a := '&a';
+a := '&¼øÀ§';
 if (a='¿ù±Þ') then
 
 
@@ -374,8 +374,8 @@ end if;
  elsif (a='º¸³Ê½º') then
  select ·©Å©, salary, bonus, hire_date, emp_name
 into vnum, vsal, vbonus, vhire, vname
-from (select salary, bonus, hire_date, emp_name,RANK() OVER (ORDER BY
-bonus,emp_name desc)"·©Å©" from employee order by 1)
+from (select salary, bonus, hire_date, emp_name,DENSE_RANK() OVER (ORDER BY
+bonus desc,emp_name desc)"·©Å©" from employee where bonus is not null)
 where ·©Å© = n;
 dbms_output.put_line('------'||a||n||'À§-----');
 if(vnum = n) then
@@ -401,6 +401,8 @@ end loop;
 end;
 /
 
+select salary, bonus, hire_date, emp_name,DENSE_RANK() OVER (ORDER BY
+bonus, salary desc)"·©Å©" from employee where bonus is not null;
 
 
 --no_data_found
