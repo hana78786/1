@@ -307,7 +307,7 @@ INSERT INTO test_sub VALUES (
     'aaa'
 );
 
-INSERT INTO test_list VALUES ( 'aa','123' );
+INSERT INTO test_list VALUES ( 'aa','125' );
 
 DELETE test_sub WHERE
     name = 'aa';
@@ -322,7 +322,15 @@ FROM
 --제약조건 수정하기 
 -- 제약조건 수정뒤 활성화 비활성해 하기
 
+alter table test_list
+drop constraint list_name;
 
+alter table test_list
+add constraint list_name FOREIGN KEY(name) references test_sub(name) on delete cascade;
+
+delete test_list where list = 123;
+
+delete test_sub where name ='aa';
 
 
 
@@ -338,12 +346,33 @@ FROM
 -- PRODUCT_CNT(주문개수) 
 -- ORDER_DATE : DEFAULT SYSDATE
 
+create table tbl_oder(
+order_no number constraint on_pk primary key,
+user_id varchar2(20) not null,
+prodouct_id varchar2(50),
+product_cnt number,
+order_date date default sysdate);
+
 
 
 -- ORDER_NO은 시퀀스 SEQ_ORDER_NO을 만들고,다음 데이터를 추가하세요.(현재시각 기준)
 -- * kang님이 saewookkang상품을 5개 주문하셨습니다.
 -- * gam님이 gamjakkang상품을 30개 주문하셨습니다.
 -- * ring님이 onionring상품을 50개 주문하셨습니다.
+create sequence seq_order_no
+start with 10
+increment by 10
+MAXVALUE 100
+cycle
+nocache;
+
+drop sequence seq_order_no;
+
+insert into tbl_order values(seq_order_no.nextval,'ksang','12d',30,default);
+
+select * from tbl_order;
+
+drop table tbl_order;
 
 
 
@@ -351,3 +380,19 @@ FROM
 --kh계정 소유의 한 employee,job,department테이블의 일부정보를 사용자에게 공개하려고 한다.
 -- 사원아이디,사원명,직급명,부서명,관리자명,입사일의 컬럼정보를 뷰 v_emp_info를 읽기 전용으로 생성하고,
 -- 뷰에 대한 조회권한을 사용자롤 role_public_emp을 만들어서 사용자 tester에게 부여하시오.
+
+
+create view v_emp_info 
+as select a.emp_id, a.emp_name, dept_title, job_name,
+(select emp_name from employee where a.manager_id = emp_id)manager_name,
+hire_date
+from employee a 
+join department
+on dept_id = dept_code
+join job
+using (job_code) with read only;
+
+drop view v_emp_info;
+
+select * from v_emp_info;
+

@@ -595,6 +595,33 @@ END;
 -- 무조건 1위~5위 까지를 출력하는 PL/SQL을 만들어라.
 
 
+SELECT empname, salary, bonus, 
+     RANK() OVER (ORDER BY salary aSC ) as rk
+     FROM emp; 
+     
+     
+
+declare
+vsalary employee.salary%type;
+vbonus employee.bonus%type;
+vhire employee.hire_date%type;
+vname employee.emp_name%type;
+vrownum number;
+
+begin
+
+    
+if(vrownum =1) then 
+bdms_output.put_line(vname);
+end if;
+
+
+
+end;
+/
+
+
+
 
 --no_data_found
 --1. 급여, 이름, 이메일 출력
