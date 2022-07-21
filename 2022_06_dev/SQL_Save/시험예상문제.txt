@@ -1,0 +1,36 @@
+dbms 
+
+데이터 베이스
+
+관리자 계정
+
+일반계정
+
+oracle-
+
+ddl-
+
+dml-
+
+dql-
+
+dcl-
+
+tcl-
+
+
+펑션- 그룹함수
+단일행 함수
+
+
+lenght
+instr
+lpad
+trim()
+rtrim
+ltrim
+replace
+
+3개월뒤
+다음주 월요일
+이번달 가장 마지막날
