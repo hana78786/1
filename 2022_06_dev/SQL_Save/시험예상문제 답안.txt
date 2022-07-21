@@ -54,3 +54,11 @@ add_month(sysdate,3) 3개월 뒤로
 next_day(sysdate,'월요일') 다음주 월요일
 last_day(sysdate) 이번달 가장 마지막 날
 
+
+### 관리자계정 sys와 system의 차이
+
+- sys - 슈처관리자, 데이터베이서 생성/삭제 권한있음
+    - 로그인옵션으로 반드시 as sysbda로 지정
+    - 데이터딕셔너리를 소유하고있음
+- system - 일반관리자, 데이터베이스 생성/삭제 권한 없음
+
