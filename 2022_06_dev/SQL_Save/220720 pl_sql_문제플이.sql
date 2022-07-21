@@ -356,9 +356,9 @@ a varchar2(30);
 begin
 for n in 1..5 loop
 a := '&순위';
+
+
 if (a='월급') then
-
-
 select 랭크, salary, bonus, hire_date, emp_name
 into vnum, vsal, vbonus, vhire, vname
 from (select salary, bonus, hire_date, emp_name,RANK() OVER (ORDER BY
