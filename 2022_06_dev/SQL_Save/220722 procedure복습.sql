@@ -139,3 +139,32 @@ var result varchar2(20);
 exec : result := fun_gen('&사번');
 print result;
 
+--2. 사용자로부터 입력받은 사원명으로 검색하여 해당사원의 직급명을 얻어 오는 저장함수
+-- FN_GET_JOB_NAME를 작성하세요. (해당사원이 없다면 '해당사원없음' 출력)
+
+
+create or replace function fn_in_job(f_emp_id varchar2)
+return varchar2
+is
+f_job job.job_name%type;
+
+begin
+
+select job_name
+into f_job 
+from job
+left join employee
+using (job_code)
+where emp_id = f_emp_id
+group by job_name;
+
+return f_job;
+
+exception
+when no_data_found then return('해당사원없음');
+end;
+/
+
+exec : result := fn_in_job('&사번');
+print result;
+
