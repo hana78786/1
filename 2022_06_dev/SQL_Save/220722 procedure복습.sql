@@ -117,3 +117,25 @@ exec : result := make_hpone('(*>?<*)');
 print result;
 
 
+--@실습문제
+--1.사원번호를 입력받아서 성별을 리턴하는 저장함수 FN_GET_GENDER를 생성하고, 실행하세요.
+ create or replace function fun_gen(f_emp_id varchar2)
+ return varchar2
+ is
+ gender varchar2(20);
+ begin
+ select decode
+ (substr(emp_no,8,1),'1','남','여')
+ into gender
+ from employee
+ where emp_id=f_emp_id;
+ 
+ return gender;
+ end;
+ /
+
+var result varchar2(20);
+
+exec : result := fun_gen('&사번');
+print result;
+
