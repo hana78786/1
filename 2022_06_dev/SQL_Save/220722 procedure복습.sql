@@ -271,3 +271,165 @@ select * from dept_copy;
 exec proc_man_dept_copy ('delete', 'D9','abd');
 
 set SERVEROUTPUT ON;
+
+
+
+--예제 사원 테이블에 새로운 데이터가 들어오면 "신입사원이 입사하였습니다' 출력하기
+
+create or replace trigger trg_emp_new
+    after
+    insert on employee
+    for each row
+  begin 
+    dbms_output.put_line('신입사원이 입사했습니다');
+    end;
+    /
+    
+    select * from employee;
+    
+    insert into employee values ('251','우영우','999999-123456','u0u@gim.bab','01000000000',null,'J0','S0',1000000,0.5,null,'220724',null,'N');
+    commit;
+    
+    delete employee
+    where emp_name = '우영우';
+    
+    -- 예제2. 급여변경 전후정보를 화면에 출력하는 트리거를 생성해보자
+    
+    create table emp_sal
+   as select * from employee;
+    
+    create or replace trigger trg_sal_change
+    before 
+    update on emp_sal
+    for each row
+    begin
+    dbms_output.put_line('변경전 ' || :old.salary || ' 변경후 '|| :new.salary);
+    end;
+    /
+    
+    update emp_sal
+    set salary = '300000'
+    where emp_id = 212;
+    commit;
+    
+--예제3 제품 테이블을 생ㄷ성하고 제품 입고시 상품재고 테이블 수치를 관리해보자
+-- 트리거를 사용해 재고가 입출고시 자동으로 재고가 입력되도록 해보자
+
+create table prodouct(
+pcode number primary key,
+pname varchar2(20),
+brand varchar2(30),
+price number,
+stock number default 0);
+
+create table pro_io(
+icode number primary key,
+pcode number,
+pdate date,
+amount number,
+status varchar2(10) check(status in ('입고','출고')),
+constraint fk_pro_io foreign key (pcode) references prodouct(pcode));
+
+create sequence seq_pro;
+create sequence seq_pro_io;
+
+--트리거 생성
+--입고, 출고될 때 procudt 테이블에 stock의 값이 업데이트가 되어야 함
+--insert stock+1 입고
+--출고 stock-1
+
+create or replace trigger trg_pro_sto
+    after
+    insert on pro_io
+    for each row
+    
+begin
+    if :new.status = '입고'
+    then update prodouct set stock = stock+ :new.amount where pcode = :new.pcode;
+    else update prodouct set stock = stock - :new.amount where pcode = :new.pcode;
+    end if;
+end;
+/
+
+insert into prodouct values (seq_pro.nextval,'아이폰','애플',200000,default);
+insert into prodouct values (seq_pro.nextval,'갤럭시','삼성',200000,default);
+
+select * from prodouct;
+insert into pro_io values (seq_pro_io.nextval,1,sysdate,10,'입고');
+insert into pro_io values (seq_pro_io.nextval,2,sysdate,40,'입고');
+insert into pro_io values (seq_pro_io.nextval,2,sysdate,5,'출고');
+
+
+--@실습문제
+--1. EMPLOYEE테이블의 퇴사자관리를 별도의 테이블 TBL_EMP_QUIT에서 하려고 한다.
+--다음과 같이 TBL_EMP_JOIN, TBL_EMP_QUIT테이블을 생성하고, TBL_EMP_JOIN에서 DELETE시 자동으로 퇴사자 데이터가 TBL_EMP_QUIT에 INSERT되도록 트리거를 생성하라.
+
+create table emp_join
+as select * from employee;
+
+alter table emp_qu
+drop column ent_date;
+
+
+create table emp_qu
+as select * from employee where 1=0;
+select * from emp_qu; 
+create or replace trigger trg_emp_qu
+    after
+    delete on emp_join
+    for each row
+    
+    begin
+    insert into emp_qu values (:old.emp_id, :old.emp_name, :old.emp_no, :old.email, :old.phone,:old.dept_code, :old.job_code, :old.sal_level, :old.salary, :old.bonus, :old.manager_id, :old.hire_date);
+    dbms_output.put_line(:old.emp_name||'님이 퇴사했습니다');
+    end;
+    /
+    
+    delete emp_join
+    where emp_id = 202;
+    commit;
+    
+    
+    
+
+--TBL_EMP_JOIN 테이블 생성 : QUIT_DATE, QUIT_YN 제외
+    
+    
+    
+--2. 사원변경내역을 기록하는 emp_log테이블을 생성하고, 사원테이블의 insert, update가 있을 때마다 신규데이터를 기록하는 트리거를 생성하라.
+--로그테이블명 emp_log : 컬럼 log_no(시퀀스객체로부터 채번함. pk), log_date(기본값 sysdate, not null), emp테이블의 모든 컬럼
+--트리거명 trg_emp_log
+
+create table emp_log
+as select * from emp_join where 1=0;
+
+
+alter table emp_log
+add  log_date date default sysdate not null;
+
+create sequence sqe_log
+start with 1
+increment by 1
+nomaxvalue
+nocycle
+nocache;
+
+
+create or replace trigger trg_emp_log
+    before
+    insert or update on emp_join
+    for each row
+begin
+    insert into emp_log values (:new.emp_id, :new.emp_name, :new.emp_no, :new.email, :new.phone,:new.dept_code, 
+    :new.job_code, :new.sal_level, :new.salary, :new.bonus, :new.manager_id, :new.hire_date,sqe_log.nextval,default);
+    dbms_output.put_line('수정데이터를 입력했습니다.');
+    
+    end;
+    /
+    
+    insert into emp_join values ('254','abcㅁㅇ','000000-00000','abc@cac','0001111111','D9','J9','S2',300000,0.5,200,sysdate);
+    update emp_join
+    set emp_id= 251
+    where emp_id=250;
+    commit;
+    select * from emp_log;
