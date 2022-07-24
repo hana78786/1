@@ -168,3 +168,106 @@ end;
 exec : result := fn_in_job('&사번');
 print result;
 
+--3. 사원에게 특별상여금(보너스)를 지급하려고 하는데, 입사일기준으로 차등 지급하려 한다.
+-- 입사일기준 10년이상이면 150%, 3년이상 10년미만이면 125%, 3년미만이면 50%를 지급함.
+-- 저장함수명 : FN_BONUS_CALC, FN_GET_WORKING_DAYS(HIRE_DATE)
+-- 조회컬럼 : 사번, 사원명, 입사일, 근무기간(~년 ~개월), 보너스금액
+
+create or replace function fn_bonus (f_emp_id varchar2)
+return varchar2
+is
+f_emp_name employee.emp_name%type;
+f_hire employee.hire_date%type;
+f_sys_hire varchar2(50);
+f_bonus number;
+f_ent employee.ent_yn%type;
+v_result varchar2(200);
+begin
+select emp_name, hire_date, (
+select floor((sysdate-hire_date)/365)||'년'||floor(((sysdate-hire_date)/360-floor((sysdate-hire_date)/365))*10)||'개월'
+from employee
+where emp_id = f_emp_id
+),
+ent_yn, 
+(case 
+when floor((sysdate-hire_date)/365) >=10 then 150
+when floor((sysdate-hire_date)/365) between 3 and 9 then 125
+when floor((sysdate-hire_date)/365) between 0 and 2 then 50
+end)/100*salary
+
+into f_emp_name, f_hire, f_sys_hire, f_ent, f_bonus
+from employee
+where emp_id = f_emp_id;
+
+if (f_ent = 'Y')
+then v_result := '퇴사한 사원입니다.';
+else
+v_result := f_emp_id||' '|| f_emp_name ||' '|| f_hire ||' '||f_sys_hire||' '||f_bonus;
+end if;
+return v_result;
+end;
+/
+
+var result varcha2;
+exec :result:= fn_bonus(&사번);
+print result;
+
+select * from employee where ent_yn='Y';
+
+--@실습문제
+--기존부서테이블의 DEPT_ID, DEPT_TITLE만 복제한 DEPT_COPY를 생성한다.
+--DEPT_ID 컬럼 PK추가. DEPT_ID 컬럼 확장 CHAR(3)
+--DEPT_COPY를 관리하는 프로시져 PROC_MAN_DEPT_COPY를 생성한다.
+-- 첫번째 인자로 동장FLAG값 UPDATE/DELETE를 받는다.
+-- UPDATE시, 데이터가 존재하지 않으면 INSERT, 데이터가 존재하면, UPDATE
+-- DELETE시, 해당부서에 사원이 존재하는지를 검사해서, 존재하면, 경고메세지와 함께 실행취소함. 그렇지 않으면, 삭제.
+-- 프로시저의 매개변수에 기본값을 지정하면, 생략가능함.
+
+create table dept_copy
+as select dept_id, dept_title from department;
+
+alter table dept_copy
+modify dept_id char(3) primary key;
+
+create or replace procedure proc_man_dept_copy(up_or_de varchar2, v_dept_id dept_copy.dept_id%type, v_dept_title dept_copy.dept_title%type default null )
+is
+v_count number;
+
+begin
+if(up_or_de = 'update')
+    then select count(*)
+    into v_count from dept_copy where dept_id = v_dept_id;
+    if(v_count>0)
+        then update dept_copy
+            set dept_title = v_dept_title
+            where dept_id = v_dept_id;
+            dbms_output.put_line(v_dept_id ||'에 ' || v_dept_title ||'수정');
+    else
+        insert into dept_copy values (v_dept_id, v_dept_title);
+        dbms_output.put_line(v_dept_id ||'에 ' || v_dept_title ||'삽입');
+        end if;
+        
+
+elsif(up_or_de='delete')
+    then select count(*)
+    into v_count from employee 
+    where dept_code = v_dept_id;
+ 
+    
+    if(v_count>0)
+    then dbms_output.put_line('이 부서에는 사원이 있습니다');
+    else
+    delete dept_copy
+    where dept_id = v_dept_id;
+    dbms_output.put_line('이 부서를 삭제했습니다');
+    end if;
+    
+    end if;
+end;
+/
+
+select * from dept_copy;
+
+exec proc_man_dept_copy ('delete', 'D9','abd');
+
+set SERVEROUTPUT ON;
