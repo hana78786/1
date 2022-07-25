@@ -11,7 +11,7 @@
   - SQL develop
     - 테이블 생성 관리
     - PL/SQL
-  - JDBC workspqce
+  - JDBC workspace
 
 ## bostcourse_htmlcss :html
 
