@@ -122,5 +122,60 @@ public class StudentDAO {
 		return sList;
 
 	}
+	
+	
 
+	public Student selectOnebyid(String studentId) {
+		Connection conn= null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		Student student = null;
+		String query = "select * from student_tbl where student_id ='"+studentId+"'";
+		
+		
+		
+		
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url,user,password);
+			stmt = conn.createStatement();
+			rset= stmt.executeQuery(query);
+			student = new Student();
+			if(rset.next()) {
+				student.setStudentId(rset.getString("STUDENT_ID"));
+				student.setStudentPwd(rset.getString("STUDENT_PWD"));
+				student.setStudentName(rset.getString("STUDENT_NAME"));
+				student.setAddress(rset.getString("ADDRESS"));
+				student.setGender(rset.getString("GENDER").charAt(0));
+				
+				student.setAge(rset.getInt("AGE"));
+				student.setEmail(rset.getString("EMAIL"));
+				student.setPhone(rset.getString("PHONE"));
+				student.setHobby(rset.getString("HOBBY"));
+				
+				student.setEnrollDAte(rset.getDate("enroll_date"));
+		
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				rset.close();
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return student;
+	}
+	
 }

@@ -88,6 +88,27 @@ public class StudentView {
 			
 		}
 	}
+	public String inputStudentId() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("조회할 아디이 입력 : ");
+		String studentId = sc.next();
+		return studentId;
+	}
+	public void showOne(Student student) {
+		System.out.println("=============학생 정보 조회 결과 ===============");
+		System.out.println("학생아이디 : "+student.getStudentId());
+		System.out.println("비밀번호 : "+student.getStudentPwd());
+		System.out.println("학생 이름 : "+student.getStudentName());
+		System.out.println("학생 이메일 : "+student.getEmail());
+		System.out.println("학생 전화번호 : "+student.getPhone());
+		System.out.println("학생 나이 : "+student.getAge());
+		System.out.println("학생 성별 : "+student.getGender());
+		System.out.println("가입날짜 : "+student.getEnrollDAte());
+		System.out.println("주소 : "+student.getAddress());
+		System.out.println("취미 : "+student.getHobby());
+		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+		
+	}
 	
 	
 	}

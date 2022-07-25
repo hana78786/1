@@ -28,10 +28,16 @@ public class Run {
 				if(!sList.isEmpty()) {
 					view.allstuview(sList);
 				}
+				else {
+					view.displayfaild("불러오기");
+				}
 				
 				
 				break;
 			case 2:
+				String studentId = view.inputStudentId();
+				student = sCtrl.printOneById(studentId);
+				view.showOne(student);
 				break;
 			case 3:
 				break;

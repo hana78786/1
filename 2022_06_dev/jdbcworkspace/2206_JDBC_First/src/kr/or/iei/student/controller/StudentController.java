@@ -24,4 +24,10 @@ public class StudentController {
 		
 	}
 
+	public Student printOneById(String studentId) {
+		StudentDAO sDao = new StudentDAO();
+		Student student = sDao.selectOnebyid(studentId);
+		return student;
+	}
+
 }
