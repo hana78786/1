@@ -3,14 +3,15 @@
 ## 2022_06_dev : java
 
 - 학원 수강 
-  - java로 작성한 프로젝트
+  - java workspace
     - hello world부터 파일의 input output
     - 게임작성
     - 네트워크 프로그램
     - 회원관리, 음악관리 프로그램 등..
   - SQL develop
     - 테이블 생성 관리
-  - 이후에 자바 이외에 다른 것들도 추가예정
+    - PL/SQL
+  - JDBC workspqce
 
 ## bostcourse_htmlcss :html
 
