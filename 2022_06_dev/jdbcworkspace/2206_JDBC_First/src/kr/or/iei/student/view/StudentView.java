@@ -90,7 +90,7 @@ public class StudentView {
 	}
 	public String inputStudentId() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("조회할 아디이 입력 : ");
+		System.out.print("조회할 아이디 입력 : ");
 		String studentId = sc.next();
 		return studentId;
 	}
@@ -109,6 +109,29 @@ public class StudentView {
 		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 		
 	}
+	public String inputStudentName() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("조회할 이름 입력 : ");
+		return sc.next();
+	}
+	public Student modifyStudent() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("===== 수정할 정보를 입력하세요 =====");
+		Student student = new Student();
+		System.out.println("이름 : ");
+		student.setStudentName(sc.next());
+		System.out.println("비밀번호 :");
+		student.setStudentPwd(sc.next());
+		System.out.println("주소 : ");
+		sc.nextLine();
+		student.setAddress(sc.nextLine());
+		System.out.println("취미 : ");
+		student.setHobby(sc.next());
+		return student;
+	}
+
+		
+	
 	
 	
 	}

@@ -38,12 +38,16 @@ public class Run {
 			case 2:
 				String studentId = view.insertId();
 				student = cont.serchId(studentId);
-				view.serchStu(student);
+				if(student.getStudent_id()==null) {view.Faild("검색");}
+				else{view.serchStu(student);}
+				
 				break;
 			case 3:
 				String studentname = view.insertname();
 				student = cont.serchname(studentname);
-				view.serchStu(student);
+				if(student.getStudent_name()==null) {view.Faild("검색");}
+				else{view.serchStu(student);}
+				
 				
 				break;
 			case 4:

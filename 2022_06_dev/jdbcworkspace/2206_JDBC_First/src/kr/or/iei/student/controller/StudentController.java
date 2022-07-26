@@ -1,5 +1,7 @@
 package kr.or.iei.student.controller;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import kr.or.iei.student.model.dao.StudentDAO;
@@ -28,6 +30,36 @@ public class StudentController {
 		StudentDAO sDao = new StudentDAO();
 		Student student = sDao.selectOnebyid(studentId);
 		return student;
+	}
+
+	public ArrayList<Student> printOnebyName(String studentName) {
+		StudentDAO sDao = new StudentDAO();
+		ArrayList<Student> sList = sDao.selectByName(studentName);
+		
+		return sList;
+	}
+
+	public int removeStudent(String studentId) {
+		StudentDAO sDao = new StudentDAO();
+		int result = sDao.removeStu(studentId);
+		return result;
+		
+		
+		
+	}
+
+	public int checkId(String studentId) {
+		StudentDAO sDao = new StudentDAO();
+		int result = sDao.checkId(studentId);
+		
+		return result;
+	}
+
+	public int modifyStudent(Student student) {
+		StudentDAO sDao = new StudentDAO();
+		int result = sDao.modifyStudent(student);
+			
+		return result;
 	}
 
 }
