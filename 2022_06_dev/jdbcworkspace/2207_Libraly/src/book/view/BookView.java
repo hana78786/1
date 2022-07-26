@@ -1,6 +1,9 @@
 package book.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import book.vo.Book;
 
 public class BookView {
 
@@ -17,6 +20,19 @@ public class BookView {
 		
 		
 		return sc.nextInt();
+	}
+
+	public void ShowAllBook(ArrayList<Book> bList) {
+		for(Book book : bList) {
+			System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+			System.out.println("번호 : "+book.getBookNumber());
+			System.out.println("책 이름 : "+book.getBookName());
+			System.out.println("작가 : "+book.getBookWriter());
+			System.out.println("가격 : "+book.getBookPrice());
+			System.out.println("출판사 : "+book.getPublisher());
+			System.out.println("분류 : "+book.getGenre());
+			System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+		}
 	}
 	
 
