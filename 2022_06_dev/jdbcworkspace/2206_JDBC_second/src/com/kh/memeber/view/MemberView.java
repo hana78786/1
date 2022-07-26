@@ -14,7 +14,7 @@ public class MemberView {
 		System.out.println("2. 회원 아이디로 조회");
 		System.out.println("3. 회원 이름으로 조회");
 		System.out.println("4. 회원 정보 등록");
-		System.out.println("5. 회원 정보 번경");
+		System.out.println("5. 회원 정보 변경");
 		System.out.println("6. 회원 정보 삭제");
 		System.out.println("0. 프로그램 종료");
 		System.out.print("번호선택 : ");
@@ -80,7 +80,7 @@ public class MemberView {
 
 	public String serchId() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("검색할 아이디 : ");
+		System.out.print("검색할 아이디 : ");
 		String serchId = sc.next();
 		return serchId;
 	}
@@ -99,6 +99,48 @@ public class MemberView {
 		System.out.println("가입날짜 : "+member.getEnRollDate());
 		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 		
+	}
+
+	public String serchName() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("검색할 이름 : ");
+		String serchName = sc.next();
+		return serchName;
+		
+	}
+
+	public String serchPwd() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("비밀번호 : ");
+		String serchPwd = sc.next();
+		return serchPwd;
+	}
+
+	public Member modifyMem() {
+		Member member = new Member();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("=-=-회원 정보 입력=-=-");
+		System.out.print("비밀번호 : ");
+		member.setMemberPwd(sc.next());
+		System.out.print("이름 : ");
+		member.setMemberName(sc.next());
+		System.out.print("이메일 : ");
+		member.setEmail(sc.next());
+		System.out.print("전화 : ");
+		member.setPhone(sc.next());
+		System.out.print("주소 : ");
+		sc.nextLine();
+		member.setAddress(sc.nextLine());
+		System.out.print("취미 : ");
+		member.setHobby(sc.next());
+		System.out.print("성별 (M,F만가능): ");
+		member.setGender(sc.next().charAt(0));
+		System.out.print("나이 : ");
+		member.setAge(sc.nextInt());
+		
+		
+		
+		return member;
 	}
 
 }
