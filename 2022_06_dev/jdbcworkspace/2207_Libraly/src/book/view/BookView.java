@@ -34,6 +34,52 @@ public class BookView {
 			System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 		}
 	}
+
+	public int serchBNo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("책 코드 : ");
+		
+		return sc.nextInt();
+	}
+
+	public void serchBook(Book book) {
+		System.out.println("=-=-=-=-검색결과=-=-=-=-=");
+		System.out.println("번호 : "+book.getBookNumber());
+		System.out.println("책 이름 : "+book.getBookName());
+		System.out.println("작가 : "+book.getBookWriter());
+		System.out.println("가격 : "+book.getBookPrice());
+		System.out.println("출판사 : "+book.getPublisher());
+		System.out.println("분류 : "+book.getGenre());
+		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+	}
+
+	public void failMassge(String string) {
+		System.out.println("[시스템 정보] : "+string+"실패");
+		
+	}
+	
+	public void successMassge(String string) {
+		System.out.println("[시스템 정보] : "+string+"성공");
+		
+	}
+
+	public Book addBook() {
+		Scanner sc = new Scanner(System.in);
+		Book book = new Book();
+		System.out.print("책 이름 :");
+		book.setBookName(sc.nextLine());
+		System.out.print("작가 :");
+		book.setBookWriter(sc.nextLine());
+		System.out.print("가격 :");
+		book.setBookPrice(sc.nextInt());
+		System.out.print("출판사 :");
+		book.setPublisher(sc.next());
+		System.out.print("분류 :");
+		book.setGenre(sc.next());
+		
+		
+		return book;
+	}
 	
 
 }
