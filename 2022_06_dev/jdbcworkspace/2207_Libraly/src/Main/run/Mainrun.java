@@ -1,7 +1,9 @@
 package Main.run;
 
 import Main.view.Mainview;
+import Member.Run.MemberRun;
 import book.run.BookRun;
+import rental.run.RentalRun;
 
 public class Mainrun {
 	public static void main(String[] args) {
@@ -20,9 +22,13 @@ public class Mainrun {
 				bRun.main(args);
 				break 끝;
 			case 2://회원관리
-				break;
+				MemberRun mRun = new MemberRun();
+				mRun.main(args);
+				break 끝;
 			case 3://대여관리
-				break;
+				RentalRun rRun = new RentalRun();
+				rRun.main(args);
+				break 끝;
 			default:
 				System.out.println("입력오류");
 				break;

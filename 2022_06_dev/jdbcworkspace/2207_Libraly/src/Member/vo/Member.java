@@ -8,14 +8,14 @@ public class Member {
 	private String userName;
 	private int userAge;
 	private String Addr;
-	private String gender;
+	private char gender;
 	private Date enrollDate;
 	
 	
 	public Member() {
 		
 	}
-	public Member(int userNo, String userId, String userName, int userAge, String addr, String gender,
+	public Member(int userNo, String userId, String userName, int userAge, String addr, char gender,
 			Date enrollDate) {
 		super();
 		this.userNo = userNo;
@@ -58,10 +58,10 @@ public class Member {
 	public void setAddr(String addr) {
 		Addr = addr;
 	}
-	public String getGender() {
+	public char getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 	public Date getEnrollDate() {
