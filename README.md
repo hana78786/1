@@ -12,6 +12,8 @@
     - 테이블 생성 관리
     - PL/SQL
   - JDBC workspace
+    - 학생관리 프로그램
+    - 도서관 관리 프로그램
 
 ## bostcourse_htmlcss :html
 
