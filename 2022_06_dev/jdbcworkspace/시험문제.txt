@@ -1,0 +1,17 @@
+url
+driver
+
+statement
+preparedstatment
+
+jdbc 절차
+
+connection이란
+
+jdbc란
+
+드라이버매니저-
+
+
+result와
+resultset
