@@ -85,4 +85,8 @@ DESC library;
 SELECT * FROM book;
 SELECT * FROM customer;
 SELECT * FROM library;
+delete library where LEASE_NO = 5;
+INSERT INTO library VALUES(5,1,'dbmaster','18/04/07',sysdate+3);
 
+
+drop table library;

@@ -154,7 +154,7 @@ public class BookDAO {
 		PreparedStatement pstmt = null;
 		int result =0;
 		ResultSet rset=null;
-		String query = "select count(*) from book";
+		String query = "select book_no from book order by 1 desc";
 		
 
 		try {

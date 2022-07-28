@@ -13,7 +13,8 @@ public class RentalView {
 				+ "2. 회원 아이디로 대여 조회\r\n" 
 				+ "3. 책 이름으로 대여 조회\r\n" 
 				+ "4. 대여정보 추가\r\n"
-				+ "5. 메인 메뉴로 이동");
+				+ "5. 반납 정보 입력");
+		System.out.println("6. 메인 메뉴로 이동");
 		System.out.print("메뉴선택 : ");
 		
 		Scanner sc = new Scanner(System.in);
@@ -45,5 +46,32 @@ public class RentalView {
 		System.out.println("[시스템 결과] : "+string+"실패");
 		
 	}
+
+	public String serchBook() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("책 이름 : ");
+		
+		return sc.nextLine();
+	}
+
+	public Rental setRental() {
+		Rental rental = new Rental();
+		System.out.println("=-=-=-=-=대여정보 입력 =-=-=-=-=-=");
+		
+		return rental;
+	}
+
+	public void successMessage(String string) {
+		System.out.println("[시스템 결과] : "+string+"성공");
+		
+	}
+
+	public int serchLeaseNo() {
+		System.out.print("대여 코드 입력 : ");
+		Scanner sc = new Scanner(System.in);
+		return sc.nextInt();
+	}
+
+	
 
 }

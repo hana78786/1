@@ -14,7 +14,7 @@ ArrayList<Member> mList = null;
 	public ArrayList<Member> allMember(Connection conn) {
 		Statement stmt = null;
 		ResultSet rset = null;
-		String query = "select * from customer";
+		String query = "select * from customer order by user_no";
 		mList = new ArrayList<Member>();
 		
 		
@@ -143,14 +143,14 @@ ArrayList<Member> mList = null;
 		int result = 0;
 		Statement stmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) as count from customer";
+		String query = "select user_no from customer order by 1 desc";
 		
 		
 		try {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			if(rset.next()) {
-				result = rset.getInt("count");
+				result = rset.getInt("user_no");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
