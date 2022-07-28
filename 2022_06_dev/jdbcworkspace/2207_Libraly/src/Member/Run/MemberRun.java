@@ -59,6 +59,7 @@ public class MemberRun {
 			case 5:// 정보수정
 				MemberId = mView.serchId();
 				result = mCont.countId(MemberId);
+			
 				if(result == 0){
 					mView.failMessage("아이디 조회");
 				}else{

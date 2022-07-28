@@ -21,7 +21,7 @@ public class BookDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from book";
+		String query = "select * from book order by book_no";
 		bList = new ArrayList<Book>();
 
 		try {

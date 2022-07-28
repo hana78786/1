@@ -142,9 +142,11 @@ public class MemberServer {
 	}
 
 	public int countId(String memberId) {
+		int result = 0;
 		try {
 			Connection conn = jdbcTemplate.createConnection();
-			int result = mDao.countId(memberId, conn);
+			result = mDao.countId(memberId, conn);
+			
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

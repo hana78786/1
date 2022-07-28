@@ -200,21 +200,30 @@ ArrayList<Member> mList = null;
 
 
 	public int countId(String memberId, Connection conn) {
+		
 		Statement stmt = null;
 		ResultSet rset = null;
-		String query ="select count(*) as count from customer where user_id = '"+memberId+"'";
+		String query ="select count(*) as user_id from customer where user_id = '"+memberId+"'";
 		int result =0;
 		try {
 			stmt = conn.createStatement();
 			rset=stmt.executeQuery(query);
 			if(rset.next()) {
-				result = rset.getInt("count");
+			result = rset.getInt("user_id");
+		
+
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		try {
+			stmt.close();
+			rset.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return result;
 	}

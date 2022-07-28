@@ -70,7 +70,9 @@ public class MemberController {
 
 	public int countId(String memberId) {
 		mServer = new MemberServer();
-		int result = mServer.countId(memberId);
+		int result = 0;
+			result =	mServer.countId(memberId);
+		
 		return result;
 	}
 
