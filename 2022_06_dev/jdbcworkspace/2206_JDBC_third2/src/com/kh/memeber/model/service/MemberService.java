@@ -22,14 +22,16 @@ public class MemberService {
 		Connection conn = null;
 		ArrayList<Member> mList = null;
 		try {
-			conn = jdbcTemplate.createConnection();
+			conn = JDBCTmeplate.createConnection();
 			mList = mDao.allMember(conn);
 		
 			
-		} catch (SQLException e) {		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
 			jdbcTemplate.close(); //close는 반드시 닫아야 하기 때문에 finally에 할것
 		}
@@ -41,7 +43,7 @@ public class MemberService {
 		Connection conn;
 
 		try {
-			conn = jdbcTemplate.createConnection();
+			conn = JDBCTmeplate.createConnection();
 			result = mDao.setMemeber(member, conn);
 			
 			if(result>0) {
@@ -66,7 +68,7 @@ public class MemberService {
 		Member member = new Member();
 		try {
 
-			Connection conn = jdbcTemplate.createConnection();
+			Connection conn = JDBCTmeplate.createConnection();
 			member = mDao.serchId(serchId, conn);
 
 		} catch (SQLException e) {
@@ -84,7 +86,7 @@ public class MemberService {
 	public ArrayList<Member> serchName(String serchName) {
 		ArrayList<Member> mList = new ArrayList();
 		try {
-			Connection conn = jdbcTemplate.createConnection();
+			Connection conn = JDBCTmeplate.createConnection();
 			mList = mDao.serchName(serchName, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -103,7 +105,7 @@ public class MemberService {
 
 		try {
 
-			conn = jdbcTemplate.createConnection();
+			conn = JDBCTmeplate.createConnection();
 			result = mDao.delMem(serchId, conn);
 			
 			if(result>0) {
@@ -128,7 +130,7 @@ public class MemberService {
 		Connection conn = null;
 
 		try {
-			conn = jdbcTemplate.createConnection();
+			conn = JDBCTmeplate.createConnection();
 			result = mDao.checkId(serchId, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -146,7 +148,7 @@ public class MemberService {
 		Connection conn = null;
 
 		try {
-			conn = jdbcTemplate.createConnection();
+			conn = JDBCTmeplate.createConnection();
 			result = mDao.modifyMem(serchId, member, conn);
 			
 			if(result>0) {
@@ -172,7 +174,7 @@ public class MemberService {
 		Connection conn = null;
 
 		try {
-			conn = jdbcTemplate.createConnection();
+			conn = JDBCTmeplate.createConnection();
 			result = mDao.serchPwd(serchPwd, serchId, conn);
 			
 			if(result>0) {

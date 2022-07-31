@@ -12,6 +12,7 @@ public class Service {
 	private JDBCTemplate jdbcTemplate;
 	private MemberDAO mDao;
 
+	
 	public Service() {
 		jdbcTemplate = JDBCTemplate.getInstance();
 		mDao = new MemberDAO();
@@ -19,14 +20,12 @@ public class Service {
 
 	public ArrayList<Member> allMember() {
 		Connection conn = null;
-
 		ArrayList<Member> mList = null;
-
 		try {
 			conn = jdbcTemplate.createConnection();
 			mList = mDao.allMember(conn);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} finally {
 
