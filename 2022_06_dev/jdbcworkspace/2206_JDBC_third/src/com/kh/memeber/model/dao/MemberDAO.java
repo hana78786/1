@@ -1,5 +1,7 @@
 package com.kh.memeber.model.dao;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,30 +9,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import com.kh.memeber.common.JDBCTmeplate;
 import com.kh.memeber.model.vo.Member;
 
 public class MemberDAO {
-//	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-//	private final String USER = "student";
-//	private final String PWD = "student";
-//	private final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+	private Properties prop = new Properties();
 
 	public ArrayList<Member> allMember(Connection conn) {
-	//	JDBCTmeplate jdbcTmeplate = new JDBCTmeplate();
-	
-		//Connection conn = null;		
+
+		try {
+			FileReader fReader = new FileReader("resources/query.properties");
+			prop.load(fReader);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		Statement stmt = null;
 		ResultSet rset = null;
 		ArrayList<Member> mList = new ArrayList<Member>();
-		String query = "select * from member_tbl";
+		String query = prop.getProperty("queryAll");
 
 		try {
-			//conn=jdbcTmeplate.createConnection();
-			//이 한줄로 아래 두줄 대체
-//			Class.forName(DRIVER);
-//			conn = DriverManager.getConnection(URL, USER, PWD);
+
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 
@@ -66,21 +70,21 @@ public class MemberDAO {
 
 		return mList;
 	}
+
 //테이블 member_tbl
 	public Member serchId(String serchId, Connection conn) {
-		//Connection conn = null;
+		// Connection conn = null;
 		PreparedStatement pstmt = null;
 		String query = "select * from member_tbl where member_id = (?)";
 		Member member = null;
 		ResultSet rset = null;
 
 		try {
-			//Class.forName(DRIVER);
-			//conn = DriverManager.getConnection(URL, USER, PWD);
+			// Class.forName(DRIVER);
+			// conn = DriverManager.getConnection(URL, USER, PWD);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, serchId);
 			rset = pstmt.executeQuery();
-			
 
 			if (rset.next()) {
 				member = new Member();
@@ -94,7 +98,7 @@ public class MemberDAO {
 				member.setAddress(rset.getString(8));
 				member.setHobby(rset.getString(9));
 				member.setEnRollDate(rset.getDate(10));
-			} 
+			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -112,21 +116,20 @@ public class MemberDAO {
 
 		return member;
 	}
-	
+
 	public ArrayList<Member> serchName(String serchName, Connection conn) {
-		//Connection conn = null;
+		// Connection conn = null;
 		PreparedStatement pstmt = null;
-		String query = "select * from member_tbl where member_name like ?";  //?위치홀더
+		String query = "select * from member_tbl where member_name like ?"; // ?위치홀더
 		Member member = null;
 		ResultSet rset = null;
 		ArrayList mList = new ArrayList();
 		try {
-			//Class.forName(DRIVER);
-			//conn = DriverManager.getConnection(URL, USER, PWD);
+			// Class.forName(DRIVER);
+			// conn = DriverManager.getConnection(URL, USER, PWD);
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, "%"+serchName+"%");
-			rset = pstmt.executeQuery(); //Ctrl+Enter의 의미
-			
+			pstmt.setString(1, "%" + serchName + "%");
+			rset = pstmt.executeQuery(); // Ctrl+Enter의 의미
 
 			while (rset.next()) {
 				member = new Member();
@@ -141,9 +144,9 @@ public class MemberDAO {
 				member.setHobby(rset.getString(9));
 				member.setEnRollDate(rset.getDate(10));
 				mList.add(member);
-			} 
+			}
 
-		}  catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
@@ -160,28 +163,26 @@ public class MemberDAO {
 	}
 
 	public int checkId(String serchId, Connection conn) {
-		int result=0;
-		//Connection conn = null;
+		int result = 0;
+		// Connection conn = null;
 		PreparedStatement pstmt = null;
 		String query = "select count(*) from member_tbl where member_id = ?";
 		ResultSet rset = null;
-		
+
 		try {
-			//Class.forName(DRIVER);
-			//conn=DriverManager.getConnection(URL, USER, PWD);
-			pstmt =conn.prepareStatement(query);
+			// Class.forName(DRIVER);
+			// conn=DriverManager.getConnection(URL, USER, PWD);
+			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, serchId);
-			rset=pstmt.executeQuery();
+			rset = pstmt.executeQuery();
 			if (rset.next()) {
 				result = rset.getInt(1);
 			}
-			
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conn.close();
 				pstmt.close();
@@ -191,45 +192,39 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
-		
+
 		return result;
 	}
-	
+
 	public int serchPwd(String serchPwd, String serchId, Connection conn) {
 		int result = 0;
-		//Connection conn = null;
-		//Statement stmt = null;
+		// Connection conn = null;
+		// Statement stmt = null;
 		PreparedStatement pstmt = null;
-		ResultSet rset = null;		
-	//	String query = "select member_pwd from member_tbl where member_id = '"+serchId+"'";
+		ResultSet rset = null;
+		// String query = "select member_pwd from member_tbl where member_id =
+		// '"+serchId+"'";
 		String query = "select member_pwd from member_tbl where member_id = ?";
 		try {
-			//Class.forName(DRIVER);
-			//conn = DriverManager.getConnection(URL, USER, PWD);
+			// Class.forName(DRIVER);
+			// conn = DriverManager.getConnection(URL, USER, PWD);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, serchId);
 			rset = pstmt.executeQuery();
-			//stmt= conn.createStatement();
-			//rset = stmt.executeQuery(query);
-			
-			if(rset.next()) {	
-				if(rset.getString("member_pwd").equals(serchPwd)) {
+			// stmt= conn.createStatement();
+			// rset = stmt.executeQuery(query);
+
+			if (rset.next()) {
+				if (rset.getString("member_pwd").equals(serchPwd)) {
 					result = 1;
 				}
-				
-				
+
 			}
 
-			
-				
-			
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conn.close();
 				pstmt.close();
@@ -238,16 +233,12 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
 
-	
-	
-	
-	
 	public int setMemeber(Member member, Connection conn) {
-		//Connection conn = null;
+		// Connection conn = null;
 		// Statement stmt = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -261,8 +252,8 @@ public class MemberDAO {
 
 		String query = "insert into member_tbl values(?,?,?,?,?,?,?,?,?,default)";
 		try {
-			//Class.forName(DRIVER);
-			//conn = DriverManager.getConnection(URL, USER, PWD);
+			// Class.forName(DRIVER);
+			// conn = DriverManager.getConnection(URL, USER, PWD);
 			// stmt = conn.createStatement();
 			// result = stmt.executeUpdate(query);
 			pstmt = conn.prepareStatement(query);
@@ -280,7 +271,7 @@ public class MemberDAO {
 			// Ctrl+Enter
 			result = pstmt.executeUpdate();
 
-		}  catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
@@ -296,26 +287,23 @@ public class MemberDAO {
 		return result;
 	}
 
-	
 	public int delMem(String serchId, Connection conn) {
-		//Connection conn =null;
+		// Connection conn =null;
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String query = "delete member_tbl where member_id =?";
-		
+
 		try {
-			//Class.forName(DRIVER);
-			//conn=DriverManager.getConnection(URL, USER, PWD);
-			pstmt=conn.prepareStatement(query);
+			// Class.forName(DRIVER);
+			// conn=DriverManager.getConnection(URL, USER, PWD);
+			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, serchId);
 			result = pstmt.executeUpdate();
-			
-			
-			
-		}  catch (SQLException e) {
+
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conn.close();
 				pstmt.close();
@@ -323,43 +311,37 @@ public class MemberDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
-		
-		
-		
-		
+
 		return result;
 	}
 
-	
 	public int modifyMem(String serchId, Member member, Connection conn) {
 		int result = 0;
-		//Connection conn = null;
+		// Connection conn = null;
 		PreparedStatement pstmt = null;
 		String query = "update member_tbl set member_pwd = ?, member_name =?, email =?, address = ?, phone =?, hobby=? where member_id= ?";
-		
-		
+
 		try {
-			//Class.forName(DRIVER);
-			//conn = DriverManager.getConnection(URL, USER, PWD);
-			pstmt=conn.prepareStatement(query);
+			// Class.forName(DRIVER);
+			// conn = DriverManager.getConnection(URL, USER, PWD);
+			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, member.getMemberPwd());
 			pstmt.setString(2, member.getMemberName());
-			
+
 			pstmt.setString(3, member.getEmail());
 			pstmt.setString(4, member.getAddress());
 			pstmt.setString(5, member.getPhone());
 			pstmt.setString(6, member.getHobby());
-	
+
 			pstmt.setString(7, serchId);
 			result = pstmt.executeUpdate();
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conn.close();
 				pstmt.close();
@@ -367,15 +349,10 @@ public class MemberDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
-		
-				
-		
-		
-		
+
 		return result;
 	}
 
-	
 }

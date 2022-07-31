@@ -44,7 +44,7 @@ public class JDBCTmeplate {
 		String password = prop.getProperty("password");
 		
 			if (conn == null || conn.isClosed()) {
-				Class.forName("driver");
+				Class.forName(driver);
 				conn = DriverManager.getConnection(url, user, password);
 				conn.setAutoCommit(false); //자동커밋해제
 				
