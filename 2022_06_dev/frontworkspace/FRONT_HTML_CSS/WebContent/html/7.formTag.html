@@ -37,22 +37,15 @@
     </form>
 
     <h1>세번째 폼</h1>
+
     <form action="">
-        id : <input type="text"><br>
-        pw : <input type="password" name="" id=""><br>
-        name : <input type="text"> <br>
-             
-        <input type="submit" value="로그인">
-        <input type="reset" name="" id="" value="취소">
+        <input type="text" value = "쓸수 없습니다 " readonly> <br>
+
+        <input type="text" maxlength="6" placeholder="6자까지만 입력가능"
+        size = "20">
+
     </form>
 
-<form action="">
-    <input type="text" value = "쓸수 없습니다 " readonly> <br>
-
-    <input type="text" maxlength="6" placeholder="6자까지만 입력가능"
-    size = "20">
-
-</form>
 <h1>네번째 폼</h1>
 <form action="/student/check.do" method="get">
     
@@ -82,6 +75,35 @@
             <input type="reset" value="초기화">
 
         </fieldset>
+
+</form>
+<hr>
+
+<h1>다섯번째 폼</h1>
+<form action="">
+    <fieldset>
+       <legend>좋아하는 음식(다중선택)</legend>
+       <label for="pizza-check"> 피자 <input type="checkbox" name="pizza" value="p" id="pizza-check">
+       <label> 치킨 <input type="checkbox" name="chiken" value="c"></label>
+       <label> 떡볶이 <input type="checkbox" name="toppoki" value="t"></label>
+       <label> 튀김 <input type="checkbox" name="fried" value="f"></label>
+       <input type="submit" name="" id="" value="전송">
+ 
+
+    </fieldset>
+
+
+</form>
+<br>
+<form action="">
+    <fieldset>
+        <legend>취미생활</legend>
+        <label> 코딩 <input type="radio" name="hobby" values="coding"></label>
+        <label> 수영 <input type="radio" name="hobby" values="swim"></label>
+        <label> 골프 <input type="radio" name="hobby" values="golf"></label>
+        <label> 야구 <input type="radio" name="hobby" values="basball"> </label><br>
+        <input type="submit" name="" id="">
+    </fieldset>
 
 </form>
 
