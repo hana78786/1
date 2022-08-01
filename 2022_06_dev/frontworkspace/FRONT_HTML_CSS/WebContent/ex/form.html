@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼태그 복습</title>
+</head>
+<body>
+    <form action="/FRONT_HTML_CSS/member/login.do" method="get">
+        <fieldset>
+            <legend>로그인 정보</legend>
+            ID : <input type="text" name="user-id" placeholder="아이디"><br>
+            PW : <input type="password" name="user-pw" placeholder="비밀번호"><br>
+            <input type="submit" value="로그인"><br>
+            <input type="reset" value="초기화"><br>
+        </fieldset>
+    </form>
+	<form action="/FRONT_HTML_CSS/member/check.do" method="get">
+        <fieldset>
+            <legend>로그인 정보</legend>
+            ID : <input type="text" name="user-id" value="읽기전용" readonly><br>
+            PW : <input type="password" name="user-pw" placeholder="비밀번호"><br>
+            Name : <input type="text" name="user-name"><br>
+            <input type="submit" value="로그인"><br>
+            <input type="reset" value="초기화"><br>
+        </fieldset>
+    </form>
+
+    <form action="">
+        <fieldset>
+            <legend>좋아하는 음식</legend>
+            <input type="checkbox" id="pizza" value="pizza">
+            <label for="pizza">피자</label>
+            <input type="checkbox" id="chiken" value="chiken">
+            <label for="chiken">치킨</label>
+            <input type="checkbox" id="toppoki" value="toppoki">
+            <label for="toppoki">떡볶이</label>
+            <input type="checkbox" id="fried" value="fried">
+            <label for="fried">튀김</label>
+
+        </fieldset>
+    </form>
+
+    <form action="">
+        <fieldset>
+            <legend>취미생활</legend>
+            <input type="radio" name="hobby" id="coding"> 
+            <label for="coding">코딩</label>
+           <label><input type="radio" name="hobby">수영</label> 
+           <label><input type="radio" name="hobby" id="">골프</label>
+           <label><input type="radio" name="hobby">야구</label>
+           <input type="submit" value="전송">
+           
+        </fieldset>
+
+    </form>
+
+    <form action="">
+        <fieldset>
+            <legend>html5 폼</legend>
+            <input type="color"><br>
+            <input type="date"><br>
+            <input type="datetime-local"><br>
+            <input type="time"><br>
+            <input type="week"><br>
+            <input type="search" required><br>
+            <input type="email"><br>
+            <input type="range">
+            <input type="submit" value="전송">
+        </fieldset>
+    </form>
+
+
+</body>
+</html>

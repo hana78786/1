@@ -9,11 +9,11 @@
 <body>
     <h1>첫번째 폼</h1>
     <!-- 폼태그는 데이터를 전송할때 사용됨-->
-    <form action="/member/login.do">
+    <form action="/FRONT_HTML_CSS/member/login.do" method="get">
         <fieldset>
             <legend>로그인정보</legend>
-            ID :  <input type="text"><br>
-            PW :  <input type="password"><br>
+            ID :  <input type="text" name ="user-id"><br>
+            PW :  <input type="password" name="user-pw"><br>
             <input type="submit" value="로그인">
          <input type= "reset" value="취소">
 
@@ -38,11 +38,14 @@
 
     <h1>세번째 폼</h1>
 
-    <form action="">
-        <input type="text" value = "쓸수 없습니다 " readonly> <br>
+    <form action="/FRONT_HTML_CSS/member/check.do" method="get">
+        <input type="text" name ="member-id" value = "기본값" readonly> <br>
+         <input type="password" name ="member-pw"   maxlength="6"> <br>
 
         <input type="text" maxlength="6" placeholder="6자까지만 입력가능"
-        size = "20">
+        size = "20" name="member-name">
+         <input type="submit" value="로그인">
+         <input type= "reset" value="취소">
 
     </form>
 
