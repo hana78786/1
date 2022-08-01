@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼태그</title>
+</head>
+<body>
+    <h1>첫번째 폼</h1>
+    <!-- 폼태그는 데이터를 전송할때 사용됨-->
+    <form action="/member/login.do">
+        <fieldset>
+            <legend>로그인정보</legend>
+            ID :  <input type="text"><br>
+            PW :  <input type="password"><br>
+            <input type="submit" value="로그인">
+         <input type= "reset" value="취소">
+
+        </fieldset>
+    </form>
+
+    <h1>두번째 폼</h1>
+    <form action="/member/check.do">
+        text : <input type="text" name="" id=""><br>
+        password : <input type="password" name="" id=""><br>
+        submit : <input type="submit"><br>
+        reset : <input type="reset" name="" id=""><br>
+        <hr>
+        checkbox : <input type="checkbox"><br>
+        radio : <input type="radio" name="" id=""><br>
+        button : <input type="button" value="버튼">
+        <hr>
+        file : <input type="file">
+
+
+    </form>
+
+    <h1>세번째 폼</h1>
+    <form action="">
+        id : <input type="text"><br>
+        pw : <input type="password" name="" id=""><br>
+        name : <input type="text"> <br>
+             
+        <input type="submit" value="로그인">
+        <input type="reset" name="" id="" value="취소">
+    </form>
+
+<form action="">
+    <input type="text" value = "쓸수 없습니다 " readonly> <br>
+
+    <input type="text" maxlength="6" placeholder="6자까지만 입력가능"
+    size = "20">
+
+</form>
+<h1>네번째 폼</h1>
+<form action="/student/check.do" method="get">
+    
+        <fieldset>
+            <legend>로그인(Get)</legend>
+            id : <input type="text" maxlength="10" size = "20" placeholder="ID입력"
+            name="user-id"><br>
+            pw : <input type="password" size = "20" placeholder="비밀번호 입력"
+            name="user-pw"> <br>
+
+            <input type="submit" value="로그인">  
+            <input type="reset" value="초기화">
+
+        </fieldset>
+
+</form>
+
+
+<form action="/student/check.do" method="post">
+    
+        <fieldset>
+            <legend>로그인(Post)</legend>
+            id : <input type="text" maxlength="10" size = "20" placeholder="ID입력"><br>
+            pw : <input type="password" size = "20" placeholder="비밀번호 입력"> <br>
+
+            <input type="submit" value="로그인">  
+            <input type="reset" value="초기화">
+
+        </fieldset>
+
+</form>
+
+</body>
+</html>
