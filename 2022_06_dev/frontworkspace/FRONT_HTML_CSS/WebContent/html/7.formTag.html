@@ -83,10 +83,10 @@
 <form action="">
     <fieldset>
        <legend>좋아하는 음식(다중선택)</legend>
-       <label for="pizza-check"> 피자 <input type="checkbox" name="pizza" value="p" id="pizza-check">
+       <label for="pizza-check"> 피자 </label><input type="checkbox" name="pizza" value="p" id="pizza-check">
        <label> 치킨 <input type="checkbox" name="chiken" value="c"></label>
        <label> 떡볶이 <input type="checkbox" name="toppoki" value="t"></label>
-       <label> 튀김 <input type="checkbox" name="fried" value="f"></label>
+       <label> 튀김 <input type="checkbox" name="fried" value="f"></label><br>
        <input type="submit" name="" id="" value="전송">
  
 
@@ -107,5 +107,66 @@
 
 </form>
 
+<hr>
+<h1>여섯번째 폼(html5 속성)</h1>
+<form action="">
+    색상 : <input type="color"><br>
+    날짜 : <input type="date"><br>
+    날짜와 시간 : <input type="datetime-local"><br>
+    시간 : <input type="time"><br>
+    주를 기준으로 날짜 선택 : <input type="week"><br>
+    검색 : <input type="search" required><br>
+    이메일여부 확인 : <input type="email"><br>
+    범위 선택 : <input type="range"><br>
+    <input type="submit" value="전송">
+    
+</form>
+
+<h1>일곱번재 폼</h1>
+<form action="">
+    <fieldset>
+        <legend>직업을 선택하세요 : </legend>
+        <select name="job" id="">
+            <option value="doc">의사</option>
+            <option value="judge">판사</option>
+            <option value="gladiator">검사</option>
+            <option value="educator">강사</option>
+        </select>
+       <select name="" id="">
+            <optgroup lable ="자바">
+            <option value="">캡슐화</option>
+            <option value="">다형성</option>
+            <option value="">상속</option>
+            </optgroup>
+
+            <optgroup lable ="SQL">
+            <option value="">DML</option>
+            <option value="">DQL</option>
+            <option value="">DDL</option>
+            </optgroup>
+
+       </select>
+   
+        
+    </fieldset>
+
+    <fieldset>
+        <legend>좋아하는 브라우저 선택</legend>
+            <input type="text" list="browers">
+            <datalist id="browers">
+                    <option value="IE"></option>
+                    <option value="Enge"></option>
+                    <option value="Chrome"></option>
+                    <option value="While"></option>
+                </datalist>
+    </fieldset>
+    <input type="submit" value="전송">
+</form>
+
+<h1>여덟번째 폼</h1>
+<form action="">
+    제목 : <input type="text" name=""><br>
+    내용 :  <br><textarea name="" id="" cols="40" rows="15"></textarea>
+</form>
 </body>
 </html>
