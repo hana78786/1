@@ -5,8 +5,9 @@
 <title>계산기</title>
 </head>
 <body>
-
-    <form action="/BasicWeb/cal/result.do">
+<!-- 서블릿은 url로 요청했지만 jps는jps의 위치로 요청함 -->
+   <form action="/BasicWeb/cal/result.do"> 
+  <!--   <form action="./calResult.jsp">-->
         <input type="text" name="first-num">
         <select name="operator" id="">
             <option value="+">+</option>

@@ -3,6 +3,7 @@ package radio;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,16 +31,22 @@ public class RadioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
+		request.setAttribute("gender", gender);
+		request.setAttribute("email", email);
 		
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-
-		System.out.println(gender);
-		System.out.println(email);
+		RequestDispatcher view = 
+				request.getRequestDispatcher("/calculator/radioResult.jsp");
+		view.forward(request, response);
 		
-		PrintWriter out = response.getWriter();
-				out.println("성별 : "+gender);
-				out.println("이메일 수신여부 : "+email);
+//		response.setCharacterEncoding("utf-8");
+//		response.setContentType("text/html; charset=utf-8");
+//
+//		System.out.println(gender);
+//		System.out.println(email);
+//		
+//		PrintWriter out = response.getWriter();
+//				out.println("성별 : "+gender);
+//				out.println("이메일 수신여부 : "+email);
 	}
 
 	/**

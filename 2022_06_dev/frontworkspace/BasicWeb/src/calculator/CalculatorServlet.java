@@ -3,6 +3,7 @@ package calculator;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,16 +54,26 @@ public class CalculatorServlet extends HttpServlet {
 			break;
 
 		}
-		System.out.println(result);
 		
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=utf-8");
+		request.setAttribute("first", num1);
+		request.setAttribute("second", num2);
+		request.setAttribute("operator",op);
+		request.setAttribute("result", result);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html><title>결과보기</title>");
-		out.println("<body><h1>계산결과는 다음과 같습니다</h1>");
-		out.println(num1+" "+op+" "+num2+" "+"= "+result);
-		out.println("<body></html>");
+		RequestDispatcher view
+		= request.getRequestDispatcher("/calculator/calResult.jsp");
+		view.forward(request, response);
+		
+//		System.out.println(result);
+//		
+//		response.setCharacterEncoding("UTF-8");
+//		response.setContentType("text/html; charset=utf-8");
+//		
+//		PrintWriter out = response.getWriter();
+//		out.println("<html><title>결과보기</title>");
+//		out.println("<body><h1>계산결과는 다음과 같습니다</h1>");
+//		out.println(num1+" "+op+" "+num2+" "+"= "+result);
+//		out.println("<body></html>");
 	}
 
 	/**

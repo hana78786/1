@@ -3,6 +3,7 @@ package exam;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,20 +29,12 @@ public class examServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
+
 		
 		String name = request.getParameter("user-name");
 		String color = request.getParameter("color");
 		String animal= request.getParameter("animal");
 		String[] foods = request.getParameterValues("foods");
-		
-		System.out.println("이름 "+name);
-		System.out.println("좋아하는 색 "+color);
-		System.out.println("좋아하는 동물 "+animal);
-		System.out.println("좋아하는 음식은");
-		for(String food : foods) {
-		System.out.print(food+" ");}
 		
 		switch(color) {
 		case "blue" : color="파랑"; break;
@@ -69,22 +62,14 @@ public class examServlet extends HttpServlet {
 			
 		}
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html><head><title>내 취향</title></head>");
-		out.println("<body><h1> 개인취향테스트 결과 화면 </h1>");
-		out.println(name+"님의 개인 취향은<br>");
-		out.println(color+"색을 좋아하고 <br>");
-		out.println(animal+"를 좋아합니다<br>");
-		out.println("좋아하는 음식은");
-		for(int i =0 ; i<foods.length;i++) {
-		out.print(foods[i]);
-		if (i != foods.length-1) {
-			out.print(", ");
-		}
-			
-		}
-		out.println(" 입니다");
-		out.println("</body></html>");
+		request.setAttribute("name", name);
+		request.setAttribute("color", color);
+		request.setAttribute("animal", animal);
+		request.setAttribute("foods", foods);
+		
+		RequestDispatcher view =
+				request.getRequestDispatcher("/calculator/exam.jsp");
+		view.forward(request, response);
 		
 	}
 
