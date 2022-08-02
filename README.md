@@ -17,6 +17,8 @@
   - Front workdspace
     - 서버를 활용한 html과 서버의 상호작용 관련
     - 폼으로 받은 값을 입력받고 반환한다
+    
+    작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/frontworkspace/
 
 ## bostcourse_htmlcss :html
 
