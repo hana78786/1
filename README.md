@@ -14,6 +14,9 @@
   - JDBC workspace
     - 학생관리 프로그램
     - 도서관 관리 프로그램
+  - Front workdspace
+    - 서버를 활용한 html과 서버의 상호작용 관련
+    - 폼으로 받은 값을 입력받고 반환한다
 
 ## bostcourse_htmlcss :html
 
