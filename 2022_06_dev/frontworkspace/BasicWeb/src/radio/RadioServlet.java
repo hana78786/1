@@ -31,11 +31,11 @@ public class RadioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
+		
 		request.setAttribute("gender", gender);
 		request.setAttribute("email", email);
 		
-		RequestDispatcher view = 
-				request.getRequestDispatcher("/calculator/radioResult.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/calculator/radioResult.jsp");
 		view.forward(request, response);
 		
 //		response.setCharacterEncoding("utf-8");

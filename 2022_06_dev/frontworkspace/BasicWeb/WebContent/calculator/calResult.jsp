@@ -13,7 +13,7 @@
 //         }
     int firstNum= (int)request.getAttribute("first"); //getAttribute는 object로 retrun하여 형변환이 필요하다
     int secondNum= (int)request.getAttribute("second");
-    char op = (char)request.getAttribute("operator");
+    char op =(char)request.getAttribute ("operator");
     int result = (int)request.getAttribute("result");
     
     %>

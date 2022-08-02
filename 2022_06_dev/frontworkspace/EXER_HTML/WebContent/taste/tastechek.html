@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>취향 찾기</title>
+</head>
+<body>
+    <h1>개인취향 테스트</h1>
+    당신의 취향을 테스트 합니다, 데이터 입력 후 확인 버튼을 누르세요
+    <br><br>
+    <form action="/EXER_HTML/test/check.do">
+        이름은? <input type="text" name="user-name">
+        <br>
+        좋아하는 색은?
+        <input type="radio" name="color" value="red" id="red">
+        <label for="red">빨강</label>
+        <input type="radio" name="color" value="blue" id="blue">
+        <label for="blue">파랑</label>
+        <input type="radio" name="color" value="yellow" id="yellow">
+        <label for="yellow">노랑</label>
+        <input type="radio" name="color" value="green" id="green">
+        <label for="green">초록</label>
+        <br>
+        좋아하는 동물은?
+        <select name="animal" id="">
+            <option value="dog">강아지</option>
+            <option value="cat">고양이</option>
+            <option value="rabbit">토끼</option>
+        </select>
+        <br>
+        좋아하는 음식은? (모두 고르세요)
+        <br>
+        <input type="checkbox" name="foods" id="jja" value="jja">
+        <label for="jja">짜장면 </label>
+        <input type="checkbox" name="foods" id="cham" value="cham">
+        <label for="cham">짬뽕 </label>
+        <input type="checkbox" name="foods" id="tang" value="tang">
+        <label for="tang">탕수육 </label>
+        <input type="checkbox" name="foods" id="man" value="man">
+        <label for="man">군만두 </label>
+        
+    <br>
+
+        <input type="submit" value="확인">
+        <input type="reset" name="" id="">
+    </form>
+</body>
+</html>

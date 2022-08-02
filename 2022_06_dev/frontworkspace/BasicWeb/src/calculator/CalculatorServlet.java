@@ -30,14 +30,11 @@ public class CalculatorServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String firstNum = request.getParameter("first-num");
-		String secondNum = request.getParameter("second-num");
-		String operator = request.getParameter("operator");
-
-		int num1 = Integer.parseInt(firstNum);
-		int num2 = Integer.parseInt(secondNum);
-		char op = operator.charAt(0);
-		int result = 0;
+		
+		int num1 = Integer.parseInt(request.getParameter("first-num"));
+		int num2 = Integer.parseInt(request.getParameter("second-num"));
+		char op = request.getParameter("operator").charAt(0);
+		int result=0;
 
 		switch (op) {
 		case '+':
@@ -57,12 +54,12 @@ public class CalculatorServlet extends HttpServlet {
 		
 		request.setAttribute("first", num1);
 		request.setAttribute("second", num2);
-		request.setAttribute("operator",op);
+		request.setAttribute("operator", op);
 		request.setAttribute("result", result);
 		
-		RequestDispatcher view
-		= request.getRequestDispatcher("/calculator/calResult.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/calculator/calResult.jsp");
 		view.forward(request, response);
+	
 		
 //		System.out.println(result);
 //		
