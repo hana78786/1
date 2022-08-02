@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인취향 테스트</title>
+</head>
+<body>
+    <h1>개인취향 테스트(GET)</h1>
+    당신의 취향을 테스트 합니다.
+    데이트 입력 후 확인 버튼을 누르세요
+
+<form action="/BasicWeb/exam/test.do">
+    <br>
+    이름은?
+    <input type="text" name="user-name">
+    <br>
+  
+    좋아하는 색?
+    <label>빨강 <input type="radio" name="color" value="red"> </label>
+    <label>파랑 <input type="radio" name="color" value="blue"> </label>
+    <label>노랑 <input type="radio" name="color" value="yellow"> </label>
+    <label>초록 <input type="radio" name="color" value="green"> </label>
+    <br>
+    좋아하는 동물은?
+    <select name="animal" id="">
+        <option value="dog">강아지</option>
+        <option value="cat">고양이</option>
+        <option value="rabbit">토끼</option>
+    </select>
+    <br>
+    좋아하는 음식은?(모두 고르세요) 
+    <label>짜장면 <input type="checkbox" name="foods" value="jjajjang"></label>
+    <label>짬뽕 <input type="checkbox" name="foods" value="champong"></label>
+    <label>탕수육 <input type="checkbox" name="foods" value="tangsuyuk"></label>
+    <label>양장피 <input type="checkbox" name="foods" value="yangjangpi"></label>
+    <label>발포채 <input type="checkbox" name="foods" value="palboche"></label>
+
+    <br>
+    <input type="submit" value="전송">
+    <input type="reset" name="" id=""value="초기화">
+
+</form>
+</body>
+</html>
