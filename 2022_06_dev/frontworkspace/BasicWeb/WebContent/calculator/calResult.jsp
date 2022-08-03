@@ -11,10 +11,10 @@
 //     case '*' : result = firstNum*secondNum; break;
 //     case '/' : result = firstNum/secondNum; break;
 //         }
-    int firstNum= (int)request.getAttribute("first"); //getAttribute는 object로 retrun하여 형변환이 필요하다
-    int secondNum= (int)request.getAttribute("second");
-    char op =(char)request.getAttribute ("operator");
-    int result = (int)request.getAttribute("result");
+//     int firstNum= (int)request.getAttribute("first"); //getAttribute는 object로 retrun하여 형변환이 필요하다
+//     int secondNum= (int)request.getAttribute("second");
+//     char op =(char)request.getAttribute ("operator");
+//     int result = (int)request.getAttribute("result");
     
     %>
     
@@ -26,8 +26,8 @@
 </head>
 <body>
 	<h1> 계산 결과는 다음과 같습니다</h1>
-	<%=firstNum %> <%=op %> <%= secondNum %>
-	= <%= result%>
+	${first } ${operator } ${second }
+	= ${ result}
 	
 
 </body>

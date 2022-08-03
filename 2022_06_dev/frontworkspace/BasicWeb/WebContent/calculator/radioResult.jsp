@@ -3,8 +3,8 @@
     <%
 //     String gender= request.getParameter("gender");
 //     String email= request.getParameter("email");
-    String gender= (String)request.getAttribute("gender");
-    String email= (String)request.getAttribute("email");
+//     String gender= (String)request.getAttribute("gender");
+//     String email= (String)request.getAttribute("email");
     %>
 <!DOCTYPE html>
 <html>
@@ -13,8 +13,8 @@
 <title>라디오 박스</title>
 </head>
 <body>
-성별 : <%=gender %> <br>
-메일 수신 여부 : <%=email %>
+성별 : ${gender } <br>
+메일 수신 여부 : ${email }
 
 </body>
 </html>

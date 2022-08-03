@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
     <%
    // String[] palces = request.getParameterValues("place");
-    String[] places = (String[])request.getAttribute("places");
+  //     String[] places = (String[])request.getAttribute("places");
     %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,11 @@
 <h2>당신이 선택한 관광지 입니다</h2>
 <hr>
 <span>선택한 장소는 : </span>
-<%
-	for(String place : places){
-		%>
-		<%= place %>
-<%		
-	}
-%>
+
+<c:forEach items="${places }" var="place" >
+<br>
+${place }
+</c:forEach> 
+
 </body>
 </html>
