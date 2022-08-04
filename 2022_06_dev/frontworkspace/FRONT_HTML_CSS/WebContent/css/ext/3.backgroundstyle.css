@@ -1,0 +1,36 @@
+body {background-color: pink;}
+#div-bg{
+    width:50%; 
+    height:100px;
+    background-color: rgb(183,238,195);
+}
+.div-test{
+    background-color: wheat;
+    margin: 30px;
+    padding: 20px;
+    width:10%;
+    float: left;
+    border: 5px dashed black;
+
+}
+
+#div1{background-clip: border-box;}
+#div2{background-clip: padding-box;}
+#div3{background-clip: content-box;}
+
+#bg-img{
+    width:90%;
+    height:500px;
+    border:1px solid lawngreen;
+    background-image: url(../img/img_640.jpg);
+    background-repeat: repeat-y;
+    background-position: 50% 50%;
+}
+/* 
+    no-repeat : 반복없음 
+    repeat : 반복(기본)
+    repeat-x : x축 반복
+    repeat-y : y축 반복
+    round : 끝까지 끌어 맞춤(여백없이)
+    space : 여백 공백처리
+    */

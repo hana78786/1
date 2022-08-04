@@ -1,0 +1,25 @@
+h1{color: red}
+#p-tag1
+{   background-color: aqua;
+    color:  blue}
+#p-tag2 { background-color: bisque;}
+.c-tag1{background-color: aquamarine;}
+
+[type=text] {background-color: beige;}
+[name=userId] {background-color: blueviolet;}
+
+[name~=Test] {color:goldenrod}
+[class|=class] {background-color: rebeccapurple;}
+[id^=id] {color: darkseagreen;}
+[class$=c1]{color: deepskyblue;}
+[class*=p]{color:hotpink}
+
+div>h1 {color : red }
+div li{color : blue}
+
+
+#div-test>h4 {background-color: aquamarine;}
+#div-test li{color:blueviolet}
+
+h5+p {color:red}
+

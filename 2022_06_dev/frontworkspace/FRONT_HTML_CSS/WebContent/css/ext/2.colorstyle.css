@@ -1,0 +1,32 @@
+/* 
+색상표현
+1. 영문색 이름 : 영문으로 색이름 작성
+ ex) red, blue, gold
+2. 16진수 표현 : RGB값을 기준으로 16진수로 작성
+ ex) #FF0000(빨간색) == #F00
+3. rgb/rgba  : RGB값을 0 ~ 255로 입력
+ ex) rgb(0, 0, 0) -> 검정, rgb(255,255,255) -> 흰색
+     rgba(255,0,0,1) -> 빨간색이며 불투명한 색, 0이면 투명,
+      1이면 불투명
+*/
+#c-name{color:red}
+#c-16{color :#0125ff}
+#c-rgb{color : rgb(0,0,42)}
+#c-rgba{color:rgb(0,0,111,0.5)}
+
+#td1{text-decoration: none;}
+#td2{text-decoration: underline;}
+#td3{text-decoration: line-through;}
+#td4{text-decoration: overline;}
+
+#tt1{text-transform:none;}
+#tt2{text-transform: capitalize;}
+#tt3{text-transform: uppercase;}
+#tt4{text-transform: lowercase;}
+
+#bg{background-color: black; margin: 30px; padding: 50px;}
+.shadow{font-size: 100px;line-height: 30px; font-weight: 900;}
+#ts1{color: orangered;text-shadow: 5px 5px orange;}
+#ts2{color: white; text-shadow: 0px 1px 20px #fff;}
+#ts3{color: white; text-shadow: 1px 1px 20px #6601f6;}
+#ts4{color: black; text-shadow: 0px 0px 4px #ccc, 0px -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;}

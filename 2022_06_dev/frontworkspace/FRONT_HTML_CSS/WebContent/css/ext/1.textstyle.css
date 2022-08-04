@@ -1,0 +1,15 @@
+#ff1{font-family: "궁서체";}
+#ff2{font-family: "고딕체";}
+#ff3{font-family: "굴림체";}
+#web-font{font-family: 'Montserrat', sans-serif;}
+#size1 {font-size:60px}
+#size2 {font-size:2em}
+#size1 {font-size:150%}
+#fw1{font-weight: bold;}
+#fw2{font-weight: lighter;}
+#fw3{font-weight: border;}
+#fv{font-variant: small-caps;}
+#fs1{font-style: italic;}
+
+#f1 {font : italic bold 20px/20px "고딕체"}
+/*폰트에는 순서가있따 font-style font-variant font-weight, font-size/line-height font-family*/

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+   <link rel="stylesheet" href="./ext/sample.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,300&family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <h1>아이디/클래스 선택자</h1>
+    <p id="p-tag1">p태그에 있는 텍스트입니다.</p>
+    <p id="p-tag2">얘도 p태그에 있는 텍스트입니다.</p>
+    <h4 class="c-tag1">얘는 h4태그에 있는 텍스트입니다.</h4>
+
+    <p class="c-tag1">p태그에 있는 텍스트입니다.</p>
+    <p>얘도 p태그에 있는 텍스트입니다.</p>
+    <h4 class="c-tag1">얘는 h4태그에 있는 텍스트입니다.</h4>
+
+
+    <input type="text" name="userId" id="">
+    <input type="text" name="userPwd" id="">
+
+    <p name="pn-tag1">p에 있는 텍스트</p>
+    <p name="pn-tag2">p에 있는 텍스트</p>
+    <h4 name="pn-tag3">h4에 있는 텍스트</h4>
+
+    <p name="Test 1" id="i1" class="class-c1">Test1 글자입니다.</p>
+    <p name="Test 2" id="i2" class="c1">
+    Test2 글자입니다.</p>
+    <p name="Test 3" id="i3" class="c1">Test3 글자입니다.</p>
+    <p name="Test 4" id="i4" class="c2">Test4 글자입니다.</p>
+    <p name="Test 5" id="i5" class="c2">Test5 글자입니다.</p>
+    <p name="Test 6" id="i6" class="class-c2">Test6 글자입니다.</p>
+
+    <p name="Test 1" id="i1" class="p-class c1">Test1 글자입니다.</p>
+        <p name="Test 2" id="i2" class="class c1">
+        Test2 글자입니다.</p>
+        <p name="Test 3" id="i3" class="class c2">Test3 글자입니다.</p>
+        <p name="Test 4" id="id4" class="class c2">Test4 글자입니다.</p>
+        <p name="Test 5" id="id5" class="class c3">Test5 글자입니다.</p>
+        <p name="Test 6" id="id6" class="class-p c3">Test6 글자입니다.</p>
+
+
+
+        <h1>자손/후손 선택자</h1>
+        <div>
+            <h1>자손입니다.</h1>
+            <h2></h2>
+            <ul>
+                <li>후손1입니다.</li>
+                <li>후손2입니다.</li>
+            </ul>
+        </div>
+        
+
+        <h3>
+            자손선택자를 이용하여 h4 배경색 바꾸기
+            <br>후손선택자를 이용하여 li 글씨색 바꾸기
+            <br>자손선택자를 이용하여 li 배경색 바꾸기
+        </h3>
+    
+        <div id="div-test">
+            <h4>div의 자손1 입니다.</h4>
+            <h4>div의 자손2 입니다.</h4>
+            <ul id="ul-test">
+                <li>ul의 자손입니다. 동시에 div의 후손입니다.</li>
+                <li>ul의 자손입니다. 동시에 div의 후손입니다.</li>
+            </ul>    
+        </div>
+
+         <h1>동위선택자</h1>
+    <div>
+        <h4>자손1</h4>
+        <h5>자손2</h5>
+        <p>자손3</p>
+        <p>자손4</p>
+        <p>자손5</p>
+    </div>
+
+
+    <style>
+        /* 
+        일반구조선택자
+        - 특정한 위치에 있는 태그 선택(위치로 구분)
+        1. :first-child
+        2. :last-child
+        3. :nth-child(2n)
+        4. :nth-last-child(수열) 
+        */
+
+        #div-test1>p:first-child {color :red}
+        #div-test1>p:last-child{color:blue}
+        #div-test1>p:nth-child(2n){background-color: blanchedalmond;}
+    
+    </style>
+    <h1>일반 구조 선택자</h1>
+    <div>
+        <div id="div-test1">
+            <p>테스트1-1 입니다.</p>
+            <p>테스트1-2 입니다.</p>
+            <p>테스트1-3 입니다.</p>
+            <p>테스트1-4 입니다.</p>
+            <p>테스트1-5 입니다.</p>
+        </div>
+        <div id="div-test2">
+            <p>테스트2-1 입니다.</p>
+            <p>테스트2-2 입니다.</p>
+            <p>테스트2-3 입니다.</p>
+        </div>     
+    </div>
+    <hr>
+    <div id="div-test3">
+        <p>테스트1 입니다.</p>
+        <p>테스트2 입니다.</p>
+        <p>테스트3 입니다.</p>
+        <p>테스트4 입니다.</p>
+        <p>테스트5 입니다.</p>
+        <p>테스트6 입니다.</p>
+    </div>
+    
+
+    <style>
+        /* 
+        형태 구조 선택자
+        - 태그 별로 구분하여 특정한 위치에 있는 태그 선택
+        1. :first-of-type
+        2. :last-of-type
+        3. nth-of-type(수열)
+        4. nth-last-of-type(2n) 
+        */
+    #div-test4>p:first-of-type{color:red}
+    #div-tset4>p:last-of-type{color:blueviolet}
+    </style>
+    <h1>형태 구조 선택자</h1>
+    <div id="div-test4">
+        <p>테스트 1p 입니다.</p>
+        <h4>테스트 h1 입니다.</h4>
+        <p>테스트 2p 입니다.</p>
+        <h4>테스트 h2 입니다.</h4>
+        <p>테스트 3p 입니다.</p>
+        <h4>테스트 h3 입니다.</h4>
+        <p>테스트 4p 입니다.</p>
+        <h4>테스트 h4 입니다.</h4>
+    </div>
+    
+    
+
+
+
+
+</body>
+</html>
