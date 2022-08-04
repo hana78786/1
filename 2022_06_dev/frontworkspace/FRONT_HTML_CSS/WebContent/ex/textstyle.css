@@ -1,0 +1,42 @@
+#webfont{
+    font-family: 'Montserrat', sans-serif;
+}
+#goong
+{
+    font-family: '궁서체';
+}
+
+
+#c1{
+    color:aqua;
+    background-color: purple;
+    text-decoration: underline;
+    text-align: center;
+    text-decoration: overline;
+
+}
+
+#box{
+    border: 1px double black; 
+    width: 50%;
+    height: 500px;
+  
+}
+
+#box1{
+    border-style: groove;
+    width: 50%;
+    height: 500px;
+  
+}
+
+#borderstyle{
+    border: 2px solid black;
+}
+
+#stylebox1{
+    border-style: inset;
+    border-bottom-left-radius: 50px;
+    width: 50%;
+    height: 300px;
+}

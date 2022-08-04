@@ -87,7 +87,7 @@ td{border: 5px dashed black;}
 #tr3_td3{
     border-style: inset;
     border-bottom-right-radius: 50px;
-    border-color: red;
+    border-color: red blue blueviolet black;
     border-style: dashed solid solid dashed ;
 }
 
