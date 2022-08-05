@@ -1,0 +1,99 @@
+.div-class{
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    margin: 100px;
+    animation-name: rectani;
+    animation-duration: 5s;
+}
+
+@keyframes rectani {
+    0% {background-color: yellowgreen;}
+    100%{
+        background-color: blue;
+        border-radius: 50%;
+        transform: rotateZ(360deg);
+    }    
+}
+
+.div2-class{
+    width: 100px;
+    height: 100px;
+    background-color: mediumvioletred;
+    margin: 100px;
+    animation-duration: 10s;
+    animation-name: recani2;
+    animation-iteration-count: infinite;
+}
+
+@keyframes recani2{
+    0%{
+        background-color: red;
+
+    }
+    15%{
+        background-color: orange;
+        transform: scale(1.5); border-radius: 50%;
+    }
+    30%{
+        background-color: yellow;
+        transform: scale(1); border-radius: 0%;
+    }
+    45%{
+        background-color: green; 
+        transform: scale(1.5) rotateY(360deg);
+    }
+    60%{background-color: blue; border:3px dashed yellow;
+
+    }
+    75%{
+        background-color: navy; transform: scale(1.5);
+    }
+   100%{
+        background-color: purple; transform: scale(1);
+    }
+}
+
+img{
+    width: 250px;
+    height: 200px;
+}
+
+img:hover{
+   
+    animation-name: imgani;
+    animation-duration: 10s;
+    
+}
+
+@keyframes imgani {
+    10%{
+        transform: scale(1.5);
+    }
+    15%{
+        -webkit-transform-origin-x: 100%;
+    
+    }
+    25%{
+        transform:rotateZ(40deg) ;
+    }
+    30%{
+
+        filter: grayscale(100%);
+        background-color: brown;
+        opacity: 0
+    }
+    50%{border: 10px double skyblue;
+    transform: scale(2);
+    background-color: darkcyan;
+   }
+ 
+   90%{
+    opacity: 1;
+    content: url("../img/blue-g17ff16396_640.jpg")
+   }
+
+
+
+    
+}

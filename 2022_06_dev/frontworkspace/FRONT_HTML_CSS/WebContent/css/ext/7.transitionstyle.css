@@ -1,0 +1,59 @@
+.tran1{
+    width:100px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid black;
+    transition-duration: 5s;
+}
+
+.tran1:hover{
+    background-color: blue;
+    border: 1px solid blue;
+}
+
+.tran2{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border :1px solid black;
+    transition-property: background-color,transform,width,height;
+    transition-duration: 5s,10s,1s,3s;
+}
+
+.tran2:hover{
+    width: 200px;
+    height: 200px;
+    background-color: gold;
+    transform: rotateZ(180deg);
+
+}
+
+.tran3{
+    width: 100px;
+    height: 100px;
+    background-color: darkmagenta;
+    border: 1px solid black;
+    transition-duration: 5s;
+    transition-timing-function: ease-in;
+}
+
+.tran3:active{
+    background-color: steelblue;
+    border: 1px solid steelblue;
+    transform: rotateZ(180deg);
+}
+
+.tran4{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid red;
+    transition-duration: 2s;
+    transition-delay: 3s;
+}
+
+
+.tran4:active{
+    background-color: slategrey;
+    border: 1px solid aqua;
+}
