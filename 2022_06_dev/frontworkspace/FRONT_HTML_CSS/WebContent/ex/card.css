@@ -33,19 +33,20 @@ body{
 
 #cat{
     rotate: 15deg;
-    position: relative;
+    position: absolute;
 
 }
 
 #galde{
-    position: relative;
-    left: -100px;
-    bottom: -50px;
+    position: absolute;
+    left: 300px;
+   top: 100px;
     rotate: -40deg;
 }
 
 #tulip{
-    position: relative;
-    top: -100px;
+    position: absolute;
+    top: 350px;
+    left: 100px;
     rotate: -15deg;
 }
