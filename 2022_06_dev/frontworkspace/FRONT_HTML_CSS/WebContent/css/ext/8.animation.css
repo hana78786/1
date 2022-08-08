@@ -24,6 +24,7 @@
     animation-duration: 10s;
     animation-name: recani2;
     animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 @keyframes recani2{
@@ -63,6 +64,8 @@ img:hover{
    
     animation-name: imgani;
     animation-duration: 10s;
+    animation-direction: alternate;
+    
     
 }
 

@@ -1,0 +1,85 @@
+.nav {
+    list-style: none;
+}
+
+.nav li{
+    float:left;
+    position: relative;
+    padding:0;
+    line-height: 40px;
+    background: yellowgreen;
+    list-style: none;
+}
+
+.nav li a, .nav li{
+    color:darkslategrey;
+    font-family: '고딕체';
+    font-weight: 600;
+    padding:5px 25px;
+    text-decoration: none;
+}
+
+.nav>li>ul{
+    opacity: 0;
+    position : absolute;
+    left:0;
+    width:180px;
+    background-color: aquamarine;
+    padding:0;
+    margin: 0;
+}
+
+.nav li:hover ul{
+    opacity:1;
+}
+
+.nav li ul li {
+    float:none;
+    height: 0;
+    line-height: 0;
+    background:none;
+}
+
+.nav li:hover ul li{
+    height:30px;
+    line-height: 30px;
+    padding:5px 0;
+    color:blue;
+}
+
+.nav li{
+    transition: all 0.2s;
+}
+
+.nav li a {
+    transition: all 0.5;
+}
+
+.nav li ul{
+    transition: all 1s;
+}
+
+.nav li ul li{
+    transition:height 0.5s;
+}
+
+.menu{
+    background-color: azure;
+}
+
+.menu p{
+    overflow: hidden;
+    height: 0;
+    transition-duration: 0.5s;
+}
+
+.menu h2 a:hover, .menu h2:active{
+
+color: green;
+}
+
+.menu:target p{
+
+    overflow: auto;
+    height: 50px;
+}
