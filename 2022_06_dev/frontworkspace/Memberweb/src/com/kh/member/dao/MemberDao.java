@@ -18,7 +18,7 @@ public class MemberDao {
 		int result=0;
 		
 		try {
-			conn.setAutoCommit(false);
+			
 			pstmt=conn.prepareStatement(query);
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getMemberPw());
@@ -31,11 +31,7 @@ public class MemberDao {
 			pstmt.setString(9, member.getMemberHobby());
 			
 			result=pstmt.executeUpdate();
-			if(result==1) {
-				conn.commit();
-			}else {
-				conn.rollback();
-			}
+		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -129,6 +125,109 @@ public class MemberDao {
 		
 		return mList;
 		
+	}
+
+	public Member serchOneId(String memberId, Connection conn) {
+		Member member = new Member();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from member_tbl where member_id= ?";
+		
+		try {
+			pstmt= conn.prepareStatement(query);
+					pstmt.setString(1, memberId);
+			rset=pstmt.executeQuery();
+			
+			if(rset.next()) {
+				member.setMemberId(rset.getString(1));
+				member.setMemberName(rset.getString(3));
+				member.setMemberAge(rset.getInt(4));
+				member.setMemberEmail(rset.getString(5));
+				member.setMemberPhone(rset.getString(6));
+				member.setMemberAddress(rset.getString(7));
+				member.setMemberHobby(rset.getString(9));
+				member.setMemberGender(rset.getString(8).charAt(0));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+				try {
+					rset.close();
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+		
+		return member;
+	}
+
+	public int modify(Member member, Connection conn) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		System.out.println("쿼리문은 실행준비");
+		String query =  "UPDATE MEMBER_TBL SET MEMBER_PW = ?, MEMBER_EMAIL = ?, MEMBER_PHONE = ?, MEMBER_ADDRESS = ?, MEMBER_HOBBY = ? WHERE MEMBER_ID = ?";
+		
+		System.out.println("쿼리문은 실행");
+		
+	try {
+		pstmt=conn.prepareStatement(query);
+		pstmt.setString(1, member.getMemberPw());
+		pstmt.setString(2, member.getMemberEmail());
+		pstmt.setString(3, member.getMemberPhone());
+		pstmt.setString(5, member.getMemberHobby());
+		pstmt.setString(4, member.getMemberAddress());
+		pstmt.setString(6, member.getMemberId());
+		
+		result=pstmt.executeUpdate();
+		System.out.println("result값 확인"+result);
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		try {
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+		return result;
+		
+	}
+
+	public int deleteMeber(String memberId, Connection conn) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		String sql="delete from member_tbl where member_id=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return result;
 	}
 
 	

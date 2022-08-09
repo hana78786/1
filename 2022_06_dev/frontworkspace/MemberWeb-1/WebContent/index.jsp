@@ -28,6 +28,7 @@
     ${memberId }님 환영합니다!
     <a href="/member/logout.do">로그아웃</a>
     <a href="/member/list.do">전체 회원조회</a>
+    <a href="/member/mypage.do?memberId=${memberId }">마이페이지</a>
     </c:if>
     
     

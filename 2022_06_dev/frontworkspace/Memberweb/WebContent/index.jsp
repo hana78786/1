@@ -28,6 +28,9 @@
 	<a href="/memeber/logout.do">로그아웃</a>
 	<!-- 로그아웃 링크를 누르면 해당 URL을 주소표시줄에 치는 것과 같고 get방식 -->
 	<a href="/member/list.do">전체 회원조회</a>
+	<a href="/member/mypage.do?memberId=${memberId}">마이페이지 </a>
+	
+	
 	</c:if>
 </body>
 </html>

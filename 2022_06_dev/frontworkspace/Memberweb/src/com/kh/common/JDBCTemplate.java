@@ -22,21 +22,19 @@ public class JDBCTemplate {
 	
 	//JDBCTamplate 인스턴스 싱글톤 패턴 적용
 	
-	public Connection createConnection() {
+	public Connection createConnection() throws SQLException {
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		String user="MemberWeb";
 		String password="MemberWeb";
 		String driver="oracle.jdbc.driver.OracleDriver";
+		
 		try {
 			if(conn == null|| conn.isClosed()) {
 				Class.forName(driver);
 				conn=DriverManager.getConnection(url,user,password);
-				
+				conn.setAutoCommit(false);
 				
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,7 +44,7 @@ public class JDBCTemplate {
 	
 	}
 	
-	public  void close() {
+	public  static void close() {
 			try {
 				if(conn!=null) {
 				if(!conn.isClosed()) {
@@ -57,7 +55,41 @@ public class JDBCTemplate {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		
 		}
+	
+	
+	public static void commit() {
+		try {
+			if(conn!=null) {
+			if(!conn.isClosed()) {
+				conn.commit();
+			}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+	}
+	
+	public static void rollback() {
+		try {
+			if(conn!=null) {
+			if(!conn.isClosed()) {
+				conn.rollback();
+			}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+	}
+	
+	
 	}
 
 

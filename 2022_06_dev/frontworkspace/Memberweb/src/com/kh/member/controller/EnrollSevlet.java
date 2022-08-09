@@ -29,8 +29,9 @@ public class EnrollSevlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberService memberService = new MemberService();
 		request.setCharacterEncoding("utf-8");
+		
+		MemberService memberService = new MemberService();
 		String memberId =request.getParameter("member-id");
 		String memberPw=request.getParameter("member-pw");
 		String memberName=request.getParameter("member-name");
