@@ -63,7 +63,7 @@ public class NoticeWriteServlet extends HttpServlet {
 		
 		if(result==1) {
 			//여기엔 리스트 출력 하지만 지금은 안만들었으니 간단한 메세지
-			System.out.println("공지 등록 성공");
+			response.sendRedirect("/notice/list.do");
 			
 		}
 		else {
