@@ -29,7 +29,14 @@
     <a href="/member/logout.do">로그아웃</a>
     <a href="/member/list.do">전체 회원조회</a>
     <a href="/member/mypage.do?memberId=${memberId }">마이페이지</a>
+    <a href="/notice/list.do">공지사항 목록보기</a>
+   <a href="/notice/write.do">공지사항 작성</a>
+   
+   
+   
     </c:if>
+    
+   
     
     
 </body>

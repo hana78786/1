@@ -25,7 +25,8 @@ public class JDBCTemplate {
 		String password = "MemberWeb";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 
-		if (conn == null) {
+		 if (conn == null || conn.isClosed())
+		 {
 			try {
 				Class.forName(driver);
 				conn = DriverManager.getConnection(url, user, password);

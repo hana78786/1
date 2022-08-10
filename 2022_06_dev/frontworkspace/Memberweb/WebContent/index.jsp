@@ -29,6 +29,10 @@
 	<!-- 로그아웃 링크를 누르면 해당 URL을 주소표시줄에 치는 것과 같고 get방식 -->
 	<a href="/member/list.do">전체 회원조회</a>
 	<a href="/member/mypage.do?memberId=${memberId}">마이페이지 </a>
+	<br>
+	<a href="/notice/list.do">공지사항목록보기</a>
+	<br>
+	<a href="/notice/write.do">공지사항 작성하기</a>
 	
 	
 	</c:if>

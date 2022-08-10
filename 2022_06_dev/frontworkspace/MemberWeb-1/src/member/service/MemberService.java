@@ -31,6 +31,8 @@ public class MemberService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			JDBCTemplate.close();
 		}
 		
 		return result;
@@ -50,6 +52,9 @@ public class MemberService {
 				JDBCTemplate.rollback();
 				e.printStackTrace();
 			}
+			finally{
+				JDBCTemplate.close();
+			}
 			
 		
 		return result;
@@ -67,7 +72,9 @@ public class MemberService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}	finally{
+			JDBCTemplate.close();
+		}
 		
 		return mList;
 		
@@ -86,7 +93,9 @@ public class MemberService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}	finally{
+			JDBCTemplate.close();
+		}
 		return member;
 	}
 
@@ -105,6 +114,8 @@ public class MemberService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			JDBCTemplate.rollback();
+		}finally{
+			JDBCTemplate.close();
 		}
 		
 		
@@ -126,6 +137,8 @@ public class MemberService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			JDBCTemplate.rollback();
+		}finally{
+			JDBCTemplate.close();
 		}
 		
 		return result;

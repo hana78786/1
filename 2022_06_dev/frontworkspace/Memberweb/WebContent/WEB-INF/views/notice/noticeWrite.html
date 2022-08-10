@@ -2,9 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항 등록</title>
 </head>
 <body>
-Hello Notice!
+<h1>공지사항 작성</h1>
+<form action="/notice/write.do" method="post" >
+<br>
+<input type="text" size="100" placeholder="제목을 입력하세요" name="subject">
+<br>
+<textarea rows="30" cols="100" name="contents"></textarea> <br>
+<input type="submit" value="완료">
+<input type="reset" value="취소">
+
+
+<br>
+</form>
 </body>
 </html>
