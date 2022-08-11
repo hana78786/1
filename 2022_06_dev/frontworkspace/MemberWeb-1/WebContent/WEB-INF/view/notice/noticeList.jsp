@@ -28,6 +28,12 @@
 </tr>
 </c:forEach>
 
+<tr>
+<td colspan="4">
+${pageNavi }
+<td>
+</tr>
+	
 </table>
 
 <a href="/index.jsp">마이페지로..</a>

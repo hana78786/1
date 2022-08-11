@@ -8,7 +8,24 @@ public class Notice {
 	private String contents;
 	private Date regDate;
 	private String memberId;
+	private int rowNum;
 	
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+
+	public int getRowNum() {
+		return rowNum;
+	}
+
+	public void setRowNum(int rowNum) {
+		this.rowNum = rowNum;
+	}
+
 	public Notice(){
 		
 	}

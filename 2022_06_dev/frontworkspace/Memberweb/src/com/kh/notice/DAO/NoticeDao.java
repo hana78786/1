@@ -115,9 +115,8 @@ public class NoticeDao {
 		}else if(currentPage > pageNaviTotalcount) {
 		currentPage = pageNaviTotalcount;
 		}
-		System.out.println(currentPage+" ");
-		System.out.println(pageNaviTotalcount);
-		
+	
+				
 		//1,2,3,4,5[다음]-> 6,7,8,9,10[다음] 
 		int pageNaviCountPerPage=5; //한페이지에서 나오는 최대 페이지 갯수
 		int startNavi =((currentPage-1)/pageNaviCountPerPage)*pageNaviCountPerPage+1;

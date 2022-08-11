@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import jdk.nashorn.internal.scripts.JD;
 import member.commne.JDBCTemplate;
 import notice.dao.NoticeDao;
 import notice.model.vo.Notice;
+import notice.model.vo.PageData;
 
 public class NoticeService {
 	
@@ -46,21 +48,34 @@ public class NoticeService {
 	}
 
 	
-	public ArrayList<Notice> noticeList() {
+	public PageData noticeList(int currentPage) {
 		ArrayList<Notice> nList=null;
 		Connection conn= null;
+		PageData pd = new PageData();
 		
 		try {
 			conn=jdbcTemplate.createConnection();
-			nList=nDao.noticeList(conn);
+			nList=nDao.noticeList(conn, currentPage);
+			
+			String pageNavi = nDao.getpageNavi(conn, currentPage);
+			pd.setnList(nList);
+			pd.setPagenavi(pageNavi);
+
+			
+	
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close();
 		}
 		
-		return nList;
+		
+		return pd;
 	}
+	
+	
 	public Notice noticeDetail(int noticeNo) {
 		Notice notice=null;
 		Connection conn = null;
