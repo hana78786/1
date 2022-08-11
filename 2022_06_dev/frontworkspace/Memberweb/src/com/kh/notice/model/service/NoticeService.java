@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.kh.common.JDBCTemplate;
 import com.kh.notice.DAO.NoticeDao;
 import com.kh.notice.model.vo.Notice;
+import com.kh.notice.model.vo.PageData;
 
 public class NoticeService {
 	private JDBCTemplate jdbcTemplate;
@@ -43,15 +44,24 @@ public class NoticeService {
 		return result;
 	}
 
-	public ArrayList<Notice> noticeList() {
+	public PageData noticeList(int currentpage) {
+		//2개 리턴하기
+		//1. 해쉬맵사용
+		//2. class를 하나 더 만들기
 		ArrayList<Notice> nList = null;
 		Connection conn = null;
+		String pageNavi = null;
+		PageData pd = new PageData();
+		
+		
 		
 		try {
 			conn=jdbcTemplate.createConnection();
-			nList=nDao.noticelist(conn);
+			nList=nDao.noticelist(conn, currentpage);
+			pageNavi=nDao.getPageNave(conn, currentpage);
 			
-			
+			pd.setnList(nList);
+			pd.setPageNavi(pageNavi);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -60,7 +70,7 @@ public class NoticeService {
 			JDBCTemplate.close();
 		}
 		
-		return nList;
+		return pd;
 	}
 
 	public Notice noticeDetail(String noticeNo) {

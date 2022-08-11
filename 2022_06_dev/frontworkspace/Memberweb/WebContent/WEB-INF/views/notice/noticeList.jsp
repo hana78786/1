@@ -20,7 +20,7 @@
 	
 	<c:forEach items="${nList }" var="notice" varStatus="i">
 		<tr>
-	<td>${i.count }</td>
+	<td>${notice.rowNum }</td>
 	
 <!-- jsp에서 varStatus를 이용하여 숫자를 다시 센다 seq는 오류에따라 숫자가 씹히기도 하니까 -->
 <!-- 보기엔 이게 좋다! -->
@@ -35,6 +35,16 @@
 	<td>${notice.regDate }</td>
 	</tr>
 	</c:forEach>
+	<tr>
+	<td colspan="4">
+	
+	${pageNavi }
+	
+<!-- 		<a href="/notice/list.do?currentPage=1">1</a> <a href="/notice/list.do?currentPage=2">2</a> <a href="/notice/list.do?currentPage=3">3</a> <a href="/notice/list.do?currentPage=4">4</a>  -->
+<!-- 		<a href="#">다음</a> -->
+	
+	</td>
+	</tr>
 
 	
 

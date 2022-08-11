@@ -10,9 +10,18 @@ public class Notice {
 	private String memberId;
 	private int noticeNo;
 	private Date regDate;
+	private int rowNum;
 	
 	//생성자 게터세터 toString
 	
+	public int getRowNum() {
+		return rowNum;
+	}
+
+	public void setRowNum(int rowNum) {
+		this.rowNum = rowNum;
+	}
+
 	public Notice() {
 		
 	}
