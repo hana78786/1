@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본문법</title>
+    <script src=""></script>
+
+</head>
+<body>
+    <h3>자바스크립트 기분문법</h3>
+    <p>
+        자바스크립트 주석<br>
+        - 한줄 주석 : // <br>
+        - 범위 주석 : /* ~ */<br>
+        변수 선언 <br>
+        변수 종류 : 멤버변수와 지역변수 <br>
+        변수에 대한 자료형을 선언하지 않음(자료형은 존재) <br>
+
+    </p>
+    <h3>변수 명명 규칙</h3>
+    <pre>
+        1. 영어 대/소문자, 숫자, _, $ 사용가능
+        2. 첫글자 숫자 사용 불가
+        3. 공백을 포함한 특수문자 사용불가
+        4. 이름에 의미있는 단어의 조합 권장
+        5. 예약어 사용불가
+        6. 두 단어 이상 결합시 낙타표기법 권장
+        7. 한글 사용가능
+        8. 생성자 함수의 이름은 항상 대문자로 시작
+        9. 변수, 인스턴스, 함수, 메소드는 항상 소문자로 시작
+    </pre>
+    <h3>숫자(Number)</h3>
+    <p>
+        - 정수형 숫자와 부동소수점 숫자로 구분
+        <br> 내장객체로 Math객체 제공, 기본 메소드 존재
+        <br>Math.abs(), Math.random(), Math.round(), Math.floor(), Math.ceil(), ...
+    </p>
+
+    <h3>형 변환</h3>
+    <h5>숫자 -> 문자열</h5>
+    <p>
+        1. 숫자와 문자를 + 연산하게 되면 
+        문자가 우선되어 숫자를 문자로 변환함<br>
+        2. 강제 형변환 : String() 생성자 함수 이용
+    </p>
+    <h5>문자열 -> 숫자</h5>
+    <p>
+        숫자, 문자 + 이외에 사칙연산시 숫자가 우선되어 문자를 숫자로 변환 <br>
+        강제 형변환 함수 이용 : Number(), parseInt() 등..
+    </p>
+
+    <h3>제어문</h3>
+    <p>
+        1. 조건문 : if, if ~ else, else if, switch <br>
+        2. 반복문 : for, while, do~while, for in <br>
+        3. 분기문 : continue, break <br>
+    </p>
+    <div>
+        <p>if문 테스트</p>
+        <input type="text" name="inputVal" id="inputVal">
+        <input type="button" onclick="ifExercise();" value="결과">
+    </div>
+
+    <div>
+        <p>switch문 테스트</p>
+        <input type="text" name="inVal" id="inVal">
+        <input type="button" onclick="switchExercise();" value="결과">
+    </div>
+
+    <div>
+        <p>for문 테스트</p>
+        <input type="button" onclick="forExercise();" value="결과">
+    </div>
+
+    <h3>연산자 종류</h3>
+    <pre>
+최우선 연산자 	: (), [], .
+단항 연산자	: ++,--,+(양수), -(음수)	
+산술 연산자	: +,-,*,/,%
+관계 연산자	: >,<,>=,<=,==,!=,===,!==
+논리 연산자	: &&,||
+대입 연산자	: =
+복합대입 연산자	: +=,-=,*=,/=,%=
+삼항 연산자	: ?:;
+    </pre>
+
+
+
+    <script>
+        //헬로 나는 주석이얌
+        /*여러줄주석도쓸수있찌
+        여러줄
+        여러어줄
+        여러줄*/
+        /*춥당
+        추워엉 추어*/
+        var x;
+        x=3; //이거와 아래 같음
+        x=Number(3); //number가 자동형변환된거!!
+       // console.log(x);
+       // alert(x);
+
+        var num = 4; //전역변수
+        if(num == 4){
+
+        }
+        for(var i =0;i<num;i++){
+            console.log(i)
+        }
+
+        var absVal = Math.abs(-4);
+        var randVal = Math.random();
+        var floorVal = Math.floor(3.9);
+        var roundVal = Math.round(3.6);
+        var ceilVal = Math.ceil(3.1);
+        console.log("절대값 : "+absVal);
+        console.log("랜던값 : "+randVal);
+        console.log("버림값 : "+floorVal);
+        console.log("반올림 : "+roundVal);
+        console.log("올림 : "+ceilVal);
+
+        //////////////////////////////기본자료형//////////////////////////////////////
+
+        var str = "Hello, javascript, world";
+        console.log(str);
+        console.log("대문자 만들기 : "+str.toUpperCase());
+        console.log("소문자 만들기 : "+str.toLowerCase());
+        console.log("길이 : "+str.length)
+
+        //String result[] = str.split(",");
+        var strSplitted = str.split(",");
+        console.log("문자열 자르기 : "+strSplitted[1]);
+        
+        console.log("문자열 자르기2 : "+str.substring(0,5));  
+        //인덱스 0번부터 4번까지 (5번전) 자름 Hello      
+        console.log("인덱스 위치 : "+str.indexOf("l"));
+        //L은 세번쨰 있음 그랫 0,1,2 2로 출력됨
+
+        /////////////////////////////string문법//////////////////////////////////////
+
+        var str1 = 7+7;
+        var str2 = 7+"7";
+        var str3 = 7+7+"7";
+        var str4 = "7"+(7+7);
+        var str5 = "7"+7+7;
+        console.log("7+7="+str1);
+        console.log("7+'7'="+str2);
+        console.log("7+7+'7' = "+str3);
+        console.log("'7'+(7+7)="+str4);
+        console.log("'7'+7+7="+str5);
+
+        var input1 =2;
+        var input2="3";
+
+        console.log("input1+input2="+(input1+input2));
+        console.log("input1+input2="+(input1+parseInt(input2)));
+        console.log("input1+input2="+(input1+Number(input2)));
+        var numStr1 = "2016년도";
+        var numStr2 = "제2016년도";
+
+        console.log(Number(numStr1));
+        console.log(parseInt(numStr1)); //숫자로 시작하면 숫자를 뽑아내는게 가능
+        console.log(Number(numStr2));
+        console.log(parseInt(numStr2)); //문자로 시작해서 숫자를 뽑아낼수 없음!
+
+        //문제로 시작하는 숫자를 뽑아내는 방법 : 정규표현식 -> 나중에 배움
+
+
+        ////////////여기부터 함수
+        //public void exercise1(){if(result==1)}
+        function exercise1(){
+            if(result==1){
+
+            }
+            return 0
+        }
+
+        function ifExercise(){
+            var id = document.getElementById("inputVal").value;
+            if(id=="1"){
+                console.log("1입니다.");
+
+            }else if(id == "2"){
+                console.log("2입니다.");
+            }else{
+                console.log("잘못입력하셨습니다.");
+            }
+        }
+
+        function switchExercise(){
+            var value=document.getElementById("inVal").value;
+            switch(value){
+                case "1" : console.log("1입니다"); break;
+                case "2" : console.log("2입니다"); break;
+                default : console.log("잘못입력하셨씁니다"); break;
+            } 
+        }
+
+        function forExercise(){
+            for(var i =0; i <5;i++){
+                console.log("i의 값 : "+i);
+            }
+        }
+
+        /////////////////관계비교연상자 시작
+        console.log(0=="0"); 
+        console.log(0==="0");
+        console.log(0===0);
+        console.log("0"==="0");
+
+
+</script>
+</body>
+</html>
