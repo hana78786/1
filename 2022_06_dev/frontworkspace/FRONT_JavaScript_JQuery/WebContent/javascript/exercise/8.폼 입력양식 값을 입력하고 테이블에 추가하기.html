@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#area {
+			width: 400px;
+			height: 150px;
+			background: #ffff99;
+			border: 1px solid #6666ff;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h2>문제</h2>
+	<p>폼 입력양식에 값을 입력하고 추가 버튼을 누르면
+		입력값들을 아래의 테이블에 한줄씩 추가되게 함</p>
+	<form method="post" action="">
+		<label>이름 : <input type="text" id="name"></label>
+		<br>
+		<label>나이 : <input type="text" id="age"></label>
+		<br>
+		<label>성별 : </label>
+		<input type="radio" name="gender" value="M" id="male"><label for="male"> 남 </label>
+		<input type="radio" name="gender" value="F" id="female"><label for="female"> 여 </label>
+		<br>
+		<label>전화번호 : <input type="tel" id="phone"></label>
+		<br>
+		<label>취미 : </label>
+		<input type="checkbox" name="hobby" value="movie" id="movie"><label for="movie"> 영화보기</label>
+		<input type="checkbox" name="hobby" value="music" id="music"><label for="music"> 음악듣기 </label>
+		<input type="checkbox" name="hobby" value="sport" id="sport"><label for="sport"> 운동 </label>
+		<input type="checkbox" name="hobby" value="reading" id="reading"><label for="reading"> 독서 </label>
+		<input type="checkbox" name="hobby" value="climb" id="climb"><label for="climb"> 등산 </label>
+		<br>
+		<input type="button" value="추가하기" onclick="addUser();">
+	</form>
+	<p id="p3">
+	<table id="tbl" width="500px" border="1" cellspacing="0">
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>성별</th>
+			<th>전화번호</th>
+			<th>취미</th>
+		</tr>
+		<!-- 입력값들을 추가해 나감 -->
+
+	</table>
+	</p>
+	<script>
+		function addUser() {
+			var table1 = document.getElementById("tbl");
+			table1.innerHTML="&&";
+			
+
+		}
+
+	</script>
+</body>
+
+</html>
