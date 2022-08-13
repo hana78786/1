@@ -16,25 +16,55 @@
     function table_make() {
         var rowtd=Number(document.getElementById("rowNum").value);
        var coltr=Number(document.getElementById("colNum").value);
-
-       console.log(coltr);
-       
+      
        coltd="";
         for(var i=0;i<rowtd;i++){
-            coltd+="<td></td>";
+            coltd+="<td class='td1'></td>";
         }
-
-  
+        
+        
         tabtag1="";
-
+        
+        
         for(var i=0;i<coltr;i++){
-            tabtag1+="<tr>"+coltd+"</tr>";
+            tabtag1+="<tr class='td2'>"+coltd+"</tr>";            
         }
-     
+        
+        
+        document.write("<table border='1' width='500px' height='500px'>");
+            document.write(tabtag1);
+            document.write("</table>")
+            
+            var td1Value = document.getElementsByClassName("td2");
+            var td1Value2 = "";
+            for(i=0;i<td1Value.length;i++){
+                td1Value2 = td1Value[i].childNodes;
+                
+                for(j=0;j<td1Value2.length;j++){
+                    
+                    
+                    console.log(i);
+                    console.log(j);
+                   
+                    td1Value3=td1Value2[j];
+                    td1Value3.innerHTML=(i+1)+"열 "+(j+1)+"줄";
+                    console.log(td1Value3.innerHTML)
+                    
+                    
+                 
+                }
+                
+                
 
-       document.write("<table border='1' width='500px' height='500px'>");
-        document.write(tabtag1);
-        document.write("</table>")
+            }
+           
+           
+            
+            
+           
+                
+        
+
     }
 </script>
     
