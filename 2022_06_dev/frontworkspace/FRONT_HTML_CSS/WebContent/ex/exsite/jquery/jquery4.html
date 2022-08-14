@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3>요소추가 함수</h3>
+    
+    <h1 id="test1"><label for=""> - 기준 - </label></h1>
+    <h1 id="test2"><label for=""> - 기준 - </label></h1>
+    <h1 id="test3"><label for=""> - 기준 - </label></h1>
+    <h1 id="test4"><label for=""> - 기준 - </label></h1>
+
+    <script>
+        $(function(){
+            var interval=setInterval(function(){
+                $('<label>appendTo()</lable>').appendTo($('#test1'));
+                    //대상태그 안에서 뒤에 붙임
+
+                    setTimeout(function(){
+                        clearInterval(interval);
+                    },2000);
+
+                    $('<label>prependTo()</lable>').prependTo($('#test2'));
+                    //대상태그 안에서 앞에 붙임
+
+                    setTimeout(function(){
+                         clearInterval(interval);
+                    },2000);
+            
+                    $('<label>insertBefore()</lable>').insertBefore($('#test3'));
+                        //대상태그 밖에서 앞에 붙임
+
+                    setTimeout(function(){
+                        clearInterval(interval);
+                    },2000);
+            
+                    $('<label>insertAfter()</lable>').insertAfter($('#test4'));
+                        //대상태그 밖에서 뒤에 붙임
+
+                        setTimeout(function(){                  
+                            clearInterval(interval);
+                    },2000);
+            
+            
+            
+            },1000)
+        })
+
+    </script>
+
+
+            <h3>요소 추가 2</h3>
+            
+            <h1 id="test5"><label for="">|과일박스|</label></h1>
+
+            <script>
+                $(function(){
+                    var inerval=setInterval(function(){
+                        $('#test5').append('사과');
+
+                        $('#test5').prepend('사과');
+
+                        $('#test5').before('사과');
+                        $('#test5').after('사과');
+
+
+                        setTimeout(function(){
+                            clearInterval(inerval);
+                        },2000)
+
+                    },1000)
+
+                })
+
+            </script>
+
+
+<style>
+.item{
+    width:150px;
+    height: 50px;
+    display: inline-block;
+    margin:5px;
+}
+#item1{background: pink;}
+#item2{background: lightblue;}
+#item3{background: cyan;}
+
+</style>
+
+<h3>요소의 복사/ 삭제하기</h3>
+<div id="cloneTest">
+    <div class="item" id="item1"><button class="copy">복사하기</button><button class="delete">삭제하기</button></div>
+    <div class="item" id="item2"><button class="copy">복사하기</button><button class="delete">삭제하기</button></div>
+    <div class="item" id="item3"><button class="copy">복사하기</button><button class="delete">삭제하기</button></div>
+</div>
+<hr>
+<div id="result"></div>
+
+<script>
+   $(function(){
+    $('.copy').click(function(){
+        $(this).parent().clone(true).appendTo($('#result'));
+        //clone(false):모양복사, 기본값, 내용을 넣지 않으면 이게 기본이다
+        //clone(true):연결된 이벤트까지 복사
+    })
+    $('.delete').click(function(){
+       // $(this).parent().empty();
+      // $(this).parent().detach();
+      $(this).parent().remove();
+    })
+
+   })
+
+  
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+</head>
+<body>
+
+    <h1>전체선택자</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+
+    <script>
+        $(function(){
+            $('*').css('background','green');
+            $('*').css('color','yellow');
+            $('h4').css('color','orangered');
+            $('h5,h6').css('background','white');            
+        });
+
+    </script>
+
+    <h3>$.each()</h3>
+
+
+    <div id="abc"></div>
+   
+        <script>
+        var arr=[
+            {name : '네이버', address:'http://www.naver.com'},
+            {name : "다음", address:'http://www.daum.net'},
+            {name : "구글", address:'http://www.google.com'}
+        ];
+
+        $.each(arr,function(index,item){
+            var outHTMl="";
+                outHTMl+='<a href="'+item.address+'" target="_blank">';
+                outHTMl+= '<span>'+item.name+'</span>';
+                outHTMl+='</a><br>'
+                console.log(outHTMl);
+
+                       $('#abc').html( $('#abc').html()+outHTMl);
+            
+            
+        });
+
+
+
+    </script>
+  
+
+    <div id="wrap2">
+        <h1>itme1</h1>
+        <h1>itme2</h1>
+        <h1>itme3</h1>
+        <h1>itme4</h1>
+        <h1 id="sw">itme5</h1>
+    </div>
+
+    <script>
+        console.log($('#wrap2').children());
+        $('#wrap2 h1').each(function(index,item){
+            $(this).addClass('hight_light_'+index);
+
+        })
+        $('#sw').click(function(){
+            $(this).toggleClass('hight_light_4');
+        });
+    </script>
+
+</body>
+</html>

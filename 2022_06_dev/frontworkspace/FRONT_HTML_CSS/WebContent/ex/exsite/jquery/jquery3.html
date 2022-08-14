@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h3>html()</h3>
+
+    <h2 class="test1">
+        <b>오늘은 금요일입니다</b>
+    </h2>
+    
+    <h2 class="test2">
+
+    </h2>
+
+    <script>
+    var temp=$('.test1').html(); //게터
+    console.log(temp);
+    $('.test2').html(temp) //세터의 역할
+
+    $('.test2 b').css('color','blue');
+;
+    </script>
+
+    <h1 id="test3"><a href="#">구글로 이동</a></h1>
+    <h1 id="test4"></h1>
+    <h1 id="test5"></h1>
+
+    <script>
+        $(function(){
+            var temp=$('#test3').text(); //게터의 역할
+            console.log(temp); //구글로 이동, 태그를 빼고 텍스트만 가져옴
+
+            $('#test4').text(temp); //세터의 역할
+
+            var str="<a href='http://google.com'> 구글로 이동하기</a>"
+            $('#test5').text(str);
+        });
+
+    </script>
+</body>
+</html>
