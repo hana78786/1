@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript DOM</title>
+</head>
+<body>
+    <h2>Javascript를 이용한 HTML태그 접근</h2>
+    <p>자바스크립트를 이용하여 HTML태그를 동적으로 처리하기 위해서는 메소드를 통하여 HTML에 접근해야함.
+    </p>
+    <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요">
+    <h3>메소드</h3>
+    <p>
+        1. getElementById("아이디명") : 태그의 id 속성값을 이용해서 태그 요소 객체 정보를 가져옴(1개) <br>
+        2. getElementsByName("이름명") : 태그의 name 속성값을 이용해서 태그 요소의 객체 정보를 배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+        3. getElementsByTagName("태그명") : 태그명을 이용해서 태그들의 객체 정보를 배열에 담아서 가져옴(여러개 존재할 수 있음.)
+    </p>
+    <!-- ctrl + k + c : 주석 단축키 -->
+    <!-- p*3 를 이용하여 한번에 3개 작성 -->
+    <p id="p11" name="pp">안녕하세요</p>
+    <p id="p22" name="pp">자바스크립트</p>
+    <p id="p33" name="pp">세계입니다</p>
+    <pre id="p01">똑같은 값을 입력한다!!!!</pre>
+    <pre id="p02">똑같은 값을 입력한다!!!!</pre>
+    <pre id="p03">똑같은 값을 입력한다!!!!</pre>
+
+
+    <h1>DOM(Document Object Model)</h1>
+    <p>
+        문서객체 : HTML에 있는 태그를 객체화하여 자바스크립트에서 다룰 수 있게 한 것, 모든 노드 객체에 접근할 수 있는 요소와 메소드를 제공
+        <br>
+        노드 : HTML에 있는 태그를 구조화(트리)하였을 때 각각의 태그가 노드임
+        <br>
+        요소노드(elements node)와 텍스트노드(textnode) : 요소노드는 태그 자체를 의미하며 텍스트노드는 태그에 기록되어 있는 문자임
+        <br>
+        절차 : 요소노드 생성 -> 텍스트노드 생성 -> 요소노드에 텍스트 노드 추가 -> body객체에 요소노드 추가
+    </p>
+    <h1>텍스트 노드가 있는 노드 생성</h1>
+    <button onclick="domtest1();">실행확인</button>
+<!-- //클릭했을때 domtest1이 실행된다는 의미 -->
+
+    <div id="area1" class="area"></div>
+    <h1>텍스트 노드가 없는 노드 생성</h1>
+    <button id="btn-img">실행확인</button>
+    <div id="area2" class="area">
+        <img id="img-tag" src="img/salmon.jpg" width="150" height="100"/>
+    </div>
+    <h3>노드 삭제</h3>
+    <button id="btn-remove">실행확인</button>
+
+    <hr>
+    <br>
+    <section id="section1">
+        <h1>childNodes를 이용한 노드 선택</h1>
+        <div class="area" id="div-area">
+            <input type="text">
+            <input type="text">
+            <button id="btn-child">실행확인</button>
+        </div>
+    </section>
+
+    <section id="section2">
+        <h1>Element Node 속성 변경</h1>
+        <div>
+            <!-- <input type="text" class="img-word"> -->
+            <select name="" id="" class="img-select">
+                <option value="city1.png">img01</option>
+                <option value="fish.jpg">img02</option>
+                <option value="salmon.jpg">img03</option>
+            </select>
+            <input id="change-img" type="button" value="변경">
+        </div>
+        <div id="img-on">
+            <img src="img/city1.png" alt="" id="img1" class="img-tag">
+        </div>
+    </section>
+
+
+    <script>
+
+       
+
+        var removeBtn=document.getElementById("btn-remove");
+        removeBtn.onclick=function(){
+            var divTag2= document.getElementById("area2");
+            var orignImg=document.getElementById("img-tag");
+            divTag2.removeChild(orignImg);
+        }
+
+
+
+        var userId = document.getElementById("userId").value;
+        // alert(userId);
+        var p11Tag=document.getElementById("p11").innerHTML;
+        //p는 input아니기에 value가 없다 innerHtml을 쓰면 p태그와 닫는 p태그 안에 써있는 값을 가져올수있다.
+        console.log(p11Tag);//안녕하세요
+        var p22Tag=document.getElementById("p22"); //<p id="p22" name="pp">자바스크립트</p>
+        console.log(p22Tag); //자바스크립트
+        //value는 inputype일때만
+        console.log(p22Tag.innerHTML);
+
+        var pTags=document.getElementsByName("pp");
+        console.log(pTags[0]);
+        console.log(pTags[0].innerHTML);
+
+        pTags[1].style.backgroundColor="gold";
+
+        var preTags = document.getElementsByTagName("pre")
+        console.log("1 : "+preTags[0].innerHTML)
+        console.log("2 : "+preTags[1].innerHTML)
+        console.log("3 : "+preTags[2].innerHTML)
+
+        function domtest1(){
+            // alert("test");
+            //<h3>DIV밑으로 </h3>
+            var h3Element =document.createElement("h3");
+            var h3Text = document.createTextNode("DIV밑으로!!");
+            h3Element.appendChild(h3Text);
+            var divTag = document.getElementById("area1");
+            //divTag.appendChild(h3Element);
+            divTag.innerHTML="<h3>DIV 밑으로!</h3>";
+        }
+        //위에 onclick코드와 연결되어 실행되는 코드
+        
+        var orignImg=document.getElementById("img-tag");
+        var imgBtn =document.getElementById("btn-img");
+        imgBtn.onclick=function(){ //버튼을 누르면 function이 실행됨
+          
+           
+            var imgTag = document.createElement("img") //이미지 태그
+            imgTag.src = "./img/fish.jpg"
+            imgTag.height = "100";
+            var divTag2= document.getElementById("area2");
+           
+            divTag2.removeChild(orignImg);
+            divTag2.appendChild(imgTag);
+           
+        }
+
+        var btnChild = document.getElementById("btn-child");
+        btnChild.onclick=function(){
+            //alert("confitm");
+            var sectionTag = document.getElementById("section1");
+            var divArea = document.getElementById("div-area")
+            var divTag=sectionTag.getElementsByClassName("area");
+            var input1 = divTag[0].childNodes[1];
+            var input2 = divTag[0].childNodes[3];
+            input1.value="Hello";
+            input2.value="DOM"
+
+            var input11=divArea.children[0].value;
+            var input22=divArea.children[1].value;
+        }
+
+        var imgChange = document.getElementById("change-img");
+        imgChange.onclick=function(){
+    
+            //var imgTag=document.getElementsByClassName("img-tag");
+            var imgTag=document.getElementById("img1");
+            /*id값으로 바꿔줘도 상관없다*/
+
+            var selTag= document.getElementsByClassName("img-select");
+
+            // divArea1.remove(imgTag);
+
+           // var imgTag= document.createElement("img")
+            //imgTag[0].src="img/"+selTag[0].value;
+            imgTag.src="img/"+selTag[0].value;
+
+            //selTag[0]은 option전체태그임. select는 하나밖에 없음
+            //opiton을 선택하면 option이 가지고 있는 value를 select에게 보낸다
+            //selTag.value는 option이 변경될때마다 주는 value를 src에 출력한다.
+   
+            
+            
+           // divArea1.appendChild(imgTag[0]);
+            
+           v
+            
+        }
+
+    </script>
+
+</body>
+</html>

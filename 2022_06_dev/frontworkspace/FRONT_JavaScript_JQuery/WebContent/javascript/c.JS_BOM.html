@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+    <style>
+        .area{
+            text-align: center;
+            background-color: darkcyan;
+            border : 4px dotted cornflowerblue;
+            font-size: 3em;
+            width: 500px;
+            height: 100px;
+            color: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+
+
+     <script>
+        window.onload=function(){
+            var btn1 = document.getElementById("btn-1");
+            btn1.onclick = function() {
+                confirm("확인?");
+                window.open("https://naver.com")
+            };
+
+            var btn2= document.getElementById("btn-2");
+            btn2.onclick=function(){
+                if(confirm("확인?")==true){
+                    window.open("https://daum.net", "다음카카오", "_blank","width=300,height=400,menubar=no,toolbar=no");
+                }
+            }
+
+            var btn3=document.getElementById("btn-3");
+            btn3.onclick=function(){
+                var myWindow = window.open();
+                myWindow.alert("확인 후 3초후에 이 페이지는 종료됩니다.");
+                window.setTimeout(function(){
+                    myWindow.close();
+                }, 3000);
+            }
+
+
+            var btn4= document.getElementById("btn-4");
+            btn4.onclick = function(){
+                var area1 = document.getElementById("area1");
+               intervalId = window.setInterval(function(){
+                   var date = new Date();
+                   area1.innerHTML = date.getHours()+":"+date.getMinutes()+":"
+                   +date.getSeconds();
+               },1000);
+            }
+
+             var btn5=document.getElementById("btn-5");
+             btn5.onclick=function(){
+                 var area2 = document.getElementById("area2");
+                 var count = 10;
+                 countset = setInterval(function(){
+                    count--
+
+                    if(count<0){
+                    count=0;
+                   }
+                   area2.innerHTML=count;
+
+                  
+                   setTimeout(function(){
+                    clearInterval(intervalId);
+                    clearInterval(countset);
+                },10000)
+                   
+                    
+                },1000)
+                
+             }
+
+
+
+
+
+
+
+
+
+
+
+
+         }
+
+
+    </script>
+<h1>Window 객체</h1>
+<h3>window.confirm()을 이용한 데이터 입력</h3>
+<p>어떤 질문에 대해 "예/아니오"의 결과를 얻을 때 사용한다.</p>
+<p>확인 버튼과 취소버튼이 나타나며, 확인버튼을 클릭시 true, 취소버튼을 클릭시 false를 리턴한다.</p>
+
+
+
+<h3>window.prompt()를 이용한 데이터 입력</h3>
+<p>텍스트필드와 확인/취소버튼이 있는 대화상자 출력하고 입력한 메세지 내용을 리턴값으로 돌려받는다.</p>
+
+<p>Window 객체는 자바스크립트의 최상위 객체이며, BOM과 DOM으로 나뉜다</p>
+<h3>Window 객체</h3>
+<p>브라우저 창에 대한 설정을 하는 객체</p>
+<button id="btn-1">네이버</button>
+<button id="btn-2">다음</button>
+<h3>Window 객체의 timer 메소드</h3>
+
+<button id="btn-3">setTimeout 실행확인</button>
+<br><br>
+
+<button id="btn-4">setInterval 실행확인</button>
+<div id="area1" class="area"></div>
+<br>
+<button id="btn-5">clearInterval 실행확인</button>
+<div id="area2" class="area"></div><br>
+
+<button id="btn-confirm">confirm 확인</button>
+<button id="btn-prompt">prompt확인</button>
+
+<h3>screen 객체</h3>
+    <p>웹 브라우저 화면이 아닌 운영체제 화면의 속성을 가직 객체</p>
+    <button id="btn-6">실행확인</button>
+    <h3>navigator 객체</h3>
+    <p>웹페이지를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체</p>
+    <button id="btn-7">실행확인</button>
+    <h3>location 객체</h3>
+    <p>브라우저 주소 표시줄과 관련된 객체</p>
+    <button id="btn-8">실행확인</button><br>
+
+    <!-- location은 location.href와 같은 역할을 함(페이지 이동시) -->
+    <button onclick="location.href='http://www.iei.or.kr'">iei로 이동!</button>
+    <button onclick="location=location">새로고침1</button>
+    <button onclick="location.reload()">새로고침2</button>
+    <!-- 뒤로가기 가능 -->
+    <button onclick="location.assign('http://www.google.com')">구글로 이동1</button>
+    <!-- 뒤로가기 불가능 -->
+    <button onclick="location.replace('http://www.google.com')">구글로 이동2</button>
+
+    <!-- <script>
+
+
+        var btn1 = document.getElementById("btn-1");
+            btn1.onclick = function() {
+            confirm("확인?");
+            };
+
+
+
+
+    </script> -->
+
+
+
+
+</body>
+
+
+</html>
