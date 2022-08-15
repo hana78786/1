@@ -66,7 +66,7 @@
   - jQuery활용
   - https://hana78786.github.io/Study_hana/web/
   
-## javascript_ex : html javaScript
+## javascript_ex : html js
  
  - 노마디코딩 바닐라JS로 크롬 앱 만들기 수강
     - js의 기초 배우기
