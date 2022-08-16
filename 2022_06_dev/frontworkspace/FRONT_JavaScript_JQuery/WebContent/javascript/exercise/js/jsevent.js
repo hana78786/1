@@ -14,10 +14,10 @@ rangeTag.onclick=function changeH1(){
 
 }
 
-}
 
 
-window.onload=function(){
+
+
 var textId=document.getElementById("in");
 var textButton=document.getElementById("ok");
 var areaHh=document.getElementById("hh");
