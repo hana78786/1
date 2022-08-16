@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트버블링</title>
+    <style>
+        .div-test {
+            border : 1px solid black;
+            padding : 20px;
+        }
+        .div1 {
+            background-color: red;
+        }
+        .div2 {
+            background-color: orange;
+        }
+        .div3 {
+            background-color: yellow;
+        }
+        .div4 {
+            background-color: green;
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+        function test1(message){
+            alert(message);
+        }
+
+        function test2(e,msg){
+            console.log(e);
+            alert(msg);
+            e.stopPropagation();
+            //이벤트의 전달은 막음, 처음 하나가 실행돼면 나머지가 막힘
+        }
+
+        function test3(e){
+            e.preventDefault();
+            alert("test3()가 실행되었습니다.");
+        }
+
+    </script>
+ 
+ 
+ 
+ 
+ <h1>이벤트 전달</h1>
+<h3>이벤트버블링</h3>
+<p>자식 노드에서 부모 노드로 이벤트가 전달된다.</p>
+<div onclick="test1('1번 div');" class="div-test div1">
+    <div onclick="test1('2번 div');" class="div-test div2">
+        <div onclick="test1('3번 div');" class="div-test div3">
+            <div onclick="test1('4번 div');" class="div-test div4"></div>
+        </div>
+    </div>
+</div>
+<h3>이벤트버블링 막기</h3>
+<div onclick="test2(event,'1번 div');" class="div-test div1">
+    <div onclick="test2(event, '2번 div');" class="div-test div2">
+        <div onclick="test2(event, '3번 div');" class="div-test div3">
+            <div onclick="test2(event, '4번 div');" class="div-test div4"></div>
+        </div>
+    </div>
+</div>
+
+<br> <br>
+<a href="https://google.com" onclick="test3(event)">구글</a>
+
+
+</body>
+</html>

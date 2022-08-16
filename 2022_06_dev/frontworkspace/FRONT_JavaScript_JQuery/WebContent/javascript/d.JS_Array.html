@@ -191,8 +191,11 @@
         <script>
             var restArr = ["다담","김밥일번가","우정함박스테이크"]
             function showString(){
-            console.log(restArr.toString("a"));
-            console.log(restArr.join("a"));
+            console.log(restArr.toString("a")); //다담,김밥일번가,우정함박스테이크
+
+            console.log(restArr.join("a")); //다담a김밥일번가a우정함박스테이크
+            //문자로 바꾸는것은 join과 toString이 유사하나 join은 매열에 글자를 추가하고
+            //toStirng은 추가하지 않는다.
             }
         </script>
 
