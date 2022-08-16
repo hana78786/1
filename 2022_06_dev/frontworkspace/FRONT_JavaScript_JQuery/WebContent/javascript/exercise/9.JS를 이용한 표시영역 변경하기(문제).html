@@ -29,6 +29,7 @@
 		<input type="radio" name="category" value="date" onclick="showDiv(this);"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
 		<input type="radio" name="category" value="writer" onclick="showDiv(this);" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp;
 	</fieldset>
+
 	<hr>
 	<div id="titleBox" class="box">
 		<form method="post" action="">
@@ -38,6 +39,7 @@
 			<input type="submit" value="검색">
 		</form>
 	</div>
+	
 	<div id="dateBox" class="box">
 		<form method="post" action="">
 			<label> 검색할 날짜를 선택하세요 : </label>
@@ -58,6 +60,14 @@
 	<script type="text/javascript">
 	//요구한 내용을 변수, 연산자, 제어문 등을 사용하여 실행되게 하시오.	
 		function showDiv(element) {
+			
+			var divBoxClass=document.getElementsByClassName("box");
+			for(var i=0;i<divBoxClass.length;i++){
+				divBoxClass[i].style.display="none";
+			}
+			var divBox = document.getElementById(element.value+"Box");
+			console.log(divBox);
+			divBox.style.display="block"
 			
 		}
   	</script>
