@@ -48,10 +48,22 @@
     <div id="area2" class="area"></div>
 
 <script>
-   
+
+   function testEval(){
+    var evalstr="";
+    evalstr+="var no1 = document.querySelector('#number1').value;"
+    evalstr+=" var no2 = document.querySelector('#number2').value;"
+    evalstr+="var area2=document.getElementById('area2');"
+    evalstr+=" area2.innerHTML+=no1+'+'+no2+'='+(Number(no1)+Number(no2));"
+    eval(evalstr);
+
+    
+   }
   
   
 </script>
+
+
 <h1>이벤트</h1>
     <P>
         이벤트 : 웹 페이지에서 어떠한 행위(사용자의 행동)가 발생한 것을 이벤트라 함 <br>
@@ -73,7 +85,18 @@
     <div id="area-1" class="area"></div>
 
     <script>
+        var test1Tag = document.getElementById("test1");
+        var test2Tag = document.getElementById("test2");
 
+        test1Tag.onclick=function(){
+            var area1=document.getElementById("area-1");
+            area1.innerHTML="test1 실행"
+        }
+
+        test2Tag.onclick=function(){
+            var area1=document.getElementById("area-1");
+            area1.innerHTML=null;
+        }
      
     </script>
 
@@ -88,8 +111,8 @@
     <script>
 
 function inlineFunc() {
- var aera2Tag=document.getElementById("area-2");
- aera2Tag.innerHTML="인라인 이벤트 모델로 실행되었습니다";
+ var area2 = document.getElementById("area-2");
+ area2.innerHTML="인라인 이벤트 모델"
 }
 
 
@@ -104,7 +127,20 @@ function inlineFunc() {
     <button id="btn1">실행확인</button>
     <div id="area3" class="area"></div>
     <script>
+        var btn1=document.getElementById("btn1");
+        btn1.addEventListener("click", function(){
+            var area3=document.getElementById("area3");
 
+            if(area3.innerHTML==""){
+                area3.innerHTML="표준이벤트 모델"
+            }else{
+                area3.innerHTML=null;
+            }
+            console.log(area3.innerHTML)
+            
+            
+
+        })
    
 
     </script>
@@ -114,6 +150,14 @@ function inlineFunc() {
     <div id="are4" class="area"></div>
 
     <script>
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick=function(e){
+            console.log(e);
+            console.log(e.target);
+            e.target.style.backgroundColor="red";
+            this.style.color="white";
+        }
+
 
     </script>
 
