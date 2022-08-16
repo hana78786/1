@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본문법</title>
+    <script src=""></script>
+
+</head>
+<body>
+    
+    <div>
+        <p>if문 테스트</p>
+        <input type="text" name="inputVal" id="inputVal">
+        <input type="button" onclick="ifExercise();" value="결과">
+    </div>
+    <script>
+        function ifExercise(){
+            alert("콘솔창을 확인하세요")
+            var ifButton = document.getElementById("inputVal").value;
+            if(ifButton==1){
+                console.log("1입니다")
+            }else if(ifButton==2){
+                console.log("1입니다")
+
+            }else{
+                console.log("1과 2만 입력하세요 ")
+            }
+        }
+    </script>
+
+    <div>
+        <p>switch문 테스트</p>
+        <input type="text" name="inVal" id="inVal">
+        <input type="button" onclick="switchExercise();" value="결과">
+    </div>
+
+    <script>
+       function switchExercise(){
+        var switchValue=document.getElementById("inVal").value;
+        switch(switchValue){
+            case "1":
+            console.log("1입니다")
+                break;
+            case "2":
+            console.log("1입니다")
+                break;
+
+            default: 
+            console.log("1과 2만 입력하세요 ")
+            break;
+        }
+        }
+
+    </script>
+
+    <div>
+        <p>for문 테스트</p>
+        <input type="button" onclick="forExercise();" value="결과">
+    </div>
+
+    <script>
+
+        function forExercise(){
+            for(var i=0;i<10;i++){
+                console.log("for i = "+i);
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>

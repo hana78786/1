@@ -7,20 +7,21 @@
     <title>JS함수</title>
 </head>
 <body>
-    <script>
-     function
-            test1(){
-        
-            var p1Area=document.getElementById('p1').innerHTML="실행확인";
-            }
-    //window.onload 버튼이라는 연동하지 않음, 
-
-    </script>
+   
     <h1>함수(Function)</h1>
     <h3>선언적 함수</h3>
     <h4>변환 값 선언없이 function 키워드만 이용하여 사용 <br> function 함수명() { 소스코드 작성 }로 작성해서 실행하는 방법</h4>
     <button onclick="test1();">실행확인</button>
     <p id="p1"></p>
+
+    <script>
+        function test1(){
+            var p1= document.getElementById("p1")
+            p1.innerHTML="선언함수"
+        }
+   
+    
+    </script>
 
 
     <h3>익명함수</h3>
@@ -29,10 +30,13 @@
     <p id="p2"></p>
 
     <script>
-        var test2 = function(){
-            document.getElementById("p2").innerHTML
-            ="익명함수 실행됨"
-        }
+    test2 =function(){
+        var p2 = document.getElementById("p2");
+        p2.innerHTML="익명함수";
+    }
+    
+
+      
 
     </script>
 
@@ -42,10 +46,10 @@
     <p id="p3"></p>
 
     <script>
-       (function(){
-            document.getElementById("p3").innerHTML
-            ="혼자 자동으로 실행됨";
-       })();
+        (function(){
+            var p3 = document.getElementById("p3")
+            p3.innerHTML="자동실행함수"
+        })();
     </script>
 
 
@@ -54,29 +58,32 @@
     <!--this는 이벤트가 발생했을때의 태그값-->
     <p id="p4"></p>
 <script>
-function paramFunc(param){
-    var p4Aera = document.getElementById('p3');
-    console.log(param.value)
-    param.style.color="lightgreen";
-    param.style.backgroundColor="blue";
+    function paramFunc(param){
+        console.log(param.value);
+        param.style.color="white";
+        param.style.background="blue";
+       
+    }
 
-}
+
 
 </script>
 
 <h3>함수의 리턴처리</h3>
+<!-- 함수를 만들어서 리턴값을 받고 그 리턴값을 출력 -->
     <button onclick="test5();">실행확인</button>
     <p id="p5"></p>
 <script>
-
-    function returnFunc(){
-        return 5;
+    function fucreturn(){
+        return 10-4;
     }
-
     function test5(){
-        var value=returnFunc();
-        document.getElementById("p5").innerHTML=value;
+        var result=fucreturn();
+        var p5 = document.getElementById("p5");
+        p5.innerHTML=result;
     }
+
+  
 </script>
 
 
@@ -85,16 +92,19 @@ function paramFunc(param){
     <p id="p6" style="height:230px;"></p>
 
 <script>
-    function callfucTenties(otherFunc){
-        for(var i =0; i<10;i++){
-            otherFunc(i);
-        }
+   function t6(otherfunc){
+    for(var i=0;i<20;i++){
+        otherfunc(i)
     }
-    
-    callfucTenties(function(i){
-        document.getElementById("p6").innerHTML +=(i+1)+"번째 함수 호출 완료 <br>";
-    });
+   }
 
+   t6(function(i){
+    var p6 =document.getElementById("p6");
+    p6.innerHTML+= i +"함수<br>";
+   
+
+    });
+    
 </script>
 
 <h3>익명함수를 리턴하는 함수</h3>
@@ -104,11 +114,14 @@ function paramFunc(param){
 
     <script>
         function returnTest(){
-        var nameTag=document.getElementById("name");
-        return function(){
-            alert(nameTag.value+"님 환영합니다");
-        }();
-    }
+        var name = document.getElementById("name").value;
+            return name1(name);
+           
+        }
+        function name1(name){
+                alert(name+"님");
+            };
+      
     </script>
     
 </body>

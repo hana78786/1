@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript DOM</title>
+</head>
+<body>
+
+
+    <h1>텍스트 노드가 있는 노드 생성</h1>
+    <button onclick="domtest1();">실행확인</button>
+<!-- //클릭했을때 domtest1이 실행된다는 의미 -->
+    <div id="area1" class="area"></div>
+
+
+
+    <script>
+        function domtest1(){
+            var area1 = document.getElementById("area1");
+            area1.innerHTML="<h3>div밑으로</h>";
+            }
+        
+    </script>
+
+
+
+
+    <h1>텍스트 노드가 없는 노드 생성</h1>
+    <button id="btn-img">실행확인</button>
+    <div id="area2" class="area">
+        <img id="img-tag" src="../img/salmon.jpg" width="150" height="100"/>
+    </div>
+
+    <script>
+        var btnImg=document.getElementById("btn-img");
+        var area2 = document.getElementById("area2");
+        btnImg.onclick= function(){
+            var imgTag = document.getElementById("img-tag");
+            var createImga = document.createElement("img");
+            createImga.src="../img/fish.jpg";
+            createImga.height="100";
+
+            area2.removeChild(imgTag);
+            area2.appendChild(createImga);
+
+        }
+
+    </script>
+
+
+
+
+    <h3>노드 삭제</h3>
+    <button id="btn-remove">실행확인</button>
+
+    <hr>
+    <br>
+    <section id="section1">
+        <h1>childNodes를 이용한 노드 선택</h1>
+        <div class="area" id="div-area">
+            <input type="text">
+            <input type="text">
+            <button id="btn-child">실행확인</button>
+        </div>
+    </section>
+
+    <script>
+        var divarea = document.getElementById("div-area");
+        var input = divarea.childNodes;
+        console.log(input);
+        var btnchild=document.getElementById("btn-child");
+        btnchild.onclick=function(){
+        input[1].value = "안녕";
+        input[3].value= "자바스크립트";
+        }
+
+    </script>
+    
+
+    <section id="section2">
+        <h1>Element Node 속성 변경</h1>
+        <div>
+            <!-- <input type="text" class="img-word"> -->
+            <select name="" id="" class="img-select">
+                <option value="../img/city1.png">img01</option>
+                <option value="../img/fish.jpg">img02</option>
+                <option value="../img/salmon.jpg">img03</option>
+            </select>
+            <input id="change-img" type="button" value="변경">
+        </div>
+        <div id="img-on">
+            <img src="../img/city1.png" alt="" id="img1" class="img-tag">
+        </div>
+    </section>
+
+
+    <script>
+        var imgsel=document.getElementsByClassName("img-select")[0];
+        var changeimg=document.getElementById("change-img");
+        var img1=document.getElementById("img1");
+        changeimg.onclick=function(){
+           
+            img1.src=imgsel.value;
+            
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    div{
+    	border:1px solid red;
+        height:150px;
+    }
+
+</style>
+</head>
+
+
+<body>
+
+<h1> 문자열 메소드 문제</h1>
+
+문제1. 다음 보기에 있는 텍스트 필드에 작성한 문자열의 길이를 알아올 수 있도록 구현하시오
+
+<fieldset>
+    <legend>보기</legend>
+    
+    <input type="text" placeholder="글자를 작성해보세요" size=100 id="text1">
+</fieldset><br>
+<div id="result1"> </div>
+<button onclick="stringLength();"> 확인하기</button>
+<script>
+    function stringLength() {
+        var txt = document.getElementById("text1");
+        var divre=document.getElementById("result1");
+        divre.innerHTML=txt.value.length;
+
+    }
+</script>
+<br><br>
+<hr><hr>
+<br><br>
+문제2. 다음 보기에 있는 문자열을 ,(콤마) 를 기준으로 잘라내어 하나하나 출력하시오 
+(동작 결과는 정답을 확인하셔도 됩니다.)
+
+<fieldset>
+    <legend>보기</legend>
+      <label id="la1">콜라,사이다,햄버거,피자,한약</label>
+</fieldset><br>
+<div id="result2"> </div>
+<button onclick="stringSplit();"> 확인하기</button>
+<script>
+    function stringSplit() {
+        var str=document.getElementById("la1").innerHTML;
+        var div2=document.getElementById("result2");        
+        for(var i =0; i<str.split(",").length; i++){
+        div2.innerHTML+=(i+1)+"."+str.split(",")[i]+" ";
+        }
+    }
+</script>
+
+<br><br>
+<hr><hr>
+<br><br>
+
+문제3. <br>
+글자를 입력후 입력 버튼을 클릭하면 <br>
+메시지공간에 출력하고 대문자버튼,소문자버튼을 <br>
+클릭하면 해당 입력값을 대/소문자로 바꾸어 주어라<br>
+(입력 버튼을 클릭하면 입력창 값을 가져오고 입력창에 내용은 비워라!)
+
+<fieldset>
+    <legend>입력창</legend>
+      <input type="text" id="memo" size="50" />
+</fieldset><br>
+<div id="result3"> </div>
+<button onclick="memoPrint();">입력</button>
+<button onclick="memoUpper();">대문자로 변경</button>
+<button onclick="memoLower();">소문자로 변경</button>
+<script>
+   
+    var div3 = document.getElementById("result3");
+    var memo1 = document.getElementById("memo");
+    function memoPrint(){
+      
+        print1 = div3.innerHTML=memo1.value;
+        memo1.value=null;
+
+
+    }
+
+    function memoUpper(){
+            
+        //alert(print1.toUpperCase());
+      print1= div3.innerHTML=print1.toUpperCase();
+
+    }
+    function memoLower(){
+        div3.innerHTML=print1.toLowerCase();
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

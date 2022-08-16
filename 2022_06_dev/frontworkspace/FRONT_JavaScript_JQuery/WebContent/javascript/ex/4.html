@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array와 객체</title>
+</head>
+<body>
+   
+
+    <h5>indexOf 예제</h5>
+    <div>
+        <p>다음 중 좋아하는 과일을 작성하시오</p>
+        <p>바나나 / 딸기 / 복숭아 / 수박</p>
+        <input type="text" name="fruit" id="fruit">
+        <input type="button" onclick="fruitIndexOf();" value="결과">
+    </div>
+    <script>
+        function fruitIndexOf(){
+            arr1 = ["바나나","딸기","복숭아","수박"];
+            var fruit = document.getElementById("fruit").value;
+            console.log(fruit)
+           var indexof = arr1.indexOf(fruit);
+           console.log(indexof+1+"번째");
+        }
+        
+    </script>
+
+    <h5>concat 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <!--배열2개 합치기-->
+        <input type="button" onclick="fruitConcat();" value="결과">
+        <script>
+            function fruitConcat(){
+             arr1 =["사과","딸기","바나나"];
+            arr2=["파인애플","망고"];
+            arr3=arr2.concat(arr1);
+
+            console.log(arr3);
+            }
+        </script>
+    </div>
+
+    <h5>join 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <input type="button" onclick="fruitJoin();" value="결과">
+    </div>
+    <!-- 배열을 잘라 문자열삽입하기 -->
+    <script>
+        function fruitJoin(){
+        var string = "hello javaScript!"
+        var strsp=string.split("a")
+        
+        console.log(strsp.join("w"));
+        }
+    </script>
+
+
+
+
+    <h5>reverse 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <input type="button" onclick="arrReverse();" value="결과">
+        <script>
+            var arr=[1,2,3,4,5,6,7,8]
+            function arrReverse(){
+                arr.reverse();
+                console.log(arr);
+
+            }
+
+           
+            
+        </script>
+    </div>
+
+    <h5>sort 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <input type="button" onclick="arrSort();" value="결과">
+    </div>
+
+    <script>
+       var arr1=[2,9,8,7,69,5,7,513,4,8,46];
+       function arrSort(){
+        arr1.sort(sortAsc);
+        console.log(arr1);
+        arr1.sort(sortDesc);
+        console.log(arr1);
+        
+       }
+       function sortAsc(a,b){
+        return a-b
+
+       }
+       function sortDesc(a,b){
+        return b-a;
+       }
+
+    </script>
+
+    <h5>push/pop 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <!-- 배열생성하고 push와 pop을 이용해서 추가 삭제 -->
+        <input type="button" onclick="pushPop();" value="결과">
+    </div>
+    <script>
+        function pushPop(){
+            arr = ["네이버","카카오","쿠팡","배민","당근"];
+            arr.push("토마토");
+            console.log(arr);
+            arr.pop();
+            console.log(arr);
+        }
+    
+    </script>
+
+    <h5>shift/unshift 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <!-- 배열생성하고 shift와 unshift 이용해서 추가 삭제 -->
+        <input type="button" onclick="shiftEx();" value="결과">
+    </div>
+    <script>
+        function shiftEx(){
+            arr = ["네이버","카카오","쿠팡","배민","당근"];
+            arr.shift();
+            console.log(arr);
+            arr.unshift("토마토");
+            console.log(arr);
+            
+
+        }
+    </script>
+
+    <h5>toString 예제</h5>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요</p>
+        <input type="button" onclick="showString();" value="결과">
+    </div>
+        <script>
+            function showString(){
+                arr = ["네이버","카카오","쿠팡","배민","당근"];
+                var arrstr=arr.toString();
+                console.log(arr);
+                console.log(arrstr)
+
+            }
+
+        </script>
+
+</body>
+</html>
