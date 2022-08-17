@@ -101,7 +101,7 @@
 
             var divArea5 = document.getElementById("area-for");
             for(var keyword in game){
-                divArea4.innerHTML+=keyword+" : "+game[keyword]+"<br>";
+                divArea5.innerHTML+=keyword+" : "+game[keyword]+"<br>";
             }
 
             var prodoct = new Object();
@@ -173,31 +173,30 @@
         처음 객체 생성 이후 키,값을 추가하거나 제거하는 것을 동적으로 할 수 있음.
     </p>
     <button onclick="jsobject6();">실행확인</button>
-    <div id="area6" class="area"></div>
+    <div id="area7" class="area"></div>
 
     <script>
-        function jsobject6(){
-        var person = new Object();
-        person.name ="우영우";
-        person.hobby="낚시";
-        person.stregth="변호사";
-        person.drea="세계평화";
-        
-        person.toString=function(){
-            var str="";
-            for(var key in person){
-            if(key != "toString"){
-                str += key + " : "+person[key]+"<br>"
-
-            }
-           
-            return str
-        };
-        var dig6Tag = document.getElementById("area6");
-        dig6Tag
-
+       function jsobject6() {
+            var person = new Object();
+            person.name = "우영우";
+            person.hobby = "낚시";
+            person.strength = "변호사";
+            person.dream = "세계평화";
+            person.toString = function() {
+                var str = "";
+                for(var key in person) {
+                    if(key != "toString") {
+                        str += key + " : " + person[key] + "<br>";
+                    }
+                }
+                return str;
+            };
+            var div6Tag = document.querySelector("#area7");
+            div6Tag.innerHTML += person.toString();
+            delete(person.dream);
+            div6Tag.innerHTML += person.toString();
         }
-    }
+    
     </script>
 
 

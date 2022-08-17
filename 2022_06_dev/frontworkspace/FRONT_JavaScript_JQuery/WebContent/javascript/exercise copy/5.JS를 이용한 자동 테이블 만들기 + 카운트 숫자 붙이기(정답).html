@@ -14,54 +14,28 @@
 
 <script>
     function table_make() {
-        var rowtd=Number(document.getElementById("rowNum").value);
-       var coltr=Number(document.getElementById("colNum").value);
-      
-       coltd="";
-        for(var i=0;i<rowtd;i++){
-            coltd+="<td class='td1'></td>";
+       
+        var rowNum=document.querySelector('#rowNum').value;
+        var colNum=document.querySelector('#colNum').value;
+        console.log(rowNum)
+        var rowTag="";
+        var colTag="";
+        for(var i=0; i<rowNum;i++){
+           rowTag+="<td></td>";
+          }
+        for(var i=0;i<colNum;i++){
+            colTag+="<tr>"+rowTag+"</tr>";
         }
-        
-        
-        tabtag1="";
-        
-        
-        for(var i=0;i<coltr;i++){
-            tabtag1+="<tr class='td2'>"+coltd+"</tr>";            
-        }
-        
-        
-        document.write("<table border='1' width='500px' height='500px'>");
-            document.write(tabtag1);
-            document.write("</table>")
-            
-            var td1Value = document.getElementsByClassName("td2");
-            var td1Value2 = "";
-            for(i=0;i<td1Value.length;i++){
-                td1Value2 = td1Value[i].childNodes;
-                
-                for(j=0;j<td1Value2.length;j++){
-                    
-                    
-                    console.log(i);
-                    console.log(j);
-                   
-                    td1Value3=td1Value2[j];
-                    td1Value3.innerHTML=(i+1)+"열 "+(j+1)+"행";
-                    console.log(td1Value3.innerHTML)
-                    
-                    
-                 
-                }
-                
-                
 
-            }
-           
-           
+           document.write("<table border='1' width='800px' height='1000px'>");
+           document.write(colTag);
+           document.write("</table>");
+
+       var trArr= document.querySelectorAll("tr");
+        for(var i=0; i<trArr.length;i++){
             
-            
-           
+        }
+        
                 
         
 

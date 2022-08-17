@@ -129,12 +129,51 @@ var btn4=document.getElementById("btn-4");
 <button id="btn-confirm">confirm 확인</button>
 <button id="btn-prompt">prompt확인</button>
 
+<script>
+document.querySelector("#btn-confirm").onclick=function(){
+    if(confirm("확인")){
+        console.log("확인")
+    }else{
+        console.log("취소")
+    }
+}
+document.querySelector("#btn-prompt").onclick=function(){
+  
+    console.log(prompt("입력"))
+
+}
+
+</script>
+
 <h3>screen 객체</h3>
     <p>웹 브라우저 화면이 아닌 운영체제 화면의 속성을 가직 객체</p>
     <button id="btn-6">실행확인</button>
+    <script>
+        document.querySelector("#btn-6").onclick=function(){
+            console.log(screen)
+            console.log(screen.width)
+            console.log(screen.height)
+            console.log(screen.availWidth)
+            console.log(screen.availHeight)
+        }
+
+    </script>
+
+
+
     <h3>navigator 객체</h3>
     <p>웹페이지를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체</p>
     <button id="btn-7">실행확인</button>
+    <script>
+        document.querySelector("#btn-7").onclick=function(){
+            console.log(navigator)
+        
+        }
+
+    </script>
+
+
+
     <h3>location 객체</h3>
     <p>브라우저 주소 표시줄과 관련된 객체</p>
     <button id="btn-8">실행확인</button><br>
@@ -148,6 +187,15 @@ var btn4=document.getElementById("btn-4");
     <!-- 뒤로가기 불가능 -->
     <button onclick="location.replace('http://www.google.com')">구글로 이동2</button>
 
+    <script>
+        document.querySelector("#btn-8").onclick=function(){
+            console.log(location)
+            
+        }
+
+    </script>
+    
+    
     <!-- <script>
 
 
