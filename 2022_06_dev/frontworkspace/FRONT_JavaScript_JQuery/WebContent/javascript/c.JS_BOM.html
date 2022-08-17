@@ -77,7 +77,16 @@
                     
                 },1000)
                 
-             }
+             
+            
+            
+               
+            
+            
+            
+            }
+
+
 
 
 
@@ -123,15 +132,77 @@
 <button id="btn-confirm">confirm 확인</button>
 <button id="btn-prompt">prompt확인</button>
 
+<script>
+ var confirmBtn = document.getElementById("btn-confirm");
+                confirmBtn.addEventListener("click",function(){
+                    var result = confirm("확인을 선택하면 true, 취소를 선택하면 false");
+                    if(result){
+                        console.log("확인을 선택하셨군요");
+                        
+                    }else{
+                        console.log("추소를 선택하셨군요")
+                    }
+
+
+
+                });
+
+                var proBtn = document.getElementById("btn-prompt");
+                proBtn.onclick=function(){
+                    var result = window.prompt("값dmf 입력해주세요");
+                    console.log("입력한값: "+result);
+                }
+
+</script>
+
 <h3>screen 객체</h3>
     <p>웹 브라우저 화면이 아닌 운영체제 화면의 속성을 가직 객체</p>
     <button id="btn-6">실행확인</button>
+    <script>
+        document.getElementById("btn-6").onclick=function(){
+            console.log(screen);
+            console.log("화면높이"+screen.height);
+            console.log("화면 너비" + screen.width);
+            console.log("화면 사용가능 너비"+screen.availHeight);
+            console.log("화면 사용가능 높이 "+screen.availWidth);
+          
+            
+        }
+
+    </script>
+
+
+
+
+
     <h3>navigator 객체</h3>
     <p>웹페이지를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체</p>
     <button id="btn-7">실행확인</button>
+
+    <script>
+
+        document.getElementById("btn-7").onclick=function(){
+            console.log(navigator);
+        }
+
+    </script>
+
+
+
     <h3>location 객체</h3>
     <p>브라우저 주소 표시줄과 관련된 객체</p>
     <button id="btn-8">실행확인</button><br>
+
+    <script>
+         document.getElementById("btn-8").onclick=function(){
+            console.log(location);
+        }
+
+    </script>
+
+
+
+
 
     <!-- location은 location.href와 같은 역할을 함(페이지 이동시) -->
     <button onclick="location.href='http://www.iei.or.kr'">iei로 이동!</button>

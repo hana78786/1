@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트객체</title>
+    <style>
+        div{
+            height: 200px;
+            border:  1px solid black;
+            background-color: lightgray;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>자바스크립트 객체</h1>
+    <h3>객체 선언 및 호출</h3>
+    <p>객체는 키 값을 사용하여 value을 식별함<br>
+    value에는 모든 자료형이 올 수 있다.</p>
+    <button onclick="jsobject1();">실행확인</button>
+    <div id="area1" class="area-big"></div>
+
+    <script>
+        function jsobject1(){
+        var prodoct = new Object();
+        prodoct.pName = "Dry Mango";
+        prodoct.type="Pickle";
+        var divArea1 = document.getElementById("area1")
+        divArea1.innerHTML += "prodoct"+prodoct +": <br>";
+        divArea1.innerHTML += "prodoct pNmae : "+prodoct.pName+"<br>";
+        divArea1.innerHTML += "prodoct type : "+prodoct.type+"<br>";
+        prodoct.ingredient = ["mango","sugar"];
+        divArea1.innerHTML += "prodoct ingredient :"+prodoct.ingredient[0]+"<br>";
+        divArea1.innerHTML += "prodoct ingredient :"+prodoct.ingredient[1]+"<br>";
+
+       
+
+        }
+    </script>
+
+    <h3>객체의 키</h3>
+    <p>객체의 키는 모든 문자열을 사용할 수 있다. <br>
+    키로 사용할 수 없는 단어를 키로 사용한 경우에는 무조건 대괄호를 사용해야 객체의 요소에 접근할 수 있다.</p>
+    <button onclick="jsobject2();">실행확인</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+        var ObjectTest = new Object();
+        ObjectTest["I love you"]="BTS";
+        ObjectTest["I hote you"]="javaScript";
+        function jsobject2(){
+            var divArea2 = document.getElementById("area2");
+            divArea2.innerHTML+= "I love you "+ObjectTest["I love you"]+"<br>";
+            divArea2.innerHTML+= "I hate you "+ObjectTest["I hote you"]+"<br>";
+
+            var prodoct = new Object();
+            prodoct["pName"]="Dry Mango"
+            divArea2.innerHTML+=prodoct["pName"];
+        }
+
+
+    </script>
+
+    <h3>객체의 메소드</h3>
+    <p>객체의 value 중 함수 자료형인 value를 메소드라 함.</p>
+    <button onclick="jsobject3();">실행확인</button>
+    <div id="area3" class="area"></div>
+    <div id="area6" class="area"></div>
+
+    <script>
+        
+        function jsobject3(){
+            var dog= new Object();
+            dog.name="흰둥이"
+            var divArea3 = document.getElementById("area3");
+            dog.eat = function(food){
+                divArea3.innerHTML=this.name+"가 "+food+"를 먹고있습니다.";
+            }
+            dog.eat("닭고기")
+        }
+        
+        
+    </script>
+
+
+    <h3>객체와 반복문</h3>
+    <p>객체의 value를 출력할 때에는 단순 for문으로는 사용할 수 없고 for in문(foreach문)을 사용해야 함.</p>
+    <button onclick="jsobject4();">실행확인</button>
+    <div id="area-for" class="area"></div>
+
+    <script>
+        var game= new Object();
+        function jsobject4(){
+            game.title="Marvle Future Fight";
+            game.price="10000원";
+            game.language = "한국어";
+            game.supportOs="Android/IOS/Window";
+            game.service = true;
+
+            var divArea5 = document.getElementById("area-for");
+            for(var keyword in game){
+                divArea4.innerHTML+=keyword+" : "+game[keyword]+"<br>";
+            }
+
+            var prodoct = new Object();
+            prodoct.pName = "Dry Mango";
+            prodoct.type="Pickle";
+            prodoct.ingredient=["mango","sugar"]
+
+            for(var word in prodoct){
+                divArea5.innerHTML += word+" : "+prodoct[word]+"<br>";
+            }
+
+            
+        }
+    </script>
+
+    <h3>객체의 in과 with 키워드</h3>
+    <p>
+        in : 객체 내부에 해당 속성이 있는지 확인하는 키워드
+        <br>
+        with : 호출시 코드를 줄여주는 키워드(객체명 생략가능)
+    </p>
+    <label>이름 : <input type="text" id="name"></label><br>
+    <label>국어 : <input type="text" id="kor"></label><br>
+    <label>영어 : <input type="text" id="eng"></label><br>
+    <label>수학 : <input type="text" id="math"></label><br>
+    <button onclick="jsobject5();">실행확인</button>
+    <div id="area5" class="area-big"></div>
+    
+    <script>
+        function jsobject5(){
+        var study =new Object();
+        var labelName = document.querySelectorAll("label");
+        study[labelName[0].innerText]=document.getElementById("name");
+        study[labelName[1].innerText]=document.getElementById("kor");
+        study[labelName[2].innerText]=document.getElementById("eng");
+        study[labelName[3].innerText]=document.getElementById("math");
+        var divArea5 = document.getElementById("area5")
+       
+        for(var labelWord in study){
+           
+            divArea5.innerHTML+= labelWord+study[labelWord].value+"<br>";
+            
+            
+        }
+        divArea5.innerHTML+=("name" in study) + "<br>";
+        //키가 존재하는지 하지 않는지 확인
+        divArea5.innerHTML+=("이름 : " in study);
+        divArea5.innerHTML+="<br>sith 키워드 동작 확인"
+        study.name=document.getElementById("name").value;
+        study.kor=Number(document.getElementById("kor").value);
+        study.eng=Number(document.getElementById("eng").value);
+        study.math=Number(document.getElementById("math").value);
+
+        with(study){
+            divArea5.innerHTML+="학생이름 : "+name+ "<br>";
+            divArea5.innerHTML+="국우 : "+kor+ "<br>";
+            divArea5.innerHTML+="영어 : "+eng+ "<br>";
+            divArea5.innerHTML+="수학 : "+math+ "<br>";
+            divArea5.innerHTML+="평균 : "+(kor+eng+math)/3+ "<br>";
+        }
+
+        
+    }
+
+    </script>
+
+    <h3>객체의 키,값 추가와 제거</h3>
+    <p>
+        처음 객체 생성 이후 키,값을 추가하거나 제거하는 것을 동적으로 할 수 있음.
+    </p>
+    <button onclick="jsobject6();">실행확인</button>
+    <div id="area6" class="area"></div>
+
+    <script>
+        function jsobject6(){
+        var person = new Object();
+        person.name ="우영우";
+        person.hobby="낚시";
+        person.stregth="변호사";
+        person.drea="세계평화";
+        
+        person.toString=function(){
+            var str="";
+            for(var key in person){
+            if(key != "toString"){
+                str += key + " : "+person[key]+"<br>"
+
+            }
+           
+            return str
+        };
+        var dig6Tag = document.getElementById("area6");
+        dig6Tag
+
+        }
+    }
+    </script>
+
+
+</body>
+</html>
