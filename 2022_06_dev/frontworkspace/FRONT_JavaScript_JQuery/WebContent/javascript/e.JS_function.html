@@ -104,7 +104,7 @@ function paramFunc(param){
 
     <script>
         function returnTest(){
-        var nameTag=document.getElementById("name");
+        var nameTag=document.querySelector("#name");
         return function(){
             alert(nameTag.value+"님 환영합니다");
         }();

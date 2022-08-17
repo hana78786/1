@@ -101,13 +101,14 @@
         //value는 inputype일때만
         console.log(p22Tag.innerHTML);
 
-        var pTags=document.getElementsByName("pp");
+        var pTags=document.querySelectorAll("[name='pp']");
         console.log(pTags[0]);
         console.log(pTags[0].innerHTML);
 
         pTags[1].style.backgroundColor="gold";
 
-        var preTags = document.getElementsByTagName("pre")
+        var preTags = document.querySelectorAll("pre");
+        console.log(preTags)
         console.log("1 : "+preTags[0].innerHTML)
         console.log("2 : "+preTags[1].innerHTML)
         console.log("3 : "+preTags[2].innerHTML)

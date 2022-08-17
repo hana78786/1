@@ -147,7 +147,7 @@
 
                 });
 
-                var proBtn = document.getElementById("btn-prompt");
+                var proBtn = document.querySelector("#btn-prompt");
                 proBtn.onclick=function(){
                     var result = window.prompt("값dmf 입력해주세요");
                     console.log("입력한값: "+result);
@@ -181,7 +181,7 @@
 
     <script>
 
-        document.getElementById("btn-7").onclick=function(){
+        document.querySelector("#btn-7").onclick=function(){
             console.log(navigator);
         }
 
@@ -194,7 +194,7 @@
     <button id="btn-8">실행확인</button><br>
 
     <script>
-         document.getElementById("btn-8").onclick=function(){
+         document.querySelector("#btn-8").onclick=function(){
             console.log(location);
         }
 

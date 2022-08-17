@@ -32,6 +32,43 @@
 
     </fieldset><br>
 
+    <script>
+                
+                var colorArr=[];
+
+                function clickDiv(color){
+                    var colorTile =document.querySelector("#"+color);
+                    colorTile.style.display="none";
+                    colorArr.push(colorTile);
+
+                    
+                                                    
+                    if(colorArr.length==5){
+                        var div5 = document.querySelector("#div5");
+                            div5.innerHTML="";
+                            console.log(div5)
+
+                        for(let i =0; i<5;i++){
+  
+                            div5.innerHTML+=colorArr[i].outerHTML;
+
+                           
+                        }
+                        colorArr=document.querySelectorAll(".divss");
+                        for(var i=0; i<5;i++){
+                       colorArr[i].style.display="inline-block";
+                        }
+
+                        colorArr=[];
+                                 
+                    }
+
+                } 
+             
+        
+
+    </script>
+
 
 </body>
 
