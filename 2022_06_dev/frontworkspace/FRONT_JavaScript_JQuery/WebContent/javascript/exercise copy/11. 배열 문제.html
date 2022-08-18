@@ -107,9 +107,9 @@
 <button onclick="printTest();"> 출력 </button>     
 
 <script>
-    var valueTxt="";
+     var valueTxt="";
     function input(){
-       var inputTxt=document.getElementById("strInput");
+        var inputTxt=document.getElementById("strInput");
        valueTxt+=inputTxt.value;
        inputTxt.value=null;
     }
@@ -118,6 +118,7 @@
     var pArea=document.getElementById("print2");
     function printTest(){
         console.log(2+valueTxt);
+        
         pArea.innerHTML=valueTxt;
 
     }

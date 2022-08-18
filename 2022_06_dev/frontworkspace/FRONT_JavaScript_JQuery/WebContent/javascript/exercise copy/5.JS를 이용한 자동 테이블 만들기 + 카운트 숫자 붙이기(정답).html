@@ -32,8 +32,13 @@
            document.write("</table>");
 
        var trArr= document.querySelectorAll("tr");
+       
         for(var i=0; i<trArr.length;i++){
-            
+            var tdArr = trArr[i].childNodes
+            console.log(tdArr)
+            for(var j =0; j<tdArr.length;j++){
+                tdArr[j].innerHTML=i+1+"열"+(j+1)+"행";
+            }
         }
         
                 

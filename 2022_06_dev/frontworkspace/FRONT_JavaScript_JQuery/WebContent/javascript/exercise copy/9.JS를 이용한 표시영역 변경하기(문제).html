@@ -58,18 +58,18 @@
 		</form>
 	</div>
 	<script type="text/javascript">
-	//요구한 내용을 변수, 연산자, 제어문 등을 사용하여 실행되게 하시오.	
-		function showDiv(element) {
-			
-			var divBoxClass=document.getElementsByClassName("box");
-			for(var i=0;i<divBoxClass.length;i++){
-				divBoxClass[i].style.display="none";
+		function showDiv(element){
+			var boxAll=document.querySelectorAll(".box")
+			for(var i=0; i<boxAll.length;i++){
+				boxAll[i].style.display="none";
 			}
-			var divBox = document.getElementById(element.value+"Box");
-			console.log(divBox);
-			divBox.style.display="block"
-			
+			var category = element.value;
+			console.log(category)
+			var box= document.querySelector('#'+category+'Box');
+			box.style.display="block";
+
 		}
+	
   	</script>
 </body>
 </html>

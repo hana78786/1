@@ -26,22 +26,19 @@
         var arr = document.getElementById("stringla4").innerHTML.split(" ");
 
         function print2Test(){
-            var add = document.getElementById("add");
-            var remove = document.getElementById("remove");
-            if(add.value!=""){
-                arr.push(add.value);
-                add.value="";
-            }
-            if(remove.value!=""){
-                var i = arr.indexOf(remove.value);
-                if(i != -1){
-                    arr.splice(i,1);
-                }
-                remove.value=""
-            }
-            var print4 = document.getElementById("print4");
-            print4.innerHTML=arr;
-            console.log(arr);
+        var add = document.getElementById("add");
+        var remove = document.getElementById("remove");
+        if(add.value!=""){
+        arr.push(add.value);
+        add.value="";}
+        if(remove.value!=""){
+        var i = arr.indexOf(remove.value);
+        if(i != -1){
+        arr.splice(i,1);}
+        remove.value=""}
+        var print4 = document.getElementById("print4");
+        print4.innerHTML=arr;
+        console.log(arr);
         }
 
     </script>

@@ -1,30 +1,18 @@
 function changeBg(param){
-    console.log(param);
-   
-    document.body.style.background = param;
+    document.body.style.background=param;
+
 }
+
+
 
 window.onload=function(){
-var rangeTag = document.getElementById("txtsize");
-var h1Tage = document.getElementById("h1");
+    var range1 = document.querySelector("[type='range']");
+    console.log(range1)
+    range1.onclick = function(){
+       var h1Tag= document.querySelector('h1');
+       console.log(h1Tag)
+       h1Tag.style.fontSize=range1.value+"px";
+       console.log(h1Tag)
+    }    
 
-rangeTag.onclick=function changeH1(){
-    h1Tage.style.fontSize=rangeTag.value+"px";
-    console.log(rangeTag.value)
-
-}
-
-
-
-
-
-var textId=document.getElementById("in");
-var textButton=document.getElementById("ok");
-var areaHh=document.getElementById("hh");
-
-textButton.onclick=function ChangeHH(){
-   
-    console.log(textId.value)
-    areaHh.innerHTML=textId.value;
-}
 }
