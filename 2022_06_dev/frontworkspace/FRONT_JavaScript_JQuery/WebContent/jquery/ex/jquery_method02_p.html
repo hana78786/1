@@ -19,9 +19,43 @@
 				background-color:grey;
 			}
 		</style>
+		<script src="../jq/jquery-3.6.0.min.js"></script>
 	</head>
 	<script>
+	window.onload=function(){
+		$('#btn2').on("click",function(){
 		
+			$('th').addClass('title');
+			$.each($('tr'),function(index,item){
+				$('tr:eq('+index+')').children('td:eq(0)').addClass('name');
+			})
+			$.each($('tr'),function(index,item){
+				$('tr:eq('+index+')').children('td:eq(1)').addClass('age');
+			})
+			$.each($('tr'),function(index,item){
+				$('tr:eq('+index+')').children('td:eq(2)').addClass('addr');
+			})
+			
+		});
+
+		$('#reset').on("click",function(){
+			$('th').removeClass('title');
+			$.each($('tr'),function(index,item){
+				$('tr:eq('+index+')').children('td:eq(0)').removeClass('name');
+			})
+			$.each($('tr'),function(index,item){
+				$('tr:eq('+index+')').children('td:eq(1)').removeClass('age');
+			})
+			$.each($('tr'),function(index,item){
+				$('tr:eq('+index+')').children('td:eq(2)').removeClass('addr');
+			})
+
+		});
+
+
+		
+	}
+
 	</script>
 	<body>
 

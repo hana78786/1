@@ -4,12 +4,28 @@
 
 	<head>
 		<title>jQuery method 실습</title>
+	<script src="../jq/jquery-3.6.0.min.js"></script>
 	</head>
 	<body>
 
-		<!-- 추가버튼 눌러서 버튼 계속 추가 삭제 누르면 버튼 삭제 
-			마지막 버튼은 삭제 안됨-->
+		
 		<script>
+			var i=0;
+			function addFile(){
+				
+				$('div').append($('[type="file"]:eq(0)').clone());
+				//$('[type="file"]:eq(0)').after($('[type="file"]:eq(0)').clone());
+				i++;
+				
+
+			}
+
+			function delFile(){
+				if(i!=0){
+				$("[type='file']:eq("+i+")").remove()
+				i--;
+				}
+			}
 		</script>
 		<div>
 			<input type="file">

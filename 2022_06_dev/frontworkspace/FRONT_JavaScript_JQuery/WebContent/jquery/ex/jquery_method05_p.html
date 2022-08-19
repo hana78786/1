@@ -5,12 +5,29 @@
 	<head>
 
 		<title>jQuery method 실습</title>
-		<script src="../js/jquery-3.5.1.min.js"></script>
+		<script src="../jq/jquery-3.6.0.min.js"></script>
 	</head>
-
 	<body>
-		<script>
-		</script>
+	<script>
+
+		function add(){
+
+			var titleVal =$('[name="title"]').val();
+			var conVal=$('[name="content"]').val();
+			var ownerVal=$('[name="owner"]').val();
+
+			$('table').html(
+				$('table').html()+"<tr> <td>"+titleVal+"</td><td>"+conVal+"</td><td>"+ownerVal+"</td></tr>"
+			);
+			$('[name="title"]').val("");
+			$('[name="content"]').val("");
+			$('[name="owner"]').val("");
+		}
+
+	
+
+	</script>
+
 		제목 : <input type="text" name="title"><br> 
 		내용 : <input type="text" name="content"><br>
 		작성자 : <input type="text" name="owner"><br>
@@ -28,4 +45,5 @@
 		</table>
 
 	</body>
+	
 </html>

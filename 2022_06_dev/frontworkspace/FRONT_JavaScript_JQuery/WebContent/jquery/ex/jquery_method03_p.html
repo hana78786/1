@@ -13,12 +13,45 @@
 				float: left;
 			}
 		</style>
-		<script src="../js/jquery-3.5.1.min.js"></script> 
+		<script src="../jq/jquery-3.6.0.min.js"></script> 
 	</head>
 
 	<body>
 		<script>
+		window.onload=function(){
+			var i=2;
+			$('#img1').on("click",function(){
+				console.log("rog")
+				
+				$('div').eq(i).css("background","red")
+				i++;
+
+				
+
+			});
+
+			$('#img2').on("click",function(){
+				console.log("rog")
+				
+				$('div').eq(i).css("background","blue")
+				i++;
+				
+				
+
+			});
+
+			$('#btn1').on("click",function(){
+				var divTag = $('fieldset:eq(1)').children('div')
+				$.each(divTag,function(index,item){
+					$(item).removeAttr('style')
+					i=2
+				});
+				
+
+			});
 			
+
+		}
 
 		</script>
 		문제3<br>

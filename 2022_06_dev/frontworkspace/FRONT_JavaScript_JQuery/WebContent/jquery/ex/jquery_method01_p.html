@@ -7,32 +7,71 @@
     <script src="../jq/jquery-3.6.0.min.js"></script>
 </head>
 
+
 <body>
     <script>
         window.onload=function(){
-        $("#btn").on("click",function(){
+            $("#btn").on("click",function(){
+            $('#span1').html("")
+            var trTag=$('tr');
+            var thTag=$('th');
+            
+                var tdTag=trTag.children('td')
+                console.log(tdTag)
+                var count=0;
+                $.each(tdTag, function(index,item){
+                    console.log($(item).text());
+                    $('#span1').html(
+                        $('#span1').html()+
+                        thTag.eq(count).text()+":"+$(item).text()
+                        +" "
+                        
+                    )
+                count++
+                    if(count==3){
+                        $('#span1').html(
+                        $('#span1').html()+"<br>"
+                        )
+                        count=0;
 
-           console.log($('tr:eq(1)').children('td:eq(0)').text());
-           var trTag=$('tr');
-           for(var i=1;i<trTag.length;i++){
-            $('#span1').html( 
-                $('#span1').html()+
-                $('tr:eq(0)').children('th:eq(0)').text()+":"
-                +$('tr:eq('+i+')').children('td:eq(0)').text() +"<br>"+
-                $('tr:eq(0)').children('th:eq(1)').text()+":"+
-                $('tr:eq('+i+')').children('td:eq(1)').text()
-                +"<br>"+
-                $('tr:eq(0)').children('th:eq(2)').text()+":"+
-                $('tr:eq('+i+')').children('td:eq(2)').text()
-                +"<br>"
-                ) 
-            }
+                    }
+                
+                });
 
           
             
 
-        });
-    }
+            });
+        
+        var btn = document.querySelector("#btn").onclick=function(){
+
+            var trTag=document.querySelectorAll('tr');
+            var thTag=document.querySelectorAll('th');
+            var tdTag=document.querySelectorAll('td');
+            var spanTag=document.querySelector("#span1");
+            
+            var count=0;
+            for(var i=0; i<tdTag.length;i++){
+                spanTag.innerHTML+=thTag[count].innerText+" : "+
+                tdTag[i].innerText+" ";
+                count++;
+                
+                if(count==3){
+                    spanTag.innerHTML+="<br>"
+                    count=0
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+        }
+
+
+
 
     </script>
 

@@ -4,10 +4,72 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>jQuery method 실습</title>
+		<script src="../jq/jquery-3.6.0.min.js"></script>
 	</head>
 
 	<body>
 		<script>
+			window.onload=function(){
+								
+				$('#btn').on("click",function(){
+					$('#result').html("");
+					var td1 = $('input:checked').parent();
+					
+					$.each(td1,function(index,item){
+						
+						//$('#result').html($('#result').html()+$(item).next().text()+" "+$(item).next().next().text()+" "+$(item).next().next().next().text()+"<br>");
+						for(var i=0;i<3;i++){
+						
+						$('#result').html($('#result').html()+$(item).nextAll().eq(i).text()+" ");
+						}
+				
+						if(i==3){
+							$('#result').html($('#result').html()+"<br>")
+						}
+					})
+
+
+					//$('#result').html($('input:checked').parent().nextAll().text());					
+
+
+				})
+				
+				
+
+				var btn=document.querySelector('#btn')
+				var resultArea = document.querySelector('#result')
+				btn.onclick=function(){
+					var check = document.querySelectorAll('[type="checkbox"]:checked');
+					var checkArr=[];
+					
+					for(var i =0; i<check.length;i++){
+						var checkTd= check[i].parentNode;
+						console.log(checkTd.nextSibling.nextSibling.nextSibling.nextSibling.nextElementSibling.innerText)
+						
+						
+						var checkDate={};
+						checkDate.name = checkTd.nextElementSibling.innerText;
+						checkDate.age = checkTd.nextSibling.nextSibling.nextElementSibling.innerText;
+						checkDate.addr = checkTd.nextSibling.nextSibling.nextSibling.nextSibling.nextElementSibling.innerText;	
+						checkArr[i]=checkDate;
+						console.log(checkArr)
+
+						for(var key in checkDate){
+							resultArea.innerHTML+=key+":"+checkDate[key]+", "
+						}
+						resultArea.innerHTML+="<br>"
+					}
+
+
+
+				}
+			
+			
+			
+			
+			
+			
+			}
 			
 		</script>
 
