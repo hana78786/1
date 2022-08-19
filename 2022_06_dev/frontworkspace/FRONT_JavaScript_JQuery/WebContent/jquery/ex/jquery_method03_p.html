@@ -19,37 +19,62 @@
 	<body>
 		<script>
 		window.onload=function(){
-			var i=2;
+			
+
+			
+			// document.querySelector('#img1').onclick=function(){
+			// 	if(i<9){
+			// document.querySelectorAll('div')[i].style.background="red";
+			// i++;	
+			// 	}
+
+			// }
+
+			// document.querySelector('#img2').onclick=function(){
+			// 	if(i<9){
+			// document.querySelectorAll('div')[i].style.background="blue";
+			// i++;
+			// 	}	
+
+			// }
+
+			// document.querySelector('#btn1').onclick=function(){
+			// 	var div =document.querySelectorAll('div')
+			// 	for(var j=2;j<div.length;j++){
+			// 		div[j].removeAttribute("style");
+			// 	}
+			// 	i=2;
+			// }
+
+
+			var color;
+			
 			$('#img1').on("click",function(){
 				console.log("rog")
+			color = $(this).css("background-color")	
 				
-				$('div').eq(i).css("background","red")
-				i++;
-
-				
-
 			});
 
 			$('#img2').on("click",function(){
 				console.log("rog")
+			color = $(this).css("background-color")		
 				
-				$('div').eq(i).css("background","blue")
-				i++;
-				
-				
-
 			});
+
+			$("div[id$=th]").on("click",function(){
+				$(this).css("background-color",color);
+			})
+
 
 			$('#btn1').on("click",function(){
 				var divTag = $('fieldset:eq(1)').children('div')
 				$.each(divTag,function(index,item){
 					$(item).removeAttr('style')
-					i=2
+					
 				});
-				
-
 			});
-			
+
+
 
 		}
 

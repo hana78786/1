@@ -23,38 +23,77 @@
 	</head>
 	<script>
 	window.onload=function(){
-		$('#btn2').on("click",function(){
+		// $('#btn2').on("click",function(){
 		
-			$('th').addClass('title');
-			$.each($('tr'),function(index,item){
-				$('tr:eq('+index+')').children('td:eq(0)').addClass('name');
-			})
-			$.each($('tr'),function(index,item){
-				$('tr:eq('+index+')').children('td:eq(1)').addClass('age');
-			})
-			$.each($('tr'),function(index,item){
-				$('tr:eq('+index+')').children('td:eq(2)').addClass('addr');
-			})
+		// 	$('th').addClass('title');
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(0)').addClass('name');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(1)').addClass('age');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(2)').addClass('addr');
+		// 	})
 			
-		});
+		// });
 
-		$('#reset').on("click",function(){
-			$('th').removeClass('title');
-			$.each($('tr'),function(index,item){
-				$('tr:eq('+index+')').children('td:eq(0)').removeClass('name');
-			})
-			$.each($('tr'),function(index,item){
-				$('tr:eq('+index+')').children('td:eq(1)').removeClass('age');
-			})
-			$.each($('tr'),function(index,item){
-				$('tr:eq('+index+')').children('td:eq(2)').removeClass('addr');
-			})
 
-		});
+		document.querySelector("#btn2").onclick=function(){
+			var tr = document.querySelectorAll('tr');
+			var th = document.querySelectorAll('th');
+
+			for(var i =0;i<th.length;i++){
+			th[i].className= 'title';
+			}
+			for(var i=1;i<tr.length;i++){
+				var td = tr[i].childNodes;
+				
+					td[0].className="name"
+					td[1].className="age"
+					td[2].className="addr"
+					
+			}	
+		}
+			
+		
+		document.querySelector('#reset').onclick=function(){
+			var tr = document.querySelectorAll('tr');
+			var th = document.querySelectorAll('th');
+
+			for(var i =0;i<th.length;i++){
+			th[i].classList.remove('title');
+			}
+			for(var i=1;i<tr.length;i++){
+				var td = tr[i].childNodes;				
+				td[0].classList.remove("name")
+				td[1].classList.remove("age")
+				td[2].classList.remove("addr")
+					
+			}
+		}
+			
 
 
 		
-	}
+
+		// $('#reset').on("click",function(){
+		// 	$('th').removeClass('title');
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(0)').removeClass('name');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(1)').removeClass('age');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(2)').removeClass('addr');
+		// 	})
+
+		// });
+
+
+		
+		}
 
 	</script>
 	<body>
