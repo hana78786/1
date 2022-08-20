@@ -24,3 +24,25 @@ function moseLeave(){
 
 title.addEventListener("mouseenter",moseEnt)
 title.addEventListener("mouseleave",moseLeave)
+
+window.addEventListener("resize",handlewindowResize)
+
+function handlewindowResize(){
+    document.body.style.backgroundColor="tomato";
+}
+
+window.addEventListener("copy",handleWindow)
+function handleWindow(){
+
+    alert("copy!")
+}
+
+window.addEventListener("offline",handlwindowoffline)
+window.addEventListener("online",handlwindowonline)
+function handlwindowoffline(){
+    alert("no Wifi")
+}
+
+function handlwindowonline(){
+    alert("ok")
+}
