@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jq/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <p>
+        사용자가 마우스를 클릭하거나 마우스를 움직여 특정화면 위로 가져가거나 키보드를 누르는 행위를 이벤트라고 부름
+        <br>jQuery에서는 event객체를 통해서 이벤트를 제어함.
+    </p>
+    <h3>마우스오버 이벤트</h3>
+    <div id="div-hover" style="border:3px solid black;width:100px;height:100px"></div>
+    <h3>클릭 / 더블클릭 이벤트</h3>
+    <p id="click">click</p>
+    <p id="dblclick">double click</p>
+
+    <script>
+        $('#div-hover').on("mouseover",function(){
+            $('#div-hover').css("background","pink");
+        })
+        $('#div-hover').on("mouseout",function(){
+            $('#div-hover').css("background","white")
+        })
+
+        $('#click').on("click",function(){
+            
+            if( $('#click').css("color")=='rgb(255, 0, 0)'){
+                
+                $('#click').css("color","black")
+            }else{
+
+            $('#click').css("color","red")}
+        })
+
+        $('#dblclick').on("dblclick",function(){
+            if( $('#dblclick').css("color")=='rgb(255, 0, 0)'){
+                $('#dblclick').css("color","black")
+            }else{
+            $('#dblclick').css("color","red")}
+        })
+
+    </script>
+
+
+
+    <p></p>
+    <h3>마우스업/다운 이벤트</h3>
+    <div id="div-updown" style="border:3px solid black;width:100px;height:100px"></div>
+    <h3>마우스이동 이벤트</h3>
+    <h1>
+        Mouse is a coordinate :
+        <span id="span1"></span>
+    </h1>
+
+    <script>
+
+       $('#div-updown').on("mouseup",function(){
+        $(this).css('background','pink');
+       })
+       $('#div-updown').on("mousedown",function(){
+        $(this).css('background','red');
+       })
+
+       $(document).on("mousemove",function(){
+
+           $('#span1').html(event.pageX+" "+event.pageY)
+       })
+
+    </script>
+
+    <h3>키업/키프레스/키다운 이벤트</h3>
+    <div>
+        <p>글 작성</p>
+        <h1 id="noti">작성가능한 글자수 : 150</h1>
+        <textarea name="" id="" cols="60" rows="5"></textarea>
+        <!-- keypress 한글인식단됨 keyup keydown사용 -->
+               
+    </div>
+
+    <script>
+       $('textarea').on("keyup",function(){
+        
+        var count=$('textarea').val().length
+        $('#noti').text("작성가능한 글자수 : "+(150-count))
+       })
+    </script>
+
+
+    <h1>입력 양식(form) 이벤트</h1>
+    <h3>submit / focus / blur</h3>
+    <form id="my-form" action="result.html">
+        ID : <input type="text" name="userId" id="userId" >
+        PW : <input type="password" name="userPw" id="userPw">
+        <input type="submit" value="제출">
+        <input type="reset" value="취소">
+    </form>
+
+    <script>
+        $('[type="submit"]').on("click",function(){
+
+           if($('[name="userId"]').val()==""||$('[name="userPw"]').val()==""){
+               alert("아이디비밀번호 입력하세요")
+            return false;
+           }
+        })
+
+        $('[name="userId"]').on("focus",function(){
+            focus(this)
+        })
+        $('[name="userPw"]').on("focus",function(){
+            focus(this)
+        })
+
+        
+        $('[name="userId"]').on("blur",function(){
+            blur(this)
+        })
+        $('[name="userPw"]').on("blur",function(){
+            blur(this)
+        })
+
+
+        function focus(item){
+            $(item).css("background","pink")
+        }
+        function blur(item){
+            $(item).css("background","white")
+        }
+      
+      
+
+    </script>
+
+
+
+            <h3>change</h3>
+    <p>
+        input태그의 type속성이 checkbox, radio인 input태그와 select태그의 상태 변경을 감지하는 이벤트
+    </p>
+    전체 : <input type="checkbox" name="allCheck" id="allCheck"> <br>
+    <div id="check-item">
+        <input type="checkbox" name="" id=""> A
+        <input type="checkbox" name="" id=""> B
+        <input type="checkbox" name="" id=""> C
+    </div>
+    남자 : <input type="radio" name="" id=""> <br>
+    <select name="" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+    </select>
+
+    <script>
+        $('#allCheck').on("change",function(){
+            console.log("선택됨")
+            if($(this).is(":checked")){
+                console.log("체크함")
+                $('#check-item').children("[type='checkbox']").prop("checked",true)
+            }else{
+                $('#check-item').children("[type='checkbox']").prop("checked",false)
+            }
+        })
+
+        $('[type="radio"]').on("change",function(){
+            console.log("라디오박스")
+        })
+        $('select').on("change",function(){
+            console.log("선택박스")
+        })
+
+    </script>
+
+</body>
+</html>

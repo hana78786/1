@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jq/jquery-3.6.0.min.js"></script>
+    <style>
+        .intro {
+            font-size : 150%;
+            color : forestgreen;
+        }            
+    </style>
+
+</head>
+<body>
+    <h1>객체조작</h1>
+     <h3>each메소드</h3>
+     <p>배열을 관리하는 for in문과 비슷한 메소드로 객체나 배열의 요소를 검사하는 메소드
+     <br>
+     index : 객체, 배열의 순번 <br>
+     item : 값을 보관하는 변수(객체), "."으로 접근
+     <br><br>
+     사용법 : $.each(배열이름, function(index,item) {});
+     <br>
+     지정한 배열을 0번부터 자동으로 불러와 순번을 index에 넣고 값을 item에 넣는 메소드 <br>
+     item의 값은 개체(element) <br>
+     단, item은 jQuery객체 형태로 넘어오는 것이 아니기 때문에 jQuery 메소드를 사용하지 못함.
+    </p>
+
+    <button>각 목록 가져오기</button>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Donut</li>
+    </ul>
+
+
+
+    <script>
+        $(function(){
+            $('button:first').on("click",function(){
+               var li = $('ul:first').children('li')
+
+               $.each(li,function(index,item){
+                $(item).css("color","red")
+                $(item).html($(item).html()+'선택완료')
+               })
+            })
+
+          if($('h3').is('.select')){
+            $('.select').css("font-size","30px")
+          }
+
+
+
+        })
+
+    </script>
+
+
+
+     <h3>is메소드</h3>
+    <p>선택된 요소의 범위 내에 인자와 동일한 요소가 있는지 찾아서 있으면 true, 없으면 false 리턴</p>
+    <h3 class="select">test</h3>
+    <h3>test</h3>
+    <h3>test</h3>
+    <h3 class="select" >test</h3>
+    <br>
+     <h3>addClass/removeClass 메소드</h3>
+    <h1>This is a heading</h1>
+    <p id="p1" class="intro">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+    <button id="btn1">Add a class </button>
+    <button id="btn2">Remove a class </button>
+
+
+    <script>
+        $('#btn1').on("click",function(){
+            $('#p2').addClass('intro')
+        })
+        $('#btn2').on("click",function(){
+            $('#p2').removeClass('intro');
+        })
+
+    </script>
+
+
+
+    <h3>attr/removeAttr 메소드</h3>
+     <img id="img-tag" src="./img/city1.png" width="400" height="300" /> <br>
+     <button id="btn-1">파일 경로</button>
+     <button id="btn-2">파일의 너비,높이</button>
+     <button id="btn-3">사이즈 늘리기</button>
+     <button id="btn-4">src 변경</button>
+     <button id="btn-5">src 삭제</button>
+
+
+
+    <script>
+        $('#btn-1').on("click",function(){
+            console.log($('#img-tag').attr("src"))
+        })
+        $('#btn-2').on("click",function(){
+            console.log($('#img-tag').attr("width"),$('#img-tag').attr("height"))
+        })
+        $('#btn-3').on("click",function(){
+            $('#img-tag').attr("width","1000px").attr("height","800px")
+        })
+        $('#btn-4').on("click",function(){
+            $('#img-tag').attr("src","./img/main_img3.jpg")
+        })
+        $('#btn-5').on("click",function(){
+            $('#img-tag').removeAttr('src')
+        })
+    </script>
+
+
+
+
+    <h3>html/text 메소드</h3>
+    <p>
+        html() : 객체 내부의 글자와 관련된 기능 수행(HTML태그 조작) <br>
+        태그 내부에 글자와 태그 모두를 가져옴 <br>
+        text() : 태그 내부에 글자만 가져옴 <br>
+    </p>
+    <h1 id="h1-hello"><p>Hello??</p></h1>
+    <button id="btn-6">출력확인</button>
+
+    <div id="div-html1"></div>
+    <div id="div-text1"></div>
+    <div></div>
+    <button id="btn-7">html/text 출력확인</button>
+    <!-- 콘솔로 html(), text()출력해서 값이 어떻게 다른지 비교하기 -->
+
+    <script>
+       $('#btn-6').on("click",function(){
+        $('#h1-hello').html('<h1>Method</h1>')
+       })
+
+       $('#btn-7').on("click",function(){
+        $('#div-html1').html('<b>Metohd</b>');
+        $('#div-text1').text('<b>Metohd</b>');
+       })
+
+    </script>
+
+
+    <h3>remove 메소드</h3>
+     <h3>empty 메소드</h3>
+    <div id="div-delete1">
+        <h1 id="h1">test1</h1>
+        <h1 id="h2">test2</h1>
+        <h1 id="h3">test3</h1>
+    </div>
+    <button id="btn-remove">제거하기</button>
+    <!-- #h1하나만 제거하기 -->
+    <button id="btn-empty">후손 제거하기</button>
+    <!-- div의자손태그 h1모두 제거하기 -->
+   
+    <script>
+       $('#btn-remove').on("click",function(){
+        $('#h1').remove()
+       })
+       $('#btn-empty').on("click",function(){
+        $('#div-delete1').empty();
+       })
+    </script>
+
+
+
+
+    <hr>
+     <h1>문서 객체에 문서 객체를 추가하는 메소드</h1>
+     <h3>삽입 메소드 part1</h3>
+
+     <p>
+        $(A).appendTo(B) : B(사이값)의 뒷부분에 A를 추가 <br>
+        $(A).prependTo(B) : B(사이값)의 앞부분에 A를 추가 <br>
+        $(A).insertAfter(B) : B의 뒤에  A를 추가 <br>
+        $(A).insertBefore(B) : B의 앞에 A를 추가
+    </p>
+    <h3>삽입 메소드 part2</h3>
+    <p>
+       $(B).append(A) : B의 뒷부분에 A를 추가 <br>
+       $(B).prepend(A) : B의 앞부분에 A를 추가 <br>
+       $(B).after(A) : B의 뒤에 A를 추가 <br>
+       $(B).before(A) : B의 앞에 A를 추가
+
+    </p>
+    <div id="div-test">
+
+        <p id="p01">
+
+            test1 
+
+        </p>
+
+        <p id="p02"> test2 </p>
+        <p id="p03"> test3 </p>
+        <p id="p04"> test4 </p>
+     </div>
+     <button id="appendTo">appendTo</button>
+     <button id="prependTo">prependTo</button>
+     <button id="insertAfter">insertAfter</button>
+     <button id="insertBefore">insertBefore</button><br>
+     <button id="append">append</button>
+     <button id="prepend">prepend</button>
+     <button id="after">after</button>
+     <button id="before">before</button><br>
+     <button id="position-change">test1 &lt;-&gt; test2 </button>
+
+     <script>
+        $('#append').on("click",function(){
+
+            $('#p01').append($('#p02').text())
+
+        })
+        var p1Text= $('#p1').html();
+        $('#appendTo').on("click",function(){
+            $('<b>'+p1Text+"</b>").appendTo("#p02");
+        
+        })
+        $('#prependTo').on("click",function(){
+            $('<b>'+p1Text+'</b>').prependTo("#p01")
+
+        })
+
+        $("#insertAfter").on("click",function(){
+            $('<b>'+p1Text+'</b>').insertAfter("#p01")
+        })
+
+        $("#insertBefore").on("click",function(){
+            $('<b>'+p1Text+'</b>').insertBefore("#p01")
+        })
+        
+        $("#after").on("click",function(){
+            $('#p01').after($("#p02").text())
+        })
+
+        $("#before").on("click",function(){
+            $('#p01').before($("#p02").text())
+        })
+        
+        $("#prepend").on("click",function(){
+            $('#p01').prepend($("#p02").text())
+        })
+
+        $("#position-change").on("click",function(){
+            $('#p02').insertBefore("#p01")
+        })
+
+     </script>
+
+
+
+     <hr>
+
+     <h3>문서 객체의 복제</h3>
+     <p>
+         clone() 메소드를 사용하여 복제 가능
+     </p>
+     <h1 id="h1-test">Test1</h1>
+     <h2 id="h2-test">Test2</h2>
+     <div id="div-dest"></div>
+     <button id="btn-clone">복제!</button>
+
+     <script>
+       
+       $('#btn-clone').on("click",function(){
+        $('#div-dest').append($('#h1-test').clone())
+       })
+
+     </script>
+
+
+</body>
+</html>

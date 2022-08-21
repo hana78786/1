@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jq/jquery-3.6.0.min.js"></script>
+    <title>객체탐색</title>
+    <style>
+        .ancestors * {
+            display : block;
+            border : 2px solid lightgray;
+            color : lightgray;
+            padding : 5px;
+            margin : 15px;
+        }
+        .descendants * {
+            display: block;
+            border : 2px solid lightgray;
+            color : lightgray;
+            padding : 5px;
+            margin : 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+        
+       $(function(){
+            $('span').css("border","5px solid red");
+            $('h2:eq(2)').css("color","blue")
+            $('#div1').children('p:first-child').css("border","1px solid gold")
+            $('h4').first().css("background-color","gold");
+            $('h4').last().css("background-color","skyblue")
+            $('h4').filter('.hh:eq(0)').css("color","gray")
+            var h4Tags=$('h4').filter(function(index){
+                return index%2==0;
+            })
+            h4Tags.css("font-size","30px")
+
+
+
+       })
+
+    </script>
+    <h1>jQuery 객체 탐색(jQuery Traversing)</h1>
+    <p>
+        - jQuery Traversing은 jQuery의 순회(탐색) <br>
+        - 특정요소를 찾거나 필터링 하는 작업이며 대부분 선택자(selector)를 사용하지만 1차적으로 선택자에 의해서 찾은 요소들을 다시 2차 필터링 하거나 새로운 요소를 추가할 때에는 Traverse 관련 메소드를 사용함.
+    </p>
+
+    <h3>filtering 메소드</h3>
+    <p>
+        first() : 선택된 요소 중 가장 첫번째 요소를 리턴<br>
+        last() : 선택된 요소 중 가장 마지막 요소를 리턴<br>
+        eq() : 인덱스 번호와 일치하는 요소 리턴(0부터 시작)
+    </p>
+    <div class="ancestors">
+        <div>
+            div(great-grandparent)
+            <ul>
+                ul(grandparent)
+                <li>
+                    li(direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            div(gandparent)
+            <p>
+                p(direct parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+    <h3>Descendants 메소드 : 선택된 요소의 하위 요소들을 선택할 수 있는 메소드</h3>
+    <p>
+        children([인자])
+        <br>1. 선택된 요소의 모든 자손(다음레벨) 객체를 리턴 <br>
+        2. 선택된 요소의 인자와 일치하는 자손(다음레벨) 객체 리턴 <br>
+        find(인자) : 선택된 요소의 인자와 일치하는 모든 후손(모든 레벨) 객체 리턴 <br>
+    </p>
+    <div id="div1" class="descendants" style="width:480px;">
+        div(current element)
+        <p class="child1">
+            p(child)
+            <span>
+                span(grandchild)
+            </span>
+        </p>
+        <p class="child2">
+            p(child)
+            <span>
+                span(grandChild)
+            </span>
+        </p>
+    </div>
+
+    <h2>Header-0</h2>
+    <h2>Header-1</h2>
+    <h2>Header-2</h2>
+    <h2>Header-3</h2>
+    <p>
+        filter() : 인자값과 일치하는 요소만 리턴
+        <br>
+        - $(selector).filter(selector); <br>
+        - $(selector).filter(function() {}) <br>
+        not() : 인자값과 일치하지 않는 요소 리턴
+    </p>
+    <h4 class="h">header-0</h4>
+    <h4 class="h">header-0</h4>
+    <h4 class="hh">header-0</h4>
+    <h4 class="hh">header-0</h4>
+
+    <h3>Ancestors 메소드</h3>
+    <p>
+        parent() : 선택된 요소의 바로 위 상위 요소만 리턴<br>
+        parents() : 선택된 요소의 모든 상위 요소 리턴<br>
+        parentsUntil(인자) : 선택된 요소(초과)부터 인자요소(미만)까지 범위요소 리턴<br>
+    </p>
+    <div class="ancestors">
+        <div>
+            div(great-grandparent)
+            <ul>
+                ul(grandparent)
+                <li>
+                    li(direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            div(gandparent)
+            <p>
+                p(direct parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+
+   
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            border:3px solid black;
+            height:100px;
+            width:100px;
+        }
+    </style>
+
+<script src="./jq/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>이벤트2</h1>
+    <p>
+        사용자가 마우스를 클릭하거나 마우스를 움직여 특정화면 위로 가져가거나 키보드를 누르는 행위를 이벤트라고 부름
+        <br>jQuery에서는 event객체를 통해서 이벤트를 제어함.
+    </p>
+    <h3>이벤트 강제 발생(trigger)</h3>
+    <button id="btn1">레벨업</button>
+    기사 : <span>0</span> Level <br>
+    <button id="btn2">레벨업</button>
+    궁수 : <span>0</span> Level <br>
+    <button id="btn3">레벨업</button>
+    마법사 : <span>0</span> Level <br>
+    <button id="lastBtn">All</button><br>
+
+    <script>
+        $('#btn1').on("click",function(){
+            levelup(this);
+        })
+        $('#btn2').on("click",function(){
+            levelup(this);
+        })
+        $('#btn3').on("click",function(){
+            levelup(this);
+        })
+
+        $('#lastBtn').on("click",function(){
+            $('#btn3').trigger("click");
+            $('#btn2').trigger("click");
+            $('#btn1').trigger("click");
+        })
+
+
+        function levelup(item){
+            var level= $(item).next('span').text()
+            $(item).next('span').text(Number(level)+1)
+        }
+    </script>
+
+
+    <h3>이벤트 연결</h3>
+    <p>
+        on() 메소드 : 이벤트 연결
+        <br>
+        off() 메소드 : on()으로 연결된 이벤트 제거
+    </p>
+    <button id="btn-1">nothing..</button>
+    <button id="btn-2">click add</button>
+    <button id="btn-3">click remove</button>
+    <h1 id="h1"></h1>
+    <div id="div1">
+
+    </div>
+    <button id="btnOnOff">off</button>
+
+    <script>
+        $('#btn-2').on("click",function(){
+            $('#btn-1').text("ADD");
+            $('#btn-1').on("click",function(){
+                $('#h1').append("ADD")
+            })
+        })
+             
+        $('#btn-3').on("click",function(){
+            $('#btn-1').text("nothing");
+            $('#btn-1').off("click")
+        })
+
+
+        $('#btnOnOff').on("click",function(){
+
+            if($('#btnOnOff').text()=="off"){
+            $('#btnOnOff').text("on");
+            $('#div1').on('mouseenter',function(){
+                $('#div1').css('background','pink')
+            })
+            $('#div1').on('mouseleave',function(){
+                $('#div1').css('background','white')
+
+            })
+        
+            }else{
+                $('#btnOnOff').text("off");
+                $('#div1').off('mouseenter');
+                $('#div1').off('mouseleave')
+            }
+        })
+           
+    </script>
+
+
+    <h3>이벤트 버블링 막기 및 기본 이벤트 제거</h3>
+    <p>
+        stopPropagation() : 이벤트 전달 제거 <br>
+        preventDefault() : 기본 이벤트 제거
+    </p>
+    <h1 id="h1-click">
+        <span id="span-click">click</span>
+    </h1>
+
+    <script>
+       $('#h1-click').on("click",function(){
+        alert("이벤트")
+       })
+       $('#span-click').on("click",function(){
+        alert("이벤트")
+        return false;
+       })
+    </script>
+    <h1>
+        <a href="http://www.iei.or.kr">kh정보교육원</a>
+    </h1>
+
+    <script>
+       $('a').on('click',function(){
+        alert("이벤트")
+        return false;
+       })
+    </script>
+
+</body>
+</html>

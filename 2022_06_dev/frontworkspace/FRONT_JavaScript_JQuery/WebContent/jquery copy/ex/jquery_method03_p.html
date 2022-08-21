@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery method 실습</title>
+		<style>
+			div{
+				border : 2px solid black;
+				width:100px;
+				height:100px;
+				margin: 5px;
+				float: left;
+			}
+		</style>
+		<script src="../jq/jquery-3.6.0.min.js"></script> 
+	</head>
+
+	<body>
+		<script>
+		window.onload=function(){
+			
+
+			
+			// document.querySelector('#img1').onclick=function(){
+			// 	if(i<9){
+			// document.querySelectorAll('div')[i].style.background="red";
+			// i++;	
+			// 	}
+
+			// }
+
+			// document.querySelector('#img2').onclick=function(){
+			// 	if(i<9){
+			// document.querySelectorAll('div')[i].style.background="blue";
+			// i++;
+			// 	}	
+
+			// }
+
+			// document.querySelector('#btn1').onclick=function(){
+			// 	var div =document.querySelectorAll('div')
+			// 	for(var j=2;j<div.length;j++){
+			// 		div[j].removeAttribute("style");
+			// 	}
+			// 	i=2;
+			// }
+
+
+			var color;
+			
+			$('#img1').on("click",function(){
+				console.log("rog")
+			color = $(this).css("background-color")	
+				
+			});
+
+			$('#img2').on("click",function(){
+				console.log("rog")
+			color = $(this).css("background-color")		
+				
+			});
+
+			$("div[id$=th]").on("click",function(){
+				$(this).css("background-color",color);
+			})
+
+
+			$('#btn1').on("click",function(){
+				var divTag = $('fieldset:eq(1)').children('div')
+				$.each(divTag,function(index,item){
+					$(item).removeAttr('style')
+					
+				});
+			});
+
+
+
+		}
+
+		</script>
+		문제3<br>
+		다음 2개의 그림 중 선택한 후 복사 될 수 있도록 구현하여라 <br>
+		<fieldset style="width:300px; margin:30px">
+		<legend>2개의 그림 중 선택하시오.</legend>
+		<div id="img1" style="background-color:red;">
+			
+		</div>
+		<div id="img2" style="background-color:blue;">
+			
+		</div>
+		</fieldset>
+		<!-- 빨강 클릭하고 복사에 있는 타일클릭하면 클릭한 타일이 빨강으로 변함
+		파랑 클릭하고 복사타일누르면 파랑으로 변함 -->
+
+		<fieldset style="width:800px;  margin:30px">
+			
+				<legend>복사되는 공간</legend>
+			 
+				<div id="1th">
+					
+				</div >
+				<div id="2th">
+					
+				</div>
+				<div id="3th">
+					
+				</div>
+				<div id="4th">
+					
+				</div>
+				<div id="5th">
+					
+				</div>
+				<div id="6th">
+					
+				</div>
+				<div id="7th">
+					
+				</div>
+		</fieldset>
+
+		   
+
+		<button id="btn1"> 초기화 </button>
+
+
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

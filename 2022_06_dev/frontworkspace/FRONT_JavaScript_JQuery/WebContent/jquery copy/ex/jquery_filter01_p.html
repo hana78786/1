@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <title>jQuery filter 실습</title>
+    <style>
+        .test * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 3px;
+            margin: 15px;
+        }
+    </style>
+    <!--인터넷 필요한 방식-->
+    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
+    <script src="../jq/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <script>
+     
+        function checkBtn(){
+           var check= $("[type='checkbox']:checked").val()
+           console.log(check);
+        }
+      
+
+    </script>
+
+    <input type="checkbox" name="check" value="1" /> 1번
+    <input type="checkbox" name="check" value="2" /> 2번
+    <input type="checkbox" name="check" value="3" /> 3번
+    <input type="checkbox" name="check" value="4" /> 4번
+    <br />
+    <input type="button" value="체크 버튼 확인" onclick="checkBtn()" />
+    <br><br>
+    <br />
+    
+</body>
+</html>

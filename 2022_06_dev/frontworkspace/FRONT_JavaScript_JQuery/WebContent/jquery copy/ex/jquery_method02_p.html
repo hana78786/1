@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery method 실습</title>   
+		<style>
+			.title {
+				background-color : black;
+				color:white;
+			}
+			.name {
+				background-color:yellow;
+			}
+			.age{
+				background-color:blue;
+			}
+			.addr{
+				background-color:grey;
+			}
+		</style>
+		<script src="../jq/jquery-3.6.0.min.js"></script>
+	</head>
+	<script>
+	window.onload=function(){
+		// $('#btn2').on("click",function(){
+		
+		// 	$('th').addClass('title');
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(0)').addClass('name');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(1)').addClass('age');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(2)').addClass('addr');
+		// 	})
+			
+		// });
+
+
+		document.querySelector("#btn2").onclick=function(){
+			var tr = document.querySelectorAll('tr');
+			var th = document.querySelectorAll('th');
+
+			for(var i =0;i<th.length;i++){
+			th[i].className= 'title';
+			}
+			for(var i=1;i<tr.length;i++){
+				var td = tr[i].childNodes;
+				
+					td[0].className="name"
+					td[1].className="age"
+					td[2].className="addr"
+					
+			}	
+		}
+			
+		
+		document.querySelector('#reset').onclick=function(){
+			var tr = document.querySelectorAll('tr');
+			var th = document.querySelectorAll('th');
+
+			for(var i =0;i<th.length;i++){
+			th[i].classList.remove('title');
+			}
+			for(var i=1;i<tr.length;i++){
+				var td = tr[i].childNodes;				
+				td[0].classList.remove("name")
+				td[1].classList.remove("age")
+				td[2].classList.remove("addr")
+					
+			}
+		}
+			
+
+
+		
+
+		// $('#reset').on("click",function(){
+		// 	$('th').removeClass('title');
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(0)').removeClass('name');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(1)').removeClass('age');
+		// 	})
+		// 	$.each($('tr'),function(index,item){
+		// 		$('tr:eq('+index+')').children('td:eq(2)').removeClass('addr');
+		// 	})
+
+		// });
+
+
+		
+		}
+
+	</script>
+	<body>
+
+		문제2. <br>
+		적용 버튼 클릭시 style이 적용될 수 있도록 하여라.<br>
+		취소 버튼 클릭시 style이 취소될 수 있도록 하여라.<br>
+		(css 코드는 변경하지 않도록 함) <br>
+
+		<table border="1px">
+			<tr><th>이름</th><th>나이</th><th>주소</th></tr>
+			<tr><td>홍길동</td><td>20</td><td>서울시</td></tr>
+			<tr><td>김말똥</td><td>30</td><td>경기도</td></tr>
+			<tr><td>고길똥</td><td>40</td><td>강원도</td></tr>
+			<tr><td>김지똥</td><td>50</td><td>인천광역시</td></tr>  
+		</table>
+		<!-- 종류별로 같은행끼리 색칠하기 -->
+		<button id="btn2">적용</button>
+		<button id="reset">취소</button>
+
+
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
