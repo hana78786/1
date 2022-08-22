@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식실습</title>
+    <style>
+        .test *{
+            display: block;
+            border:  2px solid lightblue;
+            color: lightcoral;
+            padding: 3px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 아이디는 영소문자로 시작하고 나머지는 모두 숫자인데 4~12자리가 되도록 해라.
+        // 비밀번호는 최소 6글자 이상, 최대 18글자이고 영문자,숫자,특수문자(!@#$*)만 허용됩니다.
+        // 이름은 한글, 최소 2글자에서 4글자를 입력해야합니다.
+        // 010/011/016/017/019 중 입력해주세요
+        // 가운데는 3자리 이상 입력해주세요
+        // 끝은 4자리 입력해주세요
+
+        window.onload=function(){
+            var submitButton = document.querySelector('[type="submit"]');
+           
+
+            var regId=/^[a-zA-Z0-9]{3,5}$/
+            var regPw=/^[a-zA-z0-9!@#$*]{6,18}$/
+            var regName =/^[가-힣]{2,12}$/
+            var regPhone1=/^01[01679]$/
+            var regPhone2=/^[0-9]{3,4}$/
+            var regPhone3=/^[0-9]{4}$/
+                
+
+            submitButton.onclick=function(){
+
+
+                var userId=document.querySelector("#user-id").value;
+                var userPw=document.querySelector("#user-pw").value;
+                var userPwRe=document.querySelector("#user-pw-check").value;
+                var userName=document.querySelector("#user-name").value;
+                var userPhone1=document.querySelector("#tel1").value;
+                var userPhone2=document.querySelector("#tel2").value;
+                var userPhone3=document.querySelector("#tel3").value;
+
+                if(regId.test(userId)){
+                  
+                }else{
+                                        alert("아이디는 영소문자로 시작하고 나머지는 모두 숫자 4~12자리")
+                    return false;
+                }
+                
+                if(regPw.test(userPw)){
+                   
+                }else{
+                    alert(userPw)
+                    alert("비밀번호는 최소 6글자 이상, 최대 18글자이고 영문자,숫자,특수문자(!@#$*)만 허용됩니다.")
+                    return false;
+                }
+
+                if(userPw==userPwRe){
+                    
+                }else{
+                    alert("비밀번호가 다릅니다")
+                    return false;
+                }
+
+                if(regName.test(userName)){
+                   
+                }else{
+                    alert(userName)
+                    alert("이름은 한글 2자부터 12자까지.")
+                    return false;
+                }
+                
+                if(regPhone1.test(userPhone1)){
+                    
+                }else{
+                    alert(userPhone1)
+                    alert("전화번호1 3자리")
+                    return false;
+                }
+
+                if(regPhone2.test(userPhone2)){
+                   
+                }else{
+                    alert(userPhone2)
+                    alert("전화번호2 숫자 3,4자리")
+                    return false;
+                }
+
+                if(regPhone3.test(userPhone3)){
+                   
+                }else{
+                    alert(userPhone3)
+                    alert("전화번호3 숫자 4자리")
+                    return false;
+                }
+
+
+
+
+
+
+
+                return false;
+                
+            
+            }
+
+        }
+
+    </script>
+
+
+    <h1>회원가입 유효성 체크</h1>
+    <form id="member-regist" action="result.html" method="get">
+        ID : <input type="text" name="user-id" id="user-id" /><br />
+        PW : <input type="text" name="user-pw" id="user-pw" /><br />
+        PW_RE : <input type="text" name="user-pw-check" id="user-pw-check" /><br />
+        이름 : <input type="text" name="user-name" id="user-name" /><span id="name-span"></span><br>
+        전화번호 : <input type="text" name="tel1" size="3" id="tel1" maxlength="3" />-
+        <input type="text" name="tel2" id="tel2" size="3" maxlength="4" />-
+        <input type="text" name="tel3" id="tel3"  size="3"maxlength="4" /> <br>
+        <input type="submit" value="회원가입" />
+        <input type="reset" value="취소" />
+    </form>
+
+
+</body>
+</html>
