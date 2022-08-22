@@ -14,7 +14,7 @@
          }
          
      </style>
-     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
 </head>
 
 <body>
@@ -72,6 +72,33 @@
             buttonDel[index].parentNode.parentNode.remove()
 
         }
+
+        document.querySelector('#btn-delete').addEventListener("click",function(){
+           var check= document.querySelectorAll('table [type="checkbox"]:checked:not(.overall-checkbox)');
+
+           for(var i =0; i<check.length;i++){
+            check[i].parentNode.parentElement.remove();
+    
+           }
+       })
+
+       var checkAll = document.querySelector('.overall-checkbox');
+       checkAll.addEventListener("change",function(){
+        var checkbox = document.querySelectorAll('table [type="checkbox"]')
+        if(checkAll.checked==true){
+            for(var i =1;i<checkbox.length;i++){
+                checkbox[i].checked=true;
+            }
+        }else{
+            for(var i =1;i<checkbox.length;i++){
+                checkbox[i].checked=false;
+            }
+
+        }
+
+       })
+
+       
         
 
             
