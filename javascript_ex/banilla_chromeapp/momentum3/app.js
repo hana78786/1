@@ -1,48 +1,13 @@
-document.title="안녕!"
-const title=document.querySelector(".hello h1")
-console.log(title);
+const h1 = document.querySelector("div.hello:first-child h1")
 
-const title1=document.querySelectorAll(".hello h1")
-console.log(title1);
+const Cname ="clicked";
+function hadnleTitleClick(){
+   if(h1.className==="active"){
+    h1.className=Cname;
+   }else{
+   h1.className="active";}
+   console.log(h1.className)
 
-
-
-function clickevent(){
-title1[1].style.color="blue"
 }
+h1.addEventListener("click",hadnleTitleClick)
 
-title1[1].addEventListener("click",clickevent);
-
-console.dir(title);
-
-function moseEnt(){
-    title.innerHTML="mouse is here"
-}
-function moseLeave(){
-    title.innerHTML="mouse is out"
-}
-
-title.addEventListener("mouseenter",moseEnt)
-title.addEventListener("mouseleave",moseLeave)
-
-window.addEventListener("resize",handlewindowResize)
-
-function handlewindowResize(){
-    document.body.style.backgroundColor="tomato";
-}
-
-window.addEventListener("copy",handleWindow)
-function handleWindow(){
-
-    alert("copy!")
-}
-
-window.addEventListener("offline",handlwindowoffline)
-window.addEventListener("online",handlwindowonline)
-function handlwindowoffline(){
-    alert("no Wifi")
-}
-
-function handlwindowonline(){
-    alert("ok")
-}
