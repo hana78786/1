@@ -10,21 +10,26 @@
 
 		
 		<script>
-			var i=0;
+			
 			function addFile(){
+
+				$('div').last().after($('[type="file"]:eq(0)').clone());
 				
-				$('div').append($('[type="file"]:eq(0)').clone());
+
+				
+				
+				//$('div').append($('[type="file"]:eq(0)').clone());
 				//$('[type="file"]:eq(0)').after($('[type="file"]:eq(0)').clone());
-				i++;
+				
 				
 
 			}
 
 			function delFile(){
-				if(i!=0){
-				$("[type='file']:eq("+i+")").remove()
-				i--;
-				}
+				
+				if($("[type='file']").length!=1){
+				$("[type='file']").last().remove()}
+				
 			}
 		</script>
 		<div>

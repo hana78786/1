@@ -10,66 +10,29 @@
 
 <body>
     <script>
-        window.onload=function(){
-            $("#btn").on("click",function(){
-            $('#span1').html("")
-            var trTag=$('tr');
-            var thTag=$('th');
-            
-                var tdTag=trTag.children('td')
-                console.log(tdTag)
-                var count=0;
-                $.each(tdTag, function(index,item){
-                    console.log($(item).text());
-                    $('#span1').html(
-                        $('#span1').html()+
-                        thTag.eq(count).text()+":"+$(item).text()
-                        +" "
-                        
-                    )
-                count++
-                    if(count==3){
-                        $('#span1').html(
-                        $('#span1').html()+"<br>"
-                        )
-                        count=0;
+     $(function(){
+        $('#btn').on("click",function(){
+            var text =""
+            $.each($('tr'),function(index,item){
+               index++
+               
+               text += $('th:eq(0)').text() +" "+ $(item).children('td:eq(0)').text()+" "
+               text += $('th:eq(1)').text() +" "+ $(item).children('td:eq(1)').text()+" "
+               text += $('th:eq(2)').text() +" "+ $(item).children('td:eq(2)').text()+" "
+               console.log(text)
 
-                    }
-                
-                });
-
+            })
+           
+            $('#span1').html(text)
           
             
-
-            });
-        
-        var btn = document.querySelector("#btn").onclick=function(){
-
-            var trTag=document.querySelectorAll('tr');
-            var thTag=document.querySelectorAll('th');
-            var tdTag=document.querySelectorAll('td');
-            var spanTag=document.querySelector("#span1");
             
-            var count=0;
-            for(var i=0; i<tdTag.length;i++){
-                spanTag.innerHTML+=thTag[count].innerText+" : "+
-                tdTag[i].innerText+" ";
-                count++;
-                
-                if(count==3){
-                    spanTag.innerHTML+="<br>"
-                    count=0
-                }
-                
-            }
-        }
-        
-        
-        
-        
-        
-        }
+            
+        })
 
+
+        
+     })
 
 
 
