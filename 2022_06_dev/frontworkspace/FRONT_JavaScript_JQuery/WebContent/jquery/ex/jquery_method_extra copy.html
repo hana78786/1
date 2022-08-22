@@ -19,99 +19,70 @@
 
 <body>
     <script>
-        $(function(){
-            var i = 1
-            $('#btn-up').on("click",function(){
-                if(i==1){
-                    alert('맨 위입니다')
-                }else{
-                $('tr').eq(i).after($('tr').eq(i-1))
-                i --;
-                }
-
-            })
-
-            $('#btn-down').on("click",function(){
-                if(i==4){
-                    alert('맨 아래입니다')
-                }else{
-                $('tr').eq(i).before($('tr').eq(i+1))
-                i ++;
-                }
-
-            })
-
-              var delButton=$('table:eq(1)').find('[type="button"]')
-
-               delButton.eq(0).on("click",function(){
-                
-                del(0)
-
-               })
-               delButton.eq(1).on("click",function(){
-                
-                del(1)
-
-               })
-
-               delButton.eq(2).on("click",function(){
-                
-                del(2)
-
-               })
-
-               delButton.eq(3).on("click",function(){
-                
-                del(3)
-
-               })
-               
-
-               function del(index){
-               
-                var tr = delButton.eq(index).parents('tr')
-                tr.remove();
- 
-                }
-                var checkbox = $('[type="checkbox"]')
-
-                $(".overall-checkbox").on("change",function(){
-
-                            
-                    if($(".overall-checkbox").attr('checked')=='checked'){
-                        $.each(checkbox,function(index,item){
+        
+        window.onload=function(){
+            var i;
             
-                        $(item).attr('checked',false)
-                        console.log(item)    
-                        })
+            var tr = document.querySelectorAll('tr');
 
-                        
-                    }else if($(".overall-checkbox").attr('checked')!='checked'){
-
-                    $.each(checkbox,function(index,item){
             
-                       $(item).attr('checked',true)
-                       console.log(item)
-                       
-                    })
-                    }
-                    
-                })
-                
-                
-                $('#btn-delete').on("click",function(){
-                
-                   
-                   var selectCheck = $('tbody').eq(1).find($('[type="checkbox"]:checked'))
+            tr.onclick=function ivalue(){
+                console.log(this)
+            };
 
-                   console.log(selectCheck)
-                   selectCheck.parents('tr').remove()
-                })
+            tr[1].onclick=function ivalue(){
+                 i = 1;
+                 console.log(i);
+                 tr = document.querySelectorAll('tr')
+                 return i; 
+            } 
+
+            tr[4].onclick=function ivalue(){
+                 i = 4;
+                 console.log(i);
+                 tr = document.querySelectorAll('tr')
+                 return i;
                 
+            }
+            tr[2].onclick=function ivalue(){
+                 i = 2;
+                console.log(i);
+                tr = document.querySelectorAll('tr')
+                 return i;
+                
+            }
+            tr[3].onclick=function ivalue(){
+                 i = 3;
+                 console.log(i);
+                 tr = document.querySelectorAll('tr')
+                 return i;
+                
+            }
 
 
             
-        })
+            
+            document.querySelector('#btn-up').onclick=function(){
+                var seltr = document.querySelectorAll('tr')
+                if(i==1){}else{
+                    seltr[i].after(seltr[i-1]);
+                    i--;    
+                }
+                console.log(i)
+            }
+
+            document.querySelector('#btn-down').onclick=function(){
+                var seltr = document.querySelectorAll('tr')
+                if(i==4){}else{
+                    seltr[i].before(seltr[i+1]);
+                    i++;
+                }
+                console.log(i)
+
+            }
+
+
+        }
     </script>
 	<table border="1">
 		<caption><b>위아래 옮기기</b></caption>

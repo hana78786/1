@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 정규표현식</title>
+    <script src="./jq/jquery-3.6.0.min.js"></script>
+    <style>
+        .area{
+            background-color: lightgray;
+            border : 1px solid black;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>정규표현식</h1>
+    <p>
+        1. 특정한 규칙을 가진 문자열의 집합을 표현하는데 사용하는 형식 언어
+        <br>
+        2. 주로 프로그래밍 언어나 텍스트 에디터 등에서 문자열의 검색과 치환을 위한 용도로 사용됨
+        <br>
+        3. 입력한 문자열에서 특정한 조건을 표현할 경우 다소 복잡할 수 있지만 표현식을 숙지하면
+        매우 간단하게 표현할 수 있음. 
+    </p>
+    <h3>정규표현식의 객체 생성</h3>
+    <button id="btn-regex1">확인하기</button>
+    <div id="area-tag1" class="area"></div>
+    <h3>플래그 문자</h3>
+    <p>
+        g : 전역비교를 수행<br>
+        i : 대소문자 구분하지 않음<br>
+        m : 여러줄 검사 수행 앵커문자와 같이 사용
+    </p>
+
+
+    <script>
+        
+        $('#btn-regex1').on("click",function(){
+            var area1 = $('#area-tag1');
+            var target = "javascript jquery ajax";
+            var regExp = /script/;
+
+
+
+            var str ="";
+            //1, regExp가 있으면 true반환하는 함수
+            //2. regExp가 target에 있으면 문자열로 반환
+            //3 target에서 regExp를 한글 '스크립트'로 변환
+            str+=regExp.test(target)+"<br>";
+            str+=regExp.exec(target)+"<br>";
+            str+=target.replace(regExp,"스크립트");
+
+
+
+            area1.html(str);
+            
+        });
+    
+
+    </script>
+
+    <button id="btn-flag">플래그 문자 확인</button>
+    <div id="area-tag2" class="area"></div>
+
+    
+    <script>
+        // jAvAscript jquery AjAx
+        // j(a)v(a)script jquery (A)j(a)x
+        // j(a)vascript jquery Ajax
+
+
+        var flagtn = document.querySelector('#btn-flag')
+        
+        
+        
+        flagtn.onclick=function(){
+            
+            var area = document.querySelector("#area-tag2");
+            var target = "javascript jquery Ajax";
+            var target2 = "javascript\n jquery\n Ajax";
+            var regExp = /a/g;
+            var regExp1 = /a/gi;
+            var regExp2 = /a/gim;
+            var str ="";
+           str += target.replace(regExp,'A')+"<br>";
+           str += target.replace(regExp1,"($&)")+"<br>";
+           str += target2.replace(regExp2,'($&)')+"<br>";
+
+           area.innerHTML=str;
+           
+
+        }
+
+    </script>
+
+
+    <h3>앵커 문자</h3>
+    <p>
+        문자열의 앞과 뒤를 구분해주는 정규표현식 기호
+    </p>
+
+    <button id="btn-ank">앵커 문자 확인</button>
+    <div id="area-tag3" class="area"></div>
+
+    <script>
+        // (j)avascript jquery Ajax javascript
+        // javascript jquery Ajax javascr(ipt)
+
+
+        var area3 = $('#area-tag3')
+        var target  = "javascript jquery Ajax javascript";
+        var target1  = "javascript\n jquery\n Ajax\n javascript\n";
+        var area = $('#area-tag3')
+        var regExp = /^j/gm
+        var regExp1 = /ipt$/gm
+       
+        $("#btn-ank").on("click",function(){
+            var str ="";
+            str += target.replace(regExp,"($&)")+"<br>";  
+            str += target.replace(regExp1,"($&)")+"<br>" ;
+            str += target1.replace(regExp,"($&)")+"<br>";  
+            str += target1.replace(regExp1,"($&)") ;
+
+            area3.html(str)
+
+
+            
+        });
+
+    </script>
+    <h3>메타문자</h3>
+    <p>
+        [] : 대괄호 사이에 존재하는 문자들 중 하나 일치
+    </p>
+    <button id="btn-meta">메타문자 확인</button>
+    <div id="area-tag4" class="area"></div>
+
+    <script>
+
+        // (j)(a)v(a)script (j)query (A)(j)(a)x
+        // ja(v)a(s)(c)(r)(i)(p)(t)( )j(q)(u)(e)(r)(y)( )Aja(x)
+        // 123(j)(a)(v)(a)(s)(c)(r)(i)(p)(t)
+        // 123javascript
+        // (1)(2)(3)javascript
+
+        var metaBtn = document.querySelector("#btn-meta")
+        var target  = "javascript jquery Ajax";
+        var regExp = /[ja]/ig
+        var regExp1 = /[^aj]/g
+
+        var target2 = "123javasCript";
+        var regExp2 = /[a-z]/g
+        var regExp3 = /[A-Z]/g
+        var regExp4 = /[0-9]/g
+        metaBtn.addEventListener("click",function(){
+           var str ="";
+           str += target.replace(regExp,'($&)')+"<br>";
+           str += target.replace(regExp1,'($&)')+"<br>";
+           str += target2.replace(regExp2,'($&)')+"<br>";
+           str += target2.replace(regExp3,'($&)')+"<br>";
+           str += target2.replace(regExp4,'($&)')
+
+           document.querySelector('#area-tag4').innerHTML=str
+
+          
+
+            
+        })
+
+    </script>
+    <h3>추가 메타 문자</h3>
+    <p>
+        \d : 숫자<br>
+        \w : 아무 단어 전부(숫자포함)<br>
+        \s : 공백문자(탭, 띄어쓰기, 줄바꿈)<br>
+        \D : 숫자가 아닌것<br>
+        \W : 단어가 아닌것<br>
+        \S : 공백문자가 아닌것<br>
+    </p>
+
+    <h3>수량문자</h3>
+    <p>
+        a+ : a가 적어도 1개 이상<br>
+        a* : a가 0개 또는 여러개<br>
+        a? : a가 0개 또는 1개<br>
+        a{5} : a가 5개<br>
+        a{2,5} : a가 2~5개<br>
+        a{2, } : a가 2개 이상<br>
+        a{ ,2} : a가 2개 이하<br>
+        <b>a는 메타 문자로 주로 사용</b>
+    </p>
+    <label for="personal-number">주민번호 입력: </label><input type="text" name="personal-number" id="personal-number">
+    <button id="btn-extra-btn">추가 메타문자 확인</button><br>
+    <label for="hangeul">한글 입력 : </label><input type="text" name="hangeul" id="hangeul">
+    <button id="btn-hangeul">한글 문자 확인</button>
+
+    <script>
+        //주민번호 유효성검사
+        //주민번호는 6자리 숫자 - 7자리 숫자로 이루어진다
+        //앞 두자리는 00~99로 이루어진다
+        //앞 3,4자리는 01~12로 이루어진다
+        //앞5,6자리는 01~31로 이루어진다.
+        $('#btn-extra-btn').on("click",function(){
+            var persNum = document.querySelector('#personal-number').value;
+            var regNum = /\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4]\d{6}/
+            if(regNum.test(persNum)){
+                alert("주민번호 정상")
+            }else{
+                alert("오류!")
+            }
+
+
+            
+        })
+
+        
+        document.querySelector('#btn-hangeul').addEventListener("click",function(){
+
+            var korean = document.querySelector('#hangeul').value;
+            var regKo=/^[ㄱ-힣]{2,12}$/g
+
+            
+            if(regKo.test(korean))
+            {alert("이름 정상")
+            }else{
+                alert("오류!")
+            }
+
+
+
+
+            
+        })
+        
+        </script>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    
+</body>
+</html>
