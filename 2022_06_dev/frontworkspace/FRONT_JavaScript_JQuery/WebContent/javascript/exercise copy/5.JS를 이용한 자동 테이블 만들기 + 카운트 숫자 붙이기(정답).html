@@ -14,37 +14,44 @@
 
 <script>
     function table_make() {
-       
-        var rowNum=document.querySelector('#rowNum').value;
-        var colNum=document.querySelector('#colNum').value;
-        console.log(rowNum)
-        var rowTag="";
-        var colTag="";
-        for(var i=0; i<rowNum;i++){
-           rowTag+="<td></td>";
-          }
-        for(var i=0;i<colNum;i++){
-            colTag+="<tr>"+rowTag+"</tr>";
+  
+        var rowNum = document.getElementById("rowNum").value;
+        var colNum= document.getElementById("colNum").value;
+
+        var td="";
+        for(var i = 0; i<rowNum;i++){
+            td+="<td></td>"
         }
 
-           document.write("<table border='1' width='800px' height='1000px'>");
-           document.write(colTag);
-           document.write("</table>");
+        var tr="";
+        for( var i =0; i<colNum;i++){
+            tr+="<tr>"+td+"</tr>"
+        }
 
-       var trArr= document.querySelectorAll("tr");
-       
-        for(var i=0; i<trArr.length;i++){
-            var tdArr = trArr[i].childNodes
-            console.log(tdArr)
-            for(var j =0; j<tdArr.length;j++){
-                tdArr[j].innerHTML=i+1+"열"+(j+1)+"행";
+        document.write("<table border ='1' width='80%' height='800px'>");   
+        document.write(tr);
+        document.write("</table>")
+        console.log("확인용")
+        
+        var arrTr = document.getElementsByTagName('tr')
+           
+        for(var i =0; i<arrTr.length; i++){
+            var arrTd = arrTr[i].children
+            for(var j=0; j<arrTd.length ; j++){
+                arrTd[j].innerHTML=(i+1)+"열"+(j+1)+"줄"
             }
         }
+        console.log("확인용")
+        
+
+
+    }
+
         
                 
         
 
-    }
+    
 </script>
     
 </body>

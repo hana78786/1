@@ -59,14 +59,17 @@
 	</div>
 	<script type="text/javascript">
 		function showDiv(element){
-			var boxAll=document.querySelectorAll(".box")
-			for(var i=0; i<boxAll.length;i++){
-				boxAll[i].style.display="none";
+			var box =document.querySelectorAll('.box')
+			for(var i =0;i<box.length;i++){
+			box[i].style.display="none";
 			}
-			var category = element.value;
-			console.log(category)
-			var box= document.querySelector('#'+category+'Box');
-			box.style.display="block";
+			console.log(element.value)
+			var name = element.value;
+			document.querySelector('#'+name+'Box').style.display="inline-block";
+			
+
+
+
 
 		}
 	

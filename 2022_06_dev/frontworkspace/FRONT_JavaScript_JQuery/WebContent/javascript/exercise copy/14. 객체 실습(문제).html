@@ -41,26 +41,19 @@ ex) <br>
 <button onclick="printMember();">출력</button>
 
 <script>
-    var member = new Object();
-    member.name="";
-    member.age="";
-    member.address="";
-function insertMember(){
-    member.name = prompt("이름을 입력하세요")
-    if( member.name!=""||member.name!=null){
-        member.age = prompt("나이를 입력하세요")
-        if(member.age!=""||member.age!=null){
-            member.address = prompt("주소를 입력하세요")
-        }
-    }
-
+    
+    var Member={}
+    function insertMember(){
+    Member.name=prompt("이름");
+    Member.age=prompt("나이");
+    Member.addr=prompt("주소");
 }
 
+
 function printMember(){
-     var result = document.querySelector("#print");
-     if( member.age==""&& member.name==""&& member.address==""||
-      member.age==null&& member.name==null&& member.address==null){alert("먼저 입력을 눌러주세요")}else{
-    result.innerHTML="이름 : "+ member.name+"<br>"+"나이 : "+ member.age+"<br>"+"주소 : "+ member.address+"<br>"}
+    if(Member.name==undefined){alert("입력먼저")}else{
+    document.querySelector('#print').innerHTML = Member.name+" "+Member.age+" "+Member.addr;
+    }
 
     
 }
@@ -92,39 +85,25 @@ function printMember(){
 <button onclick="student();">입력 및 출력</button>
 
 <script>
+    var list =[]
+   function student(){
+    for(var i=0;i<3;i++){
+    var member={}
+    member.name = prompt("이름")
+    member.age = prompt("나이")
+    member.addr = prompt("주소")
+    list[i]=member
 
-    var objectArr = [];
+    }
+    for(var i=1;i<4;i++){
+    document.querySelectorAll('tr')[i].childNodes[0].innerHTML+=list[i-1].name;
+    document.querySelectorAll('tr')[i].childNodes[1].innerHTML+=list[i-1].age;
+    document.querySelectorAll('tr')[i].childNodes[2].innerHTML+=list[i-1].addr;
+    }
 
-    function student(){
-        
-        for(var i=0;i<3;i++){
-            var studentInfo = {
-            name:"",
-            age:"",
-            address:""
-            }
-            
-            studentInfo.name=prompt(i+1+"번 학생이름");
-            studentInfo.age=prompt(i+1+"번 학생나이");
-            studentInfo.address=prompt(i+1+"번 학생주소");
-            objectArr[i]=studentInfo;
 
-            console.log(objectArr[i])
-        }
-
-        var studentName = document.querySelectorAll('td[name="name"]');
-        var studentAge = document.querySelectorAll('td[name="age"]');
-        var studentAddress = document.querySelectorAll('td[name="addr"]');
-        for(var i=0;i<3;i++){
-            studentName[i].innerHTML=objectArr[i].name;
-            studentAge[i].innerHTML=objectArr[i].age;
-            studentAddress[i].innerHTML=objectArr[i].address;
-        }
-        console.log(objectArr)
-        
     
-
-    }   
+    }
 
 
 

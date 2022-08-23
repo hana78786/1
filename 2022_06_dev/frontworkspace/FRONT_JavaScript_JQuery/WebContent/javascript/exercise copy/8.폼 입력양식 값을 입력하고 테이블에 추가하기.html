@@ -54,36 +54,27 @@
 	</p>
 	<script>
 		function addUser() {
-				var hobbyValue=document.querySelectorAll('input[type="checkbox"]:checked');
-				var hobbyresult = '';
+			var input =	document.querySelectorAll('input');
+			var tbl = document.querySelector('#tbl')
+			var name = input[0].value;
+			var age = document.querySelector('#age').value;
+			var gender = document.querySelector("[name=gender]").value;
+			var phone = document.querySelector("#phone").value;
+			var hobby ="";
 
-  			
-				for(var i =0; i<hobbyValue.length;i++){
+			for(var i =0; i<document.querySelectorAll('[name="hobby"]:checked').length;i++)
+			{
+				hobby+= document.querySelectorAll('[name="hobby"]:checked')[i].nextSibling.innerHTML+" "
+			}
 
-					hobbyLabel=	document.querySelector('label[for='+hobbyValue[i].value+']').innerHTML;
-					
+			tbl.innerHTML+="<tr>"+
+				"<td>"+name+"</td>"+
+				"<td>"+age+"</td>"+
+				"<td>"+gender+"</td>"+
+				"<td>"+phone+"</td>"+
+				"<td>"+hobby+"</td>"
+				+"</tr>"
 
-				hobbyresult +=hobbyLabel+" ";
-				}
-
-				
-				var table1 = document.getElementById("tbl");
-				var genderValue=document.querySelector('input[name="gender"]:checked').getAttribute("id");
-				var nameVale=document.getElementById("name").value;
-				var ageValue=document.getElementById("age").value;
-				var phoneValue=document.getElementById("phone").value;
-				
-				
-				if(genderValue=='male'){
-					genderValue="남자";
-				}else{
-					genderValue="여자";
-				}
-
-
-			 table1.innerHTML+=
-		
-			  "<tr><th>"+nameVale+"</th><th>"+ageValue+"</th><th>"+genderValue+"</th><th>"+phoneValue+"</th><th>"+hobbyresult+"</th></tr>";
 			
 
 		}

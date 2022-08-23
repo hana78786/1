@@ -18,30 +18,29 @@
 	<input type="button" value="%" onclick="calculator(this.value);"> <br><br>
     계산결과 : <span id="calc"></span>
     <script>
-		function calculator(operator) {
-			var no1 = document.getElementById("num1").value;
-			var no2 = document.getElementById("num2").value;
-			var resultset=document.getElementById("calc");
-
-			switch(operator){
-				case "+": 
-				var result = Number(no1)+Number(no2);
-				resultset.innerHTML=result;
-				break;
-				case "-": var result = Number(no1)-Number(no2);
-				resultset.innerHTML=result;
-				break;
-				case "x": var result = Number(no1)*Number(no2);
-				resultset.innerHTML=result;
-				break;
-				case "/": var result = Number(no1)/Number(no2);
-				resultset.innerHTML=result;
-				break;
-				case "%": var result = Number(no1)%Number(no2);
-				resultset.innerHTML=result;
-				break;
-
+		function calculator(param){
+			var num1 = Number(document.querySelector("#num1").value);
+			var num2 = Number(document.querySelector("#num2").value);
+			console.log(param);
+			switch(param){
+				case '+':
+					var result = num1+num2
+					break
+				case '-':
+					result = num1-num2
+					break
+				case 'x':
+					result=num1*num2
+					break
+				case '/':
+					result=num1/num2
+					break
+				case '%':
+					result=num1%num2
+					break
 			}
+
+			document.querySelector('#calc').innerHTML=result;
 		}
 
 	</script>

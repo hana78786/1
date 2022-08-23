@@ -14,51 +14,75 @@
          }
          
      </style>
-     <script src="../jq/jquery-3.6.0.min.js"></script>
-    
+     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 
 <body>
     <script>
-       window.onload=function(){
-        var i =2;
+        
+        window.onload=function(){
+            var i;
+            
+            var tr = document.querySelectorAll('tr');
 
-        $('#btn-up').on("click",function(){
-            if(i!=1){
-            $('tr').eq(i).after($('tr').eq(i-1));
-            i--;
+            
+            tr.onclick=function ivalue(){
+                console.log(this)
+            };
+
+            tr[1].onclick=function ivalue(){
+                 i = 1;
+                 console.log(i);
+                 tr = document.querySelectorAll('tr')
+                 return i; 
+            } 
+
+            tr[4].onclick=function ivalue(){
+                 i = 4;
+                 console.log(i);
+                 tr = document.querySelectorAll('tr')
+                 return i;
+                
             }
-        })
-
-        $('#btn-down').on("click",function(){
-            if(i!=4){
-            $('tr').eq(i).before($('tr').eq(i+1));
-            i++;
+            tr[2].onclick=function ivalue(){
+                 i = 2;
+                console.log(i);
+                tr = document.querySelectorAll('tr')
+                 return i;
+                
             }
-        })
+            tr[3].onclick=function ivalue(){
+                 i = 3;
+                 console.log(i);
+                 tr = document.querySelectorAll('tr')
+                 return i;
+                
+            }
 
-        $('[type=button]').on("click",function(){
-            $(this).parents('tr').remove();
-        })
 
-        $('#btn-delete').on("click",function(){
-            $('[type=checkbox]:checked:not(.overall-checkbox)').parents('tr').remove();
-            console.log("a")
-        })
-        $('.overall-checkbox').on("change",function(){
-            if($('.overall-checkbox').is(':checked')){
-                for(var i =0; i<$('[type=checkbox]').length;i++){
-                    $('[type=checkbox]').attr('checked',true);
+            
+            
+            document.querySelector('#btn-up').onclick=function(){
+                var seltr = document.querySelectorAll('tr')
+                if(i==1){}else{
+                    seltr[i].after(seltr[i-1]);
+                    i--;    
                 }
-            }else{
-                for(var i =0; i<$('[type=checkbox]').length;i++){
-                    $('[type=checkbox]').attr('checked',false);
+                console.log(i)
+            }
+
+            document.querySelector('#btn-down').onclick=function(){
+                var seltr = document.querySelectorAll('tr')
+                if(i==4){}else{
+                    seltr[i].before(seltr[i+1]);
+                    i++;
                 }
-                }
-        })
+                console.log(i)
+
+            }
 
 
-       }
+        }
     </script>
 	<table border="1">
 		<caption><b>위아래 옮기기</b></caption>

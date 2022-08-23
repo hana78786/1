@@ -32,14 +32,17 @@
 	<div id="area"></div>
 	<script>
 		function printValue() {
-			var valuePrint= document.getElementById("area");
-			var gumeja = document.querySelectorAll('input')[0].value;
-			var namep=document.getElementById("pname").value;
-			var pricev=document.getElementsByName("price")[0].value;
+			
+			var input = document.querySelectorAll('input')
+			for(var i=0; i<input.length;i++){
+				
+				document.querySelector('#area').innerHTML+=input[i].value+"<br>"
+				input[i].value="";
+			}
 
-			console.log(pricev);
 
-			valuePrint.innerHTML="구매자 : "+gumeja+"<br> 상품명 : "+namep+"<br> 가격 :"+pricev;
+
+			
 			
 
 

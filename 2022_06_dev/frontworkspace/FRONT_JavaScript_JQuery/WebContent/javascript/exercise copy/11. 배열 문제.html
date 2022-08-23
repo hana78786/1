@@ -25,34 +25,22 @@
 <button onclick="arrayTest();"> 전송 및 처리 </button>
 
 <script>
-    var arr1=document.getElementById("la1").innerHTML.split(",");
-    var arr2=document.getElementById("la2").innerHTML.split(",");
-    var arr3=document.getElementById("la3").innerHTML.split(",");
-    var arr4=document.getElementById("la4").innerHTML.split(",");
-    var arr=arr1.concat(arr2)
-    arr=arr.concat(arr3);
-    arr=arr.concat(arr4);
-    var text1=document.getElementById("text1");
-    console.log(text1.value)
-
     function arrayTest(){
-        var divarea=document.getElementById("result1");
-        
-        
-        if(arr.indexOf(text1.value)==-1){
-            divarea.innerHTML="존재하지 않습니다"
 
-        }else{
-            divarea.innerHTML=text1.value+"는 "+(arr.indexOf(text1.value)+1)+"번째 입니다";
+    var arr1 = document.querySelector("#la1").innerHTML.split(",")
+    var arr2 = document.querySelector("#la2").innerHTML.split(",")
+    var arr3 = document.querySelector("#la3").innerHTML.split(",")
+    var arr4 = document.querySelector("#la4").innerHTML.split(",")
+    var arr = arr1.concat(arr2).concat(arr3).concat(arr4);
+    var text1 = document.querySelector("#text1").value;
 
-        }
-
-        console.log(arr);
-        
-
-
+    if(arr.indexOf(text1)==-1){
+        alert("존재하지 않습니다")
+    }else{
+        alert(arr.indexOf(text1)+1+"번쨰 열에 있습니다")
     }
-
+    
+    }
 
 </script>
 
@@ -76,17 +64,14 @@
 <script>
 
     function reverseTest(){
-   var arr1=document.getElementById("stringla1").innerHTML.split(" ").reverse();
-   var arr2=document.getElementById("stringla2").innerHTML.split(" ").reverse();
-   console.log(arr1)
-    
-    var arr = arr1.concat(arr2).join("");
+   
+        var string1 = document.querySelector("#stringla1").innerHTML.split(" ").reverse();
+        var string2 = document.querySelector("#stringla2").innerHTML.split(" ").reverse();
+        var arr =string1.concat(string2);
 
- 
+        document.querySelector('#print').innerHTML=arr.join("");
 
-    resultarea=document.getElementById("print");
 
-    resultarea.innerHTML=arr;
     }
 
 
@@ -107,21 +92,17 @@
 <button onclick="printTest();"> 출력 </button>     
 
 <script>
-     var valueTxt="";
-    function input(){
-        var inputTxt=document.getElementById("strInput");
-       valueTxt+=inputTxt.value;
-       inputTxt.value=null;
-    }
-    console.log(1+valueTxt);
+     var strInput ="";
+     function input(){
+       strInput += document.querySelector('#strInput').value;
+       document.querySelector('#strInput').value="";
 
-    var pArea=document.getElementById("print2");
-    function printTest(){
-        console.log(2+valueTxt);
-        
-        pArea.innerHTML=valueTxt;
+     }
+     function printTest(){
 
-    }
+        var result = document.querySelector('#print2');
+        result.innerHTML=strInput;
+     }
 
 </script>
 

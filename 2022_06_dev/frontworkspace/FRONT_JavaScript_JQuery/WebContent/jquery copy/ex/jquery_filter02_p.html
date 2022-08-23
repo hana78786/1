@@ -22,7 +22,7 @@
 <body>
     <script>
       function selectBtn(){
-        var option1 = $('option:selected').html()
+        var option1 = $('option').filter(':selected').val()
         console.log(option1)
 
        

@@ -24,28 +24,24 @@
 
 
 <script>
-    function table_make() {
-       var rowtd=Number(document.getElementById("rowNum").value);
-       var coltr=Number(document.getElementById("colNum").value);
+    function table_make(){
+        var rowNum = document.getElementById("rowNum").value;
+        var colNum= document.getElementById("colNum").value;
 
-       console.log(coltr);
+        var td="";
+        for(var i = 0; i<rowNum;i++){
+            td+="<td></td>"
+        }
+
+        var tr="";
+        for( var i =0; i<colNum;i++){
+            tr+="<tr>"+td+"</tr>"
+        }
        
-       coltd="";
-        for(var i=0;i<rowtd;i++){
-            coltd+="<td></td>";
-        }
-
-  
-        tabtag1="";
-
-        for(var i=0;i<coltr;i++){
-            tabtag1+="<tr>"+coltd+"</tr>";
-        }
-     
-
-       document.write("<table border='1' width='500px' height='500px'>");
-        document.write(tabtag1);
-        document.write("</table>")
+       
+       
+       
+        document.write("<table border ='1' width='80%' height='800px'"+tr+"</table>")
     }
 
         
