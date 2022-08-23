@@ -45,7 +45,7 @@
 <button onclick="action1();">작동1</button><br><br>
 <script>
     function action1(){
-      $('#pp').prev().children('li').eq(0).css("background-color","red")
+     $('#pp').prev().children('li:first').css("background","red");
     }
 
 </script>
@@ -57,7 +57,7 @@
 <script>
     function action2(){
 
-        $('ul').next().children('span:eq(1)').css("background-color","red")
+        $('ul').next().children('span:eq(1)').css("background","red")
     }
 </script>
 
@@ -66,8 +66,7 @@ ul과 p태그를 감싸고 있는 div 의 테두리를 파란색으로 만들어
 <button onclick="action3();">작동3</button><br><br>
 <script>
     function action3(){
-       $('#pica').parents('div:not(.test)').css("border","3px solid blue")
-
+    $('#pica').parents('div:not(".test")').css("border","1px solid blue")
     }
 
 </script>
@@ -80,10 +79,10 @@ ul과 p태그를 감싸고 있는 div 의 테두리를 파란색으로 만들어
 
 <script>
     function action4(){
-       var li = $('.test').find('li')
-       $.each(li, function(index,item){
-        console.log($(item).html())
-       })
+       var li = $('.test').find('li');
+       for(var i=0; i<li.length;i++){
+        console.log(li.eq(i).html())
+       }
        
         
         

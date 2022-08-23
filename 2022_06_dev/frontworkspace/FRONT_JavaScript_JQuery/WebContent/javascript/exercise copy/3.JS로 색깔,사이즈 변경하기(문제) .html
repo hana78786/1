@@ -20,13 +20,13 @@
 <input type="color" id="selectColor">
 <button onclick="colorChange();">변경</button>
 <script>
-    function colorChange(){
-        var selCol=document.getElementById("selectColor").value;
-        var divarea=document.getElementById("div1");
-        
-        div1.style.backgroundColor=selCol;
-        
-    }
+   function colorChange(){
+    var color =document.querySelector('#selectColor').value;
+    document.querySelectorAll('#div1,#div2')[0].style.backgroundColor=color;
+    document.querySelectorAll('#div1,#div2')[1].style.backgroundColor=color;
+    
+
+   }
 </script>
 
 
@@ -37,30 +37,26 @@
 <div id="div2"> </div>
 <button onclick="halfSize();">50x50</button> <button onclick="defaultSize();">원본(100x100)</button> <button onclick="doubleSize();">200x200</button>
 <script>
-
+    var div2= document.querySelector('#div2')
     function halfSize(){
-        var divsize = document.getElementById("div2");
-        divsize.style.width="50px";
-        divsize.style.height="50px";
-        
+        div2.style.width="50px";
+        div2.style.height="50px";
+
     }
 
     function defaultSize(){
-        var divsize = document.getElementById("div2");
-        divsize.style.width="100px";
-        divsize.style.height="100px";
-        
+        div2.style.width="100px";
+        div2.style.height="100px";
+
     }
 
     function doubleSize(){
-        var divsize = document.getElementById("div2");
-        divsize.style.width="200px";
-        divsize.style.height="200px";
-        
+        div2.style.width="200px";
+        div2.style.height="200px";
     }
+   
     
-    
-    </script>
+</script>
 
 
 

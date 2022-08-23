@@ -1,18 +1,26 @@
 function changeBg(param){
-    document.body.style.background=param;
+    document.body.style.backgroundColor=param;
+    
 
 }
 
 
 
 window.onload=function(){
-    var range1 = document.querySelector("[type='range']");
-    console.log(range1)
-    range1.onclick = function(){
-       var h1Tag= document.querySelector('h1');
-       console.log(h1Tag)
-       h1Tag.style.fontSize=range1.value+"px";
-       console.log(h1Tag)
-    }    
+
+    var h1 = document.querySelector("#h1");
+    var rangeH2 = document.querySelector("#txtsize")
+    rangeH2.addEventListener("change",function(){
+
+        h1.style.fontSize=rangeH2.value+"px";
+    })
+      
+
+    document.querySelector('#ok').onclick=function(){
+        
+        var ina =  document.querySelector('#in').value;
+        document.querySelector('#hh').innerHTML= ina;
+
+    }
 
 }

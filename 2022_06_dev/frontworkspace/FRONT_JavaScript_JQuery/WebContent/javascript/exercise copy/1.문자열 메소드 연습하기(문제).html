@@ -27,11 +27,9 @@
 <div id="result1"> </div>
 <button onclick="stringLength();"> 확인하기</button>
 <script>
-    function stringLength() {
-        var txt = document.getElementById("text1");
-        var divre=document.getElementById("result1");
-        divre.innerHTML=txt.value.length;
-
+    function stringLength(){
+    document.getElementById("result1").innerHTML =
+  document.querySelector('#text1').value.length;
     }
 </script>
 <br><br>
@@ -47,13 +45,17 @@
 <div id="result2"> </div>
 <button onclick="stringSplit();"> 확인하기</button>
 <script>
-    function stringSplit() {
-        var str=document.getElementById("la1").innerHTML;
-        var div2=document.getElementById("result2");        
-        for(var i =0; i<str.split(",").length; i++){
-        div2.innerHTML+=(i+1)+"."+str.split(",")[i]+" ";
-        }
+    function stringSplit(){
+    var label = document.querySelector("#la1").innerHTML
+    var arryLa= label.split(',');
+    for(var i=0;i<arryLa.length;i++){
+    document.querySelector('#result2').innerHTML+=
+    arryLa[i]+" , "
+    
     }
+}
+
+    
 </script>
 
 <br><br>
@@ -76,24 +78,19 @@
 <button onclick="memoLower();">소문자로 변경</button>
 <script>
    
-    var div3 = document.getElementById("result3");
-    var memo1 = document.getElementById("memo");
+    var result3 = document.querySelector('#result3');
     function memoPrint(){
-      
-        print1 = div3.innerHTML=memo1.value;
-        memo1.value=null;
-
-
+       var memo = document.querySelector('#memo')
+        document.querySelector('#result3').innerHTML=memo.value;
+        memo.value = "";
     }
 
     function memoUpper(){
-            
-        //alert(print1.toUpperCase());
-      print1= div3.innerHTML=print1.toUpperCase();
-
+       result3.innerHTML =  result3.innerHTML.toUpperCase()
     }
+
     function memoLower(){
-        div3.innerHTML=print1.toLowerCase();
+        result3.innerHTML =  result3.innerHTML.toLowerCase();
     }
 
 

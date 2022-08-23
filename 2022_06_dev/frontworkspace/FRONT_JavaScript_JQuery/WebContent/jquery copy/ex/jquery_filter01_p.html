@@ -23,8 +23,10 @@
     <script>
      
         function checkBtn(){
-           var check= $("[type='checkbox']:checked").val()
-           console.log(check);
+           var check= $("[type='checkbox']").filter(':checked')
+           for(var i=0;i<check.length;i++){
+           console.log(check.eq(i).val());
+           }
         }
       
 

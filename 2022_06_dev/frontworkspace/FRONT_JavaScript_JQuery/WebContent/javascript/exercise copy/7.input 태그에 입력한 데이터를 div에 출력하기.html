@@ -48,23 +48,24 @@
 	</form>
 	<script>
 		function printProduct() {
-			//event.preventDefault()
-  
-			var resultdiv = document.getElementById("result");
-			var pname = document.querySelectorAll('input')[0];
-			var count = document.querySelectorAll('input')[1];
-			var level = document.querySelectorAll('input')[2];
-			var msg = document.getElementById('message');
 
-			pall="상품명 : "+pname.value+"<br>납품수량 : "+count.value+"<br>납품등급 :"+level.value+"<br>기타사항 :"+msg.value;
-
-			resultdiv.innerHTML=pall;
-
+			var result = document.querySelector('#result');
+			var productName = document.querySelector('#productName');
+			var Pnumber = document.querySelector('#productAmount');
+			var pRange = document.querySelector('#productLevel');
+			var messge=document.querySelector('#message');
 			
-			pname.value = "";
-			count.value = "";
-			level.value = "";
-			msg.value = ""			}
+			result.innerHTML+="상품명 : "+productName.value+" ";
+			result.innerHTML+="수량 : "+Pnumber.value+" ";
+			result.innerHTML+="등급 : "+pRange.value+" ";
+			result.innerHTML+="메세지 : "+messge.value;
+			
+			return false;
+
+
+
+
+		}
 
 	</script>
 </body>

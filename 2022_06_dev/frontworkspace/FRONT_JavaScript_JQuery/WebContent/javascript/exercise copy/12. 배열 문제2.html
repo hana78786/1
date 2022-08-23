@@ -23,23 +23,21 @@
     <button onclick="print2Test();"> 처리 및 출력 </button>
 
     <script>
-        var arr = document.getElementById("stringla4").innerHTML.split(" ");
-
+        var stringla4 = document.querySelector('#stringla4').innerHTML.split(" ");
+        
         function print2Test(){
-        var add = document.getElementById("add");
-        var remove = document.getElementById("remove");
-        if(add.value!=""){
-        arr.push(add.value);
-        add.value="";}
-        if(remove.value!=""){
-        var i = arr.indexOf(remove.value);
-        if(i != -1){
-        arr.splice(i,1);}
-        remove.value=""}
-        var print4 = document.getElementById("print4");
-        print4.innerHTML=arr;
-        console.log(arr);
+            var removeArr = document.querySelector('#remove').value;
+            var addArr = document.querySelector('#add').value;
+            stringla4.push(addArr);
+            
+            if(stringla4.indexOf(removeArr)!=-1){
+                stringla4.splice(stringla4.indexOf(removeArr),1)
+            }
+            
+            document.querySelector('#print4').innerHTML=stringla4.join(" ");
+
         }
+      
 
     </script>
 
