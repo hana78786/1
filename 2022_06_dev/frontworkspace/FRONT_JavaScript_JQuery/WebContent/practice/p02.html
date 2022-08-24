@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">    
+    <title>갤러리</title>
+    <style>
+        .img-box{
+            margin: 0 auto;
+	        position:relative;
+	
+            width: 365px;
+            height: 400px;            
+        }
+        .img-box>img{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            z-index: 10;
+        }
+
+	        #first{
+            left:20px;
+	
+        }
+        #second{
+            left:80px;   
+	z-index:40                 
+        }
+        #third{
+            left:140px;
+        }
+        .img-box>img:hover{
+            z-index: 50;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-box">
+        <img id="first" src="./img/cherry-blossoms-g257f177e0_640.jpg">
+        <img id="second" src="./img/hd-wallpaper-g1ceb053a2_640.jpg">
+        <img id="third" src="./img/rose-g2fd8cc308_640.jpg">
+    </div>
+</body>
+</html>
