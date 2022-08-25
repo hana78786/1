@@ -1,0 +1,257 @@
+function btnColor(i){
+
+
+
+    color = document.getElementById("color");
+    
+    
+    
+    color.style.width = "100px";
+    
+    
+    
+    color.style.height = "100px";
+    
+    
+    
+    color.style.background = btn[i].innerText;
+    
+    
+    
+    }
+    
+    
+    
+    모든 버튼을 누를 때 실행할 함수를 만들어 버튼을 누를때마다 매개변수에 따라 동작할 함수가 실행될수 있도록 하였다
+    
+    
+    
+    btn[i].addEventListener("click", function() {
+    
+    
+    
+    btnColor(i)
+    
+    
+    
+    });
+    
+    
+    
+    i는 btn배열의 순서에따라 0~4까지 맞추어 매개변수와 똑같이 적어주면 된다
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!DOCTYPE html>
+    
+    
+    
+    <html>
+    
+    
+    
+    <head>
+    
+    
+    
+    <title>KH</title>
+    
+    
+    
+    <script>
+    
+    
+    
+    window.onload = function() {
+    
+    
+    
+    var btn = document.getElementsByTagName("button");
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function btnColor(i){
+    
+    
+    
+    color = document.getElementById("color");
+    
+    
+    
+    color.style.width = "100px";
+    
+    
+    
+    color.style.height = "100px";
+    
+    
+    
+    color.style.background = btn[i].innerText;
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    btn[0].addEventListener("click", function() {
+    
+    
+    
+        btnColor(0)
+    
+    
+    
+    });
+    
+    btn[1].addEventListener("click", function() {
+    
+    
+    
+    btnColor(1)
+    
+    
+    
+    });
+    
+    btn[2].addEventListener("click", function() {
+    
+    
+    
+    btnColor(2)
+    
+    
+    
+    });
+    
+    btn[3].addEventListener("click", function() {
+    
+    
+    
+    btnColor(3)
+    
+    
+    
+    });
+    
+    btn[4].addEventListener("click", function() {
+    
+    
+    
+    btnColor(4)
+    
+    
+    
+    });
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    </script>
+    
+    
+    
+    </head>
+    
+    
+    
+    <body>
+    
+    
+    
+    <p>
+    
+    
+    
+    색상을 선택하세요
+    
+    
+    
+    <button>Red</button>
+    
+    
+    
+    <button>Orange</button>
+    
+    
+    
+    <button>Yellow</button>
+    
+    
+    
+    <button>Green</button>
+    
+    
+    
+    <button>Blue</button>
+    
+    
+    
+    </p>
+    
+    
+    
+    <div id="color"></div>
+    
+    
+    
+    </body>
+    
+    
+    
+    </html>
