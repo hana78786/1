@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KH</title>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    legend {
+        text-align : center;
+        font-size : 20px;
+    }
+    * {
+        box-sizing: border-box;
+    }    
+    input[type=text], input[type=password], input[type=email] {
+        width : 100%;
+        padding : 15px;
+        margin : 5px 0 22px 0;
+        display: inline-block;
+        border : none;
+        background: #f1f1f1;
+    }    
+    input[name=name]:focus, input[type=password]:focus, input[type=email]:focus {
+        background-color : #ddd;
+        outline : none;
+    }    
+    button {
+        background-color : #4CAF50;
+        color : white;
+        padding : 14px 20px;
+        margin : 8px 0;
+        border : none;
+        cursor : pointer;
+        width : 100%;
+        opacity : 0.9;
+    }    
+    button:hover {
+        opacity : 1;
+    }    
+    .cancelBtn {
+        padding : 14px 20px;
+        background-color: #f44336;
+    }    
+    .cancelBtn, .signUpBtn {
+        float : left;
+        width: 50%;
+    }
+</style>
+</head>
+<body>
+    <fieldset>
+        <legend>로그인 폼</legend>
+
+        <form action="result.html" method="post">
+        
+        <label for="name"><b>Name</b></label>
+        <input type="text" id="name" name="name" required placeholder="Enter Name"><br>        
+        <label for="email"><b>Email</b></label>
+        <input type="email" id="email" name="email" required placeholder="Enter email"><br>        
+        <label for="psw"><b>Password</b></label>
+        <input type="password" id="psw" name="psw" required placeholder="Enter password"><br>        
+        <input type="checkbox" checked="checked" name="remember">Remember me<br>        
+        <button type="button" class="cancelBtn">취소</button>
+        <button type="submit" class="signUpBtn">제출</button>        
+    </form>
+</fieldset>
+</body>
+
+</html>

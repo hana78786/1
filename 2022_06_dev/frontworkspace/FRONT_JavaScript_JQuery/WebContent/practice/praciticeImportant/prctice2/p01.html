@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>KH</title>
+
+<script>
+
+window.onload = function() {
+
+var btn = document.getElementsByTagName("button");
+
+
+
+
+function btnColor(i){
+
+color = document.getElementById("color");
+
+color.style.width = "100px";
+
+color.style.height = "100px";
+
+color.style.background = btn[i].innerText;
+
+
+
+}
+
+
+
+
+btn[0].addEventListener("click", function() {
+
+    btnColor(0)
+
+});
+btn[1].addEventListener("click", function() {
+
+btnColor(1)
+
+});
+btn[2].addEventListener("click", function() {
+
+btnColor(2)
+
+});
+btn[3].addEventListener("click", function() {
+
+btnColor(3)
+
+});
+btn[4].addEventListener("click", function() {
+
+btnColor(4)
+
+});
+    
+
+
+
+
+
+
+
+// btn[0].addEventListener("click", function() {
+
+// color = document.getElementById("color");
+
+// color.style.width = "100px";
+
+// color.style.height = "100px";
+
+// color.style.background = this.innerText;
+    
+
+// });
+
+// btn[1].addEventListener("click", function() {
+
+// color = document.getElementById("color");
+
+// color.style.width = "100px";
+
+// color.style.height = "100px";
+
+// color.style.background = this.innerText;
+
+// });
+
+
+// btn[2].addEventListener("click", function() {
+
+// color = document.getElementById("color");
+
+// color.style.width = "100px";
+
+// color.style.height = "100px";
+
+// color.style.background = this.innerText;
+
+// });
+
+
+// btn[3].addEventListener("click", function() {
+
+// color = document.getElementById("color");
+
+// color.style.width = "100px";
+
+// color.style.height = "100px";
+
+// color.style.background = this.innerText;
+
+// });
+
+// btn[4].addEventListener("click", function() {
+
+// color = document.getElementById("color");
+
+// color.style.width = "100px";
+
+// color.style.height = "100px";
+
+// color.style.background = this.innerText;
+
+// });
+
+
+
+
+
+
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<p>
+
+색상을 선택하세요
+
+<button>Red</button>
+
+<button>Orange</button>
+
+<button>Yellow</button>
+
+<button>Green</button>
+
+<button>Blue</button>
+
+</p>
+
+<div id="color"></div>
+
+</body>
+
+</html>

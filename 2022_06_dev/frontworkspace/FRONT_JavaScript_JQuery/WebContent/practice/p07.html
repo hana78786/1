@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KH</title>
+<style>
+    li {
+        padding : 10px
+    }
+</style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li><label  for="name">남품자명 : </label>
+                <input type="text" name="name"placeholder="name" id="name">
+                </li>
+                <li><label>email : 
+                <input type="email" name="name" placeholder="email@example.com" required></label>
+                </li>
+                <li><label for="web">홈페이지 : </label>
+                <input type="url" name="name" placeholder="http://" required id="web">
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>납품정보</legend>
+            <ol>
+                <li><label>상품명 : 
+                    <input type="text" name="pName" list="pName">
+                <datalist id="pName">
+                    <option value="dogCake">강아지케익</option> 
+                    <option value="dogFood">강아지사료</option>
+                    <option value="dogSnack">강아지간식</option>
+                </datalist> 
+            </label>               
+                </li>
+                <li><label for="number">납품수량 : 
+                <input type="number" id ="number" name="number" min="10" max="100" step="10" placeholder="최소 10 이상">
+                </label>
+                </li>
+                <li><label for="range">납품등급 : 
+                <input type="range" min="0" max="10" step="2" id="range">
+                </label>
+                </li>
+            </ol>
+        </fieldset>
+        <input type="submit" value="전송">
+    </form>
+</body>
+</html>

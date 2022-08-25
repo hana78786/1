@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KH</title>
+<style>
+    .vertical-menu {
+        width : 200px;
+    }
+    
+    .vertical-menu a {
+        background-color : blanchedalmond;
+        color : black;
+    }
+    
+    .vertical-menu a.active {
+        background-color: pink;
+        color : black;
+    }
+</style>
+</head>
+<body>
+    <fieldset>
+        <form action="result.html" method="get">
+            <p>회원여부 : 
+                <input type="radio" name="member" value="yes" checked>회원
+                <input type="radio" name="member" value="no">비회원<br></p>
+            
+            <p> 취미(중복선택) :
+                <input type="checkbox" name="hobby" value="read">
+                독서
+                <input type="checkbox" name="hobby" value="movie">
+                영화
+                <input type="checkbox" name="hobby" value="music">
+                음악
+                <input type="checkbox" name="hobby" value="sports">
+                스포츠            
+            </p>
+            
+            <p>
+                직업:
+                <select name="job" size="4">
+                    <option value="student" selected>학생</option>
+                    <option value="company">회사원</option>
+                    <option value="teacher">교사</option>
+                    <option value="sales">자영업</option>
+                    <option value="others">기타</option>
+                </select>
+            </p>
+            
+            <p>
+                남기고 싶은 말 : <br>
+                <textarea name="message" placeholder="150자 내외로 글을 남겨주세요." cols="70" rows="5"></textarea>
+            </p>
+            <input type="reset" value="초기화"> <input type="submit" value="전송">
+            
+        </form>
+    </fieldset>
+</body>
+</html>
