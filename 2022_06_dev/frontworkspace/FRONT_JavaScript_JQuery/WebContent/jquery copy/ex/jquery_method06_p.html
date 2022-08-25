@@ -11,26 +11,21 @@
 		
 		<script>
 			
+		var file=	document.querySelector('[type=file]');
+
 			function addFile(){
-
-				$('div').last().after($('[type="file"]:eq(0)').clone());
-				
-
-				
-				
-				//$('div').append($('[type="file"]:eq(0)').clone());
-				//$('[type="file"]:eq(0)').after($('[type="file"]:eq(0)').clone());
-				
-				
+				file.after(file.cloneNode())
 
 			}
 
 			function delFile(){
-				
-				if($("[type='file']").length!=1){
-				$("[type='file']").last().remove()}
-				
+				if($('[type=file]').length!=1){
+				$('[type=file]').last().remove()}
 			}
+
+
+
+
 		</script>
 		<div>
 			<input type="file">

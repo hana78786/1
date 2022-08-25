@@ -24,9 +24,7 @@
   padding: 0 18px;  
   background-color: white;
   overflow: hidden;
-  
 }
-
 </style>
 </head>
 <body>
@@ -47,21 +45,17 @@
   <p>자바스크립트는 1995년에 넷스케이프(Netscape)의 브렌던 아이크(Brendan Eich)에 의해 만들어졌습니다.</p>
 </div>
 
-
 <script>
 $(".panel").css('display','block');
 $(".accordion").click(function(event){
-  var selector = $(this).next()
-  console.log(selector)
+    var selector = $(this).next();
  var display_ys = selector.css('display');
- console.log(display_ys)
  if(display_ys == 'block'){
   selector.css("display", "none");
  }else{
   selector.css("display", "block");
  }
 })
- 
  
 </script>
 
