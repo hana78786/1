@@ -18,7 +18,7 @@
     - 서버를 활용한 html과 서버의 상호작용 관련
     - 폼으로 받은 값을 입력받고 반환한다
     - javascript와 jquery를 사용하여 html의 동적환경 구성
-    - 부스트스트랩을 이용한 
+    - 부스트스트랩을 이용한 반응형 
     
     작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/frontworkspace/
 
