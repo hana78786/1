@@ -1,6 +1,6 @@
 # 공부한 것들 모음
 
-## 2022_06_dev : java
+## 2022_06_dev : java, html, css, js
 
 - 학원 수강 
   - java workspace
