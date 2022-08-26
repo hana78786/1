@@ -22,7 +22,7 @@
     
     작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/frontworkspace/
 
-## bostcourse_htmlcss :html
+## bostcourse_htmlcss :html, css
 
 - 네이버 부스트코스 htmlCss 활동
 
@@ -61,7 +61,7 @@
   - instance 생성하기
   - input output
 
-## web : html
+## web : html, css
 
 - html을 활용한 css 자바스크립트 연습
   - 간단한 사이트 작성
