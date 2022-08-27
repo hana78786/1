@@ -1,6 +1,6 @@
 # 공부한 것들 모음
 
-## 2022_06_dev : java
+## 2022_06_dev : java, html, css, js
 
 - 학원 수강 
   - java workspace
@@ -18,10 +18,11 @@
     - 서버를 활용한 html과 서버의 상호작용 관련
     - 폼으로 받은 값을 입력받고 반환한다
     - javascript와 jquery를 사용하여 html의 동적환경 구성
+    - 부스트스트랩을 이용한 반응형 
     
     작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/frontworkspace/
 
-## bostcourse_htmlcss :html
+## bostcourse_htmlcss :html, css
 
 - 네이버 부스트코스 htmlCss 활동
 
@@ -60,7 +61,7 @@
   - instance 생성하기
   - input output
 
-## web : html
+## web : html, css
 
 - html을 활용한 css 자바스크립트 연습
   - 간단한 사이트 작성
