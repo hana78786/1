@@ -1,19 +1,21 @@
-// const loginForm = document.querySelector("#login-form");
 // const loginInput=loginForm.querySelector("input");
 // const loginButton = loginForm.querySelector("button");
 
 const loginInput=document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
+const loginForm = document.querySelector("#login-form");
+const link = document.querySelector('a');
+const greetning = document.querySelector('#greeting')
+const HIDDEN_CLASSNAME="hidden" //문자열을 담은 상수는 대문자로 표기한다
 
-function nLoginbtnClikc(){
-   const username= loginInput.value;
-//    if(username==""){
-//     alert("plase write your name")
-//    }else if(username.length>15){
-//     alert("Your name is long")
-//    }
 
+function onLoginSubmit(event){
+    event.preventDefault();
+    const username = loginInput.value;
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    // greetning.innerText="Hello "+username;
+    greetning.innerText=`Hello ${username}`;
+    greetning.classList.remove(HIDDEN_CLASSNAME);
 
 }
 
-loginButton.addEventListener("click",nLoginbtnClikc)
+loginForm.addEventListener("submit",onLoginSubmit)
