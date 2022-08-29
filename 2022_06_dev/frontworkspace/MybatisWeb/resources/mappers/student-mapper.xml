@@ -15,6 +15,7 @@
 	<insert id="insertStudent">
 	insert into student_tbl
 	values(SEQ_STUDENTNO.NEXTVAL,#{studentName},#{studentTel},#{studentEmail},#{studentAddr},default)
+	<!-- StoreLogic에서 받아온 student를 인식해서 getter로 출력 #{} -->
 	</insert>
 	<select id="selectOneStudent" resultMap="studentResultMap">
 		Select * from student_tbl where student_no = #{studentNo}
