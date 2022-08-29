@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="StudentMapper">
+	<resultMap type="com.kh.student.model.vo.Student" id="studentResultMap">
+	<id property="studentNo" column="student_no"/>
+	<result property="studentName" column="student_name"/>
+	<result property="studentTel" column="student_tel"/>
+	<result property="studentEmail" column="student_email"/>
+	<result property="studentAddr" column="student_addr"/>
+	<result property="regDate" column="reg_date"/>
+	</resultMap>
+	<insert id="insertStudent">
+	insert into student_tbl
+	values(SEQ_STUDENTNO.NEXTVAL,#{studentName},#{studentTel},#{studentEmail},#{studentAddr},default)
+	</insert>
+	<select id="selectOneStudent" resultMap="studentResultMap">
+		Select * from student_tbl where student_no = #{studentNo}
+	</select>
+</mapper>
