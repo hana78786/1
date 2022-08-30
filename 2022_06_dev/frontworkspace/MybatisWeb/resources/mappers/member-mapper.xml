@@ -6,9 +6,35 @@
   <mapper namespace="MemberMapper">
   	<insert id="insertMember">
   		insert into member_tbl values(#{memberId},#{memberPw},#{memberName},0,null,null,#{memberAddress},null,null,default)
-  	
-  	
   	</insert>
+  	<delete id="deleteMember">
+  		delete from member_tbl where member_id=#{memberId }
+  	</delete>
+  	<update id="updateMember">
+  		update member_tbl set member_pw= #{memberPw}, member_address= #{memberAddress} where member_id = #{memberId}
+  	
+  	</update>
+  	
+  	
+  	<resultMap type="com.kh.member.vo.Member" id="memberResultMap">
+  	<id property="memberId" column="member_id"/> <!--  id에는 프라이머리키  -->
+  	<result property="memberName" 	column="member_name"/>
+  	<result property="memberPw" 	column="member_pw"/>
+  	<result property="memerAge" 	column="member_age"/>
+  	<result property="memberEmail" 	column="member_email"/>
+  	<result property="memberAddress" 	column="member_address"/>
+  	<result property="enrollDate" 	column="enrolldate"/>
+  	</resultMap>
+  	<select id="selectAllMember" resultMap="memberResultMap">
+  	select * from member_tbl	
+  	</select>
+  	<select id="selectMember" resultMap="memberResultMap">
+  	select * from member_tbl where member_id=#{memberId}	
+  	</select>
+  	
+  	<select id="selectMemberLogin" resultMap="memberResultMap">
+  	select member_id, member_name from member_tbl where member_id= #{memberId } and member_pw = #{memberPw}
+  	</select>
   
   
   

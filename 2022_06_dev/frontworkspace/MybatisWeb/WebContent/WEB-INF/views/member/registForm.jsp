@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="../common/menuBar.jsp"></jsp:include>
+<br> <br>
 <h1 align="center">회원가입</h1>
 <form action="/member/register.do" method="post">
 	<table>

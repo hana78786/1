@@ -20,4 +20,6 @@ public interface MemberStore {
 	public int updateMember(SqlSession session, Member member);
 	public int deleteMember(SqlSession session, String memberId);
 	int registerMember(Member member);
+	ArrayList<Member> printMemberList();
+	Member PrintMemberById(String memberId);
 }

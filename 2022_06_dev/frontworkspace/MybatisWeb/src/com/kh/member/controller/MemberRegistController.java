@@ -49,7 +49,7 @@ public class MemberRegistController extends HttpServlet {
 		try {
 		int result = new MemberServiceImpl().registerMember(member);
 		if (result>0) {
-			out.println("<script>alert('가입성공')</script>");
+			out.println("<script>alert('가입성공'); location.href='/index.jsp'</script>");
 			out.flush();
 			out.close();
 		}else {
