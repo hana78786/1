@@ -38,7 +38,7 @@
 					<!-- count를 쓰면 1 index를 쓰면 0부터 시작함 -->
 					<td>${member.memberId }</td>
 					<td> <a href="/member/detail.do?memberId=${member.memberId }"> ${member.memberName } </a></td>
-					<%-- ?memberId=${member.memberId } 이렇게 ? = 으로 키값을 전달하는 주소를 쿼리 스트링이라고 함 --%>
+					<!-- ?memberId=${member.memberId } 이렇게 ? = 으로 키값을 전달하는 주소를 쿼리 스트링이라고 함 -->
 					<td>${member.memberAddress }</td>
 				<c:if test="${sessionScope.member.memberId eq member.memberId }">	
 					<td><a class="btn btn-xs btn-warning" href='/member/modify.do'>update</a></td>
