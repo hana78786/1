@@ -1,0 +1,84 @@
+/*Global*/
+.section-content{
+
+    padding:4rem 0;
+}
+
+/*top section*/
+
+#top{
+    background-image: url('../img/earth-g609af2429_640.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    /*브라우저의 80%만큼만 배경으로 할당함*/
+}
+
+#top .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.65);
+}
+
+#top .divider{
+    width: 10%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 2px solid #fff;
+}
+
+#top .welcome{
+    padding-right : 8rem;
+    color:#fff;
+}
+
+@media screen and (max-width:767px){
+    #top .welcome{
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+
+    }
+}
+
+#intro .intro-first-card{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12rem;
+}
+
+#intro .col-6:nth-of-type(1) .intro-first-card{
+    background-image: url('../img/stones-g4fdb9352c_640.jpg');
+}
+
+#intro .col-6:nth-of-type(2) .intro-first-card{
+    background-image: url('../img/tree-g42207c882_640.jpg');
+}
+
+#intro .col-6:nth-of-type(3) .intro-first-card{
+    background-image: url('../img/phone-wallpaper-ge836177ff_640.jpg');
+}
+
+#intro .col-6:nth-of-type(4) .intro-first-card{
+    background-image: url('../img/hd-wallpaper-g38d60e3ec_640.jpg');
+}
+
+#intro .intro-first-card .overlay{
+    left:0;
+    top:0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#intro .intro-first-card .overlay a{
+
+    transition: hover 0.4s ease;
+   
+}
+#intro .intro-first-card .overlay a:hover{
+    color: #8ae261;
+}
