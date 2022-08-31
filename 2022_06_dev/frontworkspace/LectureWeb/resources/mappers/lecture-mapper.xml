@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="LectureMapper">
+  	<resultMap type="com.kh.lecture.model.domain.Lecture" id="lectureResultMap">
+  	<id property="lectureNo" column="LECTURE_NO"/> <!--  id에는 프라이머리키  -->
+  	<result property="lectureName" 	column="LECUTRE_NAME"/>
+  	<result property="lectrueInstructor" 	column="LECTURE_INSTRUCTOR"/>
+  	<result property="lectureIntroduce" 	column="LECTURE_INTRODUCE"/>
+  	<result property="regDate" 	column="REG_DATE"/>
+  	<result property="useYn" 	column="USE_YN"/>
+  
+  	</resultMap>
+  
+  
+  
+  	<select id="selectList" resultMap="lectureResultMap">
+  	select * from lecture_tbl
+  	</select>
+  	<select id="selectOne" resultMap="lectureResultMap">
+  	select * from lecture_tbl where lecture_no= #{lectureNo}
+  	</select>
+  	
+  	
+  	<insert id="insertLecture">
+  	insert into LECTURE_TBL values(seq_lectureno.nextval, #{lectureName},#{lectrueInstructor},#{lectureIntroduce},default,default)
+  	</insert>
+  	<delete id="deleteId">
+  	delete  LECTURE_TBL where lecture_no= #{lectureNo}
+  	</delete>
+  	<update id="updateId">
+  	update LECTURE_TBL set LECUTRE_NAME =#{lectureName}, LECTURE_INSTRUCTOR =#{lectrueInstructor}, LECTURE_INTRODUCE=#{lectureIntroduce},USE_YN=#{useYn} where LECTURE_NO=#{lectureNo} 
+  	</update>
+  </mapper>

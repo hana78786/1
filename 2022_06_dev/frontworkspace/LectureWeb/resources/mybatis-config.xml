@@ -2,8 +2,9 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
 <configuration>
-	<environments default="development">
+		<environments default="development">
 		<environment id="development">
 		<transactionManager type="JDBC"></transactionManager>
 		<dataSource type="POOLED">
@@ -15,9 +16,7 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="mappers/student-mapper.xml"/>
-		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource ="mappers/lecture-mapper.xml"/>
 	</mappers>
-	
 
 </configuration>
