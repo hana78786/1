@@ -75,10 +75,41 @@
 }
 
 #intro .intro-first-card .overlay a{
+    color: white;
 
-    transition: hover 0.4s ease;
+    transition: 0.4s ease;
+   
    
 }
 #intro .intro-first-card .overlay a:hover{
     color: #8ae261;
+}
+
+#services{
+    background-color: rgba(96,125,193,0.1);
+}
+
+#services .divider{
+    width:10%;
+    margin:2rem auto;
+    border-top:0.4rem solide rgb(255,112,3)
+}
+
+#services .services-col .card{
+    transition: 0.4s ease;
+   
+
+}
+
+#services .services-col .card:hover{
+    transform: translateY(-0.8rem);
+    box-shadow: 0 5px 11px rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+    
+    
+}
+
+#services .service-col img{
+    height: 13rem;
+    object-fit: cover;
+    object-position: center;
 }
