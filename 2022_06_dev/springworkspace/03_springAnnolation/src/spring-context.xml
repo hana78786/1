@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!--context, context/spring-context-4.3.xsd 이 2개를 써서 context태그를쓸수있게됨 -->
+
+<!-- <bean id="customerService" class="org.kh.customer.service.logic.CustomerServiceImple">
+	<property name="store" ref="customerStore"></property>
+</bean>
+
+<bean id ="customerStore" class="org.kh.customer.store.logic.CustomerStoreLogic">
+
+</bean>
+ -->
+
+<context:component-scan base-package="org.kh.customer"></context:component-scan>
+</beans>
