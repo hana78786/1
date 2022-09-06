@@ -18,7 +18,7 @@
 				</tr>
 				<tr>
 					<td>* 비밀번호</td>
-					<td><input type="password" name="memberPwd"></td>
+					<td><input type="password" name="memberPw"></td>
 				</tr>
 				<tr>
 					<td>* 이름</td>

@@ -16,7 +16,17 @@ public class Member {
 	private Date updateDate;
 	private String status;
 	
+	public Member() {
+		
+	}
  
+
+	public Member(String memberId, String memberPw) {
+		super();
+		this.memberId = memberId;
+		this.memberPw = memberPw;
+	}
+
 
 	public Member(String memberId, String memberPw, String memberName, String memberEmail, String memberPhone, String memberAddress) {
 		super();

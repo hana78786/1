@@ -8,4 +8,21 @@
 insert into member_tbl values(#{memberId}, #{memberPw},#{memberName}, #{memberEmail}, #{memberPhone}, #{memberAddress},default,default,default )
 
 </insert> 
+
+<resultMap type="com.kh.junspring.member.domain.Member" id="memberResultMap">
+<id property="memberId" column="MEMBER_ID"/>
+<result property="memberPw" column="MEMBER_PWD"/>
+<result property="memberName" column="MEMBER_NAME"/>
+<result property="memberEmail" column="MEMBER_EMAIL"/>
+<result property="memberPhone" column="MEMBER_PHONE"/>
+<result property="memberAddress" column="MEMBER_ADDR"/>
+<result property="endrollDate" column="ENROLL_DATE"/>
+<result property="updateDate" column="UPDATE_DATE"/>
+<result property="status" column="M_STATUS"/>
+</resultMap>
+<select id="selectLoginOne" resultMap="memberResultMap">
+
+select member_id, member_name from member_tbl where member_id = #{memberId} and member_pwd= #{memberPw}
+
+</select>
 </mapper>
