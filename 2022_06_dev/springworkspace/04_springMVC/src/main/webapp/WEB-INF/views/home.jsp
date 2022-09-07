@@ -29,7 +29,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td colspan="3"><a href="#">회원가입</a></td>
+						<td colspan="3"><a href="/member/joinView.kh">회원가입</a></td>
 
 					</tr>
 				</table>

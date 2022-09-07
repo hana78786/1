@@ -34,14 +34,21 @@ public class MemberServicImpl implements MemberService{
 
 	@Override
 	public int modifyMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = mStore.updateMember(session, member);
+		return result;
 	}
 
 	@Override
-	public int removeMember(String memberId, String memberPw) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int removeMember(String memberId) {
+		int result = mStore.deleteMember(session, memberId);
+		return result;
+	}
+
+	@Override
+	public Member printOneById(String memberId) {
+		Member member = mStore.printOneById(session, memberId);
+		
+		return member;
 	}
 
 }

@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<td>* 비밀번호</td>
-					<td><input type="password" name="memberPw" value="${member.memberPw }"></td>
+					<td><input type="password" name="memberPw" value=""></td>
 				</tr>
 				<tr>
 					<td>* 이름</td>
@@ -37,17 +37,19 @@
 				</tr>
 				<tr>
 					<td>* 우편번호</td>
-					<td><input type="text" name="post" value="" ></td>
+					<td><input type="text" name="post" value="${post }" ></td>
+					<!-- 배열로 값을 받았다면 ${addreess[0]}으로 표기하여 출력할수 있다-->
 				</tr>
 				<tr>
 					<td>* 주소</td>
-					<td><input type="text" name="address" value=""></td>
+					<td><input type="text" name="address" value="${address }"></td>
 				</tr>
 				<tr>
 				<td colspan="2" align="center">
 			<input type="submit" value="수정하기">
-			<button onclick=""> 탈퇴하기 </button>
-				
+			<button type="button" onclick="removeMember();"> 탈퇴하기 </button>
+			<!-- //type을 button으로 꼭 적어줘야! submit이 되지 않는다!! 꼭 기억하기!
+				 -->
 				</td>
 				</tr>
 			</table>
@@ -55,6 +57,13 @@
 		</form>
 	</div>
 
-
+<script>
+function removeMember() {
+	if(window.confirm("탈퇴하시겠습니까?")){
+	location.href="/member/remove.kh";
+	}
+	
+}
+</script>
 </body>
 </html>

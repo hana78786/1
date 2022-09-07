@@ -8,8 +8,23 @@
 insert into member_tbl values(#{memberId}, #{memberPw},#{memberName}, #{memberEmail}, #{memberPhone}, #{memberAddress},default,default,default )
 
 </insert> 
+<update id="updateMember" parameterType="Member"> 
+<!-- paramaterType은 자동형변환돼서 쓸필요는 없다, 원래는 type의 클래스의 정확한 주소를 적어야 함 -->
+update member_tbl set member_pwd = #{memberPw}, member_email=#{memberEmail}, member_phone =#{memberPhone}, member_addr=#{memberAddress}, update_date = default where member_id=#{memberId}
 
-<resultMap type="com.kh.junspring.member.domain.Member" id="memberResultMap">
+</update>
+
+<delete id="deldetMemger" parameterType="String">
+
+<!-- delete from member_tbl where member_id=#{memberId} -->
+update member_tbl 
+set m_status = 'N' where member_id=#{memberId}
+
+
+
+</delete>
+
+<resultMap type="Member" id="memberResultMap">
 <id property="memberId" column="MEMBER_ID"/>
 <result property="memberPw" column="MEMBER_PWD"/>
 <result property="memberName" column="MEMBER_NAME"/>
@@ -22,7 +37,14 @@ insert into member_tbl values(#{memberId}, #{memberPw},#{memberName}, #{memberEm
 </resultMap>
 <select id="selectLoginOne" resultMap="memberResultMap">
 
-select member_id, member_name from member_tbl where member_id = #{memberId} and member_pwd= #{memberPw}
+select member_id, member_name from member_tbl where member_id = #{memberId} and member_pwd= #{memberPw} and m_status='y'
 
 </select>
+
+<select id="selectOneId" resultMap="memberResultMap">
+select * from member_tbl where member_id = #{memberId} and m_status='y'
+
+</select>
+
+
 </mapper>

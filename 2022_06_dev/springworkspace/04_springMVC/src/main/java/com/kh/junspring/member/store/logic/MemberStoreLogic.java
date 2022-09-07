@@ -1,6 +1,7 @@
 package com.kh.junspring.member.store.logic;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.junspring.member.domain.Member;
@@ -15,6 +16,13 @@ public class MemberStoreLogic implements MemberStore {
 		Member mOne= session.selectOne("MemberMapper.selectLoginOne",member);
 		return mOne;
 	}
+	@Override
+	public Member printOneById(SqlSessionTemplate session, String memberId) {
+		Member member = session.selectOne("MemberMapper.selectOneId", memberId);
+		return member;
+	}
+	
+	
 
 	@Override
 	public int insertMember(SqlSession session, Member member) {
@@ -24,14 +32,15 @@ public class MemberStoreLogic implements MemberStore {
 
 	@Override
 	public int updateMember(SqlSession session, Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = session.update("MemberMapper.updateMember",member);
+		return result;
 	}
 
 	@Override
-	public int deleteMember(SqlSession session, String memberId, String memberPw) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteMember(SqlSession session, String memberId) {
+		int result = session.update("MemberMapper.deldetMemger",  memberId);
+		return result;
 	}
+
 
 }
