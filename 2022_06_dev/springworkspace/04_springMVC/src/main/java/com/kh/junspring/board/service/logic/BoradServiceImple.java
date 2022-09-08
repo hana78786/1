@@ -1,5 +1,7 @@
 package com.kh.junspring.board.service.logic;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,4 +24,20 @@ public class BoradServiceImple implements BoradService {
 		return result;
 	}
 
+
+	@Override
+	public List<Board> printAllBoard(int currentPage, int limit) {
+		List<Board> bList = bStore.selectAllboard(session,currentPage,limit);
+		return bList;
+	}
+
+
+	@Override
+	public int getTotalCount() {
+		int count = bStore.selectTotalCount(session);
+		return count;
+	}
+
+	
+	
 }

@@ -10,6 +10,7 @@
 </settings>
 
 
+<!--  resultMapy type을 여기에 입력해서 alias로 대체한다 -->
 <typeAliases>
 	<typeAlias type="com.kh.junspring.member.domain.Member" alias="Member"/>
 	<typeAlias type="com.kh.junspring.board.domain.Board" alias="Board"/>
