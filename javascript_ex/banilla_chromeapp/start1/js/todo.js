@@ -10,14 +10,9 @@ function paintToDo(newTodo){
     const button = document.createElement('button');
     button.className='delete';
     button.innerText='❌';
-    
-    
    
-   button.addEventListener("click", deleteToDo) //클릭이벤트 생성
+    button.addEventListener("click", deleteToDo) //클릭이벤트 생성
         
-   
-    
-   
     li.appendChild(span); //<li><span></spam></li>
     li.appendChild(button);
     toDoList.appendChild(li);
