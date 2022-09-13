@@ -19,6 +19,20 @@ public class BoardStoreLogic implements BoardStore{
 	}
 
 	@Override
+	public int updateBoardOneByNo(Board board, SqlSessionTemplate session) {
+		int result = session.update("BoardMapper.modifyBoard",board);
+		return result;
+	}
+	
+	@Override
+	public int deleteOnebyNo(SqlSessionTemplate session, int boardNo) {
+		int result = session.delete("BoardMapper.deleteBoardOne", boardNo);
+		return result;
+	}
+	
+	
+	
+	@Override
 	public List<Board> selectAllboard(SqlSessionTemplate session, int currentPage, int limit) {
 		//offset currentPage에 의해서 변경되는 값
 		//1->1, 2->11, 3->21 게시판 페이지에서 처음의 출력되는 게시물의 번호
@@ -41,5 +55,13 @@ public class BoardStoreLogic implements BoardStore{
 		int count = session.selectOne("BoardMapper.selectBoardCount");
 		return count;
 	}
+
+	@Override
+	public Board selectOnbyNo(Integer boardNo, SqlSessionTemplate session) {
+		Board board = session.selectOne("BoardMapper.selectBoardOne", boardNo);
+		return board;
+	}
+
+
 
 }

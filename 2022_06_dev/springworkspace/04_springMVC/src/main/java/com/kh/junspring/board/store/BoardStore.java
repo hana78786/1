@@ -14,4 +14,10 @@ public interface BoardStore {
 	
 	public int selectTotalCount(SqlSessionTemplate session);
 
+	public Board selectOnbyNo(Integer boardNo, SqlSessionTemplate session);
+
+	public int deleteOnebyNo(SqlSessionTemplate session, int boardNo);
+
+	public int updateBoardOneByNo(Board board, SqlSessionTemplate session);
+
 }

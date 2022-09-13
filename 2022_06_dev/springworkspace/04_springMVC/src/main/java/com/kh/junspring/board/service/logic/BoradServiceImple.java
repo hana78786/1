@@ -24,6 +24,11 @@ public class BoradServiceImple implements BoradService {
 		return result;
 	}
 
+	@Override
+	public int modifyBoardOneByNo(Board board) {
+		int result = bStore.updateBoardOneByNo(board, session);
+		return result;
+	}
 
 	@Override
 	public List<Board> printAllBoard(int currentPage, int limit) {
@@ -37,6 +42,23 @@ public class BoradServiceImple implements BoradService {
 		int count = bStore.selectTotalCount(session);
 		return count;
 	}
+
+
+	@Override
+	public Board printOneVyNo(Integer boardNo) {
+		Board board = bStore.selectOnbyNo(boardNo, session);
+		return board;
+	}
+
+
+	@Override
+	public int removeOneByNo(int boardNo) {
+		int result = bStore.deleteOnebyNo(session, boardNo);
+		return result;
+	}
+
+
+	
 
 	
 	

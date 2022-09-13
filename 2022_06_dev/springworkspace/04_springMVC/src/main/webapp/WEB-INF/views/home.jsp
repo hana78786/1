@@ -61,7 +61,7 @@
 	<div class="nav-area">
 		<div class="menu" onclick="location.href='/home.kh';">Home</div>
 		<div class="menu" onclick="showNoticeList();">공지사항</div>
-		<div class="menu" onclick="">자유게시판</div>
+		<div class="menu" onclick="location.href='/board/list.kh';">자유게시판</div>
 		<div class="menu" onclick="">사진게시판</div>
 	</div>
 

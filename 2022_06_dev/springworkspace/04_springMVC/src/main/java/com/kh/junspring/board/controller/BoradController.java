@@ -6,11 +6,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
 
 import org.apache.ibatis.executor.ReuseExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,6 +40,35 @@ public class BoradController {
 		
 		
 	}
+	
+	/**
+	 * 게시물 수정화면 연결
+	 * @param mv
+	 * @param boardNo
+	 * @return
+	 */
+	@RequestMapping(value="/board/modifyView.kh", method = RequestMethod.GET)
+	public ModelAndView boardModifyView(ModelAndView mv,
+			@RequestParam("boardNo") Integer boardNo) {
+		try {
+		Board board = bService.printOneVyNo(boardNo);
+		if(board!=null){
+			
+			mv.addObject("board",board);
+			mv.setViewName("board/modifyForm");
+		}
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			mv.addObject("mgs",e.getMessage());
+			mv.setViewName("/common/errorPage");
+		}
+		
+		return mv;
+	}
+	
+	
 	
 	//게시물 등록 코드
 	@RequestMapping(value="/board/register.kh", method = RequestMethod.POST)
@@ -96,16 +129,38 @@ public class BoradController {
 		return mv;
 	}
 	
+	/**
+	 *게시물 수정코드*/
+	@RequestMapping (value="/board/modify.kh", method = RequestMethod.POST)
+	public ModelAndView modifyBoard(ModelAndView mv,
+			@ModelAttribute Board board) {
+		try {
+			System.out.println(board);
+		int result = bService.modifyBoardOneByNo(board);
+		if(result>0) {System.out.println("성공");}else { System.out.println("실패");}
+		mv.setViewName("redirect:/board/detail.kh?boardNo="+board.getBoardNo());
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+			mv.addObject("mgs",e.getMessage());
+			mv.setViewName("/common/errorPage");
+		}
+		return mv;
+	}
 	
 	
 	
-	//게시물 출력코드
+	
+	//게시물 리스트 출력코드
 	@RequestMapping(value="/board/list.kh", method =RequestMethod.GET)
 	public ModelAndView boardList(ModelAndView mv,
-			@RequestParam(value="page", required=false) Integer page) {
+			@RequestParam(value="page", required=false) Integer page,
+			HttpSession session) {
 		//@RequestParam(value="page", required=false)의 값은 page이지만 
 		// required=false 필수값은 아니라는 뜻
 		
+
+		session.removeAttribute("pageNow");
 		int currentPage = (page != null) ? page: 1;
 		//현재 페이지
 		//만약 page값이 없으면 기본형 1로 출력할것, 아니면 받아온 page의 값을 준다.
@@ -138,6 +193,7 @@ public class BoradController {
 			
 		}
 		
+		session.setAttribute("pageNow", page);
 		mv.setViewName("/board/listView");
 		
 		return mv;
@@ -146,6 +202,62 @@ public class BoradController {
 		
 	}
 	
+	/**
+	 * 게시물 상세 출력 코드
+	 * */
+	@RequestMapping(value="/board/detail.kh", method = RequestMethod.GET)
+	public ModelAndView boardDetailView(ModelAndView mv,
+			@RequestParam ("boardNo") Integer boardNo,
+			HttpSession session) {
+
+	
+		
+
+		if(boardNo != null) {
+		Board board = bService.printOneVyNo(boardNo);
+		session.setAttribute("boardNo", boardNo); // 세션에 boardNo가 추가된다, 현재 가지고 있는 세션은 유지된다.
+		try {
+			mv.addObject("board", board);
+			mv.setViewName("/board/detail");
+			
+		}catch (Exception e) {
+			mv.addObject("mgs",e.getMessage());
+			mv.setViewName("/common/errorPage");
+		}
+		
+		
+		}
+		else {
+			mv.addObject("mgs","게시물 선택 오류");
+			mv.setViewName("/common/errorPage");
+		}
+		
+		return mv;
+	}
+	
+	/**
+	 * 삭제코드
+	 */
+	@RequestMapping (value="board/remove.kh", method = RequestMethod.GET)
+	public String boardReomve(HttpSession session, Model model) {
+		
+		int pageNow= (int) session.getAttribute("pageNow");
+		try {
+		int boardNo = (int)session.getAttribute("boardNo");
+	
+		int result = bService.removeOneByNo(boardNo);
+		if(result>0) {
+			session.removeAttribute("boardNo"); //한가지의 세션만 지운다.
+		}
+		}catch (Exception e) {
+			model.addAttribute("mgs",e.getMessage());
+			return "/common/errorPage";
+		}
+		String dierctPage ="redirect:/board/list.kh?page="+pageNow;
+		session.removeAttribute("pageNow");
+		return dierctPage;
+		
+	}
 	
 
 }

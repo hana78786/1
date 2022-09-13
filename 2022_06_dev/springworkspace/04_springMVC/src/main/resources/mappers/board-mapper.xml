@@ -12,6 +12,13 @@ insert into board_tbl values(seq_board_no.nextval,#{boardTitle},#{boardContents}
 
 </insert> 
 
+<update id="modifyBoard">
+update board_tbl set board_title = #{boardTitle}, BOARD_CONTENTS = #{boardContents} where BOARD_NO = #{boardNo}
+</update>
+
+<delete id="deleteBoardOne">
+delete from board_tbl where board_no =#{boardNo}
+</delete>
 
 <resultMap type="Board" id="boardResultMap">
 <id property="boardNo"			 	column="BOARD_NO"/>
@@ -36,5 +43,10 @@ select * from board_tbl where b_status = 'Y' order by board_no desc
 select count(*) from board_tbl where b_status = 'Y'
 
 </select>
+
+<select id="selectBoardOne" resultMap="boardResultMap">
+select * from board_tbl where board_no = #{boardNo}
+</select>
+
 
 </mapper>
