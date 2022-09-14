@@ -106,7 +106,19 @@
 		
 			<tr>
 				<td colspan="2"><input type="button" value="수정" onclick="location.href='/board/modifyView.kh?boardNo=${board.boardNo}';"> 
+				
+				
+				<!--검색/일반의 경우 목록주소 -->
+				<!-- 일반으로 상세 진입시 목록 -->
+				<c:if test="${empty searchValue  }">
 				<button type="button" onclick="location.href='/board/list.kh?page=${pageNow }';">목록</button>
+				</c:if>
+				<!-- 검색 으로 상세 진입시 -->
+				<c:if test="${searchValue ne null }">
+				<button type="button" onclick="location.href='/board/search.kh?searchCondition=${searchCondition }&searchValue=${searchValue}&page=${pageNow }';">목록</button>
+				</c:if>
+				<!-- 목록주소 태그 종료 -->
+				
 				<button type="button" onclick="remove()">삭제</button>
 				</td>
 			</tr>

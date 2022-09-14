@@ -93,10 +93,13 @@
 	<!-- enctype을 이용해 파일을 전송한다 오타조심!!!!-->
 	<form action="/board/modify.kh" method="post"	enctype="multipart/form-data">
 	<input type="hidden" name="boardNo" value="${board.boardNo }" readonly>
+	<input type="hidden" name="boardRename" value="${board.boardRename }">
+	<input type="hidden" name="boardFile" value="${board.boardFile }">
+	<input type="hidden" name="boardFildpath" value="${board.boardFildpath }">
 		<table align="center" border="1">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="boardTitle" value="${board.boardTitle }"></td>
+				<td><input type="text" name="boardTitle" value="${board.boardTitle }" required="required"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -106,12 +109,13 @@
 				<td>내용</td>
 
 				<td><textarea id="summernote" name="boardContents"
-						style="resize: none; width: 500px; height: 100%;"> ${board.boardContents }</textarea></td>
+						style="resize: none; width: 500px; height: 100%;" required="required"> ${board.boardContents }</textarea></td>
 			</tr>
 			<tr>
 				<td>첨부파일</td>
-				<td><input type="file" name="uploadFile">
+				<td><input type="file" name="reloadFile">
 				<a href="#"> ${board.boardFile }</a>
+
 				</td>
 			</tr>
 			<tr>

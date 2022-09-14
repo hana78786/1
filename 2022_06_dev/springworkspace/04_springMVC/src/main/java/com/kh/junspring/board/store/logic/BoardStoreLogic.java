@@ -1,5 +1,6 @@
 package com.kh.junspring.board.store.logic;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -21,6 +22,7 @@ public class BoardStoreLogic implements BoardStore{
 	@Override
 	public int updateBoardOneByNo(Board board, SqlSessionTemplate session) {
 		int result = session.update("BoardMapper.modifyBoard",board);
+		
 		return result;
 	}
 	
@@ -51,8 +53,11 @@ public class BoardStoreLogic implements BoardStore{
 	}
 
 	@Override
-	public int selectTotalCount(SqlSessionTemplate session) {
-		int count = session.selectOne("BoardMapper.selectBoardCount");
+	public int selectTotalCount(SqlSessionTemplate session, String searchCondition, String searchValue) {
+		HashMap<String, String> paramMap = new HashMap<String, String>();
+		paramMap.put("searchCondition", searchCondition);
+		paramMap.put("serchValue", searchValue);
+		int count = session.selectOne("BoardMapper.selectBoardCount",paramMap);
 		return count;
 	}
 
@@ -60,6 +65,17 @@ public class BoardStoreLogic implements BoardStore{
 	public Board selectOnbyNo(Integer boardNo, SqlSessionTemplate session) {
 		Board board = session.selectOne("BoardMapper.selectBoardOne", boardNo);
 		return board;
+	}
+
+	@Override
+	public List<Board> selectAllByValue(SqlSessionTemplate session, String searchCondition, String searchValue,  int currentPage, int boardLimit) {
+		HashMap<String, String> paramMap = new HashMap<String, String>();
+		paramMap.put("searchCondition", searchCondition);
+		paramMap.put("serchValue", searchValue);
+		int offset = (currentPage-1)*boardLimit;
+		RowBounds rowBounds = new RowBounds(offset, boardLimit);
+		List<Board> bList = session.selectList("BoardMapper.selectAllByValue",paramMap, rowBounds);
+		return bList;
 	}
 
 

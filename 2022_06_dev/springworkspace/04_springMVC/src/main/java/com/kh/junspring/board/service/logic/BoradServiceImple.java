@@ -31,18 +31,17 @@ public class BoradServiceImple implements BoradService {
 	}
 
 	@Override
-	public List<Board> printAllBoard(int currentPage, int limit) {
-		List<Board> bList = bStore.selectAllboard(session,currentPage,limit);
-		return bList;
+	public int getTotalCount(String searchCondition, String searchValue) {
+		int count = bStore.selectTotalCount(session, searchCondition, searchValue);
+		return count;
 	}
 
 
 	@Override
-	public int getTotalCount() {
-		int count = bStore.selectTotalCount(session);
-		return count;
+	public int removeOneByNo(int boardNo) {
+		int result = bStore.deleteOnebyNo(session, boardNo);
+		return result;
 	}
-
 
 	@Override
 	public Board printOneVyNo(Integer boardNo) {
@@ -52,10 +51,17 @@ public class BoradServiceImple implements BoradService {
 
 
 	@Override
-	public int removeOneByNo(int boardNo) {
-		int result = bStore.deleteOnebyNo(session, boardNo);
-		return result;
+	public List<Board> printAllBoard(int currentPage, int limit) {
+		List<Board> bList = bStore.selectAllboard(session,currentPage,limit);
+		return bList;
 	}
+
+	@Override
+	public List<Board> printAllByValue(String searchCondition, String searchValue, int currentPage, int boardLimit) {
+		List<Board> bList = bStore.selectAllByValue(session,searchCondition, searchValue, currentPage,boardLimit);
+		return bList;
+	}
+
 
 
 	

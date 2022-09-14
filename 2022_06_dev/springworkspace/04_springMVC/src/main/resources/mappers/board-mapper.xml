@@ -2,51 +2,90 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  
-<!--   여기에서 ; 하지마! 오류난다! -->
+
+
+<!-- 여기에서 ; 하지마! 오류난다! -->
 <mapper namespace="BoardMapper">
-<insert id="insertBoard">
+	<insert id="insertBoard">
 
-insert into board_tbl values(seq_board_no.nextval,#{boardTitle},#{boardContents},#{boardWirter},#{boardFile},#{boardRename},#{boardFildpath},default,default,default,default)
+		insert into board_tbl
+		values(seq_board_no.nextval,#{boardTitle},#{boardContents},#{boardWirter},#{boardFile},#{boardRename},#{boardFildpath},default,default,default,default)
 
-</insert> 
+	</insert>
 
-<update id="modifyBoard">
-update board_tbl set board_title = #{boardTitle}, BOARD_CONTENTS = #{boardContents} where BOARD_NO = #{boardNo}
-</update>
+	<update id="modifyBoard">
+		update board_tbl set board_title = #{boardTitle}, BOARD_CONTENTS =
+		#{boardContents}, B_UPDATE_DATE = default, BOARD_FILE = #{boardFile},
+		BOARD_FILDPATH= #{boardFildpath}, BOARD_RENAME=#{boardRename} where
+		BOARD_NO = #{boardNo}
+	</update>
 
-<delete id="deleteBoardOne">
-delete from board_tbl where board_no =#{boardNo}
-</delete>
+	<delete id="deleteBoardOne">
+		delete from board_tbl where board_no =#{boardNo}
+	</delete>
 
-<resultMap type="Board" id="boardResultMap">
-<id property="boardNo"			 	column="BOARD_NO"/>
-<result property="boardTitle" 		column="BOARD_TITLE"/>
-<result property="boardContents" 	column="BOARD_CONTENTS"/>
-<result property="boardWirter" 		column="BOARD_WIRTER"/>
-<result property="boardFile" 		column="BOARD_FILE"/>
-<result property="boardRename" 		column="BOARD_RENAME"/>
-<result property="boardFildpath" 	column="BOARD_FILDPATH"/>
-<result property="boardCount" 		column="BOARD_COUNT"/>
-<result property="bCreateDate" 		column="B_CREATE_DATE"/>
-<result property="bUpdateDate" 		column="B_UPDATE_DATE"/>
-<result property="bStatus"	 		column="B_STATUS"/>
-</resultMap>
+	<resultMap type="Board" id="boardResultMap">
+		<id property="boardNo" column="BOARD_NO" />
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="boardContents" column="BOARD_CONTENTS" />
+		<result property="boardWirter" column="BOARD_WIRTER" />
+		<result property="boardFile" column="BOARD_FILE" />
+		<result property="boardRename" column="BOARD_RENAME" />
+		<result property="boardFildpath" column="BOARD_FILDPATH" />
+		<result property="boardCount" column="BOARD_COUNT" />
+		<result property="bCreateDate" column="B_CREATE_DATE" />
+		<result property="bUpdateDate" column="B_UPDATE_DATE" />
+		<result property="bStatus" column="B_STATUS" />
+	</resultMap>
 
-<select id="selectAllBoard" resultMap="boardResultMap">
-select * from board_tbl where b_status = 'Y' order by board_no desc
-</select>
+	<select id="selectAllBoard" resultMap="boardResultMap">
+		select * from board_tbl where b_status = 'Y' order by board_no desc
+	</select>
 
-<!-- 숫자 반환할거니까 resultTypeuploadFile="_int" 기억할것! -->
-<select id="selectBoardCount" resultType="_int">
-select count(*) from board_tbl where b_status = 'Y'
+	<!-- 숫자 반환할거니까 resultTypeuploadFile="_int" 기억할것! -->
+	<select id="selectBoardCount" resultType="_int">
+		select count(*) from board_tbl
+		<where>
+			<if test="searchCondition.toString() == 'title'">
+			B_STATUS = 'Y' and BOARD_TITLE like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == 'writer'">
+			B_STATUS = 'Y' and BOARD_WIRTER like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == 'contents'">
+			B_STATUS = 'Y' and BOARD_CONTENTS like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == 'all'">
+			B_STATUS = 'Y' and BOARD_CONTENTS like '%'|| #{serchValue} ||'%' or BOARD_WIRTER like '%'|| #{serchValue} ||'%' or BOARD_TITLE like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == ''">
+			B_STATUS = 'Y'
+			</if>
+		</where>
 
-</select>
+	</select>
 
-<select id="selectBoardOne" resultMap="boardResultMap">
-select * from board_tbl where board_no = #{boardNo}
-</select>
+	<select id="selectBoardOne" resultMap="boardResultMap">
+		select * from board_tbl where board_no = #{boardNo} and b_status = 'Y'
+	</select>
+
+	<select id="selectAllByValue" resultMap="boardResultMap">
+		select * from board_tbl
+		<where>
+			<if test="searchCondition.toString() == 'title'">
+			B_STATUS = 'Y' and BOARD_TITLE like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == 'writer'">
+			B_STATUS = 'Y' and BOARD_WIRTER like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == 'contents'">
+			B_STATUS = 'Y' and BOARD_CONTENTS like '%'|| #{serchValue} ||'%'
+			</if>
+			<if test="searchCondition.toString() == 'all'">
+			B_STATUS = 'Y' and BOARD_CONTENTS like '%'|| #{serchValue} ||'%' or BOARD_WIRTER like '%'|| #{serchValue} ||'%' or BOARD_TITLE like '%'|| #{serchValue} ||'%'
+			</if>
+		</where>
+	</select>
 
 
 </mapper>

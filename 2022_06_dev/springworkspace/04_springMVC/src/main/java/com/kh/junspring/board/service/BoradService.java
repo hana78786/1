@@ -15,16 +15,22 @@ public interface BoradService {
 	
 	
 	
+	public int modifyBoardOneByNo(Board board);
+
+	public int getTotalCount(String searchCondition, String searchValue);
+
+	//delete from board_tbl where board_no = ?
+	
+	
+	
 	//게시판 리스트 출력
 	public List<Board> printAllBoard(int currentPage, int limit);
-
-	public int getTotalCount();
 
 	//게시물 상세 출력
 	//select * from board_tbl where board_no = ?
 	public Board printOneVyNo(Integer boardNo);
 
-	public int modifyBoardOneByNo(Board board);
+	public List<Board> printAllByValue(String searchCondition, String searchValue, int currentPage, int boardLimit);
 
 	
 

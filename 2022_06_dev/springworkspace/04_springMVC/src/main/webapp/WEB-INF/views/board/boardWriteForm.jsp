@@ -99,7 +99,7 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="boardWirter"></td>
+				<td><input type="text" name="boardWirter" value="${loginUser.memberName }" readonly></td>
 			</tr>
 			<tr>
 				<td>내용</td>

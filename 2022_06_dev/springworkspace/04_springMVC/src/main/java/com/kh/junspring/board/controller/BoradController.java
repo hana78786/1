@@ -30,7 +30,11 @@ public class BoradController {
 	@Autowired
 	BoradService bService;
 	
-	//게시물 등록 화면 연결
+	/***
+	 * 게시물 등록화면 연결
+	 * @param mv
+	 * @return
+	 */
 	@RequestMapping(value="/board/writeView.kh", method=RequestMethod.GET)
 	public ModelAndView shoWBoardWirte(ModelAndView mv) {
 		
@@ -69,8 +73,14 @@ public class BoradController {
 	}
 	
 	
-	
-	//게시물 등록 코드
+	/**
+	 * 게시물 등록
+	 * @param mv
+	 * @param board
+	 * @param uploadFile
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/board/register.kh", method = RequestMethod.POST)
 	public ModelAndView registBoard(ModelAndView mv,
 			@ModelAttribute Board board,
@@ -130,18 +140,47 @@ public class BoradController {
 	}
 	
 	/**
-	 *게시물 수정코드*/
+	 * 게시글 수정
+	 * @param mv
+	 * @param board
+	 * @return
+	 */
 	@RequestMapping (value="/board/modify.kh", method = RequestMethod.POST)
 	public ModelAndView modifyBoard(ModelAndView mv,
-			@ModelAttribute Board board) {
+			@ModelAttribute Board board,
+			@RequestParam(value="reloadFile", required=false) MultipartFile reloadFile,
+			HttpServletRequest request) {
 		try {
-			System.out.println(board);
+			String boardFilename = reloadFile.getOriginalFilename();
+ 			if(reloadFile != null && !boardFilename.equals(""))//새로 파일을 올렸을때, 이름이 없는 파일이 있을 경우를 생각해 null체크 2번함
+			{//수정 할경우 대체/ 삭제 후 등록/ 대체는 어려워서 삭제후 등록으로 한다
+				String root = request.getSession().getServletContext().getRealPath("resources");// 저장된 파일의 경로를 가져온다.
+				String savedPath = root + "\\buploadFiles"; //가져온 경로에 업로드 파일이 들어있는 폴더의 경로까지 더해줌
+				System.out.println(board.getBoardRename());
+				File file = new File(savedPath+"\\"+board.getBoardRename()); //이미 저장한 파일의 이름을 가져와야 한다.
+				if(file.exists()) { //지정한 파일이 있는지 없는지 체크
+					file.delete(); //있으면 삭제
+				}
+				
+				//////////여기부터 파일 재 업로드/////////////////////
+				//파일 이름으로 업로드하면 파일이름이 겹치면 파일이 겹쳐서 사라진다.
+				//고유한 rename으로 변경해주어야 한다.
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+				String boardRename = sdf.format(new Date(System.currentTimeMillis()))+"."+boardFilename.substring(boardFilename.lastIndexOf(".")+1);
+				
+				reloadFile.transferTo(new File(savedPath + "\\" + boardRename));
+				board.setBoardFile(boardFilename);
+				board.setBoardRename(boardRename);
+				board.setBoardFildpath(savedPath + "\\" + boardRename);
+				
+				
+			}
+			
 		int result = bService.modifyBoardOneByNo(board);
-		if(result>0) {System.out.println("성공");}else { System.out.println("실패");}
-		mv.setViewName("redirect:/board/detail.kh?boardNo="+board.getBoardNo());
+				
+			mv.setViewName("redirect:/board/detail.kh?boardNo="+board.getBoardNo());
 		
 		}catch (Exception e) {
-			e.printStackTrace();
 			mv.addObject("mgs",e.getMessage());
 			mv.setViewName("/common/errorPage");
 		}
@@ -151,7 +190,13 @@ public class BoradController {
 	
 	
 	
-	//게시물 리스트 출력코드
+	/**
+	 * 게시물 리스트
+	 * @param mv
+	 * @param page
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value="/board/list.kh", method =RequestMethod.GET)
 	public ModelAndView boardList(ModelAndView mv,
 			@RequestParam(value="page", required=false) Integer page,
@@ -166,7 +211,7 @@ public class BoradController {
 		//만약 page값이 없으면 기본형 1로 출력할것, 아니면 받아온 page의 값을 준다.
 		//삼항연상자 사용
 		
-		int totalCount = bService.getTotalCount();
+		int totalCount = bService.getTotalCount("", "");
 		int boardLimit = 10; //한 화면에 출력할 게시물 수
 		int naviLimit = 5; //한 화면에 출력할 게시판 페이지 수
 		int maxPage; //게시판의 총 페이지 수
@@ -203,11 +248,88 @@ public class BoradController {
 	}
 	
 	/**
-	 * 게시물 상세 출력 코드
-	 * */
+	 * 게시물 검색
+	 * @param mv
+	 * @param searchCondition
+	 * @param searchValue
+	 * @return
+	 */
+	@RequestMapping (value="/board/search.kh", method = RequestMethod.GET)
+	public ModelAndView boardSearchList(ModelAndView mv,
+			@RequestParam("searchCondition") String searchCondition,
+			@RequestParam(value="page", required=false) Integer page, //페이징을 위한 매개변수
+			@RequestParam("searchValue") String searchValue,
+			HttpSession session) {
+		try {
+			session.removeAttribute("pageNow");
+		
+			
+			/////////////////////////////////페이징시작//////////////////////////////
+			int currentPage = (page != null) ? page: 1;
+			int boardLimit = 10; //한 화면에 출력할 게시물 수
+			
+			
+		List<Board> bList = bService.printAllByValue(searchCondition, searchValue, currentPage, boardLimit);
+		if(!bList.isEmpty()) {
+			
+
+	
+			
+			int totalCount = bService.getTotalCount(searchCondition, searchValue);
+			
+			int naviLimit = 5; //한 화면에 출력할 게시판 페이지 수
+			int maxPage; //게시판의 총 페이지 수
+			int startNavi; //한 화면에 출력되는 게시판 페이지의 처음 수
+			int endNavi;//한 화면에 출력되는 게시판 페이지의 마지막 수
+			
+			maxPage =(int)((double)totalCount/boardLimit+0.9);
+			startNavi = ((int)((double)currentPage/naviLimit+0.9)-1)*naviLimit+1;
+			endNavi=startNavi+naviLimit-1;
+			
+			//endNavi가 maxNavi보다 커지는 오류방지
+			if(maxPage<endNavi) {
+				endNavi = maxPage;
+			}
+			
+			
+			mv.addObject("startNavi",startNavi);
+			mv.addObject("endNavi", endNavi);
+			mv.addObject("maxPage",  maxPage);
+			////////////////////////////////페이징종료///////////////////////////////////
+			
+			
+			mv.addObject("bList",bList);
+			
+			session.setAttribute("pageNow", page);
+			mv.addObject("searchValue",searchValue);
+			mv.addObject("searchCondition",searchCondition);
+			mv.setViewName("board/listView");
+		}
+		
+		}catch (Exception e) {
+			
+			mv.addObject("msg",e.getMessage()).setViewName("/common/errorPage");
+	
+		
+		}
+		
+		//쿼리문 select * from board_tbl where b_status = 'Y' and board_title like '%'||#{searchValue}||'%';
+		
+		return mv;
+	}
+
+	/**
+	 * 게시물 상세보기
+	 * @param mv
+	 * @param boardNo
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value="/board/detail.kh", method = RequestMethod.GET)
 	public ModelAndView boardDetailView(ModelAndView mv,
 			@RequestParam ("boardNo") Integer boardNo,
+			@RequestParam(value="searchCondition", required=false) String searchCondition,
+			@RequestParam(value="searchValue", required=false) String searchValue,
 			HttpSession session) {
 
 	
@@ -218,6 +340,11 @@ public class BoradController {
 		session.setAttribute("boardNo", boardNo); // 세션에 boardNo가 추가된다, 현재 가지고 있는 세션은 유지된다.
 		try {
 			mv.addObject("board", board);
+			mv.addObject("searchCondition", searchCondition);
+			mv.addObject("searchValue", searchValue);
+			
+			System.out.println(searchCondition);
+
 			mv.setViewName("/board/detail");
 			
 		}catch (Exception e) {
@@ -228,7 +355,7 @@ public class BoradController {
 		
 		}
 		else {
-			mv.addObject("mgs","게시물 선택 오류");
+			mv.addObject("msg","게시물 선택 오류");
 			mv.setViewName("/common/errorPage");
 		}
 		
@@ -236,7 +363,10 @@ public class BoradController {
 	}
 	
 	/**
-	 * 삭제코드
+	 * 게시물 삭제
+	 * @param session
+	 * @param model
+	 * @return
 	 */
 	@RequestMapping (value="board/remove.kh", method = RequestMethod.GET)
 	public String boardReomve(HttpSession session, Model model) {
@@ -250,7 +380,7 @@ public class BoradController {
 			session.removeAttribute("boardNo"); //한가지의 세션만 지운다.
 		}
 		}catch (Exception e) {
-			model.addAttribute("mgs",e.getMessage());
+			model.addAttribute("msg",e.getMessage());
 			return "/common/errorPage";
 		}
 		String dierctPage ="redirect:/board/list.kh?page="+pageNow;
@@ -258,6 +388,7 @@ public class BoradController {
 		return dierctPage;
 		
 	}
+	
 	
 
 }
