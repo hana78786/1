@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<td>* 비밀번호</td>
-					<td><input type="password" name="memberPw" value=""></td>
+					<td><input type="password" name="memberPw" value="" required="required"></td>
 				</tr>
 				<tr>
 					<td>* 이름</td>
@@ -37,12 +37,17 @@
 				</tr>
 				<tr>
 					<td>* 우편번호</td>
-					<td><input type="text" name="post" value="${post }" ></td>
+					<td><input type="text" name="post" value="${post }" class="postcodify_postcode5"></td>
 					<!-- 배열로 값을 받았다면 ${addreess[0]}으로 표기하여 출력할수 있다-->
+					<td><button type="button" id="postcodify_search_button">검색</button></td>
 				</tr>
 				<tr>
-					<td>* 주소</td>
-					<td><input type="text" name="address" value="${address }"></td>
+					<td>도로명주소</td>
+					<td><input type="text" name="address1" value="${address1 }" class="postcodify_address"></td>
+				</tr>
+				<tr>
+					<td>상세주소</td>
+					<td><input type="text" name="address2" value="${address2 }" class="postcodify_details"></td>
 				</tr>
 				<tr>
 				<td colspan="2" align="center">
@@ -57,6 +62,9 @@
 		</form>
 	</div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
 <script>
 function removeMember() {
 	if(window.confirm("탈퇴하시겠습니까?")){
@@ -64,6 +72,6 @@ function removeMember() {
 	}
 	
 }
-</script>
+$(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 </body>
 </html>

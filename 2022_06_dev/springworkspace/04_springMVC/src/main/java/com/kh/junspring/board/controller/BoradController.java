@@ -1,6 +1,7 @@
 package com.kh.junspring.board.controller;
 
 import java.io.File;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -53,12 +54,19 @@ public class BoradController {
 	 */
 	@RequestMapping(value="/board/modifyView.kh", method = RequestMethod.GET)
 	public ModelAndView boardModifyView(ModelAndView mv,
-			@RequestParam("boardNo") Integer boardNo) {
+			@RequestParam("boardNo") Integer boardNo,
+			@RequestParam(value="searchCondition", required = false) String searchCondition,
+			@RequestParam(value="searchValue", required = false) String searchValue,
+			@RequestParam(value="page", required = false) String pageNow
+			){
 		try {
 		Board board = bService.printOneVyNo(boardNo);
 		if(board!=null){
 			
 			mv.addObject("board",board);
+			mv.addObject("searchValue",searchValue);
+			mv.addObject("searchCondition",searchCondition);
+			mv.addObject("pageNow",pageNow);
 			mv.setViewName("board/modifyForm");
 		}
 		
@@ -149,6 +157,9 @@ public class BoradController {
 	public ModelAndView modifyBoard(ModelAndView mv,
 			@ModelAttribute Board board,
 			@RequestParam(value="reloadFile", required=false) MultipartFile reloadFile,
+			@RequestParam(value="searchCondition", required = false) String searchCondition,
+			@RequestParam(value="searchValue", required = false) String searchValue,
+			@RequestParam(value="page", required = false) String pageNow,
 			HttpServletRequest request) {
 		try {
 			String boardFilename = reloadFile.getOriginalFilename();
@@ -176,9 +187,16 @@ public class BoradController {
 				
 			}
 			
+ 			String eValue =URLEncoder.encode(searchValue, "UTF-8");
+ 			
+ 			
 		int result = bService.modifyBoardOneByNo(board);
+				if(searchValue.equals("") || searchValue.isEmpty()) {
+			mv.setViewName("redirect:/board/detail.kh?boardNo="+board.getBoardNo()+"&page="+pageNow);}
+				else{
+			mv.setViewName("redirect:/board/detail.kh?boardNo="+board.getBoardNo()+"&searchCondition="+searchCondition+"&searchValue="+eValue+"&page="+pageNow);
 				
-			mv.setViewName("redirect:/board/detail.kh?boardNo="+board.getBoardNo());
+			}
 		
 		}catch (Exception e) {
 			mv.addObject("mgs",e.getMessage());
@@ -205,7 +223,7 @@ public class BoradController {
 		// required=false 필수값은 아니라는 뜻
 		
 
-		session.removeAttribute("pageNow");
+		
 		int currentPage = (page != null) ? page: 1;
 		//현재 페이지
 		//만약 page값이 없으면 기본형 1로 출력할것, 아니면 받아온 page의 값을 준다.
@@ -231,14 +249,16 @@ public class BoradController {
 		List<Board> bList = bService.printAllBoard(currentPage, boardLimit);
 
 		if(!bList.isEmpty()) {
+			mv.addObject("urlVal","list");
 			mv.addObject("startNavi",startNavi);
 			mv.addObject("endNavi", endNavi);
 			mv.addObject("maxPage",  maxPage);
+			mv.addObject("currentPage",  currentPage);
 			mv.addObject("bList", bList);
 			
 		}
 		
-		session.setAttribute("pageNow", page);
+		mv.addObject("pageNow", currentPage);
 		mv.setViewName("/board/listView");
 		
 		return mv;
@@ -261,50 +281,53 @@ public class BoradController {
 			@RequestParam("searchValue") String searchValue,
 			HttpSession session) {
 		try {
-			session.removeAttribute("pageNow");
+			
 		
 			
 			/////////////////////////////////페이징시작//////////////////////////////
 			int currentPage = (page != null) ? page: 1;
 			int boardLimit = 10; //한 화면에 출력할 게시물 수
-			
-			
+			/////페이징용////
+		
 		List<Board> bList = bService.printAllByValue(searchCondition, searchValue, currentPage, boardLimit);
+		
 		if(!bList.isEmpty()) {
-			
-
 	
-			
-			int totalCount = bService.getTotalCount(searchCondition, searchValue);
-			
-			int naviLimit = 5; //한 화면에 출력할 게시판 페이지 수
-			int maxPage; //게시판의 총 페이지 수
-			int startNavi; //한 화면에 출력되는 게시판 페이지의 처음 수
-			int endNavi;//한 화면에 출력되는 게시판 페이지의 마지막 수
-			
-			maxPage =(int)((double)totalCount/boardLimit+0.9);
-			startNavi = ((int)((double)currentPage/naviLimit+0.9)-1)*naviLimit+1;
-			endNavi=startNavi+naviLimit-1;
-			
-			//endNavi가 maxNavi보다 커지는 오류방지
-			if(maxPage<endNavi) {
-				endNavi = maxPage;
-			}
-			
-			
-			mv.addObject("startNavi",startNavi);
-			mv.addObject("endNavi", endNavi);
-			mv.addObject("maxPage",  maxPage);
-			////////////////////////////////페이징종료///////////////////////////////////
-			
-			
 			mv.addObject("bList",bList);
 			
-			session.setAttribute("pageNow", page);
-			mv.addObject("searchValue",searchValue);
-			mv.addObject("searchCondition",searchCondition);
-			mv.setViewName("board/listView");
+		}else {
+			mv.addObject("bList",null);
+			
 		}
+		
+		/////페이징용////
+		int totalCount = bService.getTotalCount(searchCondition, searchValue);
+		
+		int naviLimit = 5; //한 화면에 출력할 게시판 페이지 수
+		int maxPage; //게시판의 총 페이지 수
+		int startNavi; //한 화면에 출력되는 게시판 페이지의 처음 수
+		int endNavi;//한 화면에 출력되는 게시판 페이지의 마지막 수
+		
+		maxPage =(int)((double)totalCount/boardLimit+0.9);
+		startNavi = ((int)((double)currentPage/naviLimit+0.9)-1)*naviLimit+1;
+		endNavi=startNavi+naviLimit-1;
+		
+		//endNavi가 maxNavi보다 커지는 오류방지
+		if(maxPage<endNavi) {
+			endNavi = maxPage;
+		}
+		
+		mv.addObject("urlVal","search");
+		mv.addObject("startNavi",startNavi);
+		mv.addObject("endNavi", endNavi);
+		mv.addObject("maxPage",  maxPage);
+		////////////////////////////////페이징종료///////////////////////////////////
+		
+		mv.addObject("pageNow", currentPage);
+		mv.addObject("searchValue",searchValue);
+		mv.addObject("searchCondition",searchCondition);
+		mv.setViewName("board/listView");
+		
 		
 		}catch (Exception e) {
 			
@@ -330,6 +353,7 @@ public class BoradController {
 			@RequestParam ("boardNo") Integer boardNo,
 			@RequestParam(value="searchCondition", required=false) String searchCondition,
 			@RequestParam(value="searchValue", required=false) String searchValue,
+			@RequestParam(value="page", required=false) String pageNow,
 			HttpSession session) {
 
 	
@@ -342,8 +366,7 @@ public class BoradController {
 			mv.addObject("board", board);
 			mv.addObject("searchCondition", searchCondition);
 			mv.addObject("searchValue", searchValue);
-			
-			System.out.println(searchCondition);
+			mv.addObject("pageNow", pageNow);
 
 			mv.setViewName("/board/detail");
 			
@@ -369,9 +392,12 @@ public class BoradController {
 	 * @return
 	 */
 	@RequestMapping (value="board/remove.kh", method = RequestMethod.GET)
-	public String boardReomve(HttpSession session, Model model) {
+	public String boardReomve(HttpSession session, Model model,
+			@RequestParam(value="page", required=false) String pageNow
+			
+			) {
 		
-		int pageNow= (int) session.getAttribute("pageNow");
+
 		try {
 		int boardNo = (int)session.getAttribute("boardNo");
 	
@@ -384,7 +410,6 @@ public class BoradController {
 			return "/common/errorPage";
 		}
 		String dierctPage ="redirect:/board/list.kh?page="+pageNow;
-		session.removeAttribute("pageNow");
 		return dierctPage;
 		
 	}

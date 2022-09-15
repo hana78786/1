@@ -19,6 +19,10 @@
 		BOARD_FILDPATH= #{boardFildpath}, BOARD_RENAME=#{boardRename} where
 		BOARD_NO = #{boardNo}
 	</update>
+	
+	<update id="updateBoardCount">
+		update board_tbl set BOARD_COUNT = BOARD_COUNT+1 where board_no = #{boardNo}
+	</update>
 
 	<delete id="deleteBoardOne">
 		delete from board_tbl where board_no =#{boardNo}

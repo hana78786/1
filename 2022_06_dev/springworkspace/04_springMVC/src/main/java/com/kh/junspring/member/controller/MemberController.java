@@ -35,11 +35,12 @@ public class MemberController {
 
 	@RequestMapping(value = "/member/register.kh", method = RequestMethod.POST)
 	public ModelAndView memberJoin(@ModelAttribute Member member, @RequestParam("post") String post,
-			@RequestParam("address") String memberAddress,
+			@RequestParam("address1") String memberAddress1,
+			@RequestParam("address2") String memberAddress2,
 			// Model model,
 			ModelAndView mv) {
 
-		member.setMemberAddress(post + "," + memberAddress);
+		member.setMemberAddress(post + "," + memberAddress1+ ","+memberAddress2);
 
 		try {
 			int result = mService.registerMember(member);
@@ -115,7 +116,8 @@ public class MemberController {
 		String memberId = member.getMemberId();
 		Member mOne = mService.printOneById(memberId);
 		String post = mOne.getMemberAddress().split(",")[0];
-		String address = mOne.getMemberAddress().split(",")[1];
+		String address1 = mOne.getMemberAddress().split(",")[1];
+		String address2 = mOne.getMemberAddress().split(",")[2];
 		// String[] address mOne.getMemberAddress().split(",")
 		// model.addAttribute("address",address);로 전송하여
 
@@ -127,7 +129,8 @@ public class MemberController {
 
 			mv.addObject("member", mOne);
 			mv.addObject("post", post);
-			mv.addObject("address", address);
+			mv.addObject("address1", address1);
+			mv.addObject("address2", address2);
 			mv.setViewName("member/myPage");
 			// return "member/myPage";
 		} catch (Exception e) {
@@ -160,13 +163,14 @@ public class MemberController {
 
 	@RequestMapping(value = "/member/modify.kh", method = RequestMethod.POST)
 	public ModelAndView memberModify(@ModelAttribute Member member, @RequestParam("post") String post,
-			@RequestParam("address") String address,
+			@RequestParam("address1") String address1,
+			@RequestParam("address2") String address2,
 //			Model model
 			ModelAndView mv
 			) {
 
 		try {
-			member.setMemberAddress(post + "," + address);
+			member.setMemberAddress(post + "," + address1 + "," +address2);
 			int result = mService.modifyMember(member);
 			if (result == 1) {
 

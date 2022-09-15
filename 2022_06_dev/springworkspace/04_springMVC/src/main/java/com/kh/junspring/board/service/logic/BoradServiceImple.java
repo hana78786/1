@@ -46,6 +46,10 @@ public class BoradServiceImple implements BoradService {
 	@Override
 	public Board printOneVyNo(Integer boardNo) {
 		Board board = bStore.selectOnbyNo(boardNo, session);
+		int result = 0 ;
+		if(board != null) {
+			result = bStore.updateBoardCoaunt(session, boardNo);
+		}
 		return board;
 	}
 

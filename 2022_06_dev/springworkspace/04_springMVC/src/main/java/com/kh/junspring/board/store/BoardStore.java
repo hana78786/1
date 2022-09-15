@@ -21,5 +21,8 @@ public interface BoardStore {
 	public int updateBoardOneByNo(Board board, SqlSessionTemplate session);
 
 	public List<Board> selectAllByValue(SqlSessionTemplate session, String searchCondition, String searchValue,  int currentPage, int boardLimit);
-
+	
+	public int updateBoardCoaunt(SqlSessionTemplate session, int boardNo);
+	
+	
 }

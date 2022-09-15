@@ -78,6 +78,12 @@ public class BoardStoreLogic implements BoardStore{
 		return bList;
 	}
 
+	@Override
+	public int updateBoardCoaunt(SqlSessionTemplate session, int boardNo) {
+		int result = session.update("BoardMapper.updateBoardCount", boardNo);
+		return result;
+	}
+
 
 
 }

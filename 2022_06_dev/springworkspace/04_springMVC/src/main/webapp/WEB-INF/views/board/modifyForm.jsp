@@ -21,65 +21,7 @@
 </head>
 <body>
 <header>
-	<h1 align="center">Welcome Our WebSite!</h1>
-
-	<!-- ${empty sessionScope.loginUser } -->
-	<c:if test="${sessionScope.loginUser eq null}">
-		<div class="login-area">
-			<form action="/member/login.kh" method="post">
-				<table align='right'>
-					<tr>
-						<td>아이디 :</td>
-						<td><input type="text" name="memberId"></td>
-						<td rowspan="2"><input type="submit" value="로그인"></td>
-					</tr>
-					<tr>
-						<td>비밀번호 :</td>
-						<td><input type="password" name="memberPw"></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td colspan="3"><a href="/member/joinView.kh">회원가입</a></td>
-
-					</tr>
-				</table>
-
-			</form>
-		</div>
-	</c:if>
-
-	<!-- ${not empty sessionScope.loginUser } -->
-	<c:if test="${sessionScope.loginUser ne null}">
-		<div class="login-area">
-			<table align="right">
-				<tr>
-					<td colspan="3" rowspan="2">${loginUser.memberName }님환영합니다</td>
-				</tr>
-				<tr>
-					
-				</tr>
-				<tr>
-				<td ><a href="/member/myPage.kh">정보수정</a>
-					<td ><a href="/member/logout.kh">로그아웃</a></td>
-				</tr>
-			</table>
-		</div>
-	</c:if>
-
-
-
-	<div class="nav-area">
-		<div class="menu" onclick="location.href='/home.kh';">Home</div>
-		<div class="menu" onclick="showNoticeList();">공지사항</div>
-		<div class="menu" onclick="location.href='/board/list.kh';">자유게시판</div>
-		<div class="menu" onclick="">사진게시판</div>
-	</div>
-
-	<script>
-		function showNoticeList() {
-
-		}
-	</script>
+	<jsp:include page="../home.jsp"/>
 	</header>
 
 
@@ -96,6 +38,9 @@
 	<input type="hidden" name="boardRename" value="${board.boardRename }">
 	<input type="hidden" name="boardFile" value="${board.boardFile }">
 	<input type="hidden" name="boardFildpath" value="${board.boardFildpath }">
+	<input type="hidden" name="searchValue" value="${searchValue }">
+	<input type="hidden" name="searchCondition" value="${searchCondition }">
+	<input type="hidden" name="page" value="${pageNow }">
 		<table align="center" border="1">
 			<tr>
 				<td>제목</td>
@@ -121,8 +66,8 @@
 			<tr>
 				<td colspan="2"><input type="submit" value="등록"> <input
 					type="reset" value="취소">
-					<a href="#">목록으로</a>
-					<a href="#">이전페이지로</a>
+					<a href="/board/list.kh">목록으로</a>
+					<a href="javascript:history.go(-1);">이전페이지로</a>
 					</td>
 			</tr>
 
