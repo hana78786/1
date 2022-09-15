@@ -6,23 +6,36 @@ public class RecipeStep {
 	private int recipeNo;
 	private String recipeDescription;
 	private String recipePic;
+	private String recipePicRename;
 	
 	public RecipeStep() {
 		
 	}
 
-	public RecipeStep(int recipeOrder, int recipeNo, String recipeDescription, String recipePic) {
+	public RecipeStep(int recipeOrder, int recipeNo, String recipeDescription, String recipePic, String recipePicRename) {
 		super();
 		this.recipeOrder = recipeOrder;
 		this.recipeNo = recipeNo;
 		this.recipeDescription = recipeDescription;
 		this.recipePic = recipePic;
+		this.recipePicRename = recipePicRename;
 	}
 
 	@Override
 	public String toString() {
 		return "RecipeStep [recipeOrder=" + recipeOrder + ", recipeNo=" + recipeNo + ", recipeDescription="
-				+ recipeDescription + ", recipePic=" + recipePic + "]";
+				+ recipeDescription + ", recipePic=" + recipePic + ", recipePicRename ="+recipePicRename+"]";
+	}
+
+	
+	
+	
+	public String getRecipePicRename() {
+		return recipePicRename;
+	}
+
+	public void setRecipePicRename(String recipePicRename) {
+		this.recipePicRename = recipePicRename;
 	}
 
 	public int getRecipeOrder() {
