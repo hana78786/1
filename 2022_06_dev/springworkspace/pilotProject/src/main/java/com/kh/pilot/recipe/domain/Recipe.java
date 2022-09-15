@@ -11,6 +11,7 @@ public class Recipe {
 	private int recipePrice;
 	private int viewCount;
 	private String mainPic;
+	private String mainPicRename;
 	private String recipeCategory;
 	private String recipeTime;
 	private String recipeVideo;
