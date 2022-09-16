@@ -3,6 +3,7 @@ package com.kh.pilot.recipe.store.logic1;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.kh.pilot.recipe.domain.Recipe;
 import com.kh.pilot.recipe.domain.RecipeComment;
@@ -11,13 +12,14 @@ import com.kh.pilot.recipe.domain.RecipeStep;
 import com.kh.pilot.recipe.domain.RecipeTag;
 import com.kh.pilot.recipe.domain.Recommandation;
 import com.kh.pilot.recipe.store.RecipeStore;
-
+@Repository
 public class RecipeStoreLogic implements RecipeStore {
 
 	@Override
 	public int insertRecipe(Recipe recipe, SqlSessionTemplate session) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("등록 스토어");
+		int result = session.insert("RecipeMapper.insertRecipe", recipe);
+		return result;
 	}
 
 	@Override

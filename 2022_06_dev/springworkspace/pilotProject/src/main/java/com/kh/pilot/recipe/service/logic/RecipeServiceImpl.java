@@ -3,6 +3,8 @@ package com.kh.pilot.recipe.service.logic;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.kh.pilot.recipe.domain.Recipe;
 import com.kh.pilot.recipe.domain.RecipeComment;
@@ -12,14 +14,21 @@ import com.kh.pilot.recipe.domain.RecipeTag;
 import com.kh.pilot.recipe.domain.Recommandation;
 import com.kh.pilot.recipe.service.RecipeService;
 import com.kh.pilot.recipe.store.RecipeStore;
-
+@Service
 public class RecipeServiceImpl implements RecipeService{
+	@Autowired
 	private RecipeStore rStore;
+	@Autowired
 	private SqlSessionTemplate session; 
+	
+	/**
+	 * 레시피 등록
+	 */
 	@Override
 	public int registRecipe(Recipe recipe) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("등록 서비스");
+		int result = rStore.insertRecipe(recipe, session);
+		return result;
 	}
 
 	@Override

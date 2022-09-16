@@ -7,7 +7,7 @@
     <title>레시피 등록</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="./css/recipeStyle.css">
+
   </head>
 
 
@@ -32,11 +32,11 @@
       <option selected disabled value="">카테고리 선택</option>
       <option value="mael">식사</option>
       <option value="relish">술안주</option>
-      <option value="dessert">간식</option>
+      <option value="dessert">간식</option>
       <option value="drink">술/음료</option>
     </select>
     <div class="invalid-feedback">
-     카테고리를 선택하세요
+     카테고리를 선택하세요
     </div>
     <br>
     <div class="col-md-8 col-lg-8">
@@ -79,65 +79,65 @@
   
   <div class="row row-cols-lg-auto col-lg-12">
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="material1">
+      <input type="text" class="form-control" id="" maxlength="10" name="material">
       <label for="floatingInput">재료명</label>
     </div>
       <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="amount1">
+      <input type="text" class="form-control" id="" maxlength="10" name="amount">
       <label for="floatingInput">재료수량</label>
     </div>
     
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="material2">
+      <input type="text" class="form-control" id="" maxlength="10" name="material">
       <label for="floatingInput">재료명</label>
     </div>
 
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="amount2">
+      <input type="text" class="form-control" id="" maxlength="10" name="amount">
       <label for="floatingInput">재료수량</label>
     </div>
   </div>
 
   <div class="row row-cols-lg-auto col-lg-12 ">
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="materia3">
-      <label for="floatingInput">재료명</label>
-    </div>
-
-    <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="amount3">
-      <label for="floatingInput">재료수량</label>
-    </div>
-
-    <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="material4">
+      <input type="text" class="form-control" id="" maxlength="10" name="material">
       <label for="floatingInput">재료명</label>
     </div>
 
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="amount4">
+      <input type="text" class="form-control" id="" maxlength="10" name="amount">
+      <label for="floatingInput">재료수량</label>
+    </div>
+
+    <div class="form-floating col-lg-3">
+      <input type="text" class="form-control" id="" maxlength="10" name="material">
+      <label for="floatingInput">재료명</label>
+    </div>
+
+    <div class="form-floating col-lg-3">
+      <input type="text" class="form-control" id="" maxlength="10" name="amount">
       <label for="floatingInput">재료수량</label>
     </div>
   </div>
 
   <div class="row row-cols-lg-auto col-lg-12 ">
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="material5">
-      <label for="floatingInput">재료명</label>
+      <input type="text" class="form-control" id="" maxlength="10" name="material">
+      <label for="floatingInput">재료명</label>
     </div>
 
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="amount5">
+      <input type="text" class="form-control" id="" maxlength="10" name="amount">
       <label for="floatingInput">재료수량</label>
     </div>
 
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="material6">
+      <input type="text" class="form-control" id="" maxlength="10" name="material">
       <label for="floatingInput">재료명</label>
     </div>
 
     <div class="form-floating col-lg-3">
-      <input type="text" class="form-control" id="" maxlength="10" name="amount6">
+      <input type="text" class="form-control" id="" maxlength="10" name="amount">
       <label for="floatingInput">재료수량</label>
     </div>
   </div>
@@ -152,27 +152,28 @@
 
 <div class="row container">
   <div class="form-floating col-lg-6">
-    <input type="text" class="form-control" id="" maxlength="10" name="recipeDescription1">
-    <label for="floatingInput">레시피 설명</label>
+    <input type="text" class="form-control" id="" maxlength="10" name="recipeDescription">
+    <label for="floatingInput">레시피 설명</label>
   </div>
   <div class="row col-lg-6">
     <input type="file"  name="recipePicture1">
   </div>
   <div class="form-floating col-lg-6">
-    <input type="text" class="form-control" id="" maxlength="10" name="recipeDescription2">
+    <input type="text" class="form-control" id="" maxlength="10" name="recipeDescription">
     <label for="floatingInput">레시피 설명</label>
   </div>
   <div class="row col-lg-6">
     <input type="file"  name="recipePicture2">
   </div>
   <div class="form-floating col-lg-6">
-    <input type="text" class="form-control" id="" maxlength="10" name="recipeDescription3">
-    <label for="floatingInput">레시피 설명</label>
+    <input type="text" class="form-control" id="" maxlength="10" name="recipeDescription">
+    <label for="floatingInput">레시피 설명</label>
   </div>
   <div class="row col-lg-6">
     <input type="file"  name="recipePicture3">
   </div>
 
+<input type="submit" value ="등록">
 </div>
 
 </form>

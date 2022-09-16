@@ -18,7 +18,24 @@ public class Recipe {
 	private String recipeStatus;
 	private Date insertDate;
 	private Date updateDate;
+	private int recommandCount;
 	
+	public String getMainPicRename() {
+		return mainPicRename;
+	}
+
+	public void setMainPicRename(String mainPicRename) {
+		this.mainPicRename = mainPicRename;
+	}
+
+	public int getRecommandCount() {
+		return recommandCount;
+	}
+
+	public void setRecommandCount(int recommandCount) {
+		this.recommandCount = recommandCount;
+	}
+
 	public Recipe() {
 		
 	}
