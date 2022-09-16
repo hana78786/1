@@ -75,43 +75,46 @@ public class RecipeController {
 			@RequestParam(value = "recipePicture10", required = false) MultipartFile detailPic10, HttpSession session) {
 		try {
 		// 레시피 전달
-			System.out.println(recipe);
 		int result = rService.registRecipe(recipe);
-		System.out.println(result);
 		
-//		// 레시피 재료 리스트 만들어서 전달하기
-//		ArrayList<RecipeMaterial> rmList = new ArrayList<RecipeMaterial>();
-//		String amount[] = rMaterial.getAmount().split(",");
-//		String material[] = rMaterial.getMaterial().split(",");
-//		for (int i = 0; i < amount.length; i++) {
-//
-//			// 재료나 수량이 비어있지 않을때만 List에 저장
-//			if (!amount[i].equals("") && !material[i].equals("")) {
-//				RecipeMaterial rMaterialOne = new RecipeMaterial();
-//				rMaterialOne.setAmount(amount[i]);
-//				rMaterialOne.setMaterial(material[i]);
-//				rmList.add(rMaterialOne);
-//			}
-//
-//		}
-//		System.out.println(rmList.toString());
-//		int result1 = rService.registMaterial(rmList);
-//
-//		// 레시피 순서 리스트 만들어서 전달하기
-//		ArrayList<RecipeStep> rsList = new ArrayList<RecipeStep>();
-//		String arrDescription[] = rStep.getRecipeDescription().split(",");
-//		for (int i = 0; i < arrDescription.length; i++) {
-//			// 레시피 설명이 비어있지 않을때만 저장
-//			if (!arrDescription[i].equals("")) {
-//				RecipeStep rStepOne = new RecipeStep();
-//				rStepOne.setRecipeDescription(arrDescription[i]);
-//				rsList.add(rStepOne);
-//			}
-//		}
-//		int result2 = rService.registStep(rsList);
-//
-//		// 레시피 태그 true false로 받음
-//		int result3 = rService.registTag(rTag);
+
+		
+		
+		// 레시피 재료 리스트 만들어서 전달하기
+		ArrayList<RecipeMaterial> rmList = new ArrayList<RecipeMaterial>();
+		String amount[] = rMaterial.getAmount().split(",");
+		String material[] = rMaterial.getMaterial().split(",");
+		for (int i = 0; i < material.length; i++) {
+
+			// 재료나 수량이 비어있지 않을때만 List에 저장
+			if (!amount[i].equals("") && !material[i].equals("")) {
+				RecipeMaterial rMaterialOne = new RecipeMaterial();
+				rMaterialOne.setAmount(amount[i]);
+				rMaterialOne.setMaterial(material[i]);
+				rMaterialOne.setMaterialOrder(i+1);
+				rmList.add(rMaterialOne);
+			}
+
+		}
+		int result1 = rService.registMaterial(rmList);
+		System.out.println(result1);
+
+		// 레시피 순서 리스트 만들어서 전달하기
+		ArrayList<RecipeStep> rsList = new ArrayList<RecipeStep>();
+		String arrDescription[] = rStep.getRecipeDescription().split(",");
+		for (int i = 0; i < arrDescription.length; i++) {
+			// 레시피 설명이 비어있지 않을때만 저장
+			if (!arrDescription[i].equals("")) {
+				RecipeStep rStepOne = new RecipeStep();
+				rStepOne.setRecipeDescription(arrDescription[i]);
+				rStepOne.setRecipeOrder(i+1);
+				rsList.add(rStepOne);
+			}
+		}
+		int result2 = rService.registStep(rsList);
+
+		// 레시피 태그 true false로 받음
+		int result3 = rService.registTag(rTag);
 		
 		}catch (Exception e) {
 			mv.addObject("msg", e.getMessage());

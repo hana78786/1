@@ -20,6 +20,47 @@ public class Recipe {
 	private Date updateDate;
 	private int recommandCount;
 	
+	public Recipe() {
+		
+	}
+	
+	
+	
+	public Recipe(int recipeNo, String memberEmail, String recipeName, String recipeInfo, int recipePrice,
+			int viewCount, String mainPic, String mainPicRename, String recipeCategory, String recipeTime,
+			String recipeVideo, String recipeStatus, Date insertDate, Date updateDate, int recommandCount) {
+		super();
+		this.recipeNo = recipeNo;
+		this.memberEmail = memberEmail;
+		this.recipeName = recipeName;
+		this.recipeInfo = recipeInfo;
+		this.recipePrice = recipePrice;
+		this.viewCount = viewCount;
+		this.mainPic = mainPic;
+		this.mainPicRename = mainPicRename;
+		this.recipeCategory = recipeCategory;
+		this.recipeTime = recipeTime;
+		this.recipeVideo = recipeVideo;
+		this.recipeStatus = recipeStatus;
+		this.insertDate = insertDate;
+		this.updateDate = updateDate;
+		this.recommandCount = recommandCount;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Recipe [recipeNo=" + recipeNo + ", memberEmail=" + memberEmail + ", recipeName=" + recipeName
+				+ ", recipeInfo=" + recipeInfo + ", recipePrice=" + recipePrice + ", viewCount=" + viewCount
+				+ ", mainPic=" + mainPic + ", mainPicRename=" + mainPicRename + ", recipeCategory=" + recipeCategory
+				+ ", recipeTime=" + recipeTime + ", recipeVideo=" + recipeVideo + ", recipeStatus=" + recipeStatus
+				+ ", insertDate=" + insertDate + ", updateDate=" + updateDate + ", recommandCount=" + recommandCount
+				+ "]";
+	}
+
+
+
 	public String getMainPicRename() {
 		return mainPicRename;
 	}
@@ -36,37 +77,8 @@ public class Recipe {
 		this.recommandCount = recommandCount;
 	}
 
-	public Recipe() {
-		
-	}
 
-	public Recipe(int recipeNo, String memberEmail, String recipeName, String recipeInfo, int recipePrice,
-			int viewCount, String mainPic, String recipeCategory, String recipeTime, String recipeVideo,
-			String recipeStatus, Date insertDate, Date updateDate) {
-		super();
-		this.recipeNo = recipeNo;
-		this.memberEmail = memberEmail;
-		this.recipeName = recipeName;
-		this.recipeInfo = recipeInfo;
-		this.recipePrice = recipePrice;
-		this.viewCount = viewCount;
-		this.mainPic = mainPic;
-		this.recipeCategory = recipeCategory;
-		this.recipeTime = recipeTime;
-		this.recipeVideo = recipeVideo;
-		this.recipeStatus = recipeStatus;
-		this.insertDate = insertDate;
-		this.updateDate = updateDate;
-	}
 
-	@Override
-	public String toString() {
-		return "Recipe [recipeNo=" + recipeNo + ", memberEmail=" + memberEmail + ", recipeName=" + recipeName
-				+ ", recipeInfo=" + recipeInfo + ", recipePrice=" + recipePrice + ", viewCount=" + viewCount
-				+ ", mainPic=" + mainPic + ", recipeCategory=" + recipeCategory + ", recipeTime=" + recipeTime
-				+ ", recipeVideo=" + recipeVideo + ", recipeStatus=" + recipeStatus + ", insertDate=" + insertDate
-				+ ", updateDate=" + updateDate + "]";
-	}
 
 	public int getRecipeNo() {
 		return recipeNo;

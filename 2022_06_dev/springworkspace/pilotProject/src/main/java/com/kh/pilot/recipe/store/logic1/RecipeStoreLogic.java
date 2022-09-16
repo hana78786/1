@@ -15,29 +15,43 @@ import com.kh.pilot.recipe.store.RecipeStore;
 @Repository
 public class RecipeStoreLogic implements RecipeStore {
 
+	/**
+	 * 레시피 등록
+	 */
 	@Override
 	public int insertRecipe(Recipe recipe, SqlSessionTemplate session) {
-		System.out.println("등록 스토어");
 		int result = session.insert("RecipeMapper.insertRecipe", recipe);
+		return result;
+	}
+/**
+ * 레시피 순서등록
+ */
+	@Override
+	public int insertStep(List<RecipeStep> rsList, SqlSessionTemplate session) {
+		int result=0;
+		for(int i =0; i<rsList.size();i++) {
+		result=	session.insert("RecipeMapper.insertRecipeStep",rsList.get(i));
+		}
+		return result;
+	}
+
+	/**
+	 * 레시피 태그 등록
+	 */
+	@Override
+	public int insertTag(RecipeTag rTag, SqlSessionTemplate session) {
+		int result = session.insert("RecipeMapper.insertTag", rTag);
 		return result;
 	}
 
 	@Override
-	public int insertStep(List<RecipeStep> rmList, SqlSessionTemplate session) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insertTag(RecipeTag rTag, SqlSessionTemplate session) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int insertMaterial(List<RecipeMaterial> rmList, SqlSessionTemplate session) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result=0;
+		for(int i =0; i<rmList.size();i++){
+			RecipeMaterial rMaterial = rmList.get(i);
+		result += session.insert("RecipeMapper.insertRecipeMaterial", rMaterial);
+		}
+		return result;
 	}
 
 	@Override

@@ -9,4 +9,17 @@
 insert into recipe_tbl values(seq_recipe_no.nextval,#{recipeName},#{recipeInfo},#{mainPic},default,#{recipeCategory},#{recipeVideo},default,#{memberEmail},default,default,#{recommandCount},#{mainPicRename})
 
 </insert> 
+
+<insert id="insertRecipeMaterial">
+insert into recipe_material values(#{materialOrder},seq_recipe_no.currval,#{material},#{amount})
+</insert>
+
+<insert id="insertRecipeStep">
+insert into recipe_step values(#{recipeOrder},seq_recipe_no.currval,#{recipeDescription},#{recipePic},#{recipePicRename})
+</insert>
+
+<insert id="insertTag">
+insert into recipe_tag values(seq_recipe_no.currval,#{jmt},#{healthy},#{goodSpicy},#{full},#{soSpicy},#{sweet},#{easy},#{party})
+</insert>
+
 </mapper>

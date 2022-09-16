@@ -26,27 +26,35 @@ public class RecipeServiceImpl implements RecipeService{
 	 */
 	@Override
 	public int registRecipe(Recipe recipe) {
-		System.out.println("등록 서비스");
 		int result = rStore.insertRecipe(recipe, session);
 		return result;
 	}
-
+	
+	
+	/**
+	 * 레시피 순서 등록
+	 */
 	@Override
 	public int registStep(List<RecipeStep> rsList) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = rStore.insertStep(rsList, session);
+		return result;
 	}
-
+/**
+ * 레시피 태그 등록
+ */
 	@Override
 	public int registTag(RecipeTag rTag) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = rStore.insertTag(rTag, session);
+		return result;
 	}
 
+	/**
+	 * 레시피 재료 등록
+	 */
 	@Override
 	public int registMaterial(List<RecipeMaterial> rmList) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = rStore.insertMaterial(rmList, session);
+		return result;
 	}
 
 	@Override
