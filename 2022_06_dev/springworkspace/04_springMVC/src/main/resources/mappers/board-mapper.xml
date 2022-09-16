@@ -12,6 +12,10 @@
 		values(seq_board_no.nextval,#{boardTitle},#{boardContents},#{boardWirter},#{boardFile},#{boardRename},#{boardFildpath},default,default,default,default)
 
 	</insert>
+	
+	<insert id="insertReply">
+		insert into reply_tbl values(seq_reply_no.nextval, #{refBoardNo},#{replyContents},#{replyWirter}, default, default, default)
+	</insert>
 
 	<update id="modifyBoard">
 		update board_tbl set board_title = #{boardTitle}, BOARD_CONTENTS =
@@ -89,6 +93,22 @@
 			B_STATUS = 'Y' and BOARD_CONTENTS like '%'|| #{serchValue} ||'%' or BOARD_WIRTER like '%'|| #{serchValue} ||'%' or BOARD_TITLE like '%'|| #{serchValue} ||'%'
 			</if>
 		</where>
+	</select>
+	
+	<resultMap type="Reply" id="replyResultMap">
+	<id property="boardNo" column="BOARD_NO" />
+		<result property="replyNo" column="reply_no" />
+		<result property="refBoardNo" column="ref_board" />
+		<result property="replyContents" column="reply_contents" />
+		<result property="replyWirter" column="reply_writer" />
+		<result property="rCreateDate" column="r_create_date" />
+		<result property="rUpdateDate" column="r_update_date" />
+		<result property="rStatus" column="r_status" />
+
+	</resultMap>
+	
+	<select id="selecAllreply" resultMap="replyResultMap">
+	select * from reply_tbl where ref_board = #{boardNo} and r_status = 'Y'
 	</select>
 
 

@@ -3,6 +3,7 @@ package com.kh.junspring.board.service;
 import java.util.List;
 
 import com.kh.junspring.board.domain.Board;
+import com.kh.junspring.board.domain.Reply;
 
 public interface BoradService {
 
@@ -31,6 +32,10 @@ public interface BoradService {
 	public Board printOneVyNo(Integer boardNo);
 
 	public List<Board> printAllByValue(String searchCondition, String searchValue, int currentPage, int boardLimit);
+
+	public int registerReply(Reply reply);
+
+	public List<Reply> PrintAllReply(Integer boardNo);
 
 	
 

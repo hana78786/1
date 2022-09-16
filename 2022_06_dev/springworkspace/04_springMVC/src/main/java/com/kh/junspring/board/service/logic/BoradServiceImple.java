@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.junspring.board.domain.Board;
+import com.kh.junspring.board.domain.Reply;
 import com.kh.junspring.board.service.BoradService;
 import com.kh.junspring.board.store.BoardStore;
 
@@ -44,6 +45,12 @@ public class BoradServiceImple implements BoradService {
 	}
 
 	@Override
+	public int registerReply(Reply reply) {
+		int result =bStore.insertReply(session, reply);
+		return result;
+	}
+
+	@Override
 	public Board printOneVyNo(Integer boardNo) {
 		Board board = bStore.selectOnbyNo(boardNo, session);
 		int result = 0 ;
@@ -64,6 +71,12 @@ public class BoradServiceImple implements BoradService {
 	public List<Board> printAllByValue(String searchCondition, String searchValue, int currentPage, int boardLimit) {
 		List<Board> bList = bStore.selectAllByValue(session,searchCondition, searchValue, currentPage,boardLimit);
 		return bList;
+	}
+
+	@Override
+	public List<Reply> PrintAllReply(Integer boardNo) {
+		List<Reply> rList = bStore.selectAllReply(session,boardNo);
+		return rList;
 	}
 
 

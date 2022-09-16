@@ -23,7 +23,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.junspring.board.domain.Board;
+import com.kh.junspring.board.domain.Reply;
 import com.kh.junspring.board.service.BoradService;
+import com.kh.junspring.member.domain.Member;
 
 @Controller
 public class BoradController {
@@ -361,12 +363,15 @@ public class BoradController {
 
 		if(boardNo != null) {
 		Board board = bService.printOneVyNo(boardNo);
+		List<Reply> rList= bService.PrintAllReply(boardNo);
+		
 		session.setAttribute("boardNo", boardNo); // 세션에 boardNo가 추가된다, 현재 가지고 있는 세션은 유지된다.
 		try {
 			mv.addObject("board", board);
 			mv.addObject("searchCondition", searchCondition);
 			mv.addObject("searchValue", searchValue);
 			mv.addObject("pageNow", pageNow);
+			mv.addObject("rList",rList);
 
 			mv.setViewName("/board/detail");
 			
@@ -414,6 +419,32 @@ public class BoradController {
 		
 	}
 	
+	
+	//댓글관리
+	/**
+	 * 댓글등록
+	 * @param mv
+	 * @return
+	 */
+	@RequestMapping(value="/board/addReply.kh", method = RequestMethod.POST)
+	public ModelAndView addBoardReply(ModelAndView mv, @ModelAttribute Reply reply,
+			HttpSession session) {
+		
+		Member member= (Member)session.getAttribute("loginUser");
+		String replyWriter = member.getMemberId();
+		reply.setReplyWirter(replyWriter);
+		int result = bService.registerReply(reply);
+		//insert into reply_tbl values(#{relplyNo}, #{refBoardNo}, #{replyContents}, #{replyWirter}, 
+		//#{rCreateDate}, #{rUpdateDate}, #{rStatus}
+		try {
+			int boardNo = reply.getRefBoardNo();
+			mv.setViewName("redirect:/board/detail.kh?boardNo="+boardNo);
+		} catch (Exception e) {
+			mv.addObject("msg",e.getMessage());
+		}
+		return mv;
+		
+	}
 	
 
 }

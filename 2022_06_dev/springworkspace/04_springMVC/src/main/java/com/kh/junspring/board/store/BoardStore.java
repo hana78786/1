@@ -5,6 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.kh.junspring.board.domain.Board;
+import com.kh.junspring.board.domain.Reply;
 
 public interface BoardStore {
 
@@ -23,6 +24,10 @@ public interface BoardStore {
 	public List<Board> selectAllByValue(SqlSessionTemplate session, String searchCondition, String searchValue,  int currentPage, int boardLimit);
 	
 	public int updateBoardCoaunt(SqlSessionTemplate session, int boardNo);
+
+	public int insertReply(SqlSessionTemplate session, Reply reply);
+
+	public List<Reply> selectAllReply(SqlSessionTemplate session, Integer boardNo);
 	
 	
 }
