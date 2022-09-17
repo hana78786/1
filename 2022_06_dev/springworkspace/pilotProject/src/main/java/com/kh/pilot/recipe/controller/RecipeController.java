@@ -47,24 +47,15 @@ public class RecipeController {
 
 	/**
 	 * 레시피 등록 컨트롤러
-	 * 
 	 * @param recipe
 	 * @param rStep
 	 * @param rMaterial
 	 * @param rTag
 	 * @param mv
-	 * @param mainPic
-	 * @param detailPic1
-	 * @param detailPic2
-	 * @param detailPic3
-	 * @param detailPic4
-	 * @param detailPic5
-	 * @param detailPic6
-	 * @param detailPic7
-	 * @param detailPic8
-	 * @param detailPic9
-	 * @param detailPic10
+	 * @param mainPicture
+	 * @param recipePicture
 	 * @param session
+	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value = "/recipe/regist.do", method = RequestMethod.POST)
