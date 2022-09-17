@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <head>
@@ -20,7 +21,11 @@
 
 <body>
 
-	<form action="/recipe/regist.do" method="post">
+
+
+	<form action="/recipe/regist.do" method="post"
+		enctype="multipart/form-data">
+
 		<div class="row row-cols-lg-auto container align-items-center">
 
 			<div class="form-floating col-lg-4">
@@ -69,19 +74,20 @@
 			</div>
 
 			<div class="row col-lg-4">
+
 				<label class="input-file-button" for="input-file"> 대표이미지추가 <img
 					id="output">
 
 				</label> <input type="file" id="input-file" style="display: none"
-					accept="image/*" name="mainPicture" class="isFile"
-					onchange="loadFile(event)" required="required" />
+					accept="image/jpeg, image/png, image/jpg" name="mainPicture"
+					class="isFile" onchange="loadFile(event)" required="required" />
 			</div>
 
 			<div class=" row row-cols-lg-auto col-lg-8">
 				<div class="form-floating col-lg-8">
 					<input type="text" class="form-control" id="" maxlength="30"
-						name="recipeInfo"> <label for="floatingInput">
-						간단한소개 (30자 미만)</label>
+						name="recipeInfo" required="required"> <label
+						for="floatingInput"> 간단한소개 (30자 미만)</label>
 				</div>
 			</div>
 
@@ -164,12 +170,12 @@
 		<div class="row container">
 			<div class="form-floating col-lg-6">
 				<input type="text" class="form-control" id="" maxlength="10"
-					name="recipeDescription"> <label for="floatingInput">레시피
-					설명</label>
+					name="recipeDescription" required="required"> <label
+					for="floatingInput">레시피 설명</label>
 			</div>
 			<div class="row col-lg-6">
-				<input type="file" name="recipePicture1" class="isFile"
-					onchange="imgCheck();">
+				<input type="file" name="recipePicture" class="isFile"
+					accept="image/jpeg, image/png, image/jpg" onchange="imgCheck();">
 			</div>
 			<div class="form-floating col-lg-6">
 				<input type="text" class="form-control" id="" maxlength="10"
@@ -177,8 +183,8 @@
 					설명</label>
 			</div>
 			<div class="row col-lg-6">
-				<input type="file" name="recipePicture2" class="isFile"
-					onchange="imgCheck();">
+				<input type="file" name="recipePicture" class="isFile"
+					accept="image/jpeg, image/png, image/jpg" onchange="imgCheck();">
 			</div>
 			<div class="form-floating col-lg-6">
 				<input type="text" class="form-control" id="" maxlength="10"
@@ -186,8 +192,8 @@
 					설명</label>
 			</div>
 			<div class="row col-lg-6">
-				<input type="file" name="recipePicture3" class="isFile"
-					onchange="imgCheck();">
+				<input type="file" name="recipePicture" class="isFile"
+					accept="image/jpeg, image/png, image/jpg" onchange="imgCheck();">
 			</div>
 
 			<input type="submit" value="등록" onclick="checkMainPic();">
@@ -214,7 +220,7 @@
 
 		///// 이미지파일 체크 시작 ////
 		var imgFile = document.querySelectorAll('.isFile');
-		var fileForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
+		var fileForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/i;
 		var fileSize;
 		function checkMainPic() {
 			if (imgFile[0].value == "") {
@@ -222,7 +228,7 @@
 
 			}
 		};
-		
+
 		function imgCheck() {
 			for (var i = 0; i < imgFile.length; i++) {
 				if (imgFile[i].value != "") {
@@ -235,6 +241,7 @@
 				}
 			}
 		};
+		/////이미지 확장자 체크 종료///
 	</script>
 
 

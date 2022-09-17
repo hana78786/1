@@ -12,6 +12,7 @@ import com.kh.pilot.recipe.domain.RecipeStep;
 import com.kh.pilot.recipe.domain.RecipeTag;
 import com.kh.pilot.recipe.domain.Recommandation;
 import com.kh.pilot.recipe.store.RecipeStore;
+
 @Repository
 public class RecipeStoreLogic implements RecipeStore {
 
@@ -23,14 +24,15 @@ public class RecipeStoreLogic implements RecipeStore {
 		int result = session.insert("RecipeMapper.insertRecipe", recipe);
 		return result;
 	}
-/**
- * 레시피 순서등록
- */
+
+	/**
+	 * 레시피 순서등록
+	 */
 	@Override
 	public int insertStep(List<RecipeStep> rsList, SqlSessionTemplate session) {
-		int result=0;
-		for(int i =0; i<rsList.size();i++) {
-		result=	session.insert("RecipeMapper.insertRecipeStep",rsList.get(i));
+		int result = 0;
+		for (int i = 0; i < rsList.size(); i++) {
+			result = session.insert("RecipeMapper.insertRecipeStep", rsList.get(i));
 		}
 		return result;
 	}
@@ -44,12 +46,16 @@ public class RecipeStoreLogic implements RecipeStore {
 		return result;
 	}
 
+	/**
+	 * 레시피 재료 등록
+	 * 
+	 */
 	@Override
 	public int insertMaterial(List<RecipeMaterial> rmList, SqlSessionTemplate session) {
-		int result=0;
-		for(int i =0; i<rmList.size();i++){
+		int result = 0;
+		for (int i = 0; i < rmList.size(); i++) {
 			RecipeMaterial rMaterial = rmList.get(i);
-		result += session.insert("RecipeMapper.insertRecipeMaterial", rMaterial);
+			result += session.insert("RecipeMapper.insertRecipeMaterial", rMaterial);
 		}
 		return result;
 	}

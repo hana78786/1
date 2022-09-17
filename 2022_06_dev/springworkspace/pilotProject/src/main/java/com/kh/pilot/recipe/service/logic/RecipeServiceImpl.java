@@ -36,7 +36,10 @@ public class RecipeServiceImpl implements RecipeService{
 	 */
 	@Override
 	public int registStep(List<RecipeStep> rsList) {
+		System.out.println(rsList.size());
 		int result = rStore.insertStep(rsList, session);
+		
+		
 		return result;
 	}
 /**
