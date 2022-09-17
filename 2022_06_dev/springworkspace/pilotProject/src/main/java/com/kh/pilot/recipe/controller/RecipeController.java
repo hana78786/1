@@ -97,7 +97,7 @@ public class RecipeController {
 
 		}
 		int result1 = rService.registMaterial(rmList);
-		System.out.println(result1);
+		
 
 		// 레시피 순서 리스트 만들어서 전달하기
 		ArrayList<RecipeStep> rsList = new ArrayList<RecipeStep>();
