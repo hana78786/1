@@ -15,76 +15,101 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+	
+	
+	<style>
+		body{
+			margin: 0 auto;
+		}
+
+
+	</style>
 
 </head>
 
 
 <body>
 
-
-
 	<form action="/recipe/regist.do" method="post"
 		enctype="multipart/form-data">
+<div class="container align-items-center">
+		<div class="container row align-items-center p-0" >
 
-		<div class="row row-cols-lg-auto container align-items-center">
+            <div class="col-lg-7 container" >
 
-			<div class="form-floating col-lg-4">
-				<input type="text" class="form-control" id="" name="recipeName">
-				<label for="floatingInput">레시피 제목</label>
-			</div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="" name="recipeName">
+                    <label for="floatingInput">레시피 제목</label>
+                </div>
+                <br>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="" name="recipeVideo">
+                    <label for="floatingInput">유튜브 링크</label>
+                </div>
+    
+                <div class="mt-5">
+                    <label for="validationCustom04" class="form-label"><h5>카테고리</h5></label> <select
+                        class="form-select" id="" name="recipeCategory" required>
+                        <option selected disabled value="">카테고리 선택</option>
+                        <option value="mael">식사</option>
+                        <option value="relish">술안주</option>
+                        <option value="dessert">간식</option>
+                        <option value="drink">술/음료</option>
+                    </select>
+                    <div class="invalid-feedback">카테고리를 선택하세요</div>
+                    <br>
+                    <div class="col-lg-12 ">
+                        <h5>해시태그</h5> 
+						<div class="overflow-hidden">
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="jmt" value="true"> JMT</label>
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="healthy" value="true"> 건강한</label> 
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="goodSpicy" value="true"> 맛있게 매운</label> 
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="soSpicy" value="true"> 아주매운</label> 
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="sweet" value="true">   달콤한</label>
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="easy" value="true"> 간편한</label>
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="full" value="true"> 든든한</label>
+							<label class="w-25 float-start"><input class="form-check-input" type="checkbox" name="party" value="true">   파티용</label> 
+						</div>
+                    </div>
+    
+                </div>
+
+            </div>
+            <div class="col-lg-5 container">
+               
+				<div class="row col-lg-4 m-4">
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill float-end" onclick="mainPicDel()">
+						<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+					  </svg>
+                    <label class="input-file-button float-start" for="input-file">
+						<img id="output" class="mx-auto " width="400px" height="270px" style="background-color: gray; border-radius: 10px;">  
+					</label> 
+					
+
+					<input type="file" id="input-file" style="display: none"
+                    accept="image/jpeg, image/png, image/jpg" name="mainPicture"
+                    class="isFile" onchange="loadFile(event)" required="required" />
+					
+
+                </div>
+				
+				
+				<div class="form-floating align-items-center">
+                    <input type="text" class="form-control" id="" name="recipeTime">
+                    <label for="floatingInput">소요시간</label>
+                </div>
+    
+                
+    
+
+            </div>
+
+			
 			<br>
-			<div class="form-floating col-lg-4">
-				<input type="text" class="form-control" id="" name="recipeVideo">
-				<label for="floatingInput">유튜브 링크</label>
-			</div>
-
-			<div class="col-md-3">
-				<label for="validationCustom04" class="form-label">카테고리</label> <select
-					class="form-select" id="" name="recipeCategory" required>
-					<option selected disabled value="">카테고리 선택</option>
-					<option value="mael">식사</option>
-					<option value="relish">술안주</option>
-					<option value="dessert">간식</option>
-					<option value="drink">술/음료</option>
-				</select>
-				<div class="invalid-feedback">카테고리를 선택하세요</div>
-				<br>
-				<div class="col-md-8 col-lg-8">
-					해시태그<br> <label><input class="form-check-input"
-						type="checkbox" name="jmt" value="true"> JMT</label> <label><input
-						class="form-check-input" type="checkbox" name="healthy"
-						value="true"> 건강한</label> <label><input
-						class="form-check-input" type="checkbox" name="goodSpicy"
-						value="true"> 맛있게 매운</label> <label><input
-						class="form-check-input" type="checkbox" name="soSpicy"
-						value="true"> 아주매운</label> <label><input
-						class="form-check-input" type="checkbox" name="sweet" value="true">
-						달콤한</label> <label><input class="form-check-input" type="checkbox"
-						name="easy" value="true"> 간편한</label> <label><input
-						class="form-check-input" type="checkbox" name="party" value="true">
-						파티용</label> <label><input class="form-check-input" type="checkbox"
-						name="full" value="true"> 든든한</label>
-				</div>
-
-			</div>
-			<br>
-			<div class="form-floating col-lg-2 align-items-center">
-				<input type="text" class="form-control" id="" name="recipeTime">
-				<label for="floatingInput">소요시간</label>
-			</div>
-
-			<div class="row col-lg-4">
-
-				<label class="input-file-button" for="input-file"> 대표이미지추가 <img
-					id="output">
-
-				</label> <input type="file" id="input-file" style="display: none"
-					accept="image/jpeg, image/png, image/jpg" name="mainPicture"
-					class="isFile" onchange="loadFile(event)" required="required" />
-			</div>
-
-			<div class=" row row-cols-lg-auto col-lg-8">
-				<div class="form-floating col-lg-8">
+			
+			<div class=" row m-0 mt-3 mb-3  p-0">
+				<div class="form-floating">
 					<input type="text" class="form-control" id="" maxlength="30"
 						name="recipeInfo" required="required"> <label
 						for="floatingInput"> 간단한소개 (30자 미만)</label>
@@ -210,13 +235,10 @@
 
 	</form>
 
+</div>
 
 
-
-
-
-
-	</p>
+	
 	<script>
 		var loadFile = function(event) {
 			var output = document.getElementById('output');
@@ -251,6 +273,12 @@
 			}
 		};
 		/////이미지 확장자 체크 종료///
+
+
+		function mainPicDel(){
+			imgFile[0].value = "";
+			output.removeAttribute('src');
+		}
 	</script>
 
 

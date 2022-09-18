@@ -44,11 +44,11 @@
 	</resultMap>
 
 	<select id="selectAllRecipe" resultMap="recipeResultMap">
-		select * from recipe_tbl
+		select * from recipe_tbl where RECIPE_STATUS = 'Y'
 	</select>
 
 	<select id="selectOneRecipe" resultMap="recipeResultMap">
-		select * from recipe_tbl where RECIPE_NO = #{recipeNo}
+		select * from recipe_tbl where RECIPE_NO = #{recipeNo} and RECIPE_STATUS = 'Y'
 	</select>
 
 	<resultMap type="RecipeMaterial" id="RecipeMaterialResultMap">
@@ -59,7 +59,7 @@
 	</resultMap>
 
 	<select id="selectOneRMaterial" resultMap="RecipeMaterialResultMap">
-		select * from recipe_material where RECIPE_NO = #{recipeNo} order by MATERIAL_ORDER
+		select * from recipe_material where RECIPE_NO = #{recipeNo}order by MATERIAL_ORDER
 	</select>
 
 	<resultMap type="RecipeTag" id="RecipeTagResultMap">
