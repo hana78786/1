@@ -21,7 +21,13 @@
     - 부스트스트랩을 이용한 반응형 
     
     작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/frontworkspace/
-
+    
+  - jdbcworkspace
+    - jdbc를 활용한 사이트 작성
+  - springworkspace
+    - SpringFrameWork를 활용한 사이트의 작성
+    - 세미프로젝트 파일럿 
+    
 ## bostcourse_htmlcss :html, css
 
 - 네이버 부스트코스 htmlCss 활동
