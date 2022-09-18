@@ -112,7 +112,10 @@ public class RecipeController {
 
 			// 레시피 순서 리스트 만들어서 전달하기
 			ArrayList<RecipeStep> rsList = new ArrayList<RecipeStep>();
-			String arrDescription[] = rStep.getRecipeDescription().split(",");
+			String arrDescription[] = rStep.getRecipeDescription().split(",ab22bb,");
+			//더미 value까지 배열을 나누는것으로 인식해서 사용자가 ,를 입력했을때 정상적으로 table에 저장되게 한다
+			arrDescription[arrDescription.length-1] = arrDescription[arrDescription.length-1].replace(",ab22bb", "");
+			//배열의 마지막은 ,가 안들어가기때문에 더미vlaue 배열값으로 인식한다, ,가 없는 더미value를 삭제 해주는 코드
 
 			///// 레시피 순서 사진 저장코드
 
@@ -153,28 +156,65 @@ public class RecipeController {
 				
 			System.out.println(i);
 			}
-			System.out.println("여기는 나오니?");
 
 			int result2 = rService.registStep(rsList); // 레시피 순서저장 코드 종료
-			System.out.println(result2);
 
 			// 레시피 태그 true false로 받음
 			int result3 = rService.registTag(rTag);
+			mv.setViewName("redirect:/recipe/recipeList.do");
 
-		} catch (
-
-		Exception e) {
+		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
 			mv.setViewName("common/error");
 		}
 		return mv;
 	}
 
-	public ModelAndView RecipeList(ModelAndView mv, int page) {
+	/**
+	 * 레시피 리스트 전체 불러오기(임시) 
+	 * @param mv
+	 * @param page
+	 * @return
+	 */
+	@RequestMapping(value="/recipe/recipeList.do", method = RequestMethod.GET)
+	public ModelAndView RecipeList(ModelAndView mv) {
+		try {
+		List<Recipe> rList = rService.printRecipeList(0,0);
+		mv.addObject("rList", rList);
+		mv.setViewName("/recipe/recipeList");
+		}catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			mv.setViewName("common/error");
+		}
 		return mv;
 	}
-
+	
+/**
+ * 디테일 레시피 보기
+ * @param recipeNo
+ * @param session
+ * @param mv
+ * @return
+ */
+	@RequestMapping(value="/recipe/detail.do", method = RequestMethod.GET)
 	public ModelAndView viewRecipeStep(int recipeNo, HttpSession session, ModelAndView mv) {
+		
+		try {
+		Recipe recipe = rService.printOneRecipe(recipeNo);
+		List<RecipeMaterial> rmList = rService.printOneRecipeMaterial(recipeNo);
+		List<RecipeStep> rsList = rService.printOneRecipeStep(recipeNo);
+		RecipeTag rTag = rService.printOneRecipeTag(recipeNo);
+		
+		mv.addObject("recipe", recipe);
+		mv.addObject("rmList", rmList);
+		mv.addObject("rsList", rsList);
+		mv.addObject("rTag", rTag);
+		mv.setViewName("/recipe/recipeDetail");
+		
+		}catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			mv.setViewName("common/error");
+		}
 		return mv;
 	}
 
@@ -182,10 +222,11 @@ public class RecipeController {
 		return mv;
 	}
 
-	public ModelAndView modifyRecipe(Recipe recipe, RecipeStep rStep, RecipeTag rTag, MultipartFile mainPic,
-			MultipartFile detailPic1, MultipartFile detailPic2, MultipartFile detailPic3, MultipartFile detailPic4,
-			MultipartFile detailPic5, MultipartFile detailPic6, MultipartFile detailPic7, MultipartFile detailPic8,
-			MultipartFile detailPic9, MultipartFile detailPic10, HttpSession session, ModelAndView mv) {
+	public ModelAndView modifyRecipe(@ModelAttribute Recipe recipe, @ModelAttribute RecipeStep rStep,
+			@ModelAttribute RecipeMaterial rMaterial, @ModelAttribute RecipeTag rTag, ModelAndView mv,
+			@RequestParam(value = "mainPicture", required = false) MultipartFile mainPicture,
+			@RequestParam(value = "recipePicture", required = false) List<MultipartFile> recipePicture,
+			HttpSession session, HttpServletRequest request) {
 		return mv;
 
 	}

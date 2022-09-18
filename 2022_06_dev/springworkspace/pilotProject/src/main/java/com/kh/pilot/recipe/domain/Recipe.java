@@ -8,7 +8,6 @@ public class Recipe {
 	private String memberEmail;
 	private String recipeName;
 	private String recipeInfo;
-	private int recipePrice;
 	private int viewCount;
 	private String mainPic;
 	private String mainPicRename;
@@ -34,7 +33,6 @@ public class Recipe {
 		this.memberEmail = memberEmail;
 		this.recipeName = recipeName;
 		this.recipeInfo = recipeInfo;
-		this.recipePrice = recipePrice;
 		this.viewCount = viewCount;
 		this.mainPic = mainPic;
 		this.mainPicRename = mainPicRename;
@@ -52,7 +50,7 @@ public class Recipe {
 	@Override
 	public String toString() {
 		return "Recipe [recipeNo=" + recipeNo + ", memberEmail=" + memberEmail + ", recipeName=" + recipeName
-				+ ", recipeInfo=" + recipeInfo + ", recipePrice=" + recipePrice + ", viewCount=" + viewCount
+				+ ", recipeInfo=" + recipeInfo +  ", viewCount=" + viewCount
 				+ ", mainPic=" + mainPic + ", mainPicRename=" + mainPicRename + ", recipeCategory=" + recipeCategory
 				+ ", recipeTime=" + recipeTime + ", recipeVideo=" + recipeVideo + ", recipeStatus=" + recipeStatus
 				+ ", insertDate=" + insertDate + ", updateDate=" + updateDate + ", recommandCount=" + recommandCount
@@ -112,13 +110,7 @@ public class Recipe {
 		this.recipeInfo = recipeInfo;
 	}
 
-	public int getRecipePrice() {
-		return recipePrice;
-	}
 
-	public void setRecipePrice(int recipePrice) {
-		this.recipePrice = recipePrice;
-	}
 
 	public int getViewCount() {
 		return viewCount;

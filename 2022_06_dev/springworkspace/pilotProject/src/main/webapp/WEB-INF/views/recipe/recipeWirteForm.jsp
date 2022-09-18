@@ -172,6 +172,9 @@
 				<input type="text" class="form-control" id="" maxlength="10"
 					name="recipeDescription" required="required"> <label
 					for="floatingInput">레시피 설명</label>
+<!-- 					설명에 쉼표를 넣었을때 배열로 만들지 않기위한 더미 value -->
+					<input type="text" name="recipeDescription" value="ab22bb" style="display:none">
+					
 			</div>
 			<div class="row col-lg-6">
 				<input type="file" name="recipePicture" class="isFile"
@@ -181,6 +184,9 @@
 				<input type="text" class="form-control" id="" maxlength="10"
 					name="recipeDescription"> <label for="floatingInput">레시피
 					설명</label>
+					<!-- 					설명에 쉼표를 넣었을때 배열로 만들지 않기위한 더미 value -->
+					<input type="text" name="recipeDescription" value="ab22bb" style="display:none">
+					
 			</div>
 			<div class="row col-lg-6">
 				<input type="file" name="recipePicture" class="isFile"
@@ -190,6 +196,9 @@
 				<input type="text" class="form-control" id="" maxlength="10"
 					name="recipeDescription"> <label for="floatingInput">레시피
 					설명</label>
+					<!-- 					설명에 쉼표를 넣었을때 배열로 만들지 않기위한 더미 value -->
+					<input type="text" name="recipeDescription" value="ab22bb" style="display:none">
+					
 			</div>
 			<div class="row col-lg-6">
 				<input type="file" name="recipePicture" class="isFile"

@@ -1,5 +1,6 @@
 package com.kh.pilot.recipe.service.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -119,35 +120,45 @@ public class RecipeServiceImpl implements RecipeService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+/**
+ * 레시피 리스트 출력
+ */
 	@Override
 	public List<Recipe> printRecipeList(int currentPage, int limit) {
-		// TODO Auto-generated method stub
-		return null;
+	 List<Recipe> rList = rStore.selectAllRecipe(currentPage, limit, session);
+		return rList;
 	}
 
+	/**
+	 * 상세 레시피, 레시피
+	 */
 	@Override
 	public Recipe printOneRecipe(int recipeNo) {
-		// TODO Auto-generated method stub
-		return null;
+		Recipe recipe = rStore.selectOneRecipe(recipeNo, session);
+		return recipe;
 	}
 
+	/**상세레시피 순서*/
 	@Override
 	public List<RecipeStep> printOneRecipeStep(int recipeNo) {
-		// TODO Auto-generated method stub
-		return null;
+		List<RecipeStep>  rsList = rStore.selectOneRecipeDetail(recipeNo, session);
+		return rsList;
 	}
-
+	
+	/**
+	 * 상세 레시피 레시피 재료
+	 */
 	@Override
 	public List<RecipeMaterial> printOneRecipeMaterial(int recipeNo) {
-		// TODO Auto-generated method stub
-		return null;
+		 List<RecipeMaterial> rmList = rStore.selectOneRecipeMaterial(recipeNo, session);
+		return rmList;
 	}
 
+	/**상세 레시피 태그*/
 	@Override
 	public RecipeTag printOneRecipeTag(int recipeNo) {
-		// TODO Auto-generated method stub
-		return null;
+		RecipeTag rTag = rStore.selectOneRecipeTag(recipeNo, session);
+		return rTag;
 	}
 
 }
