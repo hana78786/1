@@ -26,7 +26,7 @@
     - jdbc를 활용한 사이트 작성
   - springworkspace
     - SpringFrameWork를 활용한 사이트의 작성
-    - 세미프로젝트 파일럿 
+    - 세미프로젝트 파일럿 파일 작성
     
 ## bostcourse_htmlcss :html, css
 
