@@ -37,6 +37,10 @@ public interface BoradService {
 
 	public List<Reply> PrintAllReply(Integer boardNo);
 
+	public int modifyReply(Reply reply);
+
+	public int removeReply(String replyNo);
+
 	
 
 	

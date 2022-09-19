@@ -95,7 +95,20 @@ public class BoardStoreLogic implements BoardStore{
 		List<Reply> rList = session.selectList("BoardMapper.selecAllreply", boardNo);
 		return rList;
 	}
+	
+	@Override
+	public int updateOneReply(Reply reply, SqlSessionTemplate session) {
+		int result = session.update("BoardMapper.updateOneReply", reply);
+		return result;
+	}
+	
+	@Override
+	public int deleteReply(String replyNo, SqlSessionTemplate session) {
+		int result = session.delete("BoardMapper.deleteOneReply", replyNo);
+		return result;
+	}
 
+	
 
 
 }

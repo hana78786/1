@@ -441,10 +441,60 @@ public class BoradController {
 			mv.setViewName("redirect:/board/detail.kh?boardNo="+boardNo);
 		} catch (Exception e) {
 			mv.addObject("msg",e.getMessage());
+			mv.setViewName("/common/errorPage");
 		}
 		return mv;
 		
 	}
 	
-
+	/**
+	 * 댓글수정
+	 * @param mv
+	 * @param reply
+	 * @return
+	 */
+	@RequestMapping(value="/board/modifireply.do", method=RequestMethod.POST)
+	public ModelAndView modifyReply(ModelAndView mv, @ModelAttribute Reply reply, HttpSession session) {
+		Member member = (Member)session.getAttribute("loginUser");
+	
+		if(!reply.getReplyWirter().equals((member.getMemberId()))) {
+			mv.addObject("msg","작성자가 아니면 수정할수 없습니다.");
+			mv.setViewName("/common/errorPage");
+			return mv;
+		}
+		
+		try {
+		int result = bService.modifyReply(reply);
+		int boardNo = reply.getRefBoardNo();
+		mv.setViewName("redirect:/board/detail.kh?boardNo="+boardNo);
+		}catch (Exception e) {
+			mv.addObject("msg",e.getMessage());
+			mv.setViewName("/common/errorPage");
+		}
+		return mv;
+	}
+	
+	@RequestMapping (value="/board/removeReply.kh")
+	public ModelAndView removeReply(ModelAndView mv,@RequestParam("replyNo") String replyNo,
+			@RequestParam("replyWirter") String replyWriter,@RequestParam("boardNo") String boardNo, HttpSession session ) {
+		
+		Member member = (Member)session.getAttribute("loginUser");
+		
+		if(!replyWriter.equals((member.getMemberId()))) {
+			mv.addObject("msg","작성자가 아니면 삭제할수 없습니다.");
+			mv.setViewName("/common/errorPage");
+			return mv;
+		}
+		try {
+		int result = bService.removeReply(replyNo);
+		mv.setViewName("redirect:/board/detail.kh?boardNo="+boardNo);
+		}catch (Exception e) {
+			mv.addObject("msg",e.getMessage());
+			mv.setViewName("/common/errorPage");
+			
+		}
+		
+		return mv;
+	}
+	
 }

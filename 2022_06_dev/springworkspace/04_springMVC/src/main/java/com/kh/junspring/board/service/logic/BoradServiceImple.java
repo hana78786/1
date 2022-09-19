@@ -79,6 +79,18 @@ public class BoradServiceImple implements BoradService {
 		return rList;
 	}
 
+	@Override
+	public int modifyReply(Reply reply) {
+		int result =bStore.updateOneReply(reply, session);
+		return result;
+	}
+
+	@Override
+	public int removeReply(String replyNo) {
+		int result =bStore.deleteReply(replyNo, session);
+		return result;
+	}
+
 
 
 	

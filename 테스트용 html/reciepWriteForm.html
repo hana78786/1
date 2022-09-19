@@ -34,8 +34,8 @@
 		<div class="container-lg col-sm-12 row align-items-center p-0">
 		
 		
-		<!-- 여기는 대표 이미지 박스 -->
-		     <div class="col-md-5 col-sm-12 container-lg align-items-center">
+			<!-- 여기는 대표 이미지 박스 -->
+		    <div class="col-md-5 col-sm-12 container-lg align-items-center">
                
 				<div class="row col-md-4 m-2 col-sm-12  align-items-center" >
 
@@ -217,6 +217,7 @@
 
 </div>
 
+<!-- 여기서부터 레시피 설명-->
 
 		<div class="row container">
 			<div class="form-floating col-md-6">
@@ -228,8 +229,28 @@
 					
 			</div>
 			<div class="row col-md-6">
-				<input type="file" name="recipePicture" class="isFile"
-					accept="image/jpeg, image/png, image/jpg" onchange="imgCheck();">
+
+				<div class="col-md-5 col-sm-12 container-lg align-items-center">
+               
+					<div class="row col-md-4 col-sm-12  align-items-center" >
+	
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill float-end" onclick="mainPicDel()">
+							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+						  </svg>
+
+						<label class="input-file-button float-start" for="input-file">
+							<img id="detailImg" class="mx-auto " width="400px" height="270px" style="background-color: gray; border-radius: 10px;">  
+						</label> 
+						
+						<input type="file" name="recipePicture" class="isFile" style="display:none"
+						accept="image/jpeg, image/png, image/jpg" onchange="imgCheck(detailImg);">		
+	
+					</div>
+			
+				</div>
+
+
+				
 			</div>
 			<div class="form-floating col-md-6">
 				<input type="text" class="form-control" id="" maxlength="10"
@@ -287,7 +308,7 @@
 			}
 		};
 
-		function imgCheck() {
+		function imgCheck(imgid) {
 			for (var i = 0; i < imgFile.length; i++) {
 				if (imgFile[i].value != "") {
 
@@ -298,6 +319,13 @@
 					}
 				}
 			}
+
+			var imgid = document.getElementById(imgid);
+			imgid.src = URL.createObjectURL(event.target.files[1]);
+			imgid.onload = function() {
+				URL.revokeObjectURL(imgid.src) // free memory
+			};
+			
 		};
 		/////이미지 확장자 체크 종료///
 

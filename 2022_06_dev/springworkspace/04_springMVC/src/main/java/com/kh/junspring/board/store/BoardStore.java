@@ -28,6 +28,10 @@ public interface BoardStore {
 	public int insertReply(SqlSessionTemplate session, Reply reply);
 
 	public List<Reply> selectAllReply(SqlSessionTemplate session, Integer boardNo);
+
+	public int updateOneReply(Reply reply, SqlSessionTemplate session);
+
+	public int deleteReply(String replyNo, SqlSessionTemplate session);
 	
 	
 }
