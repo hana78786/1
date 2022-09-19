@@ -81,7 +81,7 @@
 	</form>
 
 	<table align="center" width="500" border="1">
-
+${rList.get(0).replyWirter }
 		<c:forEach items="${rList }" var="reply" varStatus="i">
 			<tr>
 				<td width="100">${reply.replyWirter }</td>

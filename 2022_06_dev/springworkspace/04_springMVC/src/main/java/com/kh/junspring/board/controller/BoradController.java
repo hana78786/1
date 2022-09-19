@@ -474,6 +474,15 @@ public class BoradController {
 		return mv;
 	}
 	
+	/** 댓글삭제
+	 * 
+	 * @param mv
+	 * @param replyNo
+	 * @param replyWriter
+	 * @param boardNo
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping (value="/board/removeReply.kh")
 	public ModelAndView removeReply(ModelAndView mv,@RequestParam("replyNo") String replyNo,
 			@RequestParam("replyWirter") String replyWriter,@RequestParam("boardNo") String boardNo, HttpSession session ) {
