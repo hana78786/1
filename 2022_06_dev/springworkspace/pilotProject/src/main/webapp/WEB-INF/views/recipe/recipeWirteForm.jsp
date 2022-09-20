@@ -21,6 +21,8 @@
 body {
 	margin: 0 auto;
 }
+
+
 </style>
 
 </head>
@@ -30,22 +32,22 @@ body {
 
 	<form action="/recipe/regist.do" method="post"
 		enctype="multipart/form-data">
-		<div class="container-lg align-items-center">
-			<div class="container-lg col-sm-12 row align-items-center p-0">
+		<div class="container-md align-items-center">
+			<div class="container-md col-12 row p-0">
 
 
 				<!-- 여기는 대표 이미지 박스 -->
-				<div class="col-md-5 col-sm-12 container-lg align-items-center">
-
-					<div class="row col-md-4 m-2 col-sm-12  align-items-center">
+				<div class="col-md-5 container-md">
+ 
+					<div class="row col-md-4 m-2 ">
 
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-							fill="currentColor" class="bi bi-x-circle-fill float-end"
+							fill="currentColor" class="bi bi-x-circle-fill float-md-end col-md-12" 
 							onclick="mainPicDel()">
 						<path
 								d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
 					  </svg>
-						<label class="input-file-button float-start" for="input-file">
+						<label class="input-file-button float-md-start col-md-12"   for="input-file">
 							<img id="output" class="mx-auto " width="400px" height="270px"
 							style="background-color: gray; border-radius: 10px;">
 						</label> <input type="file" id="input-file" style="display: none"
@@ -58,14 +60,14 @@ body {
 				</div>
 
 
-				<div class="col-md-7 container-lg col-sm-12">
+				<div class="col-md-7 col-12  container-md">
 
-					<div class="form-floating col-sm-12 ">
+					<div class="form-floating col-12">
 						<input type="text" class="form-control" id="" name="recipeName">
 						<label for="floatingInput">레시피 제목</label>
 					</div>
 					<br>
-					<div class="form-floating col-sm-12 ">
+					<div class="form-floating col-12 ">
 						<input type="text" class="form-control" id="" name="recipeVideo" onblur="isYoutube()">
 						<label for="floatingInput">유튜브 링크</label>
 					</div>
@@ -82,30 +84,30 @@ body {
 						<div class="invalid-feedback">카테고리를 선택하세요</div>
 						<br>
 
-						<div class="form-floating align-items-center">
+						<div class="form-floating align-items-center col-12 ">
 							<input type="text" class="form-control mb-2" id=""
 								name="recipeTime"> <label for="floatingInput">소요시간</label>
 						</div>
 
 
-						<div class="col-md-12 col-sm-12">
+						<div class="col-md-12 col-12">
 							<h5>해시태그</h5>
-							<div class="overflow-hidden">
+							<div class="overflow-hidden col-12 ">
 								<label class="w-25 float-start"><input
 									class="form-check-input" type="checkbox" name="jmt"
-									value="true"> JMT</label> <label class="w-25 float-start"><input
+									value="true"> JMT</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="healthy"
-									value="true"> 건강한</label> <label class="w-25 float-start"><input
+									value="true"> 건강한</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="goodSpicy"
-									value="true"> 맛있게 매운</label> <label class="w-25 float-start"><input
+									value="true"> 맛있게 매운</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="soSpicy"
-									value="true"> 아주매운</label> <label class="w-25 float-start"><input
+									value="true"> 아주매운</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="sweet"
-									value="true"> 달콤한</label> <label class="w-25 float-start"><input
+									value="true"> 달콤한</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="easy"
-									value="true"> 간편한</label> <label class="w-25 float-start"><input
+									value="true"> 간편한</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="full"
-									value="true"> 든든한</label> <label class="w-25 float-start"><input
+									value="true"> 든든한</label> <label class="w-25 float-md-start"><input
 									class="form-check-input" type="checkbox" name="party"
 									value="true"> 파티용</label>
 							</div>
@@ -120,7 +122,7 @@ body {
 
 				<br>
 
-				<div class=" row m-0 mt-3 mb-3  p-0 ">
+				<div class=" row m-0 mt-3 mb-3  p-0 col-12 ">
 					<div class="form-floating">
 						<input type="text" class="form-control" id="" maxlength="30"
 							name="recipeInfo" required="required"> <label
@@ -130,32 +132,32 @@ body {
 
 
 				<!-- 재료 입력-->
-				<div class="container align-items-center">
+				<div class="container-md align-items-center">
 
 
 
 					<div class=" col-md-12 m-0 p-0">
 
-						<div class="row col-md-6 col-12 float-start p-3 me-1">
+						<div class="row col-md-6 col-12 float-md-start p-3 me-1">
 							<div class="form-floating col-md-6">
 								<input type="text" class="form-control" id="" maxlength="10"
-									name="material"> <label for="floatingInput">재료명</label>
+									name="material" onblur="materialCheck(this);"> <label for="floatingInput" >재료명</label>
 							</div>
 							<div class="form-floating col-md-6">
 								<input type="text" class="form-control" id="" maxlength="10"
-									name="amount"> <label for="floatingInput">재료수량</label>
+									name="amount" onblur="materialCheck(this);"> <label for="floatingInput">재료수량</label>
 							</div>
 						</div>
 
-						<div class="row col-md-6 col-12 float-start p-3 ms-1">
+						<div class="row col-md-6 col-12 float-md-start p-3 ms-1">
 							<div class="form-floating col-md-6">
 								<input type="text" class="form-control" id="" maxlength="10"
-									name="material"> <label for="floatingInput">재료명</label>
+									name="material" onblur="materialCheck(this);"> <label for="floatingInput">재료명</label>
 							</div>
 
 							<div class="form-floating col-md-6">
 								<input type="text" class="form-control" id="" maxlength="10"
-									name="amount"> <label for="floatingInput">재료수량</label>
+									name="amount" onblur="materialCheck(this);"> <label for="floatingInput">재료수량</label>
 							</div>
 						</div>
 
@@ -163,53 +165,53 @@ body {
 
 
 
-						<div class=" col-md-12">
+						<div class="col-12 col-md-12">
 
-							<div class="row col-md-6 col-12 float-start p-3 me-1">
+							<div class="row col-md-6 col-12 float-md-start p-3 me-1">
 								<div class="form-floating col-md-6">
 									<input type="text" class="form-control" id="" maxlength="10"
-										name="material"> <label for="floatingInput">재료명</label>
+										name="material" onblur="materialCheck(this);"> <label for="floatingInput">재료명</label>
 								</div>
 								<div class="form-floating col-md-6">
 									<input type="text" class="form-control" id="" maxlength="10"
-										name="amount"> <label for="floatingInput">재료수량</label>
+										name="amount" onblur="materialCheck(this);"> <label for="floatingInput">재료수량</label>
 								</div>
 							</div>
 
-							<div class="row col-md-6 col-12 float-start p-3 ms-1">
+							<div class="row col-md-6 col-12 float-md-start p-3 ms-1">
 								<div class="form-floating col-md-6">
 									<input type="text" class="form-control" id="" maxlength="10"
-										name="material"> <label for="floatingInput">재료명</label>
+										name="material" onblur="materialCheck(this);"> <label for="floatingInput">재료명</label>
 								</div>
 
 								<div class="form-floating col-md-6">
 									<input type="text" class="form-control" id="" maxlength="10"
-										name="amount"> <label for="floatingInput">재료수량</label>
+										name="amount" onblur="materialCheck(this);"> <label for="floatingInput">재료수량</label>
 								</div>
 							</div>
 
-							<div class=" col-md-12 border-bottom-1">
+							<div class=" col-md-12 col-12   border-bottom-1">
 
-								<div class="row col-md-6 col-12 float-start p-3 me-1">
+								<div class="row col-md-6 col-12 float-md-start p-3 me-1">
 									<div class="form-floating col-md-6">
 										<input type="text" class="form-control" id="" maxlength="10"
-											name="material"> <label for="floatingInput">재료명</label>
+											name="material" onblur="materialCheck(this);"> <label for="floatingInput">재료명</label>
 									</div>
 									<div class="form-floating col-md-6">
 										<input type="text" class="form-control" id="" maxlength="10"
-											name="amount"> <label for="floatingInput">재료수량</label>
+											name="amount" onblur="materialCheck(this);"> <label for="floatingInput">재료수량</label>
 									</div>
 								</div>
 
-								<div class="row col-md-6 col-12 float-start p-3 ms-1" >
+								<div class="row col-md-6 col-12 float-md-start p-3 ms-1" >
 									<div class="form-floating col-md-6">
 										<input type="text" class="form-control" id="" maxlength="10"
-											name="material"> <label for="floatingInput">재료명</label>
+											name="material" onblur="materialCheck(this);"> <label for="floatingInput">재료명</label>
 									</div>
 
-									<div class="form-floating col-md-6">
+									<div class="form-floating col-12  col-md-6">
 										<input type="text" class="form-control" id="" maxlength="10"
-											name="amount"> <label for="floatingInput">재료수량</label>
+											name="amount" onblur="materialCheck(this);"> <label for="floatingInput">재료수량</label>
 
 									</div>
 
@@ -228,11 +230,11 @@ body {
 				</div>
 			</div>
 
-			<div class="recipeDetail container row">
+			<div class="recipeDetail container-md row">
 				<!-- 여기서부터 레시피 설명-->
 				<div>
 					<hr>
-					<div class="row container p-3 float-start col-md-6 p-2">
+					<div class="row container-md p-3 float-md-start col-md-6 p-2">
 
 						<div class="form-floating col-md-12 p-0 pt-3">
 							<textarea class="form-control" name="recipeDescription"  placeholder=""
@@ -247,9 +249,9 @@ body {
 					</div>
 
 					<!-- 이미지 미리보기 이미지 파일 -->
-					<div class="row col-md-6 float-start p-2">
+					<div class="row col-md-6 float-md-start p-2">
 						<div
-							class="col-md-5 col-sm-12 container-lg align-items-center m-0">
+							class="col-md-5 col-sm-12 container-md align-items-center m-0">
 							<div class="row col-md-4 col-sm-12  align-items-center">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="bi bi-x-circle-fill float-end"
@@ -258,7 +260,7 @@ body {
 										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
 						  </svg>
 
-								<label class="input-file-button float-start"> <img
+								<label class="input-file-button float-md-start"> <img
 									class="detailImg mx-auto" width="400px" height="270px"
 									style="background-color: gray; border-radius: 10px;"> <input
 									type="file" name="recipePicture" class="isFile"
@@ -275,7 +277,7 @@ body {
 				<!-- 여기서부터 레시피 설명-->
 				<div>
 
-					<div class="row container p-3 float-start col-md-6 p-2">
+					<div class="row container-md p-3 float-md-start col-md-6 p-2">
 
 						<div class="form-floating col-md-12 p-0 pt-3">
 							<textarea class="form-control" placeholder=""
@@ -290,9 +292,9 @@ body {
 					</div>
 
 					<!-- 이미지 미리보기 이미지 파일 -->
-					<div class="row col-md-6 float-start p-2">
+					<div class="row col-md-6 float-md-start p-2">
 						<div
-							class="col-md-5 container-lg align-items-center m-0">
+							class="col-md-5 container-md align-items-center m-0">
 							<div class="row col-md-4  align-items-center">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="bi bi-x-circle-fill float-end"
@@ -301,7 +303,7 @@ body {
 										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
 						  </svg>
 
-								<label class="input-file-button float-start"> <img
+								<label class="input-file-button float-md-start"> <img
 									class="detailImg mx-auto" width="400px" height="270px"
 									style="background-color: gray; border-radius: 10px;"> <input
 									type="file" name="recipePicture" class="isFile"
@@ -318,7 +320,7 @@ body {
 				<!-- 여기서부터 레시피 설명-->
 				<div id="REdetail" class="REdetailC">
 
-					<div class="row container p-3 float-start col-md-6 p-2">
+					<div class="row container-md p-3 float-md-start col-md-6 p-2">
 
 						<div class="form-floating col-md-12 p-0 pt-3">
 							<textarea class="form-control" placeholder=""
@@ -333,9 +335,9 @@ body {
 					</div>
 
 					<!-- 이미지 미리보기 이미지 파일 -->
-					<div class="row col-md-6 float-start p-2" >
+					<div class="row col-md-6 float-md-start p-2" >
 						<div
-							class="col-md-5 container-lg align-items-center m-0">
+							class="col-md-5 container-md align-items-center m-0">
 							<div class="row col-md-4  align-items-center">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="bi bi-x-circle-fill float-end"
@@ -344,7 +346,7 @@ body {
 										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
 						  </svg>
 
-								<label class="input-file-button float-start">
+								<label class="input-file-button float-md-start">
 								 <img class="detailImg mx-auto" width="400px" height="270px"
 									style="background-color: gray; border-radius: 10px;">
 								 <input type="file" name="recipePicture" class="isFile"
@@ -385,7 +387,7 @@ body {
 		</div>
 	</form>
 
-	</div>
+	
 
 
 
@@ -494,6 +496,22 @@ body {
 			imgfiles.removeAttribute('src');
 
 		}
+		
+		
+		
+		//재료 유효성 검사//
+		var check = /,/
+		
+		function materialCheck(obj){
+			
+				if(check.test(obj.value)){
+					alert(",는 사용할수 없습니다.");
+					obj.value="";
+				
+			}
+			
+		}
+		
 	</script>
 
 

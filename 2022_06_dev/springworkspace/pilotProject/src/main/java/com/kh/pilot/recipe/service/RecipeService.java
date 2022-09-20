@@ -35,7 +35,7 @@ public interface RecipeService {
 
 	public int  modifyOneRecipeMaterial(List<RecipeMaterial> rmList);
 
-	public int modifyOneRecipeTag(List<RecipeTag> rtList);
+	public int modifyOneRecipeTag(RecipeTag rTag);
 
 	public int removeOneRecipe(int redipeNo);
 	
@@ -52,6 +52,8 @@ public interface RecipeService {
 	
 	
 	public RecipeTag printOneRecipeTag(int recipeNo)  ;
+
+	public int removeOneImg(String picName);
 
 
 }

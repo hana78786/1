@@ -53,9 +53,11 @@ public interface RecipeStore {
 
 	public int updateOneRecipeMaterial(SqlSessionTemplate session,List<RecipeMaterial>rmList); 
 
-	public int  updateOneRecipeTag(SqlSessionTemplate session,List<RecipeTag> rtList) ;
+	public int  updateOneRecipeTag(SqlSessionTemplate session,RecipeTag rTag) ;
 
-	public int deleteOneRecipe(SqlSessionTemplate session,int redipeNo); 
+	public int deleteOneRecipe(SqlSessionTemplate session,int redipeNo);
+
+	public int deleteOneImg(SqlSessionTemplate session, String picName); 
 
 
 
