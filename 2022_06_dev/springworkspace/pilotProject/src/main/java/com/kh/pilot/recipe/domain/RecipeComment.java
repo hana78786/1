@@ -3,7 +3,7 @@ package com.kh.pilot.recipe.domain;
 import java.sql.Date;
 
 public class RecipeComment {
-	private int comment;
+	private int commentNo;
 	private int recipeNo;
 	private Date commentDate;
 	private String commentContents;
@@ -13,27 +13,12 @@ public class RecipeComment {
 		
 	}
 
-	public RecipeComment(int comment, int recipeNo, Date commentDate, String commentContents, String memberEmail) {
-		super();
-		this.comment = comment;
-		this.recipeNo = recipeNo;
-		this.commentDate = commentDate;
-		this.commentContents = commentContents;
-		this.memberEmail = memberEmail;
+	public int getCommentNo() {
+		return commentNo;
 	}
 
-	@Override
-	public String toString() {
-		return "RecipeComment [comment=" + comment + ", recipeNo=" + recipeNo + ", commentDate=" + commentDate
-				+ ", commentContents=" + commentContents + ", memberEmail=" + memberEmail + "]";
-	}
-
-	public int getComment() {
-		return comment;
-	}
-
-	public void setComment(int comment) {
-		this.comment = comment;
+	public void setCommentNo(int commentNo) {
+		this.commentNo = commentNo;
 	}
 
 	public int getRecipeNo() {
@@ -67,7 +52,22 @@ public class RecipeComment {
 	public void setMemberEmail(String memberEmail) {
 		this.memberEmail = memberEmail;
 	}
-	
+
+	public RecipeComment(int commentNo, int recipeNo, Date commentDate, String commentContents, String memberEmail) {
+		super();
+		this.commentNo = commentNo;
+		this.recipeNo = recipeNo;
+		this.commentDate = commentDate;
+		this.commentContents = commentContents;
+		this.memberEmail = memberEmail;
+	}
+
+	@Override
+	public String toString() {
+		return "RecipeComment [commentNo=" + commentNo + ", recipeNo=" + recipeNo + ", commentDate=" + commentDate
+				+ ", commentContents=" + commentContents + ", memberEmail=" + memberEmail + "]";
+	}
+
 	
 	
 

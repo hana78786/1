@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.pilot.recipe.domain.Recipe;
+import com.kh.pilot.recipe.domain.RecipeComment;
 import com.kh.pilot.recipe.domain.RecipeMaterial;
 import com.kh.pilot.recipe.domain.RecipeStep;
 import com.kh.pilot.recipe.domain.RecipeTag;
@@ -207,11 +208,17 @@ public class RecipeController {
 			List<RecipeMaterial> rmList = rService.printOneRecipeMaterial(recipeNo);
 			List<RecipeStep> rsList = rService.printOneRecipeStep(recipeNo);
 			RecipeTag rTag = rService.printOneRecipeTag(recipeNo);
+			
+			
+			///레시피 댓글 가지고 오기///
+			List<RecipeComment> rcList = rService.printRecipeCommentList(recipeNo);
+			
 
 			mv.addObject("recipe", recipe);
 			mv.addObject("rmList", rmList);
 			mv.addObject("rsList", rsList);
 			mv.addObject("rTag", rTag);
+			mv.addObject("rcList",rcList);
 			mv.setViewName("/recipe/recipeDetail");
 
 		} catch (Exception e) {

@@ -14,6 +14,7 @@
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeStep" alias="RecipeStep"/>
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeMaterial" alias="RecipeMaterial"/>
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeTag" alias="RecipeTag"/>
+	<typeAlias type="com.kh.pilot.recipe.domain.RecipeComment" alias="RecipeComment"/>
 
 </typeAliases>
 
