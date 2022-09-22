@@ -1,60 +1,139 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${qa.qaTitle }</title>
 
 <link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-		crossorigin="anonymous">
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
 
+
+<style>
+section {
+	margin-top: 100px;
+}
+
+img {
+	width: 50%;
+	height: auto;
+}
+</style>
 </head>
 <body>
 
-q&a번호: ${qa.qaNo }
-제목 :<c:if test="${qa.qaSecret == true}">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
-  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
-</svg>
-</c:if>
- ${qa.qaTitle }
-작성자 : ${qa.memberEmail }
-내용 : ${qa.qaContents }
-작성일자 : ${qa.qaInsertDate }
+	<section>
+		<!-- 전체 감싸기 -->
+		<div class="container">
+			<!-- q&a선언 -->
+			<div id="qa-area" style="text-align: center;">
+				<h1>Q&A</h1>
+				<hr>
+			</div>
+			<!-- 작성자, 제목 영역 -->
+			<div id="title-wirter-area" class="row" style="padding: 0 30px;">
+				<div id="title-area" class="col-md-10">
+					<h2>
+						<c:if test="${qa.qaSecret == true}">
+							<svg xmlns="http://www.w3.org/2000/svg" width="2rem"
+								height="2rem" fill="currentColor" class="bi bi-lock"
+								viewBox="0 0 16 16" style="margin-bottom: 10px;">
+ 					 <path
+									d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+					</svg>
+						</c:if>
+						${qa.qaTitle }
+					</h2>
+				</div>
+				<!-- 타이틀 영역 종료 -->
+				<!-- 글쓴이 영역 -->
+				<div id="writer-area" class="col-md-2">
+					<h4>작성자 : ${qa.memberEmail }</h4>
+				</div>
+				<!-- 글쓴이 영역 종료 -->
+			</div>
+			<!-- 작성자 제목 영역 종료 -->
+
+			<!-- 내용영역 -->
+			<article>
+				<div id="contents-area" class="row">
+					<div id="date-button-area" class="py-10 row">
+						<hr style="margin: 2px">
+						<div id="date area" class="col-md-10" style="padding: 1em;">
+							${qa.qaInsertDate }</div>
+						<div class="col-md-2 row"
+							style="text-align: center; padding: 1em;">
+							<div class="col-6">
+								<button
+									onclick="location.href='/qna/modifyView.do?qaNo=${qa.qaNo}'"
+									class=" btn btn-outline-primary" style="width: 100%">수정</button>
+							</div>
+							<div class="col-6">
+								<button onclick="location.href='/qna/remove.do?qaNo=${qa.qaNo}'"
+									class="btn btn-outline-primary" style="width: 100%">삭제</button>
+
+							</div>
+
+						</div>
+					</div>
+					<!-- 버튼 날짜영역종료 -->
+
+					<!-- 본문내용 -->
+					<div id="maincontents-area" class="container" style="">
+
+						${qa.qaContents }
 
 
 
-<c:if test="${qa.qaFile1Rename ne null}">
-<img src="/resources/qnaImg/${qa.qaFile1Rename}">
-</c:if>
-<c:if test="${qa.qaFile2Rename ne null}">
-<img src="/resources/qnaImg/${qa.qaFile2Rename}">
-</c:if>
-<c:if test="${qa.qaFile3Rename ne null}">
-<img src="/resources/qnaImg/${qa.qaFile3Rename}">
-</c:if>
-<c:if test="${qa.qaFile4Rename ne null}">
-<img src="/resources/qnaImg/${qa.qaFile4Rename}">
-</c:if>
-<c:if test="${qa.qaFile5Rename ne null}">
-<img src="/resources/qnaImg/${qa.qaFile5Rename}">
-</c:if> 
 
-<button onclick="location.href='/qna/List.do'">목록으로</button>
-<button onclick="location.href='/qna/modifyView.do?qaNo=${qa.qaNo}'">수정하기</button>
-<button onclick="location.href='/qna/remove.do?qaNo=${qa.qaNo}'">삭제하기</button>
+						<c:if test="${qa.qaFile1Rename ne null}">
+							<div class="img-file">
+								<img src="/resources/qnaImg/${qa.qaFile1Rename}">
+							</div>
+						</c:if>
+						<c:if test="${qa.qaFile2Rename ne null}">
+							<div class="img-file">
+								<img src="/resources/qnaImg/${qa.qaFile2Rename}">
+							</div>
+						</c:if>
+						<c:if test="${qa.qaFile3Rename ne null}">
+							<div class="img-file">
+								<img src="/resources/qnaImg/${qa.qaFile3Rename}">
+							</div>
+						</c:if>
+						<c:if test="${qa.qaFile4Rename ne null}">
+							<div class="img-file">
+								<img src="/resources/qnaImg/${qa.qaFile4Rename}">
+							</div>
+						</c:if>
+						<c:if test="${qa.qaFile5Rename ne null}">
+							<div class="img-file">
+								<img src="/resources/qnaImg/${qa.qaFile5Rename}">
+							</div>
+						</c:if>
 
 
-<article id="reply-area">
+
+					</div>
+					<!-- 본문내용 종료 -->
+				</div>
+				<!-- 내용영역 종료 -->
+			</article>
+
+
+
+			<article id="reply-area">
 				<div id="article3-area">
 					<hr>
 
@@ -84,7 +163,7 @@ q&a번호: ${qa.qaNo }
 										class="shadow-lg p-3 mb-5 bg-body rounded mt-4 text-justify">
 										<div id="comment-row" class="row">
 											<div id="comment-writer" class="col-md-10">
-												<h4>${qcList.memberEmail }</h4>
+												<h4>${qcList.memberEmail }작성자</h4>
 											</div>
 											<div id="comment-button" class="col-md-2"
 												style="text-align: right">신고</div>
@@ -97,7 +176,9 @@ q&a번호: ${qa.qaNo }
 											style="text-align: right">
 											<button type="button" onclick="modifyViewOn(this);"
 												class="btn btn-outline-primary">수정</button>
-											<button onclick="removeComment(${qcList.qaCommentNo},${qcList.qaNo} );" class="btn btn-outline-primary">삭제</button>
+											<button
+												onclick="removeComment(${qcList.qaCommentNo},${qcList.qaNo} );"
+												class="btn btn-outline-primary">삭제</button>
 
 										</div>
 
@@ -112,9 +193,9 @@ q&a번호: ${qa.qaNo }
 								<div id="comment-modify-area" class="row my-2">
 									<input type="hidden" value="${qcList.memberEmail }"
 										name="memberEmail"> <input type="hidden"
-										value="${qcList.qaNo }" name="qaNo">
-										<input type="hidden"
-										value="${qcList.qaCommentNo }" name="qaCommentNo">
+										value="${qcList.qaNo }" name="qaNo"> <input
+										type="hidden" value="${qcList.qaCommentNo }"
+										name="qaCommentNo">
 									<div id="comment-textarea" class="col-md-11">
 										<!-- 세션에서 사용자 id가지고 올것 -->
 										<div class="form-floating">
@@ -145,15 +226,14 @@ q&a번호: ${qa.qaNo }
 
 					<form action="/qna/commentWrite.do" method="post">
 						<div id="comment-write-area" class="row">
-							<input type="hidden" value="" name="memberEmail">
-							 <input type="hidden" value="${qa.qaNo }" name="qaNo">
-							 <input type="hidden" value="0" name="qaCommentNo">
+							<input type="hidden" value="" name="memberEmail"> <input
+								type="hidden" value="${qa.qaNo }" name="qaNo"> <input
+								type="hidden" value="0" name="qaCommentNo">
 							<div id="comment-textarea" class="col-md-11">
 								<!-- 세션에서 사용자 id가지고 올것 -->
 								<div class="form-floating">
 									<textarea name="qaCommentContents" class="form-control"
-										placeholder="" id="floatingTextarea2"
-										style="height: 100px"></textarea>
+										placeholder="" id="floatingTextarea2" style="height: 100px"></textarea>
 									<label for="floatingTextarea2">댓글을 등록해주세요</label>
 								</div>
 							</div>
@@ -178,9 +258,15 @@ q&a번호: ${qa.qaNo }
 		</div>
 		</article>
 		<!-- 아티클 전체 들어감 -->
+		<div id="list-button-area" style="text-align:center; margin:10px">
+		<button onclick="location.href='/qna/List.do'"class="btn btn-outline-primary" style="width:20rem">목록으로</button>
+		</div>
+		</div>
+		<!-- 전체 감싸는 div종료 -->
+	</section>
 
 
-<script>
+	<script>
 
 
 
@@ -218,4 +304,5 @@ function removeComment(commentNo,qaNo) {
 
 
 </body>
+
 </html>

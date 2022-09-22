@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${recipe.recipeName }</title>
 </head>
 <body>
@@ -12,8 +14,20 @@
 	<style>
 #imgDiv {
 	width: 100%;
-	height: 500px;
+	height: 27rem;
 	overflow: hidden;
+}
+
+@media (max-width: 500px) {
+ #imgDiv {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+iframe{
+height: auto;
+}
+
 }
 
 #mainImg {
@@ -155,7 +169,7 @@
 						<div id="youtube-area" class="col-md-12 p-3">
 							<!-- 비디오 주소를 입력했을때만-->
 							<c:if test="${recipe.recipeVideo ne null }">
-								<iframe width="560" height="315" src="${recipe.recipeVideo}"
+								<iframe width="100%" height="400em" src="${recipe.recipeVideo}"
 									title="YouTube video player" frameborder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 									allowfullscreen></iframe>

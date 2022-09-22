@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Q&A게시판</title>
 
 <link
@@ -18,6 +20,14 @@
 	crossorigin="anonymous"></script>
 
 <style>
+
+
+@media (max-width: 500px) {
+#title-cell{
+width:65% !important;
+}
+
+}
 a {
 	text-decoration: none;
 	color: black;
@@ -44,13 +54,13 @@ a {
 						<button onclick="checkRemove()" class="btn btn-outline-primary">삭제</button>
 					</div>
 
-					<div class="col-6" id="search">
+					<div class="col-md-6" id="search">
 						<!-- 검색영역 -->
 						<!-- 검색창시작 -->
 						<form action="/qna/search.do" method="get">
 							<div class="row" id="searchArea">
 								<!-- 검색 카테고리 -->
-								<div class="col-2 p-1"" id="searchSelector">
+								<div class="col-md-2 p-1"" id="searchSelector">
 									
 										<select class="form-select" id="floatingSelectGrid"
 											name="searchCondition">
@@ -65,7 +75,7 @@ a {
 								</div>
 								<!-- 검색 카테고리 종료 -->
 								<!-- 검색어입력창 -->
-								<div class="row col-8 p-1">
+								<div class="row col-md-8 p-1">
 									<div class="col-md">
 									
 											<input type="text" name="searchValue" class="form-control"
@@ -98,11 +108,11 @@ a {
 				<table class="col-12 table table-striped mt-2" style="text-align: center">
 					<tr class="" >
 						<td style="width:5%"></td>
-						<td style="width:16%">번호</td>
-						<td style="width:20%">카테고리</td>
-						<td style="width:40%">제목</td>
+						<td style="width:16%" class="d-md-table-cell d-none" >번호</td>
+						<td style="width:20%"  class="d-md-table-cell d-none">카테고리</td>
+						<td style="width:40%" id="title-cell">제목</td>
 						<td>글쓴이</td>
-						<td>작성일</td>
+						<td  class="d-md-table-cell d-none">작성일</td>
 					</tr>
 
 					<c:forEach items="${qList }" var="qList">
@@ -112,10 +122,10 @@ a {
 								value="${qList.qaNo }">
 							</td>
 							<!-- 삭제용 체크 박스 종료 -->
-							<td>${qList.qaNo }</td>
-							<td><c:if test="${qList.qaCategory eq 'Qsystem'}">시스템 문의</c:if>
-								<c:if test="${qList.qaCategory eq 'Qrecipe'}">레시피 문의</c:if> <c:if
-									test="${qList.qaCategory eq 'Qother'}">기타 문의</c:if></td>
+							<td  class="d-md-table-cell d-none">${qList.qaNo }</td>
+							<td  class="d-md-table-cell d-none"><c:if test="${qList.qaCategory eq 'Qsystem'}">시스템 문의</c:if>
+								<c:if test="${qList.qaCategory eq 'Qrecipe'}">레시피 문의</c:if>
+								 <c:if test="${qList.qaCategory eq 'Qother'}">기타 문의</c:if></td>
 
 
 
@@ -129,7 +139,7 @@ a {
 									</c:if> ${qList.qaTitle }
 							</a></td>
 							<td>${qList.memberEmail }</td>
-							<td>${qList.qaInsertDate }</td>
+							<td  class="d-md-table-cell d-none">${qList.qaInsertDate }</td>
 						</tr>
 					</c:forEach>
 
