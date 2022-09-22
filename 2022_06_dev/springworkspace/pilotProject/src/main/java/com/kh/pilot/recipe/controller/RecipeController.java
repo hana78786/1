@@ -184,7 +184,7 @@ public class RecipeController {
 		try {
 			List<Recipe> rList = rService.printRecipeList(0, 0);
 			mv.addObject("rList", rList);
-			mv.setViewName("/recipe/recipeList");
+			mv.setViewName("/recipe/recipeSearchList");
 		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
 			mv.setViewName("common/error");

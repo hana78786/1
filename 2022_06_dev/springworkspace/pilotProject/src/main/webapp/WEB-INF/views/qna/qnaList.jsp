@@ -54,8 +54,8 @@ a {
 						<button onclick="checkRemove()" class="btn btn-outline-primary">삭제</button>
 					</div>
 
-					<div class="col-md-6" id="search">
 						<!-- 검색영역 -->
+					<div class="col-md-6" id="search">
 						<!-- 검색창시작 -->
 						<form action="/qna/search.do" method="get">
 							<div class="row" id="searchArea">
