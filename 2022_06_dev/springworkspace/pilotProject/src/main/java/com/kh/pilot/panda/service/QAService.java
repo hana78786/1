@@ -17,6 +17,10 @@ public interface QAService {
 
 	public QA  printOneQANo(int qaNo) ;
 
-	public  List<QAComment> allQACommentList(int currentPage, int limit);
+	public  List<QAComment> allQACommentList(int currentPage, int limit, int qaNo);
+
+	public int getTotalCount(String searchCondition, String searchValue);
+
+	public List<QA> printAllByValue(String searchCondition, String searchValue, int currentPage, int boardLimit);
 
 }

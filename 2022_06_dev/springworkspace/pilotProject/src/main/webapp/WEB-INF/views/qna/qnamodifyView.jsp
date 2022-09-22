@@ -189,7 +189,7 @@
 				<input type="submit" class="btn btn-outline-primary"  value="수정" style="width: 50%">
 				</div>
 				<div id="cancle-area" class="col-md-6" style="text-align:center ">
-				<button type="button" class="btn btn-outline-primary" style="width: 50%">취소</button>
+				<button type="button" class="btn btn-outline-primary" style="width: 50%" onclick="javascript:history.back();">취소</button>
 				</div>
 			</div>
 			<!-- 하단영역종료 -->

@@ -16,6 +16,7 @@
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeTag" alias="RecipeTag"/>
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeComment" alias="RecipeComment"/>
 	<typeAlias type="com.kh.pilot.panda.domain.QA" alias="QA"/>
+	<typeAlias type="com.kh.pilot.panda.domain.QAComment" alias="QAComment"/>
 
 </typeAliases>
 
