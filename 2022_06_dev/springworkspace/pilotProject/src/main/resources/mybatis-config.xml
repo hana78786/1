@@ -15,6 +15,7 @@
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeMaterial" alias="RecipeMaterial"/>
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeTag" alias="RecipeTag"/>
 	<typeAlias type="com.kh.pilot.recipe.domain.RecipeComment" alias="RecipeComment"/>
+	<typeAlias type="com.kh.pilot.panda.domain.QA" alias="QA"/>
 
 </typeAliases>
 
@@ -23,5 +24,6 @@
 <mappers>
 <mapper resource="mappers/member-mapper.xml"></mapper>
 <mapper resource="mappers/recipe-mapper.xml"></mapper>
+<mapper resource="mappers/qna-mapper.xml"></mapper>
 </mappers>
 </configuration>
