@@ -70,6 +70,15 @@
 
 </update>
 
+<update id="recomandPlus">
+update recipe_tbl set RECOMMAND_COUNT = RECOMMAND_COUNT+1 where RECIPE_NO = #{recipeNo}
+</update>
+
+<update id="recomandMinus">
+update recipe_tbl set RECOMMAND_COUNT = RECOMMAND_COUNT-1 where RECIPE_NO = #{recipeNo}
+
+</update>
+
 <delete id="deleteOneMaterial">
 	delete recipe_material  where RECIPE_NO = #{recipeNo} and MATERIAL_ORDER = #{materialOrder}
 	
@@ -153,6 +162,29 @@
 	<select id="selectOneRStep" resultMap="RecipeStepResultMap">
 		select * from recipe_Step where recipe_no = #{recipeNo} order by RECIPE_ORDER
 	</select>
+	
+	
+<!-- 레시피 추천영역 -->
+
+<insert id="insertRecommand">
+	insert into RECOMMANDATION values(#{recipeNo},#{memberEmail},default)
+</insert>
+
+<delete id="deleteRecommand">
+	delete RECOMMANDATION where RECIPE_NO = #{recipeNo} and MEMBER_EMAIL=#{memberEmail}
+
+</delete>
+
+<resultMap type="Recommandation" id="RecommandResultMap">
+	<id property="recipeNo" 				column="RECIPE_NO" />
+	<result property="memberEmail"			column="MEMBER_EMAIL" />
+
+	</resultMap>
+
+
+
+
+
 
 
 <!--  레시피 코멘트 영역-->
@@ -184,6 +216,13 @@ update recipe_comment set COMMNET_CONTENTS=#{commentContents} where COMMENT_NO =
 <select id="selectCommentList" resultMap="RecipeCommentResultMap">
 select * from recipe_comment where RECIPE_NO = #{recipeNo} order by COMMENT_NO
 </select>
+
+<select id="selectCommentCount" resultType="_int">
+
+select count(*) from recipe_comment where RECIPE_NO = #{recipeNo}
+
+</select>
+
 
 
 

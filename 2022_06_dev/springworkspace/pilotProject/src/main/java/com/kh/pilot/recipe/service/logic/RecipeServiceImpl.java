@@ -62,8 +62,8 @@ public class RecipeServiceImpl implements RecipeService{
 /** 댓글 출력*/
 	
 	@Override
-	public List<RecipeComment> printRecipeCommentList(int recipeNo) {
-		List<RecipeComment> rcList = rStore.selectRecipeCommentList(recipeNo, session);
+	public List<RecipeComment> printRecipeCommentList(int recipeNo, int currentPage, int limit) {
+		List<RecipeComment> rcList = rStore.selectRecipeCommentList(recipeNo, session, currentPage,limit);
 		return rcList;
 	}
 
@@ -79,16 +79,18 @@ public class RecipeServiceImpl implements RecipeService{
 		return 0;
 	}
 
+	/**레시피 추천*/
 	@Override
 	public int setRecommand(Recommandation recommand) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result= rStore.insertRecommand(recommand, session);
+		
+		return result;
 	}
 
 	@Override
 	public int removeRecommand(Recommandation recommand) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = rStore.deleteRecommand(recommand, session);
+		return result;
 	}
 
 	/**레시피수정*/
@@ -185,6 +187,14 @@ public class RecipeServiceImpl implements RecipeService{
 public List<Recipe> recomadRecipe(String recipeCategory) {
 	List<Recipe> RecommandList = rStore.selectRecomandRecipe(session,recipeCategory);
 	return RecommandList;
+}
+
+/**댓글 갯수 가져오기*/
+@Override
+public int getTotalCount(int recipeNo) {
+	int count = rStore.selectTotalCount(session,recipeNo);
+	return count;
+
 }
 	
 	
