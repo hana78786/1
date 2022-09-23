@@ -59,7 +59,8 @@ public class RecipeServiceImpl implements RecipeService{
 		int result = rStore.insertMaterial(rmList, session);
 		return result;
 	}
-
+/** 댓글 출력*/
+	
 	@Override
 	public List<RecipeComment> printRecipeCommentList(int recipeNo) {
 		List<RecipeComment> rcList = rStore.selectRecipeCommentList(recipeNo, session);
@@ -176,5 +177,16 @@ public class RecipeServiceImpl implements RecipeService{
 		int result = rStore.deleteOneImg(session, picName);
 		return result;
 	}
+
+/***
+ * 추천레시피 불러오기
+ */
+@Override
+public List<Recipe> recomadRecipe(String recipeCategory) {
+	List<Recipe> RecommandList = rStore.selectRecomandRecipe(session,recipeCategory);
+	return RecommandList;
+}
+	
+	
 
 }

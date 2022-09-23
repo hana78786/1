@@ -97,8 +97,11 @@ padding-left:1.5em !important;
 #recipe-button .col-md-12 .col-md-6{
 padding-left:0 !important;
 }
+
+
 }
 
+/* --미디어 쿼리 종료 */
 
 body {
 
@@ -116,6 +119,11 @@ padding:0.5em;
 
 #article-area2{
 justify-content: space-evenly
+}
+
+a{
+text-decoration:none;
+color:black;
 }
 
 </style>

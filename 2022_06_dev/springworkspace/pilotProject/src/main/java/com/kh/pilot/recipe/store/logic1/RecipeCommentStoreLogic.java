@@ -10,13 +10,18 @@ import com.kh.pilot.recipe.store.RecipeCommentStore;
 public class RecipeCommentStoreLogic implements RecipeCommentStore {
 	
 	
-
+/**
+ * 댓글 입력
+ */
 	@Override
 	public int insertRecipeComment(RecipeComment rComment, SqlSessionTemplate session) {
 		int result = session.insert("RecipeMapper.insertRecipeComment",rComment);
 		return result;
 	}
 
+	/**
+	 * 댓글 수정
+	 */
 	@Override
 	public int updateOneRecipeComment(RecipeComment rComment, SqlSessionTemplate session) {
 		int result= session.update("RecipeMapper.updateOneComment",rComment);
@@ -24,6 +29,9 @@ public class RecipeCommentStoreLogic implements RecipeCommentStore {
 		return result;
 	}
 
+	/**
+	 * 댓글 삭제
+	 */
 	@Override
 	public int deleteOneRecipeComment(int commentNo, SqlSessionTemplate session) {
 		int result = session.delete("RecipeMapper.deleteOneRecipeComment",commentNo);

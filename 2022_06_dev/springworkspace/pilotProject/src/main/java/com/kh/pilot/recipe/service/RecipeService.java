@@ -55,5 +55,7 @@ public interface RecipeService {
 
 	public int removeOneImg(String picName);
 
+	public List<Recipe> recomadRecipe(String recipeCategory);
+
 
 }

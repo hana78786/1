@@ -239,7 +239,7 @@ a {
 
 
 						<div class="card col-md-3 m-3" style="width: 18rem;">
-							<div cclass="img-area" id="normal-img-area">
+							<div class="img-area" id="normal-img-area">
 								<img src="/resources/recipeImg/${recipe.mainPicRename }"
 									class="card-img-top" alt="">
 							</div>
