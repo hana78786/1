@@ -1,0 +1,595 @@
+header{
+ width:100%;
+ height: 10rem;
+ background-color: rgba(253, 252, 247, 0.554);
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ position:fixed;
+ z-index: 9;
+
+}
+
+
+article{
+    margin: 0 auto;
+    padding:0;
+    width: 100%;
+}
+
+#first-articl-area{
+    background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
+    background-attachment: fixed;
+    background-repeat : no-repeat;
+    background-size : cover;
+    width: 100%;
+    height: 70rem;
+    
+}
+
+#second-article-area{
+
+    background-color: black;
+    width: 100%;
+    height:3rem;
+    margin: 0 auto;
+    
+}
+
+#notice-area{
+    color:aliceblue;
+    font-weight: 600;
+    font-family: 'Poor Story';
+    margin-top: 1rem;
+    overflow: hidden;
+    height: 1.5rem;
+}
+
+#event-area{
+    background-color: aliceblue;
+    height: 100%;
+    font-family: 'Poor Story';
+    padding-top: 1rem;
+    font-weight: 600;
+    width: 50%;
+    margin-right: 0;
+
+}
+#notice-title-area{
+    font-family: 'Poor Story';
+    font-weight: 600;
+    text-align: right;
+}
+
+ul{
+    font-family: 'Poor Story';
+    animation: uplist 8s ease-in-out;
+    animation-iteration-count: infinite;
+
+
+}
+#pola-img .btn:hover{
+    background-color: #FFCD4A !important;
+}
+
+li{
+    list-style: none;
+}
+#article3{
+    width: 100%; 
+    height:40rem; 
+    background-image: url('/resourcess/img/wood-g2043bfcae_1920.jpg');
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0 auto;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+
+}
+#article3>div{
+  
+    font-size: 4.5rem;
+   
+    text-align: left;
+    
+  
+}
+#article3>.col-5{
+    padding-left: 400px;
+    
+}
+
+
+.text{
+    position: absolute;
+    
+}
+
+.text1{
+    position: absolute;
+    
+}
+
+
+@keyframes slide {
+    from{
+        opacity: 0;
+        left:-500px;
+
+
+    }
+
+    to{
+        opacity: 1;
+        left: 400px;
+    }
+    
+}
+
+@keyframes slide1 {
+    from{
+        opacity: 0;
+        left:-500px;
+
+
+    }
+
+    to{
+        opacity: 1;
+        left: 780px;
+    }
+    
+}
+
+@keyframes slide-no {
+    from{
+        opacity: 1;
+        left: 400px;
+
+
+    }
+
+    to{
+        opacity: 0;
+        left:-500px;
+    }
+    
+}
+
+@keyframes uplist {
+   0% {
+   opacity: 3;
+   transform: translateY(1.5rem);
+       }
+   8% {
+   opacity: 3;
+   transform: translateY(1.5rem);
+       }
+
+   16%{
+    opacity: 3;
+    transform: translateY(0rem);
+   
+   }
+   24% {
+    opacity: 3;
+   transform: translateY(0rem);
+   }
+   32%{
+    opacity: 3;
+    transform: translateY(-1.5rem);
+   }
+   40%{
+    opacity: 3;
+    transform: translateY(-1.5rem);
+   }
+   48%{
+    opacity: 3;
+    transform: translateY(-3rem);
+
+   }
+   56%{
+    opacity: 3;
+    transform: translateY(-3rem);
+
+   }
+   64%{
+    opacity: 3;
+    transform: translateY(-4.5rem);
+
+   }
+   72%{
+    opacity: 3;
+    transform: translateY(-4.5rem);
+
+   }
+   80%{
+    opacity: 3;
+    transform: translateY(-6rem);
+
+   }
+   88%{
+    opacity: 3;
+    transform: translateY(-6rem);
+
+   }
+   96%{
+    opacity: 3;
+    transform: translateY(-7.5rem);
+
+   }
+   100%{
+    opacity: 3;
+    transform: translateY(-7.5rem);
+
+   }
+   
+}
+   
+ 
+
+footer{
+
+    width: 100%;
+    height: 100rem;
+    background-color: darkcyan;
+}
+
+div{
+    text-align: center;
+    height: 100%;
+    margin:0 auto;
+    font-family: 'Roboto Mono', monospace;
+}
+img{
+    width: auto ;
+    height: 100%;
+
+}
+#menu-area{
+
+    text-align:center;
+}
+
+
+
+.li{
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 6rem;
+    font-size: 1.5rem;
+}
+
+#search-area{
+    padding-top: 6rem;
+
+}
+#img-area{
+    position: relative;
+
+}
+#first-img{
+    width:20%;
+    height: auto;
+    position: absolute;
+    left: 550px;
+    top: 200px;
+    z-index: 10;
+
+
+    animation: fadein 2s;
+  
+    -moz-animation: fadein 2s;
+   
+    /* Firefox */
+    -webkit-animation: fadein 2s;
+    
+    /* Safari and Chrome */
+    -o-animation: fadein 2s;
+    
+    /* Opera */
+   
+
+}
+
+#second-img{
+    width:30%;
+    height: auto;
+    position: absolute;
+    left: 650px;
+    top: 400px;
+    z-index: 10;
+
+   
+    animation: fadein 3s;
+    -moz-animation: fadein 3s;
+    /* Firefox */
+    -webkit-animation: fadein 3s;
+    /* Safari and Chrome */
+    -o-animation: fadein 3s;
+    /* Opera */
+
+}
+
+#third-img{
+
+    width:35%;
+    height: auto;
+    position: absolute;
+    left: 250px;
+    top: 600px;
+    z-index: 10;
+
+
+   
+    animation: fadein 5s;
+    
+    -moz-animation: fadein 5s;
+    /* Firefox */
+    
+    -webkit-animation: fadein 5s;
+    /* Safari and Chrome */
+   
+    -o-animation: fadein 5s;
+    /* Opera */
+}
+
+#secret-area{
+    background-color: aliceblue;
+    height: 30rem;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+
+
+}
+.card{
+    height: 400px;
+
+}
+#pola-img{
+
+    overflow: hidden;
+}
+#pola-img>img:hover,.li:hover{
+    transform: scale(1.1);
+    transition: 1s;
+
+
+}
+
+#article3 img{
+    width: 100%;
+    height: auto;
+}
+
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.smallmenu{
+    background-color: rgba(253, 252, 247, 0.554);
+    width: 100%;
+    opacity: 0;
+    position: abposition;
+    height: 0
+}
+
+
+
+@media all and (max-width: 500px) {
+    #first-img{
+        width: 70%;
+        height: auto;
+        position: absolute;
+        left: 0px;
+        top: 300px;
+        z-index: 10;
+    
+
+    
+    }
+    
+    #second-img{
+        width:90%;
+        height: auto;
+        position: absolute;
+        left: 0px;
+        top: 500px;
+        z-index: 10;
+    
+
+    
+    }
+    
+    #third-img{
+    
+        width:100%;
+        height: auto;
+        position: absolute;
+        left: 0px;
+        top: 800px;
+        z-index: 10;
+
+    }
+
+    #search-area{
+        padding-top: 0rem;
+    
+    }
+
+    .li{
+        font-family: 'Roboto Mono', monospace;
+        padding-top: 0rem;
+        font-size: 1.5rem;
+        height: 50px;
+
+    }
+    #menu-area{
+
+        height: 50px;
+    }
+
+    header{
+        height: 20rem;
+    }
+
+    img{
+        width: 50% ;
+        height: auto;
+       
+    
+    }
+    #logo-area{
+        height: 200px;
+    }
+
+    #first-articl-area{
+
+        height: 70rem;
+    }
+    #second-article-area{
+        height: 3rem;
+    }
+    #evet-area{
+        width: 100%;
+    }
+
+    svg,[type="text"],#search-text-area,#search-area{
+        height: 50px;
+    }
+    #event-area{
+        margin-left: 0px;
+        width: 100%;
+
+    }
+    #notice-title-area{
+        text-align: left;
+    }
+    #secret-area{
+        display: block; 
+        justify-content:'';
+        height: 100rem;
+        display: flex;justify-content: flex-end;flex-direction: column;align-items: center;
+
+
+        
+    }
+    #logo-area{
+        width: 100px;
+        height: auto;
+    }
+    #header-area>.row{
+        align-content: flex-start;
+    }
+    header{
+        height: 200px;
+    }
+
+    @keyframes slide {
+        from{
+            opacity: 0;
+            ;
+    
+    
+        }
+    
+        to{
+            opacity: 1;
+            ;
+        }
+        
+    }
+    
+    @keyframes slide1 {
+        from{
+            opacity: 0;
+            ;
+    
+    
+        }
+    
+        to{
+            opacity: 1;
+            ;
+        }
+        
+    }
+    
+    @keyframes slide-no {
+        from{
+            opacity: 1;
+           ;
+    
+    
+        }
+    
+        to{
+            opacity: 0;
+           ;
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+
+  }
+  

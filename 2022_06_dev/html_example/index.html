@@ -11,33 +11,45 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poor+Story:400" rel="stylesheet">
+
+<script src="./resourcess/js/index.js"></script>
 
 </head>
 
-<link rel="stylesheet" href="./resourcess/style.css">
+<link rel="stylesheet" href="./resourcess/css/style.css">
 <body>
     <header>
         <div id="header-area" class="container">
             <div class="row">
                 <div id="logo-area" class="col-md-3">  
-                    <img src="/resourcess/img/rogo-001.png">
+                    <img src="/resourcess/img/rogo-001.png" >
                 </div>
                 <div id="menu-area" class="col-md-7 row">
                    
-                        <div class="col-4 li">DriNk</div>
-                        <div class="col-4 li">MeAl</div>
-                        <div class="col-4 li">dEesseRt</div>
+                        <div class="col-4 li" id="drink">DriNk
+                            
+                        </div>
 
-                    
+                        <div class="col-4 li"id="meal">MeAl
+                           
+
+                        </div>
+                        <div class="col-4 li"id="dessert">dEsseRt
+                            
+
+                        </div>
+
+                     
                 </div>
                 <div id="search-area" class="col-md-2 row">
                     <div class="col-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="darkcyan" class="bi bi-search-heart" viewBox="0 0 16 16">
                             <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
                             <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
                         </svg> 
                     </div>
-                    <div class="col-9">    
+                    <div class="col-9" id="search-text-area">    
                         <input type="text" class="form-control">
                     </div>
             </div>
@@ -45,15 +57,117 @@
         </div>
     </header>
     <main>
-        <div id="img-area">
+        <section>
+            <article id="first-articl-area">
 
-            <img src="./resourcess/img/food-g2c81c5036_1280.png" id="first-img">
-        </div>
+                <div id="img-area container">
+                    
+                    <img src="./resourcess/img/food-g2c81c5036_1280.png" id="first-img">
+                    <img src="./resourcess/img/cocktail-g3259db902_1920.png" id="second-img">
+                    <img src="./resourcess/img/birthday-cake-g399104801_1280.png" id="third-img">
+                </div>
+            </article>
+            <article>
+                <div id="second-article-area" class="row" >
+                   
+               
+                    <div class="col-md-6 row col-12" id="notice-area">
+                        <div class="col-md-6 col-12" id="notice-title-area">
 
+                            고객센터
+                        </div>
+                        <div class="col-md-6 col-12" id="notice-li-area">
+                            <ul>
+                                <li>맛있는 레시피를 만드는 방법</li>
+                                <li>아이디를 찾을 수 없을 때</li>
+                                <li>회원가입은 어떻게 할수있나요?</li>
+                                <li>수집하는 개인정보</li>
+                                <li>우리 할머니가 만든 수제파이의 비밀</li>
+
+                            </ul>
+
+                        </div>
+                    
+                    
+                    </div>
+                    <div class="col-md-6 col-12" id="event-area">추천 레시피
+                        <svg id="down-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="darkcyan" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                        </svg>
+
+                        <svg id="up-icon" style="display:none" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="darkcyan" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                    </div>
+                    <div class="" id="secret-area" style="display: none;">
+                        
+                        <div class="card float-start m-5" style="width: 18rem;">
+                            <img src="./resourcess/img/macarons-g51353eac7_640.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Lorem, ipsum.</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, eos.</p>
+                            <a href="#" class="btn btn-outline-success">Go recipe</a>
+                            </div>
+                        </div>
+
+                        <div class="card  float-start m-5" style="width: 18rem;">
+                            <img src="./resourcess/img/breakfast-gfabc7f2c4_640.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Lorem, ipsum.</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit cupiditate alias possimus.</p>
+                            <a href="#" class="btn btn-outline-success">Go recipe</a>
+                            </div>
+                        </div>
+
+                        <div class="card  float-start m-5" style="width: 18rem;">
+                            <img src="./resourcess/img/berry-gc21ba96b5_640.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Lorem.</h5>
+                            <p class="card-text text-truncate"  style="max-width: 150px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique non quibusdam debitis quas, repellendus omnis inventore voluptatibus amet tempore dicta animi hic ab numquam neque quam soluta iste odit magni.</p>
+                            <a href="#" class="btn btn-outline-success">Go recipe</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    
+                    <article id="article3" class="row">
+                        
+                        <div class="col-5">
+                            <div class="text">
+                                cReate
+                                <br> 
+                                yoUr
+                                <br>
+                                REciPe!
+                            </div>
+                        </div> 
+                        <div class="col-1">
+                            <div class="text1">
+
+                                <br>
+                                ⇉
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-6" id="pola-img">
+                            <img src="resourcess/img/polaroid-gf0b3f934b_640.png" >  
+                            <br>
+                            <button type="button" class="btn" style="background-color: white;">Write Recipe</button> 
+                        </div> 
+                        
+                      
+                    </article>
+                    
+                </article>
+                
+            
+        </section>
+        
 
     </main>
     <footer>
-
+나
     </footer>
 </body>
 </html>
