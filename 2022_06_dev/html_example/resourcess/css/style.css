@@ -225,13 +225,27 @@ li{
    
 }
    
- 
+a{
+    text-decoration: none;
+    color:black;
+}
+ hr{
+    margin: 0;
+ }
 
 footer{
-
+    color:black;
+    
     width: 100%;
-    height: 100rem;
-    background-color: darkcyan;
+    height: 10rem;
+    background-color: rgba(253, 252, 247, 0.554);
+   
+   
+}
+
+footer>.col:not(:last-child){
+      
+    border-right: 1px solid lightgray;
 }
 
 div{
@@ -336,6 +350,7 @@ img{
     background-color: aliceblue;
     height: 30rem;
     width: 100%;
+    z-index: 100;
     
     display: flex;
     justify-content: center;
@@ -425,6 +440,40 @@ img{
     position: abposition;
     height: 0
 }
+
+#blank-area{
+
+    text-align: center;
+}
+#blank-img{
+    width:30%; 
+    height:auto;
+}
+#blank-img2{
+    width:30%; 
+    height:auto;
+}
+#blank-text-area{
+    opacity: 0;
+}
+
+
+#blank-area:hover #blank-text-area{
+    opacity: 1; 
+    transition-duration: 1s;
+}
+
+#last-area{
+    text-align: center;
+    padding-top: 10rem;
+    color:aliceblue;
+    height: 40rem;
+    background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif;
+}
+
 
 
 

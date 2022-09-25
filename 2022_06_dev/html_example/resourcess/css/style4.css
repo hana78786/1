@@ -1,0 +1,270 @@
+header{
+ width:100%;
+ height: 10rem;
+ background-color: rgba(253, 252, 247, 0.554);
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ position:fixed;
+ z-index: 9;
+ top: 0px;
+
+ 
+
+
+}
+
+#pola-img>img:hover,.li:hover{
+    transform: scale(1.1);
+    transition: 1s;
+
+
+}
+
+h4,#comment-text-area{
+    text-align: left;
+}
+
+div,h1{
+    font-family: 'Black Han', sans-serif;
+}
+#contents-area,#title-wirter-area{
+    background-color: rgba(253, 252, 247, 0.554);
+
+}
+
+article{
+    margin: 0 auto;
+    padding:0;
+    width: 100%;
+}
+
+section{
+   padding-top: 10rem;
+   
+   margin-top: 0px !important;
+
+   background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   font-family: 'Open Sans', sans-serif;
+   
+   
+
+}
+
+
+
+@media ( max-width : 500px) {
+	#button-area {
+		text-align: center;
+	}
+}
+
+#serach-title-area {
+	text-align: center;
+	margin: 3rem 0;
+}
+
+#write-icon {
+	position: fixed;
+	top: 6%;
+	left: 6%;
+	z-index: 99;
+}
+
+#jo:hover, #dun:hover {
+	background-color: rgb(101, 241, 46);
+}
+
+#chu:hover {
+	background-color: rgb(154, 0, 192);
+}
+
+.card {
+	border: 0 !important;
+	text-align: center;
+    margin: 10px !important;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.img-area {
+	width: 100%;
+	
+    height: 20;
+
+	overflow: hidden;
+}
+
+.normal-img-area {
+	width: 80%;
+	height: 10em;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.normal-card-body {
+	padding: 2px;
+}
+
+#wirte-icon-area:hover {
+	cursor: pointer
+	
+}
+
+
+@media (max-width: 500px) {
+    label{
+    padding: 0px;
+    
+    }
+    #up-area-left{
+    padding: 0px;
+    margin:0 auto;
+    }
+    .input-file-button{
+    padding: 0px;
+    margin:0 auto;
+    }
+    
+    #output{
+    width:100%;
+    height:auto;
+    }
+    
+    #recipe-wrtie-from{
+    padding: 0px;
+    margin:0 auto;
+    }
+    .overflow-hidden{
+    font-size:0.8em;
+    }
+    .container{
+    padding: 0px;
+    margin:0 auto;
+    
+    }
+    .float-md-start{
+    padding: 0px;
+    margin:0 auto;
+    }
+    
+    .form-floating{
+    
+    padding: 0px;
+    margin:0 auto;
+    }
+    
+    .ms-1,.me-1{
+    padding: 0px !important;
+    margin:0 auto !important;
+    margin-bottom : 1em !important;
+    }
+    
+    [name="recipeDescription"]{
+    height: 15rem !important;
+    width: 100% !important;
+    }
+    #article2-area{
+    padding: 0px !important;
+    margin:0 auto !important;
+    }
+    
+    .detailImg{
+    width:100%;
+    height:auto;
+    }
+    
+    .container-md{
+    padding: 0px !important;
+    }
+    .pt-3{
+    margin-top:10px !important;
+    }
+    
+    section{
+    padding-left:1.5em !important;
+    }
+    #recipe-button .col-md-12 .col-md-6{
+    padding-left:0 !important;
+    
+    }
+    }
+    
+    
+    body {
+    
+    }
+    
+    #recipe-button{
+    text-align:center;
+    }
+    
+    .button{
+    width:100%;
+    padding:0.5em;
+    
+    }
+    
+    #article-area2{
+    justify-content: space-evenly
+    }
+    
+
+
+footer{
+    color:black;
+    
+    width: 100%;
+    height: 10rem;
+    background-color: rgba(253, 252, 247, 0.554);
+   
+   
+}
+
+footer>.col:not(:last-child){
+      
+    border-right: 1px solid lightgray;
+}
+
+div{
+    text-align: center;
+    height: 100%;
+    margin:0 auto;
+    font-family: 'Roboto Mono', monospace;
+}
+header img{
+    width: auto ;
+    height: 100%;
+
+}
+
+
+
+
+.li{
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 6rem;
+    font-size: 1.5rem;
+}
+
+#search-area{
+    padding-top: 6rem;
+
+}
+
+.btn{
+    background-color: aliceblue;
+}
+
+
+
+
+
+
+
+
+  
+  

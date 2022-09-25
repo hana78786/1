@@ -1,0 +1,291 @@
+header{
+ width:100%;
+ height: 10rem;
+ background-color: rgba(253, 252, 247, 0.554);
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ position:fixed;
+ z-index: 9;
+
+}
+
+
+article{
+    margin: 0 auto;
+    padding:0;
+    width: 100%;
+}
+
+section{
+   padding-top: 10rem;
+   background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   font-family: 'Open Sans', sans-serif;
+
+}
+table{
+    background-color: rgba(253, 252, 247, 0.554);
+}
+
+
+
+ul{
+    font-family: 'Poor Story';
+   
+
+}
+
+
+   
+a{
+    text-decoration: none;
+    color:black;
+}
+ hr{
+    margin: 0;
+ }
+
+footer{
+    color:black;
+    
+    width: 100%;
+    height: 10rem;
+    background-color: rgba(253, 252, 247, 0.554);
+   
+   
+}
+
+footer>.col:not(:last-child){
+      
+    border-right: 1px solid lightgray;
+}
+
+div{
+    text-align: center;
+    height: 100%;
+    margin:0 auto;
+    font-family: 'Roboto Mono', monospace;
+}
+img{
+    width: auto ;
+    height: 100%;
+
+}
+#pola-img>img:hover,.li:hover{
+    transform: scale(1.1);
+    transition: 1s;
+
+
+}
+
+
+
+.li{
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 6rem;
+    font-size: 1.5rem;
+}
+
+#search-area{
+    padding-top: 6rem;
+
+}
+#img-area{
+    position: relative;
+
+}
+.card{
+    height: 400px;
+
+}
+#pola-img{
+
+    overflow: hidden;
+}
+
+
+#article3 img{
+    width: 100%;
+    height: auto;
+}
+
+.smallmenu{
+    background-color: rgba(253, 252, 247, 0.554);
+    width: 100%;
+    opacity: 0;
+    position: abposition;
+    height: 0
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 500px) {
+    #first-img{
+        width: 70%;
+        height: auto;
+        position: absolute;
+        left: 0px;
+        top: 300px;
+        z-index: 10;
+    
+
+    
+    }
+    
+    #second-img{
+        width:90%;
+        height: auto;
+        position: absolute;
+        left: 0px;
+        top: 500px;
+        z-index: 10;
+    
+
+    
+    }
+    
+    #third-img{
+    
+        width:100%;
+        height: auto;
+        position: absolute;
+        left: 0px;
+        top: 800px;
+        z-index: 10;
+
+    }
+
+    #search-area{
+        padding-top: 0rem;
+    
+    }
+
+    .li{
+        font-family: 'Roboto Mono', monospace;
+        padding-top: 0rem;
+        font-size: 1.5rem;
+        height: 50px;
+
+    }
+    #menu-area{
+
+        height: 50px;
+    }
+
+    header{
+        height: 20rem;
+    }
+
+    img{
+        width: 50% ;
+        height: auto;
+       
+    
+    }
+    #logo-area{
+        height: 200px;
+    }
+
+    #first-articl-area{
+
+        height: 70rem;
+    }
+    #second-article-area{
+        height: 3rem;
+    }
+    #evet-area{
+        width: 100%;
+    }
+
+    svg,[type="text"],#search-text-area,#search-area{
+        height: 50px;
+    }
+    #event-area{
+        margin-left: 0px;
+        width: 100%;
+
+    }
+    #notice-title-area{
+        text-align: left;
+    }
+    #secret-area{
+        display: block; 
+        justify-content:'';
+        height: 100rem;
+        display: flex;justify-content: flex-end;flex-direction: column;align-items: center;
+
+
+        
+    }
+    #logo-area{
+        width: 100px;
+        height: auto;
+    }
+    #header-area>.row{
+        align-content: flex-start;
+    }
+    header{
+        height: 200px;
+    }
+
+    @keyframes slide {
+        from{
+            opacity: 0;
+            ;
+    
+    
+        }
+    
+        to{
+            opacity: 1;
+            ;
+        }
+        
+    }
+    
+    @keyframes slide1 {
+        from{
+            opacity: 0;
+            ;
+    
+    
+        }
+    
+        to{
+            opacity: 1;
+            ;
+        }
+        
+    }
+    
+    @keyframes slide-no {
+        from{
+            opacity: 1;
+           ;
+    
+    
+        }
+    
+        to{
+            opacity: 0;
+           ;
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+
+  }
+  
