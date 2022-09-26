@@ -27,6 +27,7 @@ section{
    background-repeat: no-repeat;
    background-attachment: fixed;
    font-family: 'Open Sans', sans-serif;
+   font-weight: 400;
 
 }
 section img:hover{
@@ -38,6 +39,10 @@ table{
     background-color: rgba(253, 252, 247, 0.554);
 }
 
+
+#setp-aera .btn{
+    background-color: white;
+}
 @media ( max-width : 500px) {
 	#button-area {
 		text-align: center;

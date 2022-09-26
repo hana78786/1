@@ -17,6 +17,11 @@ header{
 
 }
 
+.recipeDetail{
+
+    align-items:center;
+}
+
 h4,#comment-text-area{
     text-align: left;
 }
@@ -35,6 +40,10 @@ article{
     width: 100%;
 }
 
+h5+.overflow-hidden{
+    text-align: left;
+}
+
 section{
    padding-top: 10rem;
    background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
@@ -42,6 +51,8 @@ section{
    background-attachment: fixed;
    font-family: 'Open Sans', sans-serif;
    margin-bottom: 5;
+   font-weight: bolder;
+   
    
    
 

@@ -374,8 +374,8 @@ text-align:center;
                                 </ul>
                                 <hr>
                             </div>
-                            <div id="recipe-time-area" class="m-3" style="text-align: center">
-                                <h4>조리 시간</h4>
+                            <div id="recipe-time-area" class="m-3" >
+                                <h4 style="text-align: center">조리 시간</h4>
                                 1시간
                                 <hr>
                             </div>
@@ -672,7 +672,7 @@ function modifyViewOff(obj) {
 function removeComment(commentNo,recipeNo) {
 	
 	if(confirm("댓글을 삭제 하시겠습니까? 삭제하면 복구할수 없습니다")){
-		location.href='/recipe/removeComment.do?commentNo='+commentNo+'&recipeNo='+recipeNo;
+		location.href='#';
 	}
 	
 }
