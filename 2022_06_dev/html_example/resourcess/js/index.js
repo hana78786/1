@@ -28,37 +28,37 @@ function removeRecipe(){
 window.addEventListener('scroll',function(){
 
     if(window.scrollY>1300){
-        document.querySelector('.text').style.animation='slide-no 2s ease-out forwards';
+        document.querySelector('.text').style.animation='slide-no 1s ease-out forwards';
 
 
     }
     
     if(window.scrollY>300&&window.scrollY<1200){
-        document.querySelector('.text').style.animation='slide 2s ease-out forwards';
+        document.querySelector('.text').style.animation='slide 1s ease-out forwards';
 
 
     }
 
     if(window.scrollY>1300){
-        document.querySelector('.text1').style.animation='slide-no 2s ease-out forwards';
+        document.querySelector('.text1').style.animation='slide-no 1s ease-out forwards';
 
 
     }
     
     if(window.scrollY>300&&window.scrollY<1200){
-        document.querySelector('.text1').style.animation='slide1 2s ease-out forwards';
+        document.querySelector('.text1').style.animation='slide1 1s ease-out forwards';
 
 
     }
 
     if(window.scrollY>300&&window.scrollY<1200){
-        document.querySelector('#pola-img').style.animation='fadein 3s ease-out forwards';
+        document.querySelector('#pola-img').style.animation='fadein 1s ease-out forwards';
 
 
     }
 
     if(window.scrollY>1300){
-        document.querySelector('#pola-img').style.animation='fadeout 3s ease-out forwards';
+        document.querySelector('#pola-img').style.animation='fadeout 1s ease-out forwards';
 
 
     }
