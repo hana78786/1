@@ -20,13 +20,16 @@ article{
     padding:0;
     width: 100%;
 }
+a:hover{
+    color:black !important;
+}
 
 section{
    padding-top: 10rem;
    background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
    background-repeat: no-repeat;
    background-attachment: fixed;
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Black Han', sans-serif;
    font-weight: 400;
 
 }
@@ -43,11 +46,13 @@ table{
 #setp-aera .btn{
     background-color: white;
 }
-@media ( max-width : 500px) {
-	#button-area {
-		text-align: center;
-	}
+
+
+#button-area{
+    margin-top: 10px;
 }
+
+
 
 #serach-title-area {
 	text-align: center;
@@ -62,11 +67,11 @@ table{
 }
 
 #jo:hover, #dun:hover {
-	background-color: rgb(101, 241, 46);
+	background-color: orange;
 }
 
 #chu:hover {
-	background-color: rgb(154, 0, 192);
+	background-color: orange;
 }
 
 .card {
@@ -139,6 +144,7 @@ margin:0 auto !important;
 
 ul{
     font-family: 'Poor Story';
+
    
 
 }
@@ -172,7 +178,7 @@ div{
     text-align: center;
     height: 100%;
     margin:0 auto;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Black Han', sans-serif;
 }
 header img{
     width: auto ;
@@ -184,7 +190,7 @@ header img{
 
 
 .li{
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Black Han', sans-serif;
     padding-top: 6rem;
     font-size: 1.5rem;
 }

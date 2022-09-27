@@ -115,83 +115,7 @@ a {
 }
 
 
-@media (max-width: 500px) {
-    label{
-    padding: 0px;
-    
-    }
-    #up-area-left{
-    padding: 0px;
-    margin:0 auto;
-    }
-    .input-file-button{
-    padding: 0px;
-    margin:0 auto;
-    }
-    
-    #output{
-    width:100%;
-    height:auto;
-    }
-    
-    #recipe-wrtie-from{
-    padding: 0px;
-    margin:0 auto;
-    }
-    .overflow-hidden{
-    font-size:0.8em;
-    }
-    .container{
-    padding: 0px;
-    margin:0 auto;
-    
-    }
-    .float-md-start{
-    padding: 0px;
-    margin:0 auto;
-    }
-    
-    .form-floating{
-    
-    padding: 0px;
-    margin:0 auto;
-    }
-    
-    .ms-1,.me-1{
-    padding: 0px !important;
-    margin:0 auto !important;
-    margin-bottom : 1em !important;
-    }
-    
-    [name="recipeDescription"]{
-    height: 15rem !important;
-    width: 100% !important;
-    }
-    #article2-area{
-    padding: 0px !important;
-    margin:0 auto !important;
-    }
-    
-    .detailImg{
-    width:100%;
-    height:auto;
-    }
-    
-    .container-md{
-    padding: 0px !important;
-    }
-    .pt-3{
-    margin-top:10px !important;
-    }
-    
-    section{
-    padding-left:1.5em !important;
-    }
-    #recipe-button .col-md-12 .col-md-6{
-    padding-left:0 !important;
-    
-    }
-    }
+
     
     
     body {
@@ -266,6 +190,9 @@ hr{
 #date-area{
 text-align: left;
 
+}
+a:hover{
+    color:black;
 }
 
 

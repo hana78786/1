@@ -38,7 +38,7 @@ div,h1{
     font-family: 'Black Han', sans-serif;
 }
 .container-lg{
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Black Han', sans-serif;
     background-color: rgba(253, 252, 247, 0.554);
 }
 
@@ -57,9 +57,9 @@ section{
    background-image: url('/resourcess/img/sea-g925a84aa4_1920.jpg');
    background-repeat: no-repeat;
    background-attachment: fixed;
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Black Han', sans-serif;
    margin-bottom: 5;
-   font-weight: bolder;
+  
    
    
    
@@ -68,11 +68,7 @@ section{
 
 
 
-@media ( max-width : 500px) {
-	#button-area {
-		text-align: center;
-	}
-}
+
 
 #serach-title-area {
 	text-align: center;
@@ -248,7 +244,7 @@ div{
     text-align: center;
     height: 100%;
     margin:0 auto;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Black Han', sans-serif;
 }
 header img{
     width: auto ;
