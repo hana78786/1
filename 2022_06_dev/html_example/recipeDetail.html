@@ -5,8 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의 특별 레시피</title>
-<link href="/resources/css/page.css" rel="stylesheet">
-<link rel="stylesheet" href="/resourcess/css/style3.css">
+<link href="./resources/css/page.css" rel="stylesheet">
+<link rel="stylesheet" href="./resourcess/css/style3.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poor+Story:400" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
 
 <style>
 #imgDiv {
@@ -109,17 +118,7 @@ text-align:center;
 
 
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Poor+Story:400" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400" rel="stylesheet">
+
 
 </head>
 <body>
@@ -127,7 +126,7 @@ text-align:center;
         <div id="header-area" class="container">
             <div class="row">
                 <div id="logo-area" class="col-md-3">  
-                  <a href="index.html">  <img src="/resourcess/img/rogo-001.png" ></a>
+                  <a href="./index.html">  <img src="./resourcess/img/rogo-001.png" ></a>
                 </div>
                 <div id="menu-area" class="col-md-7 row">
                    
@@ -135,12 +134,15 @@ text-align:center;
                             
                         </div>
 
-                        <div class="col-4 li"id="meal">MeAl
+                        <div class="col-4 li"id="meal">
+							<a href="./maelList.html">
+								MeAl
+								</a>
                            
 
                         </div>
                         <div class="col-4 li"id="dessert">
-                            <a href="recipeList.html">
+                            <a href="./recipeList.html">
 
                                 dEsseRt
                             </a>
@@ -180,7 +182,7 @@ text-align:center;
 
 			<div id="imgDiv" class="" style="">
 				<img id="mainImg"
-					src="/resourcess/img/snowflake-cookies-g3e49a565f_1920.jpg"
+					src="./resourcess/img/snowflake-cookies-g3e49a565f_1920.jpg"
 					class="img-fluid" alt="...">
 
 			</div>
@@ -276,21 +278,21 @@ text-align:center;
 							
 								
 									<img id="step-img"
-										src="/resourcess/img/bananas-g587ae17f0_640.jpg">
+										src="./resourcess/img/bananas-g587ae17f0_640.jpg">
 									<br>
 								
 
 								<p>1. 이렇게 만들어 봅니다</p>
 
                                 <img id="step-img"
-										src="/resourcess/img/chocolates-g538a4bf87_640.jpg">
+										src="./resourcess/img/chocolates-g538a4bf87_640.jpg">
 									<br>
 								
 
 								<p>2. 이런것도 맛있어 보여요</p>
 
                                 <img id="step-img"
-										src="/resourcess/img/berry-gc21ba96b5_640.jpg">
+										src="./resourcess/img/berry-gc21ba96b5_640.jpg">
 									<br>
 								
 
@@ -386,7 +388,7 @@ text-align:center;
                                     
                                         <div class="card col-md-3 m-3" style="width: 80%;">
                                             <div class="img-area" id="normal-img-area">
-                                                <img src="/resourcess/img/cake-pops-gda5dba55a_640.jpg"
+                                                <img src="./resourcess/img/cake-pops-gda5dba55a_640.jpg"
                                                     class="card-img-top" alt="">
                                             </div>
                                             <div class="card-body">
@@ -399,7 +401,7 @@ text-align:center;
     
                                         <div class="card col-md-3 m-3" style="width: 80%;">
                                             <div class="img-area" id="normal-img-area">
-                                                <img src="/resourcess/img/macaroons-gee3643148_640.jpg"
+                                                <img src="./resourcess/img/macaroons-gee3643148_640.jpg"
                                                     class="card-img-top" alt="">
                                             </div>
                                             <div class="card-body">
@@ -412,7 +414,7 @@ text-align:center;
     
                                         <div class="card col-md-3 m-3" style="width: 80%;">
                                             <div class="img-area" id="normal-img-area">
-                                                <img src="/resourcess/img/chocolates-g538a4bf87_640.jpg"
+                                                <img src="./resourcess/img/chocolates-g538a4bf87_640.jpg"
                                                     class="card-img-top" alt="">
                                             </div>
                                             <div class="card-body">
@@ -644,7 +646,7 @@ function removeRecipe(recipeNo){
 
 //리스트로 이동
 function list(){
-	location.href='recipeList.html';
+	location.href='./recipeList.html';
 	
 }
 
