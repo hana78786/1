@@ -26,10 +26,8 @@ section{
    background-repeat: no-repeat;
    background-attachment: fixed;
    font-family: 'Black Han', sans-serif;
- 
-
-
 }
+
 table{
     background-color: rgba(253, 252, 247, 0.554);
 }
@@ -124,6 +122,10 @@ img{
     height: 0
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
 
 
 
