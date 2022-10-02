@@ -1,649 +1,655 @@
 <!DOCTYPE html>
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>디저트</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-	crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디저트</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="./resourcess/css/style2.css">
-<link rel="stylesheet" href="./resourcess/css/page.css">
+    <link rel="stylesheet" href="./resourcess/css/style2.css">
+    <link rel="stylesheet" href="./resourcess/css/page.css">
 
 
 
 
 </head>
+
 <body>
     <header>
+        <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
         <div id="header-area" class="container">
             <div class="row">
-                <div id="logo-area" class="col-md-3">  
-                  <a href="index.html">  <img src="./resourcess/img/rogo-001.png" ></a>
+                <div id="logo-area" class="col-md-3">
+                    <a href="index.html"> <img src="./resourcess/img/rogo-001.png"></a>
                 </div>
                 <div id="menu-area" class="col-md-7 row">
-                   
-                        <div class="col-4 li" id="drink">DriNk
-                            
-                        </div>
 
-                        <div class="col-4 li"id="meal">MeAl
-                           
+                    <div class="col-4 li" id="drink">DriNk
 
-                        </div>
-                        <div class="col-4 li"id="dessert">
-                            <a href="./recipeList.html">
+                    </div>
 
-                                dEsseRt
-                            </a>
-                            
+                    <div class="col-4 li" id="meal">MeAl
 
-                        </div>
 
-                     
+                    </div>
+                    <div class="col-4 li" id="dessert">
+                        <a href="./recipeList.html">
+
+                            dEsseRt
+                        </a>
+
+
+                    </div>
+
+
                 </div>
                 <div id="search-area" class="col-md-2 row">
                     <div class="col-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="goldenrod" class="bi bi-search-heart" viewBox="0 0 16 16">
-                            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
-                            <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
-                        </svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="goldenrod"
+                            class="bi bi-search-heart" viewBox="0 0 16 16">
+                            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                            <path
+                                d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
+                        </svg>
                     </div>
-                    <div class="col-9" id="search-text-area">    
+                    <div class="col-9" id="search-text-area">
                         <input type="text" class="form-control">
                     </div>
+                </div>
             </div>
-        </div>
         </div>
     </header>
 
-	<span id="wirte-icon-area"> <svg
-			onclick="location.href='./recipeWrite.html'" id="write-icon"
-			xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-			fill="currentColor" class="bi bi-arrow-left-circle-fill"
-			viewBox="0 0 16 16">
-               <path
-				d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-               </svg>
-	</span>
+    <span id="wirte-icon-area"> <svg onclick="location.href='./recipeWrite.html'" id="write-icon"
+            xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+            class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+        </svg>
+    </span>
 
 
-	<section class=>
+    <section class=>
         <div class="container-md">
-		<div id="main-contents" class="">
-			<!-- 검색명 출력 영역-->
-			<div id="serach-title-area">
-				<div>
-					<h1>Dessert</h1>
-				</div>
+            <div id="main-contents" class="">
+                <!-- 검색명 출력 영역-->
+                <div id="serach-title-area">
+                    <div>
+                        <h1>Dessert</h1>
+                    </div>
 
-				<!-- 검색 창 영역 -->
-				<div class="col-md-6 container" id="search"
-					style="text-align: center">
-					<!-- 검색창시작 -->
-					<form action="/recipe/recipeSearch.do" method="get">
-						<div class="row" id="searchArea">
-							<!-- 검색 카테고리 -->
-							<div class="col-md-2 col-3 p-1" id="searchSelector">
+                    <!-- 검색 창 영역 -->
+                    <div class="col-md-6 container" id="search" style="text-align: center">
+                        <!-- 검색창시작 -->
+                        <form action="/recipe/recipeSearch.do" method="get">
+                            <div class="row" id="searchArea">
+                                <!-- 검색 카테고리 -->
+                                <div class="col-md-2 col-3 p-1" id="searchSelector">
 
-								<select class="form-select" id="floatingSelectGrid"
-									name="searchCondition">
-									<option value="all"
-										>전체</option>
-									<option value="title"
-										>제목</option>
-									<option value="contents"
-										>내용</option>
-								</select>
+                                    <select class="form-select" id="floatingSelectGrid" name="searchCondition">
+                                        <option value="all">전체</option>
+                                        <option value="title">제목</option>
+                                        <option value="contents">내용</option>
+                                    </select>
 
-							</div>
-							<!-- 검색 카테고리 종료 -->
-							<!-- 검색어입력창 -->
-							<div class="row col-md-8  col-8 p-1">
-								<div class="col-md">
+                                </div>
+                                <!-- 검색 카테고리 종료 -->
+                                <!-- 검색어입력창 -->
+                                <div class="row col-md-8  col-8 p-1">
+                                    <div class="col-md">
 
-									<input type="text" name="searchValue" class="form-control"
-										id="floatingInputGrid" value=""
-										required="required">
+                                        <input type="text" name="searchValue" class="form-control"
+                                            id="floatingInputGrid" value="" required="required">
 
-								</div>
+                                    </div>
 
-							</div>
-							<!-- 검색어입력창 종료 -->
-							<!-- 검색 버튼영역 -->
-							<div id="search-button" class="col-md-2 col-1 p-1"
-								style="width: auto;">
-								<button type="submit" class="btn btn-primary">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-										fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-							  <path
-											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-							</svg>
+                                </div>
+                                <!-- 검색어입력창 종료 -->
+                                <!-- 검색 버튼영역 -->
+                                <div id="search-button" class="col-md-2 col-1 p-1" style="width: auto;">
+                                    <button type="submit" class="btn btn-primary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                                            </path>
+                                        </svg>
 
-								</button>
+                                    </button>
 
 
-							</div>
-						</div>
-					</form>
-				</div>
-				<!-- 검색창 종료 -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- 검색창 종료 -->
 
-			</div>
+                </div>
 
-			<!--본문구간  -->
-			<div id="contetns-area" class="container-md">
-				<hr>
-				<!--정렬 버튼 영역-->
-				<div id="setp-aera" class="row">
-					<div id="blank-area" class="col-md-9"></div>
-					<div id="button-area" class="col-md-3">
-						<button type="button" class="btn" name="listCondition"
-							style="color: gray" id="jo"
-							value="viewCount">조회수</button>
-						|
-						<button type="button" id="chu" class="btn " name="listCondition"
-							style="color: gray" value="recommandCount">추천순</button>
-						|
-						<button type="button" id="dun" class="btn " name="listCondition"
-							 style="color: gray" value="insertDate">등록일</button>
-					</div>
+                <!--본문구간  -->
+                <div id="contetns-area" class="container-md">
+                    <hr>
+                    <!--정렬 버튼 영역-->
+                    <div id="setp-aera" class="row">
+                        <div id="blank-area" class="col-md-9"></div>
+                        <div id="button-area" class="col-md-3">
+                            <button type="button" class="btn" name="listCondition" style="color: gray" id="jo"
+                                value="viewCount">조회수</button>
+                            |
+                            <button type="button" id="chu" class="btn " name="listCondition" style="color: gray"
+                                value="recommandCount">추천순</button>
+                            |
+                            <button type="button" id="dun" class="btn " name="listCondition" style="color: gray"
+                                value="insertDate">등록일</button>
+                        </div>
 
-				</div>
-				<!--정렬 버튼 영역종료-->
-				<!--랭킹영역-->
-				<div id="rank-area" class="row"
-					style="text-align: center; justify-content: space-evenly">
-
-					
-						
-
-
-						<div class="card col-md-4 m-3 overflow-hidden"
-							style="width: 18rem; height: auto;">
-						
-								<svg class="m-2" xmlns="http://www.w3.org/2000/svg" width="3em"
-									height="3em" fill="currentColor" class="bi bi-3-square"
-									viewBox="0 0 16 16">
-
-                                    <path d="M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383h1.312Z"/>
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2Z"/>
-                                                             
-                           
-                                    </svg>
-
-							
-							
-
-
-							<div id="rank-img-area" class="img-area">
-								<img src="./resourcess/img/meal/asparagus-g728419b7f_640.jpg"
-									class="card-img-top" alt="레시피사진">
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">맛있는 저녁을 대접합니다</h5>
-								<a href="./recipeDetail.html"
-									class="btn btn-outline-info">레시피 보기</a>
-							</div>
-						</div>
-
-                        <div class="card col-md-4 m-3 overflow-hidden"
-							style="width: 18rem; height: auto;">
-						
-								<svg class="m-2" xmlns="http://www.w3.org/2000/svg" width="3rem"
-									height="3rem" fill="currentColor" class="bi bi-3-square"
-									viewBox="0 0 16 16">
-                                    <path d="M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306Z"/>
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2Z"/>
-                                                              </svg>
-
-							
-							
-
-
-							<div id="rank-img-area" class="img-area">
-								<img src="./resourcess/img/meal/beans-g4f81f78e4_640.jpg"
-									class="card-img-top" alt="레시피사진">
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">식사를 합시다</h5>
-								<a href="./recipeDetail.html"
-									class="btn btn-outline-info">레시피 보기</a>
-							</div>
-						</div>
-
-                        <div class="card col-md-4 m-3 overflow-hidden"
-							style="width: 18rem; height: auto;">
-						
-								<svg class="m-2" xmlns="http://www.w3.org/2000/svg" width="3rem"
-									height="3rem" fill="currentColor" class="bi bi-3-square"
-									viewBox="0 0 16 16">
-						  <path
-										d="M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318Z" />
-						  <path
-										d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2Z" />
-						    </svg>
-
-							
-							
-
-
-							<div id="rank-img-area" class="img-area">
-								<img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg "
-									class="card-img-top" alt="레시피사진">
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">아침식사</h5>
-								<a href="./recipeDetail.html"
-									class="btn btn-outline-info">레시피 보기</a>
-							</div>
-						</div>
-					
-					<!-- 랭킹 3위 출력완료 -->
+                    </div>
+                    <!--정렬 버튼 영역종료-->
+                    <!--랭킹영역-->
+                    <div id="rank-area" class="row" style="text-align: center; justify-content: space-evenly">
 
 
 
 
 
-					<div id="second-area" class="col-md-4"></div>
-					<div id="third-area" class="col-md-4"></div>
-					<hr>
-				</div>
-				<!--랭킹영역 종료-->
-				<!--일반 리스트 영역-->
-				<div id="list-area" class="row mt-4"
-					style="justify-content: space-around;">
-					
-						
+                        <div class="card col-md-4 m-3 overflow-hidden" style="width: 18rem; height: auto;">
+
+                            <svg class="m-2" xmlns="http://www.w3.org/2000/svg" width="3em" height="3em"
+                                fill="currentColor" class="bi bi-3-square" viewBox="0 0 16 16">
+
+                                <path d="M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383h1.312Z" />
+                                <path
+                                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2Z" />
+
+
+                            </svg>
 
 
 
 
-						<div class="card col-md-3 m-3" style="width: 18rem;">
-						<a href="#">
-							<div class="normal-img-area" id="normal-img-area">
-							
-								<img src="./resourcess/img/meal/beans-g4f81f78e4_640.jpg"
-									class="card-img-top" alt="">
-							</div>
-							<div class="card-body normal-card-body">
-								<p class="card-text">
-									즐거운 식사
-								
-								<p>Lorem ipsum dolor sit.</p>
-							</div></a>
-						</div>
+
+                            <div id="rank-img-area" class="img-area">
+                                <img src="./resourcess/img/meal/asparagus-g728419b7f_640.jpg" class="card-img-top"
+                                    alt="레시피사진">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">맛있는 저녁을 대접합니다</h5>
+                                <a href="./recipeDetail.html" class="btn btn-outline-info">레시피 보기</a>
+                            </div>
+                        </div>
+
+                        <div class="card col-md-4 m-3 overflow-hidden" style="width: 18rem; height: auto;">
+
+                            <svg class="m-2" xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem"
+                                fill="currentColor" class="bi bi-3-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306Z" />
+                                <path
+                                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2Z" />
+                            </svg>
+
+
+
+
+
+                            <div id="rank-img-area" class="img-area">
+                                <img src="./resourcess/img/meal/beans-g4f81f78e4_640.jpg" class="card-img-top"
+                                    alt="레시피사진">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">식사를 합시다</h5>
+                                <a href="./recipeDetail.html" class="btn btn-outline-info">레시피 보기</a>
+                            </div>
+                        </div>
+
+                        <div class="card col-md-4 m-3 overflow-hidden" style="width: 18rem; height: auto;">
+
+                            <svg class="m-2" xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem"
+                                fill="currentColor" class="bi bi-3-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318Z" />
+                                <path
+                                    d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2Zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2Z" />
+                            </svg>
+
+
+
+
+
+                            <div id="rank-img-area" class="img-area">
+                                <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg " class="card-img-top"
+                                    alt="레시피사진">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">아침식사</h5>
+                                <a href="./recipeDetail.html" class="btn btn-outline-info">레시피 보기</a>
+                            </div>
+                        </div>
+
+                        <!-- 랭킹 3위 출력완료 -->
+
+
+
+
+
+                        <div id="second-area" class="col-md-4"></div>
+                        <div id="third-area" class="col-md-4"></div>
+                        <hr>
+                    </div>
+                    <!--랭킹영역 종료-->
+                    <!--일반 리스트 영역-->
+                    <div id="list-area" class="row mt-4" style="justify-content: space-around;">
+
+
+
+
+
 
                         <div class="card col-md-3 m-3" style="width: 18rem;">
                             <a href="#">
                                 <div class="normal-img-area" id="normal-img-area">
-                                
-                                    <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg"
-                                        class="card-img-top" alt="">
+
+                                    <img src="./resourcess/img/meal/beans-g4f81f78e4_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        즐거운 식사
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg" class="card-img-top"
+                                        alt="">
                                 </div>
                                 <div class="card-body normal-card-body">
                                     <p class="card-text">
                                         간단하게 만들기
-                                    
+
                                     <p>Lorem ipsum dolor sit.</p>
-                                </div></a>
-                            </div>
-
-                            <div class="card col-md-3 m-3" style="width: 18rem;">
-                                <a href="#">
-                                    <div class="normal-img-area" id="normal-img-area">
-                                    
-                                        <img src="./resourcess/img/meal/pizza-g3421f20d3_640.jpg"
-                                            class="card-img-top" alt="">
-                                    </div>
-                                    <div class="card-body normal-card-body">
-                                        <p class="card-text">
-                                            든든해요
-                                        
-                                        <p>Lorem ipsum dolor sit.</p>
-                                    </div></a>
                                 </div>
-                                <div class="card col-md-3 m-3" style="width: 18rem;">
-                                    <a href="#">
-                                        <div class="normal-img-area" id="normal-img-area">
-                                        
-                                            <img src="./resourcess/img/meal/plate-g16e9c7a89_640.jpg"
-                                                class="card-img-top" alt="">
-                                        </div>
-                                        <div class="card-body normal-card-body">
-                                            <p class="card-text">
-                                                특별한 저녁
-                                            
-                                            <p>Lorem ipsum dolor sit.</p>
-                                        </div></a>
-                                    </div>
-                                    
-
-					
-
-
-				</div>
-
-                <div id="list-area" class="row mt-4"
-					style="justify-content: space-around;">
-					
-						
-
-
-
-
-						<div class="card col-md-3 m-3" style="width: 18rem;">
-						<a href="#">
-							<div class="normal-img-area" id="normal-img-area">
-							
-								<img src="./resourcess/img/meal/pizza-g3421f20d3_640.jpg"
-									class="card-img-top" alt="">
-							</div>
-							<div class="card-body normal-card-body">
-								<p class="card-text">
-                                    행복한 식사
-								
-								<p>Lorem ipsum dolor sit.</p>
-							</div></a>
-						</div>
+                            </a>
+                        </div>
 
                         <div class="card col-md-3 m-3" style="width: 18rem;">
                             <a href="#">
                                 <div class="normal-img-area" id="normal-img-area">
-                                
-                                    <img src="./resourcess/img/meal/noodles-g09c21fb7b_640.jpg"
-                                        class="card-img-top" alt="">
+
+                                    <img src="./resourcess/img/meal/pizza-g3421f20d3_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        든든해요
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/plate-g16e9c7a89_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        특별한 저녁
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <div id="list-area" class="row mt-4" style="justify-content: space-around;">
+
+
+
+
+
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/pizza-g3421f20d3_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        행복한 식사
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/noodles-g09c21fb7b_640.jpg" class="card-img-top"
+                                        alt="">
                                 </div>
                                 <div class="card-body normal-card-body">
                                     <p class="card-text">
                                         맛있게 드세요
-                                    
+
                                     <p>Lorem ipsum dolor sit.</p>
-                                </div></a>
-                            </div>
-
-                            <div class="card col-md-3 m-3" style="width: 18rem;">
-                                <a href="#">
-                                    <div class="normal-img-area" id="normal-img-area">
-                                    
-                                        <img src="./resourcess/img/meal/pizza-g232957d68_640.jpg"
-                                            class="card-img-top" alt="">
-                                    </div>
-                                    <div class="card-body normal-card-body">
-                                        <p class="card-text">
-                                            오늘 밥은 여기!
-                                        
-                                        <p>Lorem ipsum dolor sit.</p>
-                                    </div></a>
                                 </div>
-                                <div class="card col-md-3 m-3" style="width: 18rem;">
-                                    <a href="#">
-                                        <div class="normal-img-area" id="normal-img-area">
-                                        
-                                            <img src="./resourcess/img/meal/asparagus-g728419b7f_640.jpg"
-                                                class="card-img-top" alt="">
-                                        </div>
-                                        <div class="card-body normal-card-body">
-                                            <p class="card-text">
-                                                특별메뉴
-                                            
-                                            <p>Lorem ipsum dolor sit.</p>
-                                        </div></a>
-                                    </div>
-                                    
-
-					
-
-
-				</div>
-
-                <div id="list-area" class="row mt-4"
-					style="justify-content: space-around;">
-					
-						
-
-
-
-
-						<div class="card col-md-3 m-3" style="width: 18rem;">
-						<a href="#">
-							<div class="normal-img-area" id="normal-img-area">
-							
-								<img src="./resourcess/img/meal/noodles-g09c21fb7b_640.jpg"
-									class="card-img-top" alt="">
-							</div>
-							<div class="card-body normal-card-body">
-								<p class="card-text">
-									맛있는 아침
-								
-								<p>Lorem ipsum dolor sit.</p>
-							</div></a>
-						</div>
+                            </a>
+                        </div>
 
                         <div class="card col-md-3 m-3" style="width: 18rem;">
                             <a href="#">
                                 <div class="normal-img-area" id="normal-img-area">
-                                
-                                    <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg"
-                                        class="card-img-top" alt="">
+
+                                    <img src="./resourcess/img/meal/pizza-g232957d68_640.jpg" class="card-img-top"
+                                        alt="">
                                 </div>
                                 <div class="card-body normal-card-body">
                                     <p class="card-text">
-                                        좋아하는 점심
-                                    
+                                        오늘 밥은 여기!
+
                                     <p>Lorem ipsum dolor sit.</p>
-                                </div></a>
-                            </div>
-
-                            <div class="card col-md-3 m-3" style="width: 18rem;">
-                                <a href="#">
-                                    <div class="normal-img-area" id="normal-img-area">
-                                    
-                                        <img src="./resourcess/img/meal/salmon-gc82634042_640.jpg"
-                                            class="card-img-top" alt="">
-                                    </div>
-                                    <div class="card-body normal-card-body">
-                                        <p class="card-text">
-                                            아이들 저녁
-                                        
-                                        <p>Lorem ipsum dolor sit.</p>
-                                    </div></a>
                                 </div>
-                                <div class="card col-md-3 m-3" style="width: 18rem;">
-                                    <a href="#">
-                                        <div class="normal-img-area" id="normal-img-area">
-                                        
-                                            <img src="./resourcess/img/meal/pizza-g3421f20d3_640.jpg"
-                                                class="card-img-top" alt="">
-                                        </div>
-                                        <div class="card-body normal-card-body">
-                                            <p class="card-text">
-                                                특별 식사
-                                            
-                                            <p>Lorem ipsum dolor sit.</p>
-                                        </div></a>
-                                    </div>
-                                    
+                            </a>
+                        </div>
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
 
-					
+                                    <img src="./resourcess/img/meal/asparagus-g728419b7f_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        특별메뉴
 
-
-				</div>
-
-                <div id="list-area" class="row mt-4"
-					style="justify-content: space-around;">
-					
-						
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
 
 
 
 
-						<div class="card col-md-3 m-3" style="width: 18rem;">
-						<a href="#">
-							<div class="normal-img-area" id="normal-img-area">
-							
-								<img src="./resourcess/img/meal/plate-g16e9c7a89_640.jpg"
-									class="card-img-top" alt="">
-							</div>
-							<div class="card-body normal-card-body">
-								<p class="card-text">
-									맛있는 아침
-								
-								<p>Lorem ipsum dolor sit.</p>
-							</div></a>
-						</div>
+
+                    </div>
+
+                    <div id="list-area" class="row mt-4" style="justify-content: space-around;">
+
+
+
+
+
 
                         <div class="card col-md-3 m-3" style="width: 18rem;">
                             <a href="#">
                                 <div class="normal-img-area" id="normal-img-area">
-                                
-                                    <img src="./resourcess/img/meal/beans-g4f81f78e4_640.jpg"
-                                        class="card-img-top" alt="">
+
+                                    <img src="./resourcess/img/meal/noodles-g09c21fb7b_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        맛있는 아침
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg" class="card-img-top"
+                                        alt="">
                                 </div>
                                 <div class="card-body normal-card-body">
                                     <p class="card-text">
                                         좋아하는 점심
-                                    
+
                                     <p>Lorem ipsum dolor sit.</p>
-                                </div></a>
-                            </div>
-
-                            <div class="card col-md-3 m-3" style="width: 18rem;">
-                                <a href="#">
-                                    <div class="normal-img-area" id="normal-img-area">
-                                    
-                                        <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg"
-                                            class="card-img-top" alt="">
-                                    </div>
-                                    <div class="card-body normal-card-body">
-                                        <p class="card-text">
-                                            아이들 저녁
-                                        
-                                        <p>Lorem ipsum dolor sit.</p>
-                                    </div></a>
                                 </div>
-                                <div class="card col-md-3 m-3" style="width: 18rem;">
+                            </a>
+                        </div>
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/salmon-gc82634042_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        아이들 저녁
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/pizza-g3421f20d3_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        특별 식사
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <div id="list-area" class="row mt-4" style="justify-content: space-around;">
+
+
+
+
+
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/plate-g16e9c7a89_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        맛있는 아침
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/beans-g4f81f78e4_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        좋아하는 점심
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/breakfast-g967bcd5f4_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        아이들 저녁
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card col-md-3 m-3" style="width: 18rem;">
+                            <a href="#">
+                                <div class="normal-img-area" id="normal-img-area">
+
+                                    <img src="./resourcess/img/meal/plate-g16e9c7a89_640.jpg" class="card-img-top"
+                                        alt="">
+                                </div>
+                                <div class="card-body normal-card-body">
+                                    <p class="card-text">
+                                        특별 레시피
+
+                                    <p>Lorem ipsum dolor sit.</p>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <!--일반 리스트 영역종료-->
+
+                </div>
+                <!-- 본문 구간 종료 -->
+
+
+                <!-- 페이징 영역 시작 -->
+                <article id="page-area">
+                    <div id="article-page" style="text-align: center">
+
+
+                        <div id="app" class="container">
+                            <ul class="page">
+                                <!-- 1페이지 아닐때만 -->
+
+                                <li class="page__btn">
                                     <a href="#">
-                                        <div class="normal-img-area" id="normal-img-area">
-                                        
-                                            <img src="./resourcess/img/meal/plate-g16e9c7a89_640.jpg"
-                                                class="card-img-top" alt="">
-                                        </div>
-                                        <div class="card-body normal-card-body">
-                                            <p class="card-text">
-                                                특별 레시피
-                                            
-                                            <p>Lorem ipsum dolor sit.</p>
-                                        </div></a>
-                                    </div>
-                                    
-
-					
-
-
-				</div>
-				<!--일반 리스트 영역종료-->
-
-			</div>
-			<!-- 본문 구간 종료 -->
-
-
-			<!-- 페이징 영역 시작 -->
-			<article id="page-area">
-				<div id="article-page" style="text-align: center">
-					
-
-						<div id="app" class="container">
-							<ul class="page">
-								<!-- 1페이지 아닐때만 -->
-							
-									<li class="page__btn">
-									<a href="#"> < </a>
-									</li>
-								
-
-								
-										<li class="page__numbers active">1</li>
-                                        <li class="page__numbers ">2</li>
-                                        <li class="page__numbers">3</li>
-                                        <li class="page__numbers">4</li>
-                                        <li class="page__numbers">5</li>
-
-								
-									<li class="page__btn">
-										<a href="#"> > </a>
-										</li>
-								
-							</ul>
-						</div>
+                                        < </a>
+                                </li>
 
 
 
-					
-	
-					<!--  일반/ 검색용 페이징 종료 -->
-
-				</div>
-				<!-- 페이징div종료 -->
-			</article>
-			<!-- 페이징 영역 종료 -->
-
-		</div>
+                                <li class="page__numbers active">1</li>
+                                <li class="page__numbers ">2</li>
+                                <li class="page__numbers">3</li>
+                                <li class="page__numbers">4</li>
+                                <li class="page__numbers">5</li>
 
 
-    </div>
-	</section>
+                                <li class="page__btn">
+                                    <a href="#"> > </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+
+
+
+                        <!--  일반/ 검색용 페이징 종료 -->
+
+                    </div>
+                    <!-- 페이징div종료 -->
+                </article>
+                <!-- 페이징 영역 종료 -->
+
+            </div>
+
+
+        </div>
+    </section>
 
     <footer class="row row-cols-5 py-5">
         <div class="col">
-           <p>© 2022 Hana Nam</p>
-           <a href="https://github.com/hana78786" target="_blank">
+            <p>© 2022 Hana Nam</p>
+            <a href="https://github.com/hana78786" target="_blank">
 
-               <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="black" class="bi bi-git" viewBox="0 0 16 16">
-                   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="black" class="bi bi-git"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457" />
                 </svg>
 
             </a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                class="bi bi-instagram" viewBox="0 0 16 16">
+                <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+            </svg>
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                class="bi bi-twitter" viewBox="0 0 16 16">
+                <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg>
         </div>
-    
+
         <div class="col">
             <h5>Section</h5>
             회사소개
-            
+
         </div>
         <div class="col">
             <h5>Section</h5>
             오시는길
-            
+
         </div>
         <div class="col">
             <h5>Section</h5>
             이용약관
-            
+
         </div>
         <div class="col">
             <h5>Section</h5>
             개인정보취급방침
-            
+
         </div>
-       
-    
+
+
     </footer>
 
 </body>
+
 </html>
