@@ -27,7 +27,7 @@
   - springworkspace
     - SpringFrameWork를 활용한 사이트의 작성
     - 세미프로젝트 파일럿 파일 작성
-  - html_css_ex
+  - html_example
     - 프론트 부문 포트폴리오 과제
     - css와 javascript를 활용하여 스크롤 애니메이션을 적용한 메인페이지 작성
     - 디자인적인 부분에 주안 점을 두고 작업
