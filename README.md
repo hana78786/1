@@ -1,6 +1,6 @@
 # 공부한 것들 모음
 
-## 2022_06_dev : java, html, css, js
+## 2022_06_dev : java, html, css, js, maven, spring
 
 - 학원 수강 
   - java workspace
@@ -27,6 +27,12 @@
   - springworkspace
     - SpringFrameWork를 활용한 사이트의 작성
     - 세미프로젝트 파일럿 파일 작성
+  - html_example
+    - 프론트 부문 포트폴리오 과제
+    - css와 javascript를 활용하여 스크롤 애니메이션을 적용한 메인페이지 작성
+    - 디자인적인 부분에 주안 점을 두고 작업
+    
+    작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/html_example/
     
 ## bostcourse_htmlcss :html, css
 
