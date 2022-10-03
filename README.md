@@ -31,6 +31,7 @@
     - 프론트 부문 포트폴리오 과제
     - css와 javascript를 활용하여 스크롤 애니메이션을 적용한 메인페이지 작성
     - 디자인적인 부분에 주안 점을 두고 작업
+    
     작업물 : https://hana78786.github.io/Study_hana/2022_06_dev/html_example/
     
 ## bostcourse_htmlcss :html, css
