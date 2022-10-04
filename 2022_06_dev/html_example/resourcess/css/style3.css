@@ -59,6 +59,7 @@ section{
    background-attachment: fixed;
    font-family: 'Black Han', sans-serif;
    margin-bottom: 5;
+   background-size : cover;
   
    
    
@@ -204,10 +205,6 @@ a {
     }
     }
     
-    
-    body {
-    
-    }
     
     #recipe-button{
     text-align:center;
