@@ -41,6 +41,11 @@ public class MemberStoreLogic implements MemberStore {
 		int result = session.update("MemberMapper.deldetMemger",  memberId);
 		return result;
 	}
+	@Override
+	public int selectOneById(String memberId, SqlSession session) {
+		int result = session.selectOne("MemberMapper.selectOneById",  memberId);
+		return result;
+	}
 
 
 }

@@ -88,6 +88,7 @@
 		</tbody>
 
 		<script>
+		var reply = "";
 			function getReplyList() {
 				var board = "${board.boardNo}";
 				$.ajax({
@@ -101,17 +102,18 @@
 						$tableBody.html(''); //tbody를 초기화 시켜야 댓글 목록의 중첩을 막을수 있음 아니면 등록할떄마다 append로 이어짐
 						$('#rCount').text("댓글 ("+result.length+")") //댓글수 출력
 						if (result != null) {
-							console.log(result);
+	
 							for ( var i in result) {
-								var $tr = $("<tr>");
-								var $rWriter = $("<td width='100'>").text(
+							
+								var $tr = $("<tr id="+result[i].replyNo+">");
+								var $rWriter = $("<td width='100' >").text(
 										result[i].replyWirter);
 								var $rContent = $("<td>").text(
 										result[i].replyContents);
 								var $rCreatDate = $("<td width='100'>").text(
 										result[i].rCreateDate);
 								var $btnArea = $("<td width='80'>").append(
-										"<a href='modifyreply(${board.boardNo})'>수정</a>").append(
+										"<button onclick='modifyreply("+result[i].replyNo+")'>수정</button>").append(
 										"<a href='#'>삭제</a>");
 
 								$tr.append($rWriter);
@@ -254,6 +256,68 @@
 				}
 			})
 		})
+		
+		function modifyreply(rNo) {	
+			$.ajax({
+				url : "/board/replyModi.kh",
+				data : {
+					"replyNo" : rNo,
+				},
+				type : "get",
+				success : function(result) {
+					
+						var $td = $("<td colspan='3'>");
+						var $textarea= "<textarea rows='3' cols='55' placeholder='내용을 작성하세요' name='replyContents' id='replyContents"+rNo+"' required='required'>"
+						+result.rContents+"</textarea>"
+						var apTd = "<td><button onclick='modifyDo("+rNo+")'>수정하기</button> <button onclick='getReplyList();'>취소</button> "
+						$td.html($textarea)
+
+						console.log(result.rContents);
+						$('#'+rNo).html('');
+						$('#'+rNo).append($td).append(apTd);
+						
+						
+					
+					
+				},
+				error : function() {
+					alert("등록 실패")
+
+				}
+			})
+			
+			
+		}
+		
+		function modifyDo(rNo){
+			var replyContents = $('#replyContents'+rNo).val();
+			$.ajax({
+				url : "/board/modifireply.do",
+				data : {
+					"replyContents" : replyContents,
+					"replyNo" : rNo
+				},
+				type : "post",
+				success : function(result) {
+					if (result == "success") {
+						alert("등록성공")
+					}
+
+					getReplyList(); //등록후 댓글 목록 불러오기 함수 실행
+					//DOM 조작 함수호츨 등 가능
+				},
+				error : function() {
+					alert("등록 실패")
+
+				}
+			})
+			
+			
+		}
+
+			
+			
+		
 	</script>
 
 

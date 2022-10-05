@@ -21,5 +21,8 @@ public interface MemberService {
 	public int removeMember(String memberId);
 
 
+	public int checkOneId(String memberId);
+
+
 
 }

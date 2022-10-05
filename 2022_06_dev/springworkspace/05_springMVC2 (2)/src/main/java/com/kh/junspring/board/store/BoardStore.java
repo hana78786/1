@@ -32,6 +32,8 @@ public interface BoardStore {
 	public int updateOneReply(Reply reply, SqlSessionTemplate session);
 
 	public int deleteReply(String replyNo, SqlSessionTemplate session);
+
+	public Reply selectOneReply(int replyNo, SqlSessionTemplate session);
 	
 	
 }

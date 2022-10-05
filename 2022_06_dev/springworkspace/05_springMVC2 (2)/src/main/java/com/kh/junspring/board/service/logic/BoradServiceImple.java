@@ -91,6 +91,12 @@ public class BoradServiceImple implements BoradService {
 		return result;
 	}
 
+	@Override
+	public Reply printOneReply(int replyNo) {
+		Reply reply = bStore.selectOneReply(replyNo, session);
+		return reply;
+	}
+
 
 
 	
