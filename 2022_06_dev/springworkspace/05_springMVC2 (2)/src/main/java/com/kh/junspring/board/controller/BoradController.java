@@ -19,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.kh.junspring.board.domain.Board;
 import com.kh.junspring.board.domain.Reply;
 import com.kh.junspring.board.service.BoradService;
@@ -371,8 +374,10 @@ public class BoradController {
 			mv.addObject("searchCondition", searchCondition);
 			mv.addObject("searchValue", searchValue);
 			mv.addObject("pageNow", pageNow);
+			
+			if(rList.size() > 0) { //이거 안해줬더니 nullpoint떴음....
 			mv.addObject("rList",rList);
-
+			}
 			mv.setViewName("/board/detail");
 			
 		}catch (Exception e) {
@@ -506,4 +511,38 @@ public class BoradController {
 		return mv;
 	}
 	
+	@ResponseBody //이걸 자꾸 빼먹는다!!! 꼭 기억할 것!
+	@RequestMapping(value="/board/replyAdd.kh", method = RequestMethod.POST)
+	public String boardReplyAdd(@ModelAttribute Reply reply) {
+		reply.setReplyWirter("admin");
+		int result = bService.registerReply(reply);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+		
+		}
+		
+		
+	
+@ResponseBody
+@RequestMapping(value="/board/replyList.kh",produces="application/json;charset=utf-8", method=RequestMethod.GET)
+public String boardReplyList(@RequestParam("boardNo") int boardNo) {
+	int bno = (boardNo == 0)? 1:boardNo;
+	List<Reply> rList = bService.PrintAllReply(bno);
+	if(!rList.isEmpty()) {
+		Gson gson = new  GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+		return gson.toJson(rList);
+		
+	}
+	
+	return null;
+	
 }
+
+
+}
+	
+	
+
