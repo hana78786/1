@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.kh.junspring.member.domain.Member;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 public class AjaxController {
+	
+	private static Logger log = LoggerFactory.getLogger(AjaxController.class);
+	
 	@ResponseBody
 	@RequestMapping(value = "/ajax/ex1.kh", method = RequestMethod.GET)
 	public void exerciseAjax(@RequestParam("msg") String msg) {
@@ -33,6 +38,7 @@ public class AjaxController {
 	@RequestMapping(value = "/ajax/ex2.kh", produces = "text/plain;charset=utf-8", // utf-8로 인코딩해주는 코드
 			method = RequestMethod.GET)
 	public String eserciseAjax2() {
+		
 
 		return "서버에서 왔습니다";
 
@@ -44,6 +50,7 @@ public class AjaxController {
 	public String eserciseAjax3(@RequestParam("num1") Integer first, @RequestParam("num2") Integer second) {
 
 		int result = first + second;
+		log.debug(result+"");
 		return String.valueOf(result);
 
 	}

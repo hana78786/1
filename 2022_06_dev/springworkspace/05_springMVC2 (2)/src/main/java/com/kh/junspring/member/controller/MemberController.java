@@ -234,7 +234,7 @@ public class MemberController {
 		
 		int result = mService.checkOneId(memberId);
 		
-		return result+"";
+		return result+"";//=String.valueOf(result)
 	}
 
 }

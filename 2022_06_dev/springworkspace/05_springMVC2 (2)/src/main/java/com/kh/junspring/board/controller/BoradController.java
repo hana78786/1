@@ -431,21 +431,16 @@ public class BoradController {
 	 * @param reply
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/board/modifireply.do", method = RequestMethod.POST)
-	public ModelAndView modifyReply(ModelAndView mv, @RequestParam("replyContents") String replyContents, @RequestParam("replyNo") int replyNo, HttpSession session) {
+	public String modifyReply(ModelAndView mv,@ModelAttribute Reply reply, HttpSession session) {
 		
-		try {
-			Reply reply = new Reply();
-			reply.setReplyContents(replyContents);
-			reply.setReplyNo(replyNo);
+	
 			int result = bService.modifyReply(reply);
-			int boardNo = reply.getRefBoardNo();
-			mv.setViewName("redirect:/board/detail.kh?boardNo=" + boardNo);
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			mv.setViewName("/common/errorPage");
-		}
-		return mv;
+
+			
+		
+		return result+"";
 	}
 
 	/**
@@ -458,29 +453,19 @@ public class BoradController {
 	 * @param session
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/board/removeReply.kh")
-	public ModelAndView removeReply(ModelAndView mv, @RequestParam("replyNo") String replyNo,
-			@RequestParam("replyWirter") String replyWriter, @RequestParam("boardNo") String boardNo,
+	public String removeReply(ModelAndView mv, @RequestParam("replyNo") String replyNo,
 			HttpSession session) {
 
-		Member member = (Member) session.getAttribute("loginUser");
-
-		if (!replyWriter.equals((member.getMemberId()))) {
-			mv.addObject("msg", "작성자가 아니면 삭제할수 없습니다.");
-			mv.setViewName("/common/errorPage");
-			return mv;
-		}
-		try {
+	
 			int result = bService.removeReply(replyNo);
-			mv.setViewName("redirect:/board/detail.kh?boardNo=" + boardNo);
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			mv.setViewName("/common/errorPage");
 
-		}
 
-		return mv;
+		return result+"";
 	}
+	
+	
 
 	@ResponseBody // 이걸 자꾸 빼먹는다!!! 꼭 기억할 것!
 	@RequestMapping(value = "/board/replyAdd.kh", method = RequestMethod.POST)
@@ -495,6 +480,8 @@ public class BoradController {
 
 	}
 
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "/board/replyList.kh", produces = "application/json;charset=utf-8", method = RequestMethod.GET)
