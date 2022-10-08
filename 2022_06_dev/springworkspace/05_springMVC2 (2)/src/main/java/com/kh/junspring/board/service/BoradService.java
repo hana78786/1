@@ -41,6 +41,8 @@ public interface BoradService {
 
 	public int removeReply(String replyNo);
 
+	public Reply printOneReply(int replyNo);
+
 	
 
 	

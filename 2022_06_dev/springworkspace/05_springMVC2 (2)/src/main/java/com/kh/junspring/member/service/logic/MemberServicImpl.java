@@ -51,4 +51,10 @@ public class MemberServicImpl implements MemberService{
 		return member;
 	}
 
+	@Override
+	public int checkOneId(String memberId) {
+		int result = mStore.selectOneById(memberId, session);
+		return result;
+	}
+
 }

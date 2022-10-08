@@ -20,4 +20,6 @@ public interface MemberStore {
 
 	public Member printOneById(SqlSessionTemplate session, String memberId);
 
+	public int selectOneById(String memberId, SqlSession session);
+
 }

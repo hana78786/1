@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.junspring.member.domain.Member;
@@ -225,6 +226,15 @@ public class MemberController {
 
 //		return "common/errorPage";
 		return mv;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/check.kh", method = RequestMethod.GET)
+	public String checkOneId(@RequestParam("memberId") String memberId) {
+		
+		int result = mService.checkOneId(memberId);
+		
+		return result+"";//=String.valueOf(result)
 	}
 
 }

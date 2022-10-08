@@ -107,6 +107,11 @@ public class BoardStoreLogic implements BoardStore{
 		int result = session.delete("BoardMapper.deleteOneReply", replyNo);
 		return result;
 	}
+	@Override
+	public Reply selectOneReply(int replyNo, SqlSessionTemplate session) {
+		Reply reply = session.selectOne("BoardMapper.selectOnereply", replyNo);
+		return reply;
+	}
 
 	
 
