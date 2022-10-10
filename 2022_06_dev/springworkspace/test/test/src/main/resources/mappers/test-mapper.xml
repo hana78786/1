@@ -2,6 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="testMapper">
+  
+  <mapper namespace="testmapper">
+   <resultMap type="test" id="testresultmap">
+  <id property="" column=""/>
+  <result property="" column=""/>
+  <result property="" column=""/>
+  <result property="" column=""/>
+  <result property="" column=""/>
+  <result property="" column=""/>
+  <result property="" column=""/>
+  </resultMap> 
+  
+  <insert id="insertId">
+  insert into tbl values(1,1,1)
+  </insert>
   
   </mapper>
