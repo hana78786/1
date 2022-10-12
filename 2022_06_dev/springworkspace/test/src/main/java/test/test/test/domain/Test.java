@@ -1,31 +1,33 @@
 package test.test.test.domain;
 
 public class Test {
-
-	private String memberId;
+	private String mebmerId;
 	private String memberPwd;
 	
-	public Test() {
-		
+	public Test() {}
+
+	public String getMebmerId() {
+		return mebmerId;
 	}
-	public String getMemberId() {
-		return memberId;
+
+	public void setMebmerId(String mebmerId) {
+		this.mebmerId = mebmerId;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
+
 	public String getMemberPwd() {
 		return memberPwd;
 	}
+
 	public void setMemberPwd(String memberPwd) {
 		this.memberPwd = memberPwd;
 	}
-	public Test(String memberId, String memberPwd) {
+
+	public Test(String mebmerId, String memberPwd) {
 		super();
-		this.memberId = memberId;
+		this.mebmerId = mebmerId;
 		this.memberPwd = memberPwd;
 	}
 	
 	
-	
+
 }

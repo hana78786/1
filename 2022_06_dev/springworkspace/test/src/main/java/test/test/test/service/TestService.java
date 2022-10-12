@@ -1,7 +1,11 @@
 package test.test.test.service;
 
+import java.util.ArrayList;
+
+import test.test.test.domain.Test;
+
 public interface TestService {
 
-	int test();
+	ArrayList<Test> allMember();
 
 }

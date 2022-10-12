@@ -1,9 +1,12 @@
 package test.test.test.service.logic;
 
+import java.util.ArrayList;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import test.test.test.domain.Test;
 import test.test.test.service.TestService;
 import test.test.test.store.TestStore;
 
@@ -14,9 +17,11 @@ public class TestServiceImpl implements TestService {
 	SqlSessionTemplate session;
 	@Autowired
 	TestStore tStore;
+	
 	@Override
-	public int test() {
-		int result = tStore.test(session);
-		return 0;
+	public ArrayList<Test> allMember() {
+		ArrayList<Test> tList = tStore.selectAllMember(session);
+		return tList;
 	}
+
 }
