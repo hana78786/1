@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import javax.xml.ws.Response;
 
 import org.apache.ibatis.executor.ReuseExecutor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.junspring.HomeController;
 import com.kh.junspring.board.domain.Board;
 import com.kh.junspring.board.domain.Reply;
 import com.kh.junspring.board.service.BoradService;
@@ -29,6 +32,8 @@ import com.kh.junspring.member.domain.Member;
 
 @Controller
 public class BoradController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	BoradService bService;
@@ -223,6 +228,8 @@ public class BoradController {
 			HttpSession session) {
 		//@RequestParam(value="page", required=false)의 값은 page이지만 
 		// required=false 필수값은 아니라는 뜻
+		
+		logger.debug(page+"");
 		
 
 		
