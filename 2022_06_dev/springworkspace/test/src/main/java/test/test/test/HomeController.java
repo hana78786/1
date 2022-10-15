@@ -1,4 +1,4 @@
-package com.kh.junspring;
+package test.test.test;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -22,8 +22,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	/*1*/
-	@RequestMapping(value = "/home.kh", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -33,7 +32,6 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		logger.debug(formattedDate);
 		
 		return "home";
 	}

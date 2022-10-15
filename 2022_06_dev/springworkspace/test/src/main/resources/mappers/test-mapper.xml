@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="testMapper">
+<resultMap type="test.test.test.domain.Test" id="testResultMap">
+<id property="mebmerId" column="member_id"/>
+<result property="memberPwd" column="member_pwd"/>
+</resultMap>
+
+<select id="memberSelect" resultMap="testResultMap">
+select * from member_tbl
+</select>
+
+
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="url"
+			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="SPRING"></property>
+		<property name="password" value="SPRING"></property>
+
+
+	</bean>
+
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml"></property>
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
+
+	<!-- 파일 업로드 관련 빈 등록 MultipartResolver 오타조심!!! -->
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+		<property name="maxInMemorySize" value="100000000" />
+	</bean>
+
+	<!-- AOP XML방식 -->
+	<!-- <bean id="log" class="com.kh.junspring.common.LogAdvice"></bean> <bean 
+		id="aroundLog" class="com.kh.junspring.common.AroundLog"></bean> <aop:config> -->
+	<!-- <aop:pointcut expression="execution(* com.kh.junspring..*Impl*.*(..))" 
+		id="allPointCut" /> <aop:aspect ref="log"> <aop:before method="printLog" 
+		pointcut-ref="allPointCut" /> <aop:after method="printAfterLog" pointcut-ref="allPointCut"/> 
+		</aop:aspect> -->
+
+	<!-- <aop:aspect ref="aroundLog"> <aop:around method="aorundLogs" pointcut-ref="allPointCut"/> 
+		</aop:aspect> -->
+
+	<!-- </aop:config> -->
+
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager
+">
+		<property name="dataSource" ref="dataSource">
+
+		</property>
+
+	</bean>
+	<!-- 트랜잭션 XML 방식 -->
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<tx:attributes>
+
+			<tx:method name="print*" read-only="true" />
+			<tx:method name="register*" rollback-for="Exeption" />
+			<tx:method name="modify*" rollback-for="Exeption" />
+			<tx:method name="remove*" rollback-for="Exeption" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config proxy-target-class="true">
+		<aop:pointcut
+			expression="execution(* com.kh.junspring..*Impl*.*(..))"
+			id="serviceMethod" />
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="serviceMethod" />
+	</aop:config>
+
+
+
+</beans>
