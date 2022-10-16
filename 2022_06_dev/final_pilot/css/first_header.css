@@ -1,0 +1,137 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+header {
+    margin: 0 auto;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-size: 1.2rem;
+
+}
+
+
+header hr {
+    margin: 0;
+}
+
+#logo {
+    height: 5rem;
+    margin-top: 0.5rem;
+}
+
+
+#header-area{
+    align-items: baseline;
+   
+}
+#header-menu{
+    align-items: baseline;
+}
+
+header .col-md-6 {
+    text-align: right;
+}
+
+.menu-font {
+    padding: 0 1rem !important;
+}
+
+
+@media (max-width:500px) {
+    #logo {
+        width: 100%;
+        height: auto;
+        margin-top: 0.5rem;
+    }
+
+    #login-icon {
+        width: 3rem;
+        height: auto;
+
+    }
+
+    .menu-font {
+        font-size: 1rem;
+        padding: 0 !important;
+    }
+
+
+
+
+}
+
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main {
+    background-image: url(../images/baby-g15716e62e_1920.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40rem;
+}
+
+main img {
+    width: auto;
+    height: 40rem;
+}
+
+#main-text #main-title {
+    font-family: 'GangwonEdu_OTFBoldA';
+    font-size: 5rem;
+}
+
+#main-title2 {
+    font-family: 'GangwonEdu_OTFBoldA';
+    font-size: 1.5rem;
+
+}
+
+#main-line {
+    align-items: baseline;
+}
+
+#section2-title{
+    font-family: 'GangwonEdu_OTFBoldA';
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+section{
+    overflow: hidden;
+    width: 100%;
+}
+.book-cover-area img{
+    height: 15rem;
+    width: auto;
+    margin-top: 0.5rem;
+}
+.book-cover-area{
+    overflow: hidden;
+    width: 100%;
+    height: 15rem;
+}
+
+@media (max-width:500px) {
+    main img {
+        width: 100%;
+        height: auto;
+    }
+    #main-text{
+        margin: 2rem;
+    }
+    #main-title {
+    
+        font-size: 3rem !important;
+    }
+    #main-title2 {
+     
+        font-size: 1rem !important;
+    }
+    #section2-title{
+     font-size: 1.5rem;
+    }
+
+}
