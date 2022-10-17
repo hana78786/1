@@ -317,6 +317,23 @@ footer a {
 
 }
 
+
+@media (min-width:2000px){
+    #book-cover-area1{
+       
+        height: 23rem;
+    }
+    #book-cover-area2{
+    
+        height: 23rem;
+    }
+    #book-cover-area3{
+        
+        height: 23rem;
+    }
+
+}
+
 #main-text{
     animation: ontext 2s linear;
 }

@@ -15,9 +15,10 @@ main {
     height: auto;
     min-height: 100%;
     padding-bottom: 5rem;
-    
+
 
 }
+
 footer {
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     height: 5rem;
@@ -39,7 +40,7 @@ header hr {
     margin-bottom: 0.5rem;
 }
 
-header li{
+header li {
     list-style: none;
     float: left;
     padding-left: 3rem;
@@ -47,13 +48,17 @@ header li{
     padding-bottom: 0.5rem;
     font-weight: 600;
 }
-#header-area{
+
+#header-area {
     align-items: flex-end
 }
+
 #header-menu-icon {
     text-align: right;
 }
-#header-menu-icon img, #togglemenu img{
+
+#header-menu-icon img,
+#togglemenu img {
     width: 2rem;
     height: auto;
     padding-bottom: 0.5rem;
@@ -61,15 +66,17 @@ header li{
     margin-right: 1.5rem;
 }
 
-#menu-bar{
-   display: none;
-   width: 100% !important;
-   
+#menu-bar {
+    display: none;
+    width: 100% !important;
+
 }
-#menu-bar ul{
+
+#menu-bar ul {
     padding: 0;
 }
-#menu-bar li{
+
+#menu-bar li {
     font-size: 0.8rem;
     padding-left: 0.5rem;
     background-color: bisque;
@@ -78,8 +85,8 @@ header li{
     padding-right: 0.5rem;
     display: flex;
 
-    
-} 
+
+}
 
 @media (max-width:500px) {
     #logo {
@@ -88,9 +95,54 @@ header li{
         margin-top: 0.5rem;
     }
 
-    #header-menu-icon img{
+    #header-menu-icon img {
         margin-right: 0.3rem;
     }
 
 
+}
+
+#mypage {
+    
+    margin-top: 1rem;
+    height: 13rem;
+    width: 10rem;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid darkgray;
+
+    text-align: center;
+
+}
+
+#name-space {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+#subscribe{
+    font-size: 0.6rem;
+    padding-bottom: 0.3rem;
+}
+
+#icon-tooltip {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    justify-content: flex-end;
+}
+#mypage-icon-area>.col-4{
+    font-size: 0.3rem;
+    text-align: center;
+    padding: 0.2rem;
+  
+}
+#mypage-icon-area img{
+    width: 2.2rem;
+   
+
+}
+#logout-area{
+    font-size: 0.7rem;
+}
+#logout{
+    width: 100%;
+    height: 2rem;
+    border: 1px;
 }
