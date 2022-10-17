@@ -146,3 +146,39 @@ header li {
     height: 2rem;
     border: 1px;
 }
+
+#point-icon-tooltip {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    justify-content: flex-end;
+}
+
+#point {
+    
+    margin-top: 1rem;
+    height: 8rem;
+    width: 12rem;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid darkgray;
+
+    text-align: center;
+
+}
+#now-point{
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: antiquewhite;
+    margin: 0.7rem;
+}
+#point-icon-area{
+    font-size: 0.7rem;
+}
+
+#point-icon-area img{
+    width: 2.2rem;
+}
+#point-icon-area .col-4{
+    padding: 0;
+}
+#point #name-space{
+    margin-top: 0.5rem;
+}

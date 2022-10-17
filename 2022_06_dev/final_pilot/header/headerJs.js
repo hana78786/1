@@ -9,3 +9,16 @@ menu.onclick=function(){
     check=false;
     }
 }
+
+var user = document.querySelector('#user-icon');
+var mypage= document.querySelector('#mypage-tooltip-area')
+mypage.style.display='none'
+
+user.onclick=function(){
+    if(mypage.style.display=='none'){
+    mypage.style.display='block';
+    }else{
+        mypage.style.display='none'; 
+    }
+
+}
