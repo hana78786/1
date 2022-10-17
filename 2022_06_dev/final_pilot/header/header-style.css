@@ -1,0 +1,96 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+header {
+    margin: 0 auto;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-size: 1.2rem;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+
+
+}
+
+main {
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 5rem;
+    
+
+}
+footer {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    height: 5rem;
+    position: relative;
+    transform: translateY(-100%);
+    padding-top: 1rem;
+}
+
+header hr {
+    margin: 0;
+}
+
+
+
+#logo {
+    height: 4.5rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header li{
+    list-style: none;
+    float: left;
+    padding-left: 3rem;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+#header-area{
+    align-items: flex-end
+}
+#header-menu-icon {
+    text-align: right;
+}
+#header-menu-icon img, #togglemenu img{
+    width: 2rem;
+    height: auto;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+    margin-right: 1.5rem;
+}
+
+#menu-bar{
+   display: none;
+   width: 100% !important;
+   
+}
+#menu-bar ul{
+    padding: 0;
+}
+#menu-bar li{
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+    background-color: bisque;
+    float: none;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    display: flex;
+
+    
+} 
+
+@media (max-width:500px) {
+    #logo {
+        width: 100%;
+        height: auto;
+        margin-top: 0.5rem;
+    }
+
+    #header-menu-icon img{
+        margin-right: 0.3rem;
+    }
+
+
+}
