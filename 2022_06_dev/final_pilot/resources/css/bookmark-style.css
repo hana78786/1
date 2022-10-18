@@ -1,0 +1,101 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+main {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+#bookmark-title{
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+#bookmark-haed-button button{
+    font-size: 0.8rem;
+    width: 4rem;
+    background-color: lightgrey;
+    border: 0;
+}
+#bookmark-haed-button{
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+}
+#bookmark-search-area{
+    padding-bottom: 0;
+    align-items: flex-end;
+    padding-left: 1rem;
+}
+
+#gubun{
+    font-size: 0.9rem;
+    padding: 1rem;
+    padding-bottom: 0;
+
+}
+serch .form-floating{
+    display: inline;
+    
+}
+
+#floatingTextarea{
+    width: 100%;
+
+}
+#search .col-2{
+    padding-top: 5%;
+}
+
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+   
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 1px solid lightgray;
+    border-right: none;
+    padding: 5px;
+    height: 1.5rem;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #FFD384;
+    font-size: 0.8rem;
+  }
+  
+  .searchTerm:focus{
+    color: black;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 1.5rem;
+    border: 1px solid lightgray;
+    background-color: lightgray;
+
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+
+  }
+  .bi-search{
+    margin-bottom: 0.8rem;
+
+  }
+  
+  /*Resize the wrap to see the search bar change!*/
+   
+  @media (max-width:500px) {
+    .searchButton {height: 3rem;}
+    .searchTerm {height: 3rem;}
+    #gubun{font-size: 1.2rem;
+    padding-bottom: 0.5rem;}
+    .bi-search{
+        margin-bottom: 0.5rem;
+    
+      }
+
+  }
