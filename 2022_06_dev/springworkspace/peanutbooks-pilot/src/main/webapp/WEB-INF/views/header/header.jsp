@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>땅콩북스</title>
-    <link rel="stylesheet" href="./header-style.css">
+    <link rel="stylesheet" href="/resources/css/header-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="../images/icons8-book-32 (1).png">
+    <link rel="shortcut icon" href="/resources/img/icons8-book-32 (1).png">
 
 </head>
 
@@ -22,7 +24,7 @@
         <div class="container">
             <div class="row" id="header-area">
                 <div class="col-md-1 col-3">
-                    <img src="../images/logo/KakaoTalk_20221017_095014641.png" id="logo" alt="" id="logo">
+                    <img src="/resources/img/logo/logo.png" id="logo" alt="" id="logo">
                 </div>
                 <div class="col-md-7 d-md-block d-none">
                     <ul>
@@ -33,10 +35,10 @@
 
                 </div>
                 <div class="col-md-4 col-7" id="header-menu-icon">
-                    <img src="../header/header/icons8-search (2).png" alt="" id="search-icon">
-                    <img src="../header/header/icons8-book (3).png" alt="" id="book-icon">
-                    <img src="../header/header/icons8-peanut-48 (6).png" alt="" id="p-icon">
-                    <img src="../header/header/icons8-user.png" alt="" id="user-icon">
+                    <img src="/resources/img/header/icons8-search (2).png" alt="" id="search-icon">
+                    <img src="/resources/img/header/icons8-book (3).png" alt="" id="book-icon">
+                    <img src="/resources/img/header/icons8-peanut-48 (6).png" alt="" id="p-icon">
+                    <img src="/resources/img/header/icons8-user.png" alt="" id="user-icon">
                     <!--관리자 체크해서 나타남
                     <img src="../header/header/icons8-monarch-48.png" alt="" id="admin-icon" style="display:;">
                     -->
@@ -44,7 +46,7 @@
                 <div class="d-md-none d-block col-1" id="togglemenu">
                     <div>
 
-                        <img src="../header/header/icons8-menu-60.png">    
+                        <img src="/resources/img/header/icons8-menu-60.png">    
                     </div>
 
                 </div>
@@ -74,30 +76,30 @@
                 </div>
                 <div id="mypage-icon-area" class="row">
                     <div class="col-4">
-                        <img src="./header/icons8-notification-64.png" alt="">
+                        <img src="/resources/img/header/icons8-notification-64.png" alt="">
                         <br>알림
                     </div>
                     <div class="col-4">
-                        <img src="./header/icons8-gear-50.png" alt="">
+                        <img src="/resources/img/header/icons8-gear-50.png" alt="">
                         <br>정보수정
                     </div>
                     <div class="col-4">
 
-                        <img src="./header/icons8-write-48.png" alt="">
+                        <img src="/resources/img/header/icons8-write-48.png" alt="">
                         <br>등록 도서
                     </div>
 
                     <div class="col-4">
-                        <img src="./header/icons8-headphone-64.png" alt="">
+                        <img src="/resources/img/header/icons8-headphone-64.png" alt="">
                         <br>1:1문의
                     </div>
                     <div class="col-4">
-                        <img src="./header/icons8-chat-50.png" alt="">
+                        <img src="/resources/img/header/icons8-chat-50.png" alt="">
                         <br>채팅상담
                     </div>
                     <div class="col-4">
 
-                        <img src="./header/icons8-noticeboard-50.png" alt="">
+                        <img src="/resources/img/header/icons8-noticeboard-50.png" alt="">
                         <br>공지사항
                     </div>
 
@@ -125,32 +127,32 @@
                 </div>
                 <div id="admin-icon-area" class="row">
                     <div class="col-4">
-                        <img src="./header/icons8-notification-64.png" alt="">
+                        <img src="/resources/img/header/icons8-notification-64.png" alt="">
                         <br>알림
                     </div>
                     <div class="col-4">
-                        <img src="./header/icons8-gear-50.png" alt="">
+                        <img src="/resources/img/header/icons8-gear-50.png" alt="">
                         <br>정보수정
                     </div>
                     <div class="col-4">
 
-                        <img src="./header/icons8-write-48.png" alt="">
+                        <img src="/resources/img/header/icons8-write-48.png" alt="">
                         <br>등록 도서
                     </div>
 
                     <div class="col-4">
-                        <img src="./header/icons8-chat-50.png" alt="">
+                        <img src="/resources/img/header/icons8-chat-50.png" alt="">
                         <br>채팅상담
                     </div>
                     <div class="col-4">
 
-                        <img src="./header/icons8-noticeboard-50.png" alt="">
+                        <img src="/resources/img/header/icons8-noticeboard-50.png" alt="">
                         <br>공지사항
                     </div>
 
                     <div class="col-4">
 
-                        <img src="./header/icons8-laptop-60.png" alt="">
+                        <img src="/resources/img/header/icons8-laptop-60.png" alt="">
                         <br>관리자
                     </div>
 
@@ -179,16 +181,16 @@
                 </div>
                 <div id="point-icon-area" class="row">
                     <div class="col-4">
-                        <img src="./header/icons8-page-52.png" alt="">
+                        <img src="/resources/img/header/icons8-page-52.png" alt="">
                         <br>이용내역
                     </div>
                     <div class="col-4">
-                        <img src="./header/icons8-android-l-battery-48.png" alt="">
+                        <img src="/resources/img/header/icons8-android-l-battery-48.png" alt="">
                         <br>땅콩충전
                     </div>
                     <div class="col-4">
 
-                        <img src="./header/icons8-change-48.png" alt="">
+                        <img src="/resources/img/header/icons8-change-48.png" alt="">
                         <br>땅콩교환
                     </div>
 
@@ -202,7 +204,7 @@
 
     </header>
 
-    <script src="./headerJs.js"></script>
+    <script src="/resources/js/headerJs.js"></script>
 </body>
 
 </html>
