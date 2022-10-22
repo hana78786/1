@@ -1,0 +1,191 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+main {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+#section-outside{
+	
+}
+
+.carousel-item {
+    overflow: hidden;
+    height: 30rem;
+
+}
+
+
+.carousel-caption {
+    color: black !important;
+
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+
+	#slid-img{
+	width:100%
+	}
+
+.carousel-item img{
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+	}
+	
+
+
+
+#recommand-category {
+    background-color: #FFD384;
+    text-align: left;
+    height: 3rem;
+    padding: 0.8rem 2%;
+    margin-top: 5rem;
+}
+
+.category-name {
+    padding: 1rem;
+    padding-bottom:0.5rem;
+    padding-left: 5rem !important;
+    font-size: 1.2rem;
+
+}
+
+#main-recommand {
+    margin: 0 auto;
+    width: 90%;
+}
+
+#reco-text-1 {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+
+#ori-text-1 {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+#recommnad-pic-1 {
+    height: 20rem;
+    overflow: hidden;
+    border: .5em solid white;
+
+}
+
+
+#recommnad-pic-1 img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    
+
+}
+
+.cate-img {
+    overflow: hidden;
+    height: 25rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    padding-top:0.5rem;
+    text-align: center;
+}
+
+.cate-img img {
+    height: 100% ;
+    width: 100% ;
+    object-fit: cover;
+    
+}
+
+.book-name {
+    text-align: center;
+}
+ .cate-img:hover{
+	transform: scale(1.1);
+	transition : 0.2s;
+}
+
+main img{
+	    box-shadow: 0 5px 5px rgba(0,0,0,0.18),0 4px 5px 0 rgba(0,0,0,0.15);
+}
+
+
+ main{
+    padding-top:4.5rem !important; 
+    }
+    
+    @font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    #one-text{
+    background-image:url('/resources/img/main/teacup-g35f438ceb_1280.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20rem;   
+    border-radius: 0.5rem;
+    font-family: 'GangwonEdu_OTFBoldA';
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    background-position-y: 30%;
+}
+
+#comment{
+	background-color: rgba( 255, 255, 255, 0.7 );
+	box-shadow: 10px 5px 5px gray;
+	border-radius: 1rem;
+	padding:5rem 2rem;
+	
+}
+
+#article3{
+	margin-top:2rem;
+}
+
+@keyframes ontext{
+    0%{
+        opacity: 0%;
+        transform: translateY(1.5rem);
+
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0rem);
+    }
+}
+    
+    
+    @media (max-width:500px) {
+    .cate-img {
+    padding:0;
+        padding-top:0.2rem;
+    }
+    .category-name{
+    font-size:1.5rem;
+    padding-bottom:0;
+    padding-left:1rem !important;
+  
+    }
+    .category-area .cate-img{
+    height:15rem;
+    }
+    main{
+    padding-top:1rem !important; 
+    }
+    #comment{
+    padding:1rem;
+    
+    }
+    #comment h4{
+    font-size:1rem;
+    }
+
+}
+    
