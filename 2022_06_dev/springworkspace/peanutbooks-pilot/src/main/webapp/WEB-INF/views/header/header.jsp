@@ -42,26 +42,25 @@
 						<li>피넛 오리지널</li>
 					</ul>
 
+                </div>
+                
+                <div class="col-md-4 col-7" id="header-menu-icon">
+                    <img src="/resources/img/header/icons8-search (2).png" alt="" id="search-icon">
+                    <img src="/resources/img/header/icons8-book (3).png" alt="" id="book-icon">
+                    <img src="/resources/img/header/icons8-peanut-48 (6).png" alt="" id="p-icon">
+                    <img src="/resources/img/header/icons8-user.png" alt="" id="user-icon"
+                    <c:if test="${loginMember.adminYN=='Y' }">style="display:none;"</c:if>
+                    >
+                    <!--관리자 체크해서 나타남-->
+                    <img src="/resources/img/header/icons8-monarch-48.png" alt="" id="admin-icon"        
+                     <c:if test="${loginMember.adminYN=='N' }">style="display:none;"</c:if>
+                    >
+                </div>
+                <div class="d-md-none d-block col-1" id="togglemenu">
+                    <div>
+                        <img src="/resources/img/header/icons8-menu-60.png">    
+                    </div>
 
-				</div>
-				<div class="col-md-4 col-7" id="header-menu-icon">
-					<img src="/resources/img/header/icons8-search (2).png" alt=""
-						id="search-icon"> <img
-						src="/resources/img/header/icons8-book (3).png" alt=""
-						id="book-icon"> <img
-						src="/resources/img/header/icons8-peanut-48 (6).png" alt=""
-						id="p-icon"> <img
-						src="/resources/img/header/icons8-user.png" alt="" id="user-icon"
-						<c:if test="${loginMember.adminYN=='Y' }">style="display:none;"</c:if>>
-					<!--관리자 체크해서 나타남-->
-					<img src="/resources/img/header/icons8-monarch-48.png" alt=""
-						id="admin-icon"
-						<c:if test="${loginMember.adminYN=='N' }">style="display:none;"</c:if>>
-				</div>
-				<div class="d-md-none d-block col-1" id="togglemenu">
-					<div>
-						<img src="/resources/img/header/icons8-menu-60.png">
-					</div>
 
 				</div>
 
@@ -81,6 +80,7 @@
 		</div>
 
 		<!--회원 정보 툴팁-->
+
 		<div class="container" id="mypage-tooltip-area">
 			<div class="row" id="icon-tooltip">
 				<div class="col-md-2" id="mypage">
@@ -108,11 +108,11 @@
 						</div>
 
 						<div class="col-4">
-							<img src="/resources/img/header/icons8-headphone-64.png" alt="">
-							<br>1:1문의
+							<a href="/qna/list.kh"><img src="/resources/img/header/icons8-headphone-64.png" alt="">
+							<br>1:1문의</a>
 						</div>
 						<div class="col-4">
-							<img src="/resources/img/header/icons8-chat-50.png" alt="">
+							<img src="/resources/img/header/icons8-chat-50.png" alt="" onclick="chatStart('${sessionScope.loginMember.memberId}');">
 							<br>채팅상담
 						</div>
 						<div class="col-4">
@@ -169,13 +169,17 @@
 
 						<div class="col-4">
 
-							<a href="/adminMain.kh"><img
-								src="/resources/img/header/icons8-laptop-60.png" alt=""></a> <br>관리자
-						</div>
+
+							<a href="/adminMain.kh"><img src="/resources/img/header/icons8-laptop-60.png" alt=""></a>
+                        <br>관리자
+                    </div>
+
 
 					</div>
 					<div id="logout-area">
+
 						<button id="logout" onclick="location.href='/member/logout.pb';">로그아웃</button>
+
 					</div>
 
 
@@ -186,27 +190,25 @@
 
 
 
-
-
+		<input type="hidden" id="member-id" value="${sessionScope.loginMember.memberId}">
 		<div class="container" id="point-tooltip-area">
 			<div class="row" id="point-icon-tooltip">
 				<div class="col-md-2" id="point">
 					<div id="name-space">${sessionScope.loginMember.mNickname}님</div>
-					<div id="now-point">${sessionScope.loginMember.mPoint}땅콩</div>
+					<div id="now-point"></div>
 					<div id="point-icon-area" class="row">
 						<div class="col-4">
-							<img src="/resources/img/header/icons8-page-52.png" alt="">
-							<br>이용내역
-						</div>
-						<div class="col-4">
-							<img src="/resources/img/header/icons8-android-l-battery-48.png"
-								alt="" id="peanutIn"> <br>땅콩충전
-						</div>
-						<div class="col-4">
-							<img src="/resources/img/header/icons8-change-48.png" alt=""
-								onclick="peanutList('${sessionScope.loginMember.memberId}');">
-							<br>땅콩교환
-						</div>
+                        <img src="/resources/img/header/icons8-page-52.png" alt="" onclick="peanutList('${sessionScope.loginMember.memberId}');">
+                        <br>이용내역
+                    </div>
+                    <div class="col-4" >                    	
+                        <img src="/resources/img/header/icons8-android-l-battery-48.png" alt="" onclick="pay('${sessionScope.loginMember.memberId}');">
+                        <br>땅콩충전
+                    </div>
+                    <div class="col-4">                    	
+                        <img src="/resources/img/header/icons8-change-48.png" alt="" onclick="writerPay('${sessionScope.loginMember.memberId}');">
+                        <br>땅콩교환
+                    </div>
 
 
 
@@ -221,19 +223,44 @@
 
 	</header>
 
-	<script src="/resources/js/headerJs.js"></script>
-	<script type="text/javascript">
-		/*결제 관련   */
-		document.querySelector("#peanutIn").onclick= function() {
-			var mid = "${sessionScope.loginMember.memberId}";
-			if (mid == '') {
-				alert("로그인후 가능합니다");
-			} else {
-				location.href = "/pay/start.kh";
-			};
-		}
-	</script>
 
+    <script src="/resources/js/headerJs.js"></script>
+    <script type="text/javascript">
+    	
+	 	//결제 관련   */
+	 	function pay(memberId){		 			
+			 if(memberId==''){
+				 alert("로그인후 가능합니다");
+			 }else{
+				 location.href="/pay/start.kh";
+			 };
+		 }
+		 /*땅콩리스트  */
+		 function peanutList(memberId){			 			 
+			 if(memberId==''){
+				 alert("로그인후 가능합니다");
+			 }else{
+				 location.href="/peanut/listStart.kh?memberId="+memberId;
+			 };
+		 }
+	 	
+	 	
+	 	//작가료 정산페이지 이동
+		function writerPay(memberId){
+			 if(memberId==''){
+				 alert("로그인후 가능합니다");
+			 }else{
+				 location.href="/writer/writerStart.kh?memberId="+memberId;
+			 };
+	 	}
+
+			
+		function chatbtnSuccess(memberId) {
+			var windo = "status=no ,toolbar=no,scrollbars=no, menubar=no,resizable=no,titlebar=no,width=550,height=650";
+			window.open("/consult/chatbefore.kh", "PopupWin",windo);
+		}
+		</script>
+    
 
 </body>
 

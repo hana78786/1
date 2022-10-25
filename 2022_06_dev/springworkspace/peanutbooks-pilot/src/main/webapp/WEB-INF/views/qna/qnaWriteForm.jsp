@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>공지사항 작성</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+ 
   
 </head>
  <style>
@@ -33,6 +32,32 @@
 	    -ms-transition: background-color 100ms linear;
 	     transition: background-color 100ms linear;
 	}
+	label:hover{
+		cursor:pointer;
+	}
+	.navi>li{
+         float: left;        
+         /* 가로로 */
+         padding:0px;
+         list-style-type: none;
+         width: 50%;
+         height: 50px;
+         text-align: center;            
+     }
+     .navi>li>a{            
+         color: white;
+         text-decoration: none;
+         display: block;      
+         /* li 사이즈만큼 이벤트 범위 지정 */
+         line-height: 50px;
+         width: 100%;
+         height: 100%;
+     }
+     .navi>li>a:hover{
+         /* .navi>li>:hover{  이렇게해도 된다. */
+         font-size: 1em;
+         font-weight: bold;
+     }
 </style> 
 
 
@@ -47,88 +72,129 @@
 <div class="container">
 
 	<br><br>
-	<table align="center" class="table col-10" style="border:none;">
-		<tr>
-			<td colspan="2" align="center" style="border:none;" height="30px">
-				<div class="col-6" style="display: inline-block; margin: 0px;  float: left;">
-					<input type="submit" value="문의내역" style="width:100%; height:30pt; background-color: #5e5e5e; border:0; color:white; border-radius : 2px;">
-				</div>
-				<div class="col-6" style="display: inline-block; margin: 0px;  float: left;">
-					<input type="submit" value="문의작성" style="width:100%; height:30pt; background-color: #c9c9c9; border:0; color:white; border-radius : 2px;">
-				</div>
-			</td>
-		</tr>
-	</table>
-	<table align="center" class="table col-10" bgcolor="#e0e0e0">
-		<tr>
-			<td class="col-2" align="center">총문의</td>
-			<td rowspan="2" width="1px" style="vertical-align:middle;"><img src="/resources/img/sidebar.png"></td>
-			<td class="col-2" align="center">답변완료</td>
-			<td rowspan="2" width="1px" style="vertical-align:middle;"><img src="/resources/img/sidebar.png"></td>
-			<td class="col-2" align="center">처리중</td>
-			<td rowspan="2" width="1px" style="vertical-align:middle;"><img src="/resources/img/sidebar.png"></td>
-			<td class="col-2" align="center">접수</td>
-		</tr>
-		<tr>
-			<td class="col-2" align="center">1</td>
-			<td class="col-2" align="center">1</td>
-			<td class="col-2" align="center">1</td>
-			<td class="col-2" align="center">1</td>
-	</table>
+${sessionScope.loginMember.memberId}님 환영합니다!
+
+	<div class="container text-center">
+		<div class="row">
+		   <ul class="navi">
+	            <li style="background-color: #5e5e5e"><a href="/qna/list.kh">문의내역</a></li>
+	            <li style="background-color: #c9c9c9"><a href="/qna/writeView">문의작성</a></li>
+            </ul>
+		</div>
+	<br>
+		<div class="row row-cols-7" style="background-color:#e0e0e0; padding:20px">
+		    <div class="col-2" style="text-align:right;">
+		    	총문의<br>1&nbsp;&nbsp;&nbsp;
+		    </div>
+		    <div class="col"><img src="/resources/img/sidebar.png"></div>
+		    <div class="col">답변완료<br>1</div>
+		    <div class="col"><img src="/resources/img/sidebar.png"></div>
+		    <div class="col">처리중<br>1</div>
+		    <div class="col"><img src="/resources/img/sidebar.png"></div>
+		    <div class="col-2" style="text-align:left;">&nbsp;&nbsp;접수<br>&nbsp;&nbsp;&nbsp;&nbsp;1</div>
+		</div>
 		
-	<form action="/qna/register.kh" method="post" enctype="multipart/form-data" name="qnaForm" id="qnaForm" onsubmit="return registerAction()">
-		<table align="center" class="table col-10">
-			<tr>
-				<td class="col-2" scope="col" align="center">선택</td>
-				<td>
-					<select name="qnaCategory"  class="form-select" aria-label="Default select example" >
-						<option selected>문의유형 선택</option>
-						<option value="0" label="회원"></option>
-						<option value="1" label="포인트"></option>
-						<option value="2" label="도서"></option>
-						<option value="3" label="홈페이지 이용"></option>
-					</select>	
-				</td>
-			<tr>
-				<td  class="col-2" scope="col" align="center">작성자</td>
-				<td><input type="text" name="qnaWriter"  class="form-control" value="${sessionScope.loginMember.memberId}" readonly></td>
-			</tr>
-			<tr>
-				<td  class="col-2" scope="col" align="center">제목</td>
-				<td><input type="text" name="qnaTitle" onkeyup="titleLengthCk(this);" class="form-control"></td>
-			</tr>
-			<tr>
-				<td  class="col-2" scope="col" align="center">내용</td>
-				<td> <textarea class="form-control" id="exampleFormControlTextarea1" cols="50" rows="20" name="qnaContents"></textarea>  </td>
-			</tr>
-			<tr>
-				<td class="col-2" scope="col" align="center">첨부파일(선택)</td>
-				<td>
-					<div class="container">
-					  <button id="btn-upload" type="button" style="border: 1px solid #ddd; outline: none;">파일 추가</button>
-					  	<input id="input_file" multiple="multiple" type="file" style="display:none;">
-					  	<span style="font-size:10px; color: gray;">※첨부파일은 최대 3개까지 등록이 가능합니다.</span>
-					  	<div class="data_file_txt" id="data_file_txt" style="margin:40px;">
-							<span>첨부 파일</span>
-							<br />
-							<div id="articlefileChange">
-							</div>
-						</div>
-					  	<button type="submit" style="border: 1px solid #ddd; outline: none;">전송</button>
+	</div>
+	<br><br>
+	
+	<!-- 1:1 문의 입력 폼 Start -->
+	<div class="row">
+		<form action="/qna/register.kh" method="post" enctype="multipart/form-data" name="qnaForm" id="qnaForm">
+		<%-- <input type="hidden" name="memberId" value="${loginMember.memberId }"> --%>
+			<table align="center" class="table">
+				<tr>
+					<td width="20%" align="center">문의유형</td>
+					<td width="80%">
+						<select name="qnaCategory"  class="form-select" aria-label="Default select example" >
+							<option value="member" label="회원관련" selected></option>
+							<option value="point" label="포인트관련"></option>
+							<option value="books" label="도서관련"></option>
+							<option value="others" label="기타"></option>
+						</select>	
+					</td>
+				<tr>
+					<td width="20%" align="center">작성자</td>
+					<td width="80%"><input type="text" name="memberId" class="form-control" value="${loginMember.memberId}" readonly></td>
+				</tr>
+				<tr>
+					<td width="20%" align="center">제목</td>
+					<td width="80%"><input type="text" name="qnaTitle" class="form-control"></td>
+				</tr>
+				<tr>
+					<td width="20%" align="center">내용</td>
+					<td width="80%"><textarea class="form-control" id="exampleFormControlTextarea1" cols="20" rows="20" name="qnaContents"></textarea>  </td>
+				</tr>
+				<tr>
+					<!-- <td width="20%" align="center">첨부파일(선택)</td> -->
+					<td colspan="2">
+				       <!-- 첨부파일 1영역 -->
+				<div id="file1" class="row my-1" >
+
+					<div id="file-name-area" class="col-1 d-md-inline d-none"> 첨부파일 1</div>
+					<div id="file-bitton-aera" class="col-11">
+					<input type="text" id="text-box" readonly style="width:90%" placeholder="파일을 등록하세요"> <label for="input-file" >
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="skyblue" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+					<path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z"/>
+					</svg>
+					
+					파일등록 </label>
+					<input type="file" accept="image/jpeg, image/png, image/jpg" class="isFile" id="input-file" style="display:none" name="uploadFile" onchange="filename(this)" onclick="imgCheck();">
 					</div>
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="2" align="center" style="border:none;">
-					<input type="submit" value="등록" class="btn btn-warning btn-sm">
-					<input type="reset" value="취소" class="btn btn-warning btn-sm">
-					<button type="button" onclick="location.href='/qna/list.kh'" class="btn btn-warning btn-sm">목록</button> 
-					 
-				</td>
-			</tr>
-		</table>
-	</form>
+					
+
+
+				</div>
+				<!-- 첨부파일1영역종료 -->
+				<!-- 첨부파일 2영역 -->
+				<div id="file2" class="row my-1">
+
+					<div id="file-name-area" class="col-1 d-none d-md-inline "> 첨부파일 2</div>
+					<div id="file-bitton-aera" class="col-11">
+					
+					
+					<input type="text" id="text-box" readonly style="width:90%" placeholder="파일을 등록하세요"> <label for="input-file2" >
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="skyblue" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+						<path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z"/>
+						</svg>
+					파일등록 </label>
+					<input type="file" accept="image/jpeg, image/png, image/jpg"  class="isFile" id="input-file2" style="display:none" name="uploadFile" onchange="filename(this)">
+					</div>
+					
+				</div>
+				<!-- 첨부파일2영역종료 -->
+				<!-- 첨부파일 3영역 -->
+				<div id="file3" class="row my-1">
+				
+					<div id="file-name-area" class="col-1 d-none d-md-inline " > 첨부파일 3</div>
+					<div id="file-bitton-aera" class="col-11">
+					<input type="text" id="text-box" readonly style="width:90%" placeholder="파일을 등록하세요"> <label for="input-file3" >
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="skyblue" class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+						<path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3z"/>
+						</svg>
+					파일등록 </label>
+					<input type="file" accept="image/jpeg, image/png, image/jpg" class="isFile" id="input-file3" style="display:none" name="uploadFile" onchange="filename(this)">
+					</div>
+
+				</div>
+				<!-- 첨부파일3영역종료 -->
+				
+						<!-- 첨부파일 -->
+				    </td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center" style="border:none;">
+						<input onclick="qnaCheck();" type="button" value="등록" class="btn btn-warning btn-sm">
+						<input type="reset" value="취소" class="btn btn-warning btn-sm">
+						<button type="button" onclick="location.href='/qna/list.kh'" class="btn btn-warning btn-sm">목록</button> 
+						 
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<!-- 1:1 문의 입력 폼 End -->
+	
 </div>
 <br><br>
 </main>
@@ -137,110 +203,61 @@
 
 <!-- 파일 업로드 스크립트 -->
 <script>
-$(document).ready(function()
-		// input file 파일 첨부시 fileCheck 함수 실행
-		{
-			$("#input_file").on("change", fileCheck);
-		});
-
-/**
- * 첨부파일로직
- */
-$(function () {
-    $('#btn-upload').click(function (e) {
-        e.preventDefault();
-        $('#input_file').click();
-    });
-});
-
-// 파일 현재 필드 숫자 totalCount랑 비교값
-var fileCount = 0;
-// 해당 숫자를 수정하여 전체 업로드 갯수를 정한다.
-var totalCount = 10;
-// 파일 고유넘버
-var fileNum = 0;
-// 첨부파일 배열
-var content_files = new Array();
-
-function fileCheck(e) {
-    var files = e.target.files;
-    
-    // 파일 배열 담기
-    var filesArr = Array.prototype.slice.call(files);
-    
-    // 파일 개수 확인 및 제한
-    if (fileCount + filesArr.length > totalCount) {
-      $.alert('파일은 최대 '+totalCount+'개까지 업로드 할 수 있습니다.');
-      return;
-    } else {
-    	 fileCount = fileCount + filesArr.length;
-    }
-    
-    // 각각의 파일 배열담기 및 기타
-    filesArr.forEach(function (f) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        content_files.push(f);
-        $('#articlefileChange').append(
-       		'<div id="file' + fileNum + '" onclick="fileDelete(\'file' + fileNum + '\')">'
-       		+ '<font style="font-size:12px">' + f.name + '</font>'  
-       		+ '<img src="/img/icon_minus.png" style="width:20px; height:auto; vertical-align: middle; cursor: pointer;"/>' 
-       		+ '<div/>'
-		);
-        fileNum ++;
-      };
-      reader.readAsDataURL(f);
-    });
-    console.log(content_files);
-    //초기화 한다.
-    $("#input_file").val("");
-  }
-
-// 파일 부분 삭제 함수
-function fileDelete(fileNum){
-    var no = fileNum.replace(/[^0-9]/g, "");
-    content_files[no].is_delete = true;
-	$('#' + fileNum).remove();
-	fileCount --;
-    console.log(content_files);
+//파일이름 출력용
+function filename(obj) {
+	var name = obj.files[0].name;
+	var text = obj.previousElementSibling.previousElementSibling;
+	text.value=name;
+	
+	imgCheck(obj);
+	
+	
 }
 
-/*
- * 폼 submit 로직
- */
-	function registerAction(){
-		
-	var form = $("form")[0];        
- 	var formData = new FormData(form);
-		for (var x = 0; x < content_files.length; x++) {
-			// 삭제 안한것만 담아 준다. 
-			if(!content_files[x].is_delete){
-				 formData.append("article_file", content_files[x]);
-			}
+
+///// 이미지파일 체크 시작 ////
+var imgFile = document.querySelectorAll('.isFile');
+var fileForm = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/i;
+
+function imgCheck(obj) {
+for (var i = 0; i < imgFile.length; i++) {
+	if (imgFile[i].value != "") {
+
+		if (!imgFile[i].value.match(fileForm)) {
+			alert("이미지 파일만 업로드 가능");
+			imgFile[i].value = "";
+			var text = obj.previousElementSibling.previousElementSibling
+			text.value="";
+			
+
 		}
-   /*
-   * 파일업로드 multiple ajax처리
-   */    
-	$.ajax({
-   	      type: "POST",
-   	   	  enctype: "multipart/form-data",
-   	      url: "/qna/register.kh",
-       	  data : formData,
-       	  processData: false,
-   	      contentType: false,
-   	      success: function (data) {
-   	    	if(JSON.parse(data)['result'] == "OK"){
-   	    		alert("파일업로드 성공");
-			} else
-				alert("서버내 오류로 처리가 지연되고있습니다. 잠시 후 다시 시도해주세요");
-   	      },
-   	      error: function (xhr, status, error) {
-   	    	alert("서버오류로 지연되고있습니다. 잠시 후 다시 시도해주시기 바랍니다.");
-   	     return false;
-   	      }
-   	    });
-   	    return false;
 	}
+}
+
+};
+
+
+function titleLengthCk(thisInput){
+ 	console.log(thisInput.value.length);
+ 	if(thisInput.value.length>30){
+ 		thisInput.value = thisInput.value.substr(0,30);
+ 	}	
+}
+function qnaCheck() {
+	if(qnaForm.qnaTitle.value=="") { // document 를 생략해도 됨
+        alert("제목을 입력하세요!");
+        qnaForm.qnaTitle.focus();
+    	return false;
+    }else if(qnaForm.qnaContents.value==""){
+        alert("내용을 입력하세요");
+        qnaForm.qnaContents.focus();
+        return false;
+    }
+	
+	return qnaForm.submit();
+ }
+
+
 </script>
 
 <!-- Footer -->
