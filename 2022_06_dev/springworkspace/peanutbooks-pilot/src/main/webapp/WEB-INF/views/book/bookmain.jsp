@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -53,7 +54,7 @@
 
 
 						<div class="openbutton">
-							<button id="bookopenbutton">상세 열람</button>
+							<button id="bookopenbutton" onclick="window.open('/book/bookStep.do?bookNo=${oBook.bookNo}&category=origin')">상세 열람</button>
 						</div>
 						<div class="userbutton container">
 							<div class="row">
@@ -62,12 +63,16 @@
 									<br> 내 서재
 								</div>
 								<div class="col-4">
-									<img src="/resources/img/book/icons8-reply-48.png" alt="">
-									<br> 감상쓰기
+									<a href="#reply-text">
+										<img src="/resources/img/book/icons8-reply-48.png" alt="">
+										<br> 감상쓰기
+									</a>
 								</div>
 								<div class="col-4">
-									<img src="/resources/img/book/icons8-star-52.png" alt="">
-									<br> 별점주기
+									<a href="#star-area">
+										<img src="/resources/img/book/icons8-star-52.png" alt="">
+										<br> 별점주기
+									</a>
 								</div>
 							</div>
 						</div>
@@ -75,7 +80,7 @@
 						
 						<!-- 작가일때만 보이는 버튼 -->
 						<c:if test="${loginMember.memberId == oBook.memberId}">
-							<button>다음편 쓰기</button>
+							<button onclick="registOriNext(${oBook.bookNo},${fn:length(osList)+1});">다음편 쓰기</button>
 						</c:if>
 						
 						<!-- 관리자일때만 보이는 버튼 -->
@@ -103,8 +108,21 @@
 							<ol>
 
 								<c:forEach items="${osList }" var="oSeries">
-									<li>${oSeries.title }
-										<button>수정</button>
+									<li>
+									<!-- 삭제 여부 체크 -->
+									<c:if test="${oSeries.status == 'N'}"> 관리자에 의해 삭제되었습니다.</c:if>
+									<c:if test="${oSeries.status == 'Y'}"> ${oSeries.title }</c:if>
+									
+									
+									<!-- 작성자 일때만 수정버튼 보임 -->
+										<c:if test="${loginMember.memberId == oBook.memberId}">
+											<button>수정</button>
+										</c:if>
+									<!--  관리자 일때만 삭제 버튼 보임 -->
+										<c:if test="${loginMember.adminYN == 'Y'}">
+											<button>삭제</button>
+										</c:if>
+										
 									</li>
 								</c:forEach>
 
@@ -122,18 +140,50 @@
 					<div class="sub-title">리뷰현황</div>
 					<div class="sub-info row">
 						<div class="star-area-1 col-md-6">
-							<div class="star-title">사용자 평균(12명)</div>
-							<div class="star-score">★★★☆☆</div>
+							<div class="star-title">사용자 평균(${oBook.scoreCount }명)</div>
+							
+							<div class="star-score" id="avr-score">
+							 <c:if test="${oBook.score==0}">☆ ☆ ☆ ☆ ☆</c:if>
+							 <c:if test="${oBook.score==1}">★ ☆ ☆ ☆ ☆</c:if>
+							 <c:if test="${oBook.score==2}">★ ★ ☆ ☆ ☆</c:if>
+							 <c:if test="${oBook.score==3}">★ ★ ★ ☆ ☆</c:if>
+							 <c:if test="${oBook.score==4}">★ ★ ★ ★ ☆</c:if>
+							 <c:if test="${oBook.score==5}">★ ★ ★ ★ ★</c:if>
+							
+							</div>
 						</div>
 						<div class="star-area-2 col-md-6">
 							<div class="star-title">별점주기</div>
-							<div class="star-score">☆☆☆☆☆</div>
+							<c:if test ="${star != null}">
+							
+							<div class="star-score" id="userStarScore" onclick="StarRemoveUser();">
+								<c:if test="${star.score==0}">☆ ☆ ☆ ☆ ☆</c:if>
+								<c:if test="${star.score==1}">★ ☆ ☆ ☆ ☆</c:if>
+							 	<c:if test="${star.score==2}">★ ★ ☆ ☆ ☆</c:if>
+								<c:if test="${star.score==3}">★ ★ ★ ☆ ☆</c:if>
+								<c:if test="${star.score==4}">★ ★ ★ ★ ☆</c:if>
+							 	<c:if test="${star.score==5}">★ ★ ★ ★ ★</c:if>
+							 </div>
+							
+							</c:if>
+						
+							
+							<div class="star-score" id="star-score" <c:if test ="${star != null}"> style="display:none;" </c:if> >
+								<span class="star-none" id="star1">☆</span>  <span class="star-fill"  id="star1-fill">★</span>
+								<span class="star-none"  id="star2">☆</span>  <span class="star-fill"  id="star2-fill">★</span>
+								<span class="star-none"  id="star3">☆</span>  <span class="star-fill"  id="star3-fill">★</span>
+								<span class="star-none"  id="star4">☆</span>  <span class="star-fill"  id="star4-fill">★</span>
+								<span class="star-none"  id="star5">☆</span>  <span class="star-fill"  id="star5-fill">★</span>
+		
+							</div>
+							
+							
 						</div>
 
 					</div>
 				</div>
 				<div id="reply">
-					<div class="sub-title">독자 감상(<span id="replyLength"></span>)</div>
+					<div class="sub-title">독자 감상(<span id="replyLength">0</span>)</div>
 					<div class="reply">
 
 						<div class="container mt-1 view-relply">
@@ -206,6 +256,11 @@
 
 	<jsp:include page="../footer/footer.jsp" />
 </body>
+<script type="text/javascript">
+
+var bookNo = ${oBook.bookNo};
+var userId = '${loginMember.memberId}';
+</script>
 <script src="/resources/js/book/bookmain.js"></script>
 
 </html>

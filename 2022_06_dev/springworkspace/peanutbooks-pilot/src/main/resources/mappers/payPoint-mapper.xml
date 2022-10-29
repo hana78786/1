@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="payPoint_Mapper">
+	<!--pay 결제 관련 매핑  -->
+	<resultMap type="Pay" id="payResultMap">
+  		<id property="orderNo" column="orderNo"/> 
+		<result  property="orderNo" column="ORDER_NO"/> 	
+		<result  property="pay" column="PAY"/> 
+		<result  property="orderStatus" column="ORDER_STATUS"/> 
+		<result  property="memberId" column="MEMBERI_ID"/> 		
+		<result  property="orderContents" column="ORDER_CONTENTS"/> 
+		<result  property="imp_uid" column="IMP_UID"/> 
+  	</resultMap>
+  	<!--주문 확정내용 입력  -->
+  	<insert id="insertPay">
+		 INSERT INTO PAY VALUES((#{orderNo}||'-'||SQN_PAY_NO.NEXTVAL), ${pay},default,#{memberId},#{orderContents},'')
+	</insert>
+	<!--확정된 주문번호 가져오기 입력된것중 가장 마지막 값을 가져오게 됨  -->
+	<select id="selectOdNo" resultMap="payResultMap">
+		SELECT * FROM(
+ 		 SELECT * FROM PAY WHERE MEMBER_ID=#{memberId} AND ORDER_NO LIKE #{orderNo}||'%' AND PAY= #{pay} ORDER BY ROWNUM DESC)
+ 		 WHERE ROWNUM =1	
+	</select>
+	<!--주문성공시 orderStatus 값 변경  -->
+	<update id="updataOrder">
+		UPDATE PAY SET ORDER_STATUS='Y', IMP_UID=#{imp_uid} WHERE ORDER_NO=#{orderNo}
+	
+	</update>	
+	
+	<!--작가 정산관련 부분  -->
+	<resultMap type="WriterPay" id="WriterPayResultMap">
+  		<id property="memberId" column="MEMBER_ID"/> <!--id   -->
+		<result  property="memberId" column="MEMBER_ID"/> 	
+		<result  property="seriesNo" column="SERIES_NO"/> 	
+		<result  property="ori_bookNo" column="ORI_BOOK_NO"/> 
+		<result  property="putDate" column="PUT_DATE"/> 
+		<result  property="bankName" column="BANK_NAME"/> 
+		<result  property="bankNo" column="BANK_NO"/> 
+		<result  property="payment" column="PAYMENT"/> 
+		<result  property="bankStatus" column="BANK_STATUS"/> 
+		<result  property="wrpayNo" column="WRPAY_NO"/> 
+		<result  property="changeP" column="CHANGE_P"/> 
+  	</resultMap>
+  	<!-- 작가 결제 요청시 저장 -->
+    <insert id="insertreceiptWP">
+    	INSERT INTO POINTCHANGE_TBL VALUES(#{memberId},#{seriesNo},#{ori_bookNo},DEFAULT,#{bankName},#{bankNo},${payment},DEFAULT, SQN_WRITERPAY_NO.NEXTVAL, ${changeP})    	
+    </insert>
+    
+    <!--작가정산리스트 출력 -->
+    <select id="selectwrList" resultMap="WriterPayResultMap">
+    	SELECT * FROM POINTCHANGE_TBL
+    </select>
+    
+  
+  <!--땅콩 포인트 관련  -->	
+  	<resultMap type="PeanutPoint" id="peanutResultMap">
+  		<id property="peanutNo" column="PEANUT_NO"/> <!--id   -->
+		<result  property="peanutNo" column="PEANUT_NO"/> 
+		<result  property="ppDate" column="PP_DATE"/> 
+		<result  property="peanutPoint" column="PEANUT_POINT"/> 	
+		<result  property="ppStatus" column="PP_STATUS"/> 
+		<result  property="bookNo" column="BOOK_NO"/>
+		<result  property="bookName" column="BOOK_NAME"/>
+        <result  property="memberId" column="MEMBER_ID"/>
+		<result  property="orderNo" column="ORDER_NO"/>  
+		<result  property="seriesNo" column="SERIES_NO"/>  
+		 
+  	</resultMap>
+  	
+  	<insert id="insertPeanut">
+  		 INSERT INTO PEANUTPOINT_TBL VALUES (SQN_PEANUT_NO.NEXTVAL,SYSDATE,${peanutPoint},'Y',DEFAULT,DEFAULT,#{memberId},#{orderNo},DEFAULT)
+  	</insert>
+  	<!-- 땅콩 전체 리스트  -->
+  	<select id="peanutpointLsit" resultMap="peanutResultMap">
+  		SELECT * FROM PEANUTPOINT_TBL WHERE MEMBER_ID=#{memberId } ORDER BY PP_DATE DESC
+  	</select>
+  	<!--땅콩 리스트 전체 갯수 구하기  -->
+  	<select id="ppListCount" resultType="_int">
+  		SELECT COUNT(*) FROM PEANUTPOINT_TBL
+  	</select>
+  	
+  	<select id="idppSum" resultType="_int">
+  		SELECT SUM(PEANUT_POINT) FROM PEANUTPOINT_TBL WHERE MEMBER_ID = #{memberId } 
+  	</select>
+  
+  	
+  	<resultMap type="SeasonTicket" id="seasonTicketResultMap">
+  		<id property="orderNo" column="ORDER_NO"/> 
+		<result  property="orderNo" column="ORDER_NO"/> 	
+		<result  property="orderDate" column="ORDER_DATE"/> 
+		<result  property="lastDate" column="LAST_DATE"/> 
+		<result  property="memberId" column="MEMBER_ID"/> 
+		<result  property="expiry_yn" column="EXPIRY_YN"/> 
+  	</resultMap>
+  	
+  	<!--결제후 구독권 등록  -->
+ 	<insert id="insertSSticket">
+		 INSERT INTO SEASONTICKET_TBL VALUES(#{orderNo}, SYSDATE,ADD_MONTHS(SYSDATE,1),#{memberId},'N')
+	</insert>
+
+		
+	<!--  로그인시 구독여부 및 마지막 날짜확인 -->  
+	<select id="selectLastSSticket" resultType="string">		
+		SELECT TO_CHAR(LAST_DATE+1/(60*24),'YYYY-MM-DD HH24:MI:SS') FROM SEASONTICKET_TBL WHERE MEMBER_ID=#{memberId} AND EXPIRY_YN='N' 	
+	</select>
+	
+	
+	<resultMap type="Member" id="memberResultMap">
+		<id property="memberId" column="MEMBER_ID"/> <!-- 회원 아이디 -->
+		<result property="memberPw" column="MEMBER_PW"/> <!-- 회원 비밀번호 -->
+		<result property="mNickname" column="M_NICKNAME"/> <!-- 회원 별명 -->
+		<result property="mEmail" column="M_EMAIL"/> <!-- 회원 이메일 -->
+		<result property="emailYN" column="EMAIL_YN"/> <!-- 이메일 인증 여부 -->
+		<result property="joinDate" column="JOIN_DATE"/> <!-- 회원 등록일 -->
+		<result property="deleteYN" column="DELETE_YN"/> <!-- 회원 탈퇴 여부 -->
+		<result property="mPoint" column="M_POINT"/> <!-- 회원 포인트(땅콩) -->
+		<result property="subYN" column="SUB_YN"/> <!-- 월 구독 여부 -->
+		<result property="naverId" column="NAVER_ID"/> <!-- 네이버 아이디 -->
+		<result property="kakaoId" column="KAKAO_ID"/> <!-- 카카오 아이디 -->
+		<result property="accType" column="ACC_TYPE"/> <!-- 계정 종류(일반/네이버/카카오) -->
+		<result property="adminYN" column="ADMIN_YN"/> <!-- 관리자 여부 -->
+	</resultMap>
+	
+	<!--구독권 구매 후 member 구독권 y/n변경  -->
+	<update id="updateMemberSSticket">
+		UPDATE MEMBER_TBL SET SUB_YN='Y' WHERE MEMBER_ID=#{memberId}
+	</update>
+	<!--땅콩정산하여 멤버 포인트에 넣기  -->
+	<update id="memberPoint">
+		UPDATE MEMBER_TBL SET M_POINT=${mPoint} WHERE MEMBER_ID=#{memberId}
+	</update>
+	
+  </mapper>
