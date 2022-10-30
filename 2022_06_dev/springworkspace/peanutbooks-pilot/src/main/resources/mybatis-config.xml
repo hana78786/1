@@ -32,14 +32,21 @@
 		<typeAlias type="com.books.peanut.book.domain.HashTag" alias="HashTag"/>
 		
 		<typeAlias type="com.books.peanut.book.domain.OriginBookReply" alias="OriginBookReply"/>
+		<typeAlias type="com.books.peanut.book.domain.NormalBookSeries" alias="NormalBookSeries"/>
+		<typeAlias type="com.books.peanut.book.domain.NormalBook" alias="NormalBook"/>
+		<typeAlias type="com.books.peanut.book.domain.NormalBookReply" alias="NormalBookReply"/>
+		<typeAlias type="com.books.peanut.book.domain.Library" alias="Library"/>
+		<typeAlias type="com.books.peanut.book.domain.peanutPaidSeries" alias="peanutPaidSeries"/>
 		
 	</typeAliases>
 
 
 <mappers>
-	<mapper resource="/mappers/originbook-mapper.xml"/>
+	<mapper resource="/mappers/normalbook-mapper.xml"/>
 	<mapper resource="/mappers/writer-mapper.xml"/>
 	<mapper resource="/mappers/bookReply-mapper.xml"/>
+	<mapper resource="/mappers/bookAdmin-mapper.xml"/>
+	<mapper resource="/mappers/library-mapper.xml"/>
 	
 	<!--은정꺼  -->
 	<mapper resource="/mappers/consult-mapper.xml" />

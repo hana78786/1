@@ -38,6 +38,7 @@
 					</div>
 					<div class="info-area col-md-6">
 						<div id="title">${oBook.bookTitle }</div>
+						<c:if test="${oBook.status == 'N '}">이 책은 관리자에 의해 삭제되었습니다.</c:if>
 						<div id="wirter-text">작가 : ${oBook.memberNickName }</div>
 
 
@@ -58,9 +59,14 @@
 						</div>
 						<div class="userbutton container">
 							<div class="row">
-								<div class="col-4">
+								<div class="col-4" onclick="addMybooks('origin',${oBook.bookNo})">
 									<img src="/resources/img/book/icons8-bookmark-52.png" alt="">
-									<br> 내 서재
+									
+									<br> 
+									<span id="mybooksButton">
+									<c:if test="${library=='in'}">내 서재 취소</c:if>
+									<c:if test="${library!='in'}">내 서재 등록</c:if>
+									</span>
 								</div>
 								<div class="col-4">
 									<a href="#reply-text">
@@ -80,12 +86,12 @@
 						
 						<!-- 작가일때만 보이는 버튼 -->
 						<c:if test="${loginMember.memberId == oBook.memberId}">
-							<button onclick="registOriNext(${oBook.bookNo},${fn:length(osList)+1});">다음편 쓰기</button>
+							<button onclick="registOriNext(${oBook.bookNo},${nextSeriesNo});">다음편 쓰기</button>
 						</c:if>
 						
 						<!-- 관리자일때만 보이는 버튼 -->
-						<c:if test="${loginMember.adminYN == 'Y' }">
-							<button>삭제하기</button>
+						<c:if test="${loginMember.adminYN == 'Y' }" >
+							<button  onclick="removeOriginBook(${oBook.bookNo});">삭제하기</button>
 						</c:if>
 							
 						</div>
@@ -107,23 +113,38 @@
 						<c:if test="${osList != null }">
 							<ol>
 
-								<c:forEach items="${osList }" var="oSeries">
-									<li>
-									<!-- 삭제 여부 체크 -->
+								<c:forEach items="${osList }" var="oSeries" varStatus="i">
+	
+								<c:if test ="${oSeries.checkPermission == 'Y'}"> <!-- 책이 승인되었을때만 보임 -->
+									<li><!-- 삭제 여부 체크 -->
 									<c:if test="${oSeries.status == 'N'}"> 관리자에 의해 삭제되었습니다.</c:if>
 									<c:if test="${oSeries.status == 'Y'}"> ${oSeries.title }</c:if>
-									
-									
-									<!-- 작성자 일때만 수정버튼 보임 -->
+									</li>
+								</c:if>
+								<c:if test ="${oSeries.checkPermission == 'N'}"><!-- 책이 승인되지 않았을땐 관리자에게만 보임 -->
+									<c:if test="${loginMember.memberId == oBook.memberId||loginMember.adminYN == 'Y'}">
+											<li><!-- 삭제 여부 체크 -->
+										<c:if test="${oSeries.status == 'N'}"> 관리자에 의해 삭제되었습니다.</c:if>
+										<c:if test="${oSeries.status == 'Y'}"> ${oSeries.title } : 이 시리즈는 승인되지 않았습니다</c:if>
+										<!-- 작성자 일때만 수정버튼 보임 -->
 										<c:if test="${loginMember.memberId == oBook.memberId}">
-											<button>수정</button>
+											<button onclick="location.href='/book/oriSeriesModifyView.do?bookNo=${oBook.bookNo}&seriesNo=${i.index +1 }'">수정</button>
 										</c:if>
-									<!--  관리자 일때만 삭제 버튼 보임 -->
+										<!--  관리자 일때만 삭제 버튼 보임 -->
 										<c:if test="${loginMember.adminYN == 'Y'}">
-											<button>삭제</button>
+											<button onclick="removeORiSeries(${oBook.bookNo},${i.index +1 })">삭제</button>
 										</c:if>
 										
 									</li>
+									
+									
+									</c:if>
+								</c:if>
+									
+									
+									
+									
+									
 								</c:forEach>
 
 							</ol>

@@ -7,6 +7,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.books.peanut.book.domain.OriginBook;
+import com.books.peanut.book.domain.OriginBookSeries;
 import com.books.peanut.member.domain.Member;
 import com.books.peanut.pay.domain.Pagemarker;
 import com.books.peanut.pay.domain.Pay;
@@ -35,7 +37,7 @@ public class StorePayLogic implements StorePay{
 		int result=session.update("payPoint_Mapper.updataOrder",payApi);
 		return result;
 	}
-
+	//작가료 정산접수
 	@Override
 	public int writerReceipt(SqlSessionTemplate session, WriterPay writerP) {
 		int result=session.insert("payPoint_Mapper.insertreceiptWP",writerP);
@@ -43,8 +45,10 @@ public class StorePayLogic implements StorePay{
 	}
 
 	@Override
-	public List<WriterPay> wrListPrint(SqlSessionTemplate session) {
-		List<WriterPay> wrList=session.selectList("payPoint_Mapper.selectwrList");
+	public List<WriterPay> wrListPrint(SqlSessionTemplate session,Pagemarker pm) {
+		int offset=(pm.getCurrentPage()-1)*pm.getLimit();		
+		RowBounds rowBounds = new RowBounds(offset,pm.getLimit());
+		List<WriterPay> wrList=session.selectList("payPoint_Mapper.selectwrList",null,rowBounds);
 		return wrList;
 	}
 	//peanetpoint table입력
@@ -84,22 +88,58 @@ public class StorePayLogic implements StorePay{
 		List<PeanutPoint> pList=session.selectList("payPoint_Mapper.peanutpointLsit", paramMap ,rowBounds);
 		return pList;
 	}
-	//페이징 전체 갯수
+	//땅콩포인트 페이징 전체 갯수
 	@Override
-	public int getTotalCount(SqlSessionTemplate session) {
-		int num=session.selectOne("payPoint_Mapper.ppListCount");
+	public int getTotalCount(SqlSessionTemplate session,String memberId) {
+		int num=session.selectOne("payPoint_Mapper.ppListCount",memberId);
 		return num;
 	}
 	//id별 땅콩 포인트 합계
 	@Override
 	public int getPPsum(SqlSessionTemplate session, String memberId) {
-		int ppSum = session.selectOne("payPoint_Mapper.idppSum", memberId);
+		Integer ppSum = session.selectOne("payPoint_Mapper.idppSum", memberId);
+		if(ppSum==null) {
+			ppSum=0;			
+		}
 		return ppSum;
 	}
-
+	//포인트 계산하기
 	@Override
 	public void putMemberPoint(SqlSessionTemplate session, Member member) {
 		session.update("payPoint_Mapper.memberPoint",member);
+	}
+	//작가정산위한 도서 리스트 확인
+	@Override
+	public List<OriginBook> originListGet(SqlSessionTemplate session, String memberId) {
+		List<OriginBook> obList=session.selectList("payPoint_Mapper.OriginBookNo",memberId);
+		return obList;
+	}
+	//도서번호로 시리즈 조회
+	@Override
+	public List<OriginBookSeries> findSeriseNo(SqlSessionTemplate session, OriginBookSeries obs) {
+		List<OriginBookSeries> obsList= session.selectList("payPoint_Mapper.origin_B_S_list", obs);
+		return obsList;
+	}
+	//지급접수후 포인트 차감
+	@Override
+	public int updatePaidCount(SqlSessionTemplate session, WriterPay writerP) {
+		int num=session.update("payPoint_Mapper.updatePaid_count",writerP);
+		return num;
+	}
+	//작가 정산리스트 전체갯수 구하기
+	@Override
+	public int getwritetP_Count(SqlSessionTemplate session) {
+		Integer count=session.selectOne("payPoint_Mapper.wPListCount");
+		if(count==null) {
+			count=0;
+		}
+		return count;
+	}
+	//작가 정산접수 관리자 승인처리
+	@Override
+	public int writerPayStatusOne(SqlSessionTemplate session, String wrpayNo) {
+		int num=session.update("payPoint_Mapper.updateWriterpay",wrpayNo);
+		return num;
 	}	
 
 }

@@ -37,7 +37,7 @@ public class NoticeController {
 		}
 		return "member/login";
 	}
-	
+
 	//공지사항 게시물 등록
 	@RequestMapping(value="/notice/register.kh", method=RequestMethod.POST)
 	public ModelAndView registerNotice(
@@ -51,7 +51,6 @@ public class NoticeController {
 			if(!noticeFilename.equals("")) {
 				// 파일 업로드 
 				String root = request.getSession().getServletContext().getRealPath("resources");
-				System.out.println(root);
 				String savePath = root + "\\nuploadFiles";
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 				String noticeFileRename 
@@ -112,7 +111,6 @@ public class NoticeController {
 				mv.addObject("startNavi", startNavi);
 				mv.addObject("endNavi", endNavi);
 				mv.addObject("nList", nList);
-	
 			}
 			mv.setViewName("notice/noticeListView");
 		} catch (Exception e) {
@@ -254,13 +252,12 @@ public class NoticeController {
 		return mv;
 		
 	}
-	//공지사항 전체 리스트
+	//공지사항 카테고리별 리스트
 	@RequestMapping(value="/notice/categoryCount.kh", method=RequestMethod.GET)
 	public ModelAndView noticeCategoryList(
 			ModelAndView mv
 			, @RequestParam("noticeCategory") String noticeCategory
 			, @RequestParam(value="page", required=false) Integer page) {
-			System.out.println(noticeCategory);
 		try {
 			int currentPage = (page != null) ? page : 1;
 			int totalCount = nService.getTotalCount("","");
@@ -269,7 +266,6 @@ public class NoticeController {
 			int maxPage;
 			int startNavi;
 			int endNavi;
-			System.out.println(totalCount);
 			maxPage = (int)((double)totalCount/categoryLimit + 0.9);
 			startNavi = ((int)((double)currentPage/naviLimit+0.9)-1)*naviLimit+1;
 			endNavi = startNavi + naviLimit - 1;
@@ -282,7 +278,6 @@ public class NoticeController {
 			}else {
 				mv.addObject("nList", null);
 			}
-			System.out.println(nList);
 			mv.addObject("urlVal", "search");
 			mv.addObject("noticeCategory", noticeCategory);
 			mv.addObject("maxPage", maxPage);

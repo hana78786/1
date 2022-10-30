@@ -1,3 +1,11 @@
+document.getElementById("pay-check").onchange=function(){
+
+	if(document.getElementById("pay-check").checked) {
+	    document.getElementById("paidCheckHidden").disabled = true;
+	}
+}
+
+
 function loadFile(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
@@ -15,7 +23,7 @@ function imgView(obj) {
     imgid.onload = function() {
         URL.revokeObjectURL(imgid.src) // free memory
         if(imgid.src!=''){
-            imgid.style.background='white';
+            imgid.style.background='gray';
         }
 
     }

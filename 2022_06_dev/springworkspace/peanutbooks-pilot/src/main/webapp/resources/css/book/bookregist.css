@@ -119,6 +119,11 @@ main h2{
     height: 3rem;
 }
 
+#camera1:hover, #camera2:hover{
+	cursor:pointer;
+	
+}
+
 hr{
    
 margin: 1rem;}
@@ -196,10 +201,14 @@ margin: 1rem;}
     .contents-textarea{
         margin: 0;
     }
+   
     .contents-button {
         justify-content: center;
         flex-wrap: nowrap;
+       
     }
+    
+
     #camera2{
         left: 45%;
 
@@ -218,6 +227,8 @@ margin: 1rem;}
     #info-text1{
     margin-left:0;
     }
+    
+    
 }
 
 

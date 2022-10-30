@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 <meta charset="UTF-8">
@@ -46,7 +46,7 @@
                 
                 <div class="col-md-4 col-7" id="header-menu-icon">
                     <img src="/resources/img/header/icons8-search (2).png" alt="" id="search-icon">
-                    <img src="/resources/img/header/icons8-book (3).png" alt="" id="book-icon">
+                    <img src="/resources/img/header/icons8-book (3).png" alt="" id="book-icon" onclick="location.href='/book/mybooks.do'">
                     <img src="/resources/img/header/icons8-peanut-48 (6).png" alt="" id="p-icon">
                     <img src="/resources/img/header/icons8-user.png" alt="" id="user-icon"
                     <c:if test="${loginMember.adminYN=='Y' }">style="display:none;"</c:if>
@@ -97,8 +97,10 @@
 								alt=""> <br>알림
 						</div>
 						<div class="col-4">
-							<img src="/resources/img/header/icons8-gear-50.png" alt="">
-							<br>정보수정
+							<a href="/member/memberInfo.pb">
+								<img src="/resources/img/header/icons8-gear-50.png" alt="">
+								<br>정보수정
+							</a>
 						</div>
 						<div class="col-4">
 							<a href="/book/writerMenu.do"> <img
@@ -147,18 +149,20 @@
 								alt=""> <br>알림
 						</div>
 						<div class="col-4">
-							<img src="/resources/img/header/icons8-gear-50.png" alt="">
-							<br>정보수정
+							<a href="/member/memberInfo.pb">
+								<img src="/resources/img/header/icons8-gear-50.png" alt="">
+								<br>정보수정
+							</a>
 						</div>
 						<div class="col-4">
-							<a href="/book/writerMenu.do"> <img
+							<a href="/book/writerMenu-admin.do"> <img
 								src="/resources/img/header/icons8-write-48.png" alt=""> <br>등록
 								도서
 							</a>
 						</div>
 
 						<div class="col-4">
-							<img src="/resources/img/header/icons8-chat-50.png" alt="">
+							<img src="/resources/img/header/icons8-chat-50.png" alt="" onclick="chatManager();">
 							<br>채팅상담
 						</div>
 						<div class="col-4">
@@ -259,7 +263,13 @@
 			var windo = "status=no ,toolbar=no,scrollbars=no, menubar=no,resizable=no,titlebar=no,width=550,height=650";
 			window.open("/consult/chatbefore.kh", "PopupWin",windo);
 		}
-		</script>
+		
+	     //채팅 상담리스트
+	      function chatManager(){ 
+	         location.href="/chat/move.kh";
+	      }
+
+	     </script>
     
 
 </body>

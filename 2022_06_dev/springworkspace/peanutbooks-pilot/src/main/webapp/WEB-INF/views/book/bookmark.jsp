@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 <meta charset="UTF-8">
@@ -31,16 +32,31 @@
             <article id="bookmark-haed-area">
                 <div id="bookmark-title">보관함</div>
                 <div id="bookmark-haed-button">
-                    <button>내 서재</button>
-                    <button>소장</button>
+                    <button onclick="location.href='/book/mybooks.do'">내 서재</button>
+                    <button onclick="location.href='/book/myPaid.do'">소장</button>
                 </div>
                 <div id="bookmark-search-area" class="row">
-                    <div class="col-md-3" id="gubun">전체 | 일반도서 | 피넛 오리지널</div>
+                    <div class="col-md-3" id="gubun">
+                    
+                    <!-- 종류별 출력 -->
+                    <a href="/book/mybooks.do">전체</a> |
+                    <a href="/book/mybooks.do?category=normal"> 
+                    일반도서</a> |
+                    <a href="/book/mybooks.do?category=origin"> 
+                    피넛 오리지널</a>
+                    
+                    </div>
+                    
+                    
                     <div class="col-md-6"></div>
                     <div class="col-md-3 row" id="search">
                         <div class="wrap">
+                        <!-- 검색폼 -->
+                        <form action="/book/mybooks.do" method="get">
                             <div class="search">
-                                <input type="text" class="searchTerm" placeholder="제목을 입력하세요">
+                            	<input type="hidden" name="step" value=${step }>
+                            	<input type="hidden" name="category" value=${category }>
+                                <input type="text" class="searchTerm" name="searchValue" placeholder="제목을 입력하세요">
                                 <button type="submit" class="searchButton">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-search" viewBox="0 0 16 16">
@@ -49,9 +65,9 @@
                                     </svg>
                                 </button>
                             </div>
-                        </div>
-
-
+                         </form>
+                       
+                        </div>            
                     </div>
 
                 </div>
@@ -61,134 +77,42 @@
 
             <article id="booklist-area">
                 <div class="row" id="list-firstline">
-                    <div class="col-md-9 d-md-block d-none">21 작품</div>
-                    <div class="col-md-3">등록순 | 별점순 | 조회순</div>
+                    <div class="col-md-9 d-md-block d-none">${TotalCount } 작품</div>
+                    <div class="col-md-3">
+                   <a href="/book/mybooks.do?category=${category }&step=all&searchValue=${searchValue}">등록순</a>  |
+                   <a href="/book/mybooks.do?category=${category }&step=star&searchValue=${searchValue}">별점순</a>  |
+                   <a href="/book/mybooks.do?category=${category }&step=view&searchValue=${searchValue}">조회순</a>
+                      </div>
 
                 </div>
 
                 <div id="book-list" class="row">
-                    <div class="col-md-3 col-6" id="one-book-area">
+                
+                <!-- 책 한권 반복 시작 -->
+                <c:forEach items="${lList }" var="library">
+                
+                	<c:if test="${library.bookTitle != null}">
+                
+                    <div class="col-md-3 col-6" id="one-book-area"
+                    <c:if test="${library.category == 'origin'}">
+                    onclick="location.href='/book/oriBookInfo?bookNo=${library.bookNo }'"
+                    </c:if>
+                    
+                    <c:if test="${library.category == 'normal'}">
+                    onclick="location.href='/book/norBookInfo?bookNo=${library.bookNo }'"
+                    </c:if>
+                    >
                         <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
+                            <img src="/resources/bookImg/${library.picName }">
                         </div>
                         <div class="book-name">
-                            제목
+                            ${library.bookTitle }
 
                         </div>
                     </div>
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/teacup-g35f438ceb_1280.png">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/teacup-g35f438ceb_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/christmas-g4fdade62f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6" id="one-book-area">
-                        <div class="one-book-pic">
-                            <img src="/resources/img/main/woman-g803af235f_1280.jpg">
-                        </div>
-                        <div class="book-name">
-                            제목
-
-                        </div>
-                    </div>
-
-
+                    
+                 </c:if>  
+				</c:forEach>
 
 
 
@@ -196,17 +120,33 @@
 
             </article>
 
+<!-- 페이징 영역 시작 -->
             <article id="page-area">
                 <ul id="pagination">
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#" class="active">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">»</a></li>
+
+               		<!-- 이전페이지 -->
+               		<c:if test="${startNavi ne 1 && startNavi > 0}">
+                    	<li><a href="/book/mybooks.do?category=${category }&step=${step }&searchValue=${searchValue}&category=${category }&page=${startNavi-1}">
+                    		«</a></li>
+                    </c:if>
+                    
+                    <!-- 페이지 숫자 -->
+                    <c:forEach var="p" begin="${startNavi }" end="${endNavi }">
+
+                    	<c:if test="${currentPage == p}">
+                    		<li><a href="#" class="active">${p }</a></li>
+                    	</c:if>
+                    	<c:if test="${currentPage != p  }">
+                    		<li><a href="/book/mybooks.do?category=${category }&step=${step }&searchValue=${searchValue}&category=${category }&page=${p}" >
+                    			${p }</a></li>
+                    	</c:if>
+                    </c:forEach>
+                    
+                    
+                   <!-- 다음페이지 -->
+                   <c:if test="${endNavi < maxPage }">
+                    <li><a href="/book/mybooks.do?category=${category }&step=${step }&searchValue=${searchValue}&category=${category }&page=${endNavi+1}">»</a></li>
+                    </c:if>
                 </ul>
 
 

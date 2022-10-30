@@ -183,6 +183,17 @@ ${sessionScope.loginMember.memberId}님 환영합니다!
 		
 						</div>
 						<!-- 첨부파일3영역종료 -->
+						<!-- 파일 이름 재전송 -->
+						<input type="hidden" name="qnaFilename01" value="${qna.qnaFilename01 }">
+						<input type="hidden" name="qnaFileRename01" value="${qna.qnaFileRename01 }">
+						
+						
+						<input type="hidden" name="qnaFilename02" value="${qna.qnaFilename02 }">
+						<input type="hidden" name="qnaFileRename02" value="${qna.qnaFileRename02 }">
+						
+						<input type="hidden" name="qnaFilename03" value="${qna.qnaFilename03 }">
+						<input type="hidden" name="qnaFileRename03" value="${qna.qnaFileRename03 }">
+						
 						
 						<!-- 첨부파일 -->
 				    </td>
@@ -192,7 +203,7 @@ ${sessionScope.loginMember.memberId}님 환영합니다!
 					<td colspan="2" align="center" style="border:none;">
 						<input onclick="qnaCheck();" type="button" value="수정" class="btn btn-warning btn-sm">
 						<input type="reset" value="취소" class="btn btn-warning btn-sm">
-						<button type="button" onclick="location.href='/qna/list.kh'" class="btn btn-warning btn-sm">목록</button> 
+						<button type="button" onclick="backBtn()" class="btn btn-warning btn-sm">목록</button> 
 						 
 					</td>
 				</tr>
@@ -209,6 +220,10 @@ ${sessionScope.loginMember.memberId}님 환영합니다!
 
 <!-- 파일 업로드 스크립트 -->
 <script>
+function backBtn() {
+    history.back();
+}
+
 //파일이름 출력용
 function filename(obj) {
 	var name = obj.files[0].name;

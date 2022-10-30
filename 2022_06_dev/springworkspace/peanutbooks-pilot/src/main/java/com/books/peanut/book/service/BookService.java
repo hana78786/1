@@ -2,11 +2,17 @@ package com.books.peanut.book.service;
 
 import java.util.List;
 
+import com.books.peanut.book.domain.BookPage;
 import com.books.peanut.book.domain.HashTag;
+import com.books.peanut.book.domain.Library;
+import com.books.peanut.book.domain.NormalBook;
+import com.books.peanut.book.domain.NormalBookSeries;
 import com.books.peanut.book.domain.OriginBook;
 import com.books.peanut.book.domain.OriginBookSeries;
 import com.books.peanut.book.domain.Star;
 import com.books.peanut.book.domain.WriterProfile;
+import com.books.peanut.book.domain.peanutPaidSeries;
+import com.books.peanut.pay.domain.PeanutPoint;
 
 public interface BookService {
 
@@ -100,5 +106,112 @@ public interface BookService {
 	/**땅콩으로 시리즈 구입
 	 * @param bookTitle */
 	int buyOneSeries(int seriesNo, int bookNo, String memberId, String bookTitle);
+
+	/**피넛 오리지널 시리즈 수정*/
+	int modifyOriSeries(OriginBookSeries obSeries);
+
+	/**모든 일반도서의 책의 갯수 파악*/
+	int allNorSeriesCount();
+
+	/**모든 일반도서 시리즈 가져오기*/
+	List<NormalBookSeries> allAdminBooks();
+
+	/**일반도서 제목 가져오기*/
+	String getNorBookTitle(String bookNo);
+
+	/**일반도서 등록하기*/
+	int registenorBook(NormalBook nBook);
+
+	/**일반도서 시리즈 등록하기*/
+	int registNoriSeries(NormalBookSeries nSeries);
+
+	/**일반도서 태그 등록하기*/
+	int registeNorTag(HashTag hTag);
+
+	/**일반 도서 열람하기*/
+	NormalBook showOneNorbook(String bookNo);
+
+	/**일반도서 시리즈의 정보가져오기*/
+	List<NormalBookSeries> getNorSeriesTitle(String bookNo);
+
+	/**일반도서 작가가 등록한 도서 목록 가져오기*/
+	List<NormalBook> allNorWirterbookTitle(String writer);
+
+	/**일반도서 한권에 모든 시리즈 가져오기*/
+	List<NormalBookSeries> allNorBookSeries(String bookNo);
+
+	/**일반도서 시리즈 1개 가져오기*/
+	NormalBookSeries getOneNorBookSeries(int bookNo, int seriesNo);
+
+	/**일반도서 시리즈 다음화 등록*/
+	int registNorSeriesNext(NormalBookSeries nSeries);
+
+	/**도서 언어여부 확인하기*/
+	String getlanguege(String string);
+
+	/**일반도서 시리즈 수정하기*/
+	int modifyNorSeries(NormalBookSeries nbSeries);
+
+	/**현재 한 도서의 모든 시리즈 번호 가지고 오기
+	 * @param bookNo */
+	List<NormalBookSeries> getNorSeriesNo(int bookNo);
+
+	/**오리지널 시리즈 삭제*/
+	int removeOriBookSeries(String bookNo, Integer seriesNo);
+
+	/**피넛 오리지널 도서 삭제*/
+	int removeOriBook(String bookNo);
+
+	/**일반도서 시리즈 하나 삭제*/
+	int removeNorBookSeries(String bookNo, Integer seriesNo);
+
+
+	/**일반도서 삭제*/
+	int removeNorBook(int bookNo);
+
+	/**피넛 오리지널 한권의 삭제되지 않고 허가된 모든 시리즈 번호 가져오기*/
+	List<OriginBookSeries> getOriSeriesNo(int bookNo);
+
+	/**피넛 오리지널 한권의 모든 시리즈 번호 가져오기*/
+	List<OriginBookSeries> getOneOriSeriesAllNo(int bookNo);
+
+	/**내 서재에 등록됐는지 확인하기*/
+	int checkMybookMember(Library library);
+
+	/**내서재 등록**/
+	int addMybook(Library library);
+
+	/**내 서재 삭제*/
+	int removeMybook(Library library);
+
+	/**내 서재 목록 가져오기
+	 * @param searchValue 
+	 * @param step 
+	 * @param category 
+	 * @param bPage */
+	List<Library> getOneMemberLibrary(String memberId, String category, String step, String searchValue,int page, int limit);
+
+	/**피넛 오리지널 삭제되지 않고 승인된 책의 제목, 표지 가져오기*/
+	OriginBook getOneBookStatus(String bookNo);
+
+	/**일반도서 삭제되지 않고 승인된 책의 제목, 표지 가져오기*/
+	NormalBook getNorBookStatus(String bookNo);
+
+	/**내 서재 피넛 오리지널 목록 가져오기*/
+	List<Library> getOneMemberOriLibrary(String memberId);
+
+	/**내 서재 일반도서 목록가져오기*/
+	List<Library> getOneMemberNorLibrary(String memberId);
+
+	/**내 구입도서 가져오기*/
+	List<peanutPaidSeries> getOneMemberPaid(String memberId);
+
+	/**내가 구입한 모든 도서 가져오기*/
+	OriginBookSeries getOneBookSeriesStatus(String bookNo, String seriesNo);
+
+	/**페이징용 내 서재 갯수가져오기*/
+	int countOneMemberLibrary(String memberId, String category, String step, String searchValue);
+
+	
 
 }
