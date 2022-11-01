@@ -6,13 +6,19 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.books.peanut.book.domain.BookPage;
 import com.books.peanut.book.domain.HashTag;
+import com.books.peanut.book.domain.Library;
+import com.books.peanut.book.domain.NormalBook;
+import com.books.peanut.book.domain.NormalBookSeries;
 import com.books.peanut.book.domain.OriginBook;
 import com.books.peanut.book.domain.OriginBookSeries;
 import com.books.peanut.book.domain.Star;
 import com.books.peanut.book.domain.WriterProfile;
+import com.books.peanut.book.domain.peanutPaidSeries;
 import com.books.peanut.book.service.BookService;
 import com.books.peanut.book.store.BookStore;
+import com.books.peanut.pay.domain.PeanutPoint;
 
 @Service
 public class BookServiceImpl implements BookService{
@@ -202,6 +208,243 @@ public class BookServiceImpl implements BookService{
 		int result = bStore.updatebuyOneSeries(session,seriesNo,bookNo,memberId, bookTitle);
 		return result;
 	}
+
+	/**피넛오리지널 시리즈 수정*/
+	@Override
+	public int modifyOriSeries(OriginBookSeries obSeries) {
+		int result = bStore.updateOriSeries(session,obSeries);
+		return result;
+	}
+
+	/**모든 일반도서 시리즈의 갯수 파악*/
+	@Override
+	public int allNorSeriesCount() {
+		int result = bStore.countAllnorBook(session);
+		return result;
+	}
+
+	/**모든 일반도서 시리즈 가져오기*/
+	@Override
+	public List<NormalBookSeries> allAdminBooks() {
+		List<NormalBookSeries> nsList = bStore.selectAllNorSeries(session);
+		return nsList;
+	}
+
+	
+	/**일반도서 제목 가져오기*/
+	@Override
+	public String getNorBookTitle(String bookNo) {
+		String ntitle = bStore.selectNorbookTitle(session, bookNo); 
+		return ntitle;
+	}
+
+	/**일반도서 등록하기*/
+	@Override
+	public int registenorBook(NormalBook nBook) {
+		int result = bStore.insertNorBook(session, nBook);
+		return result;
+	}
+
+	
+	/**일반도서 시리즈 등록하기*/
+	@Override
+	public int registNoriSeries(NormalBookSeries nSeries) {
+		int result = bStore.insertNSeriesBook(session, nSeries);
+		return result;
+	}
+
+	/**해시태그 등록하기*/
+	@Override
+	public int registeNorTag(HashTag hTag) {
+		int result = bStore.insertNBTag(session, hTag);
+		return result;
+	}
+
+	
+	/**일반도서 열람하기*/
+	@Override
+	public NormalBook showOneNorbook(String bookNo) {
+		NormalBook nBook = bStore.selectOneNorBook(session, bookNo);
+		return nBook;
+	}
+
+	/**일반도서 시리즈의 정보 가져오기*/
+	@Override
+	public List<NormalBookSeries> getNorSeriesTitle(String bookNo) {
+		List<NormalBookSeries> nList = bStore.selectOneNorSeriesTitle(session, bookNo);
+		return nList;
+	}
+
+	/**일반도서 작가의 모든 책 제목*/
+	@Override
+	public List<NormalBook> allNorWirterbookTitle(String writer) {
+		List<NormalBook> nbList = bStore.selectNorWriterbTitle(session,writer);
+		return nbList;
+	}
+
+	/**일반도서 한권의 모든 시리즈 가져오기*/
+	@Override
+	public List<NormalBookSeries> allNorBookSeries(String bookNo) {
+		List<NormalBookSeries> nsList = bStore.selectAllNorBookSeries(session, bookNo);
+		return nsList;
+	}
+
+	/**일반도서 시리즈 한개 가져오기*/
+	@Override
+	public NormalBookSeries getOneNorBookSeries(int bookNo, int seriesNo) {
+		NormalBookSeries nSeries = bStore.selectOneNorSeries(session, bookNo, seriesNo);
+		return nSeries;
+	}
+
+	/**일반도서 시리즈 다음화 등록*/
+	@Override
+	public int registNorSeriesNext(NormalBookSeries nSeries) {
+		int result = bStore.insertNorSeriesNext(session, nSeries);
+		return result;
+	}
+
+	/**도서의 언어여부 확인하기*/
+	@Override
+	public String getlanguege(String string) {
+		String lang = bStore.selectBookLanguage(session,string);
+		return lang;
+	}
+
+	/**일반도서 시리즈 수정하기*/
+	@Override
+	public int modifyNorSeries(NormalBookSeries nbSeries) {
+		int result = bStore.updateNorBookSeries(session,nbSeries);
+		return result;
+	}
+
+	/**단 도서의 모든 시리즈 번호 가지고 오기*/
+	@Override
+	public List<NormalBookSeries> getNorSeriesNo(int bookNo) {
+		 List<NormalBookSeries> nsList = bStore.selectOneNorBookSeriesNo(session,bookNo);
+		return nsList;
+	}
+
+	/**피넛 오리지널 시리즈 한개 삭제*/
+	@Override
+	public int removeOriBookSeries(String bookNo, Integer seriesNo) {
+		int result = bStore.updateOriSeriesRemove(session,bookNo,seriesNo);
+		return result;
+	}
+
+	/**피넛 오리지널 도서 삭제*/
+	@Override
+	public int removeOriBook(String bookNo) {
+		int result = bStore.updateOriRemove(session,bookNo);
+		return result;
+	}
+
+	/**일반도서 시리즈 하나 삭제*/
+	@Override
+	public int removeNorBookSeries(String bookNo, Integer seriesNo) {
+		int result = bStore.deleteNorBookSeries(session,bookNo,seriesNo);
+		return result;
+	}
+	
+	/**일반도서 삭제*/
+	@Override
+	public int removeNorBook(int bookNo) {
+		int result = bStore.updateNorRemove(session,bookNo);
+		return result;
+	}
+
+	/**피넛 오리지널 한편에 모든 허가되고 삭제되지 않은 시리즈 번호 가져오기*/
+	@Override
+	public List<OriginBookSeries> getOriSeriesNo(int bookNo) {
+		List<OriginBookSeries> osList = bStore.selectOneOriBookSeriesNo(session,bookNo);
+		return osList;
+	}
+
+	/**피넛 오리지널 한편에 모든 시리즈 번호 가져오기*/
+	@Override
+	public List<OriginBookSeries> getOneOriSeriesAllNo(int bookNo) {
+		List<OriginBookSeries> osList = bStore.selectOneOriBookAllSeriesNo(session,bookNo);
+		return osList;
+	}
+
+	/**내서재에 등록됐는지 확인하기*/
+	@Override
+	public int checkMybookMember(Library library) {
+		int result = bStore.selectMybookMember(session,library);
+		return result;
+	}
+
+	/**내 서재 등록*/
+	@Override
+	public int addMybook(Library library) {
+		int result = bStore.insertMybook(session, library);
+		return result;
+	}
+
+	/**내 서재 삭제*/
+	@Override
+	public int removeMybook(Library library) {
+		int result = bStore.deleteMybook(session, library);
+		return result;
+	}
+
+	/**내 서재 불러오기*/
+	@Override
+	public List<Library> getOneMemberLibrary(String memberId, String category, String step, String searchValue, int page, int limit) {
+		List<Library> lList = bStore.selectOneMemberLibrary(session, memberId,category,step,searchValue,page,limit);
+		return lList;
+	}
+
+	/**피넛 오리지널 삭제되지 않고 승인된 책의 책 제목, 표지 가져오기*/
+	@Override
+	public OriginBook getOneBookStatus(String bookNo) {
+		OriginBook oBook = bStore.selectOneOriBookStatus(session,bookNo);
+		return oBook;
+	}
+	
+	/**일반도서 삭제되지 않고 승인된 책의 책 제목, 표지 가져오기*/
+	@Override
+	public NormalBook getNorBookStatus(String bookNo) {
+		NormalBook nBook = bStore.selectOneNorBookStatus(session,bookNo);
+		return nBook;
+	}
+
+	/**내 서재 피넛 오리지널 불러오기*/
+	@Override
+	public List<Library> getOneMemberOriLibrary(String memberId) {
+		 List<Library> lList= bStore.selectOneMemberOriLibrary(session, memberId);
+			return lList;
+		}
+
+	/**내 서재 일반도서 불러오기*/
+	@Override
+	public List<Library> getOneMemberNorLibrary(String memberId) {
+		List<Library> lList= bStore.selectOneMemberNorLibrary(session, memberId);
+		return lList;
+	}
+
+	/**내 구입도서 가져오기*/
+	@Override
+	public List<peanutPaidSeries> getOneMemberPaid(String memberId) {
+		 List<peanutPaidSeries> pList = bStore.selectAllOneMemberPaid(session, memberId);
+		return pList;
+	}
+
+	/**내가 구입한 모든 시리즈 허가되고 삭제안된*/
+	@Override
+	public OriginBookSeries getOneBookSeriesStatus(String bookNo, String seriesNo) {
+		OriginBookSeries oSeries = bStore.selectOneBookSeriesStatus(session, bookNo, seriesNo);
+		return oSeries;
+	}
+
+	/**페이징용 내서재 총 갯수*/
+	@Override
+	public int countOneMemberLibrary(String memberId, String category, String step, String searchValue) {
+		int result = bStore.selectCountOneMemberLibrary(session, memberId,category,step,searchValue);
+		return result;
+	}
+
+
+	
 	
 	
 

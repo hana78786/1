@@ -10,14 +10,30 @@ public interface QnaStore {
 
 	public int insertQna(SqlSessionTemplate session, Qna qna);
 
-	public List<Qna> selectAllQna(SqlSessionTemplate session, String memberId, int currentPage, int qnaLimit);
+	public List<Qna> selectMemberQna(SqlSessionTemplate session, String memberId, int currentPage, int qnaLimit);
 
-	public int selectTotalCount(SqlSessionTemplate session, String searchCondition, String searchValue);
+	public int selectMemberQnaCount(SqlSessionTemplate session, String memberId, String searchCondition, String searchValue);
 
 	public Qna selectOneByNo(SqlSessionTemplate session, Integer qnaNo);
 
 	public int deleteOneByNo(SqlSessionTemplate session, Integer qnaNo);
 
 	public int updateQna(SqlSessionTemplate session, Qna qna);
+
+	public List<Qna> selectMemberByValue(SqlSessionTemplate session, String memberId, String searchCondition, String searchValue,
+			int currentPage, int qnaLimit);
+
+	public int selectAllCount(SqlSessionTemplate session, String searchCondition, String searchValue);
+
+	public List<Qna> selectAllQna(SqlSessionTemplate session, int currentPage, int aqnaLimit);
+
+	public int answerQna(SqlSessionTemplate session, Qna qna);
+
+	public List<Qna> selectAllByValue(SqlSessionTemplate session, String searchCondition, String searchValue,
+			int currentPage, int aqnaLimit);
+
+
+
+
 
 }

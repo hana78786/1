@@ -1,5 +1,17 @@
 
+//도서삭제
+function removeOriginBook(bookNo){
+	if(confirm('이 도서를 삭제하시겠습니까?')){
+ location.href='/book/removeOribook.do?bookNo='+bookNo;
+ }
+}
 
+
+function removeORiSeries(bookNo,seriesNo){
+ if(confirm('시리즈를 삭제 하시겠습니까?')){
+ location.href='/book/removeOriSeries.do?bookNo='+bookNo+'&seriesNo='+seriesNo;
+ }
+}
 
 
 function replyRegist(bookNo, userId){
@@ -30,6 +42,10 @@ $.ajax({
 	data:{"bookNo":bookNo, rPage:rPage},
 	type:"post",
 	success:function(result){
+		if(result==0){
+		$('#replyLength').html(0);
+		replyArea[0].innerHTML = "";
+		}else{
 			replyArea[0].innerHTML = '';
 			for(var i in result){
 				$('#replyLength').html(result[0].totalCount);	
@@ -75,7 +91,7 @@ $.ajax({
 					 page +='<span onclick="printReply('+bookNo+',\''+userId+'\','+(rPage+1)+')"> > </span>';
 				 }
 				$('#page').html(page);
-			 		 
+			} 		 
 			},
 	error:function(){}
 	});
@@ -307,3 +323,21 @@ function registOriNext(bookNo,seriesNo){
 	location.href="/book/oriBookNextSeires.do?bookNo="+bookNo+"&seriesNo="+seriesNo;
 }
 
+//내 서재 등록하기
+function addMybooks(category,bookNo){
+	$.ajax({
+		url:"/book/addMybooks.do",
+		type:"get",
+		data:{"category":category,"bookNo":bookNo},
+		success: function(result){
+			if(result=='ok'){
+				alert('내 서재에 등록했습니다.');
+				$('#mybooksButton').html('내 서재 취소');
+			}else{
+				alert('내 서재에서 삭제했습니다.');
+				$('#mybooksButton').html('내 서재 등록');
+			}
+		},
+		error : function(){}
+	})
+}

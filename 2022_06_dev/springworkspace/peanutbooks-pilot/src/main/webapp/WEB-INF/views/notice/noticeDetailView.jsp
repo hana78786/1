@@ -42,18 +42,10 @@
 			<tr>
 				<td  class="col-2" scope="col" align="center">종류</td>
 				<td>
-					<c:if test="${notice.noticeCategory == '0' }">
-						공지
-					</c:if>
-					<c:if test="${notice.noticeCategory == '1' }">
-						업데이트
-					</c:if>
-					<c:if test="${notice.noticeCategory == '2' }">
-						이벤트
-					</c:if>
-					<c:if test="${notice.noticeCategory == '3' }">
-						안내
-					</c:if>
+					<c:if test="${notice.noticeCategory == 'notice'}">공지</c:if>
+					<c:if test="${notice.noticeCategory == 'update'}">업데이트</c:if>
+					<c:if test="${notice.noticeCategory == 'event'}">이벤트</c:if>
+					<c:if test="${notice.noticeCategory == 'info'}">안내</c:if>
 				</td>
 			<tr>
 				<td  class="col-2" scope="col" align="center">작성자</td>
@@ -84,7 +76,7 @@
 				<td colspan="2" align="center" style="border:none;">
 					<input onclick="noticeModify(${notice.noticeNo }, ${page});" type="button" value="수정" class="btn btn-warning btn-sm">
 					<input onclick="noticeRemove(${notice.noticeNo }, ${page});" type="button" value="삭제" class="btn btn-warning btn-sm">
-					<button type="button" onclick="location.href='/notice/list.kh?page=${page }'" class="btn btn-warning btn-sm">목록</button> 
+					<button type="button" onclick="backBtn()" class="btn btn-warning btn-sm">목록</button> 
 					 
 				</td>
 			</tr>
@@ -97,6 +89,10 @@
 
 
 <script>
+	function backBtn() {
+	    history.back();
+	}
+	
 	function noticeModify(noticeNo, page) {
 		location.href="/notice/modifyView.kh?noticeNo="+noticeNo+"&page="+page;
 	}

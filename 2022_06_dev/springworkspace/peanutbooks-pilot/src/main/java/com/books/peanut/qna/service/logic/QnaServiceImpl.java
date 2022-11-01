@@ -23,14 +23,14 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public int getTotalCount(String searchCondition, String searchValue) {
-		int totalCount = qStore.selectTotalCount(session, searchCondition, searchValue);
+	public int getTotalCount(String memberId, String searchCondition, String searchValue) {
+		int totalCount = qStore.selectMemberQnaCount(session, memberId, searchCondition, searchValue);
 		return totalCount;
 	}
 
 	@Override
-	public List<Qna> printAllQna(int currentPage, int qnaLimit, String memberId) {
-		List<Qna> qList = qStore.selectAllQna(session, memberId, currentPage, qnaLimit);
+	public List<Qna> printMemberQna(int currentPage, int qnaLimit, String memberId) {
+		List<Qna> qList = qStore.selectMemberQna(session, memberId, currentPage, qnaLimit);
 		return qList;
 	}
 
@@ -51,5 +51,36 @@ public class QnaServiceImpl implements QnaService {
 		int result = qStore.updateQna(session, qna);
 		return result;
 	}
+
+	@Override
+	public List<Qna> printMemberByValue(String memberId, String searchCondition, String searchValue, int currentPage, int qnaLimit) {
+		List<Qna> qList = qStore.selectMemberByValue(session, memberId, searchCondition, searchValue, currentPage, qnaLimit);
+		return qList;
+	}
+
+	@Override
+	public int getTotalCount(String searchCondition, String searchValue) {
+		int totalCount = qStore.selectAllCount(session, searchCondition, searchValue);
+		return totalCount;
+	}
 	
+	@Override
+	public List<Qna> printAllQna(int currentPage, int aqnaLimit) {
+		List<Qna> aList = qStore.selectAllQna(session, currentPage, aqnaLimit);
+		return aList;
+	}
+	
+	@Override
+	public int answerQna(Qna qna) {
+		int result = qStore.answerQna(session, qna);
+		return result;
+	}
+
+	@Override
+	public List<Qna> printAllByValue(String searchCondition, String searchValue, int currentPage, int aqnaLimit) {
+		List<Qna> aList = qStore.selectAllByValue(
+				session, searchCondition, searchValue, currentPage, aqnaLimit);
+		return aList;
+	}
+
 }

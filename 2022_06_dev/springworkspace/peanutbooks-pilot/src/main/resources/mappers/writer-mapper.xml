@@ -36,6 +36,10 @@
  insert into origin_book values(oribookseq.nextval,#{bookTitle},#{bookInfo},#{category},default,#{cover},#{coverRename},default,0,0,#{memberId},default,0)
 </insert>
 
+<update id="updateOriRemove">
+	update origin_book set STATUS = 'N' where ORI_BOOK_NO = #{bookNo}
+</update>
+
 <resultMap type="OriginBook" id="oriBookResultMap">
 <id property="bookNo"  column="ORI_BOOK_NO"/>
 <result property="bookTitle" column="BOOK_TITLE"/>
@@ -72,23 +76,50 @@ select BOOK_TITLE from origin_book where MEMBER_ID = #{memberId}
 select count(BOOK_TITLE) from origin_book where MEMBER_ID = #{memberId} and ORI_BOOK_NO = #{bookNo}
 </select>
 
+<!-- 삭제되지 않고 승인된 책의 표지와 제목 -->
+<select id="selectOneBookStatus" resultMap="oriBookResultMap">
+ select BOOK_TITLE, CORVER_RENAME from origin_book where ORI_BOOK_NO = #{bookNo} and STATUS like 'Y%' and BOOK_PERMISSION like 'Y%'
+</select>
+
 
 
 <!-- 책 승인 테이블에 추가 -->
 <insert id="insertPermission1">
 	insert into book_permission values(seq_permission.nextval,oribookseq.currval,null,null,null,null,#{seriesNo})
 </insert>
+<insert id="insertPermission2">
+	insert into book_permission values(seq_permission.nextval,#{bookNo},null,null,null,null,#{seriesNo})
+</insert>
 
 
 <!-- 오리지널 시리즈 쿼리문 -->
+<!--  오리지널 시리즈 등록 1편 -->
 <insert id="insertSeries1">
 	insert into ori_series values(#{seriesNo},oribookseq.currval,#{subPic},#{subPicRename},#{title},#{contents},null,default,null,0,#{paidCheck},0,default,default)
 </insert>
 
+<!-- 오리지널 시리즈 등록(2편부터) -->
 <insert id="insertNextOseries">
 	insert into ori_series values(#{seriesNo},#{bookNo},#{subPic},#{subPicRename},#{title},#{contents},null,default,null,0,#{paidCheck},0,default,default)
 
 </insert>
+
+<!-- 오리지널 시리즈 수정 -->
+<insert id="updateOriSeries">
+	insert into modify_ori_series values(#{seriesNo},#{bookNo},#{subPic},#{subPicRename},#{title},#{modifyContents},default,#{paidCheck})
+</insert>
+<!-- 시리즈 수정 신청테이블에 추가 -->
+<insert id="permissionModify">
+	insert into book_permission values(seq_permission.nextval,#{bookNo},null,null,null,'Y',#{seriesNo})
+</insert>
+
+<update id="updateOriSeriesRemove">
+	update ori_series set status = 'N' where SERIES_NO = ${seriesNo} and ORI_BOOK_NO = #{bookNo}
+</update>
+
+<update id="updateAllOriSeriesRemove">
+update ori_series set status = 'N' where ORI_BOOK_NO = #{bookNo}
+</update>
 
 <resultMap type="OriginBookSeries" id="oriSeriesResultMap">
 <id property="seriesNo" column="SERIES_NO"/>
@@ -110,16 +141,17 @@ select count(BOOK_TITLE) from origin_book where MEMBER_ID = #{memberId} and ORI_
 
 <!-- 회원 한명이 작성한 시리즈 전부 가져오기 -->
 <select id="selectOneMemberSeriese" resultMap="oriSeriesResultMap">
-	select * from ori_series join origin_book using(ori_book_no) where member_id = #{memberId} order by ORI_BOOK_NO
+	select * from ori_series join origin_book using(ori_book_no) where member_id = #{memberId} order by ori_series.INSERT_DATE desc
 </select>
 
+<!-- 회원한명이 작성한 피넛 오리지널 시리즈의 숫자 가져오기 -->
 <select id="selectAllMemberOriSeries" resultType="_int">
 	select count(*) from ori_series join origin_book using(ori_book_no) where member_id = #{memberId} order by ORI_BOOK_NO
 </select>
 
 <!-- 도서 한권의 시리즈 제목 전부 가져오기 -->
 <select id="selecSeriesTitle" resultMap="oriSeriesResultMap">
-	select title,status from ori_series where ORI_BOOK_NO = #{bookNo}
+	select title,status,CHECK_PERMISSION,SERIES_NO from ori_series where ORI_BOOK_NO = #{bookNo}
 </select>
 
 <!-- 도서 하나에 해당하는 모든 피넛 오리지널 시리즈 가져오기 -->
@@ -132,10 +164,25 @@ select count(BOOK_TITLE) from origin_book where MEMBER_ID = #{memberId} and ORI_
 	select PAID_CHECK from ori_series where ORI_BOOK_NO = #{bookNo} and SERIES_NO = #{seriesNo}
 </select>
 
+<!-- 책번호와 시리즈 번호로 시리즈 하나 가져오기 -->
 <select id="selectOneObSeries" resultMap="oriSeriesResultMap">
 	select * from ori_series where ORI_BOOK_NO = #{bookNo} and SERIES_NO = #{seriesNo}
 </select>
 
+<!-- 책번호로 허가되고 삭제되지 않은 해당도서의 시리즈 번호 가져오기 -->
+<select id="selectOneOriBookSeriesNo" resultMap="oriSeriesResultMap">
+	select SERIES_NO from ori_series where ORI_BOOK_NO = #{bookNo} and status like 'Y%' and CHECK_PERMISSION like 'Y%'
+</select>
+
+<!-- 해당도서에 쓰여진 모든 시리즈 번호 가져오기 -->
+<select id="selectOneOriBookAllSeriesNo" resultMap="oriSeriesResultMap">
+	select SERIES_NO from ori_series where ORI_BOOK_NO = #{bookNo}
+</select>
+
+<!-- 허가되고 삭제되지 않은 시리즈 1편 가져오기 -->
+  <select id="SelectOneBookSeriesStatus" resultMap="oriSeriesResultMap">
+  select SERIES_NO, SUB_PIC_RE, TITLE  from ori_series where ORI_BOOK_NO = #{bookNo} and SERIES_NO = #{seriesNo} and status like 'Y%' and CHECK_PERMISSION like 'Y%'
+  </select>
 
 
 
