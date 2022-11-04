@@ -1,0 +1,32 @@
+main{
+
+    background-image: url('/resources/img/book/eventBack.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+#main{
+   
+    text-align: center;
+    position: relative;
+}
+
+#main img{
+    max-width: 100%;
+}
+
+
+.peanut>img{
+    width:9rem;
+    position: absolute;
+    top: 50%;
+    left:45%;
+}
+
+@media (max-width:500px) 
+{
+    .peanut>img{
+        width:3rem;
+    }
+    
+}
