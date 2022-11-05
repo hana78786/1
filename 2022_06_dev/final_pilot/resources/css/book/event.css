@@ -1,10 +1,13 @@
-main{
+body{
 
     background-image: url('/resources/img/book/eventBack.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #FF884B;
 
 }
+
+
 #main{
    
     text-align: center;
@@ -16,17 +19,32 @@ main{
 }
 
 
-.peanut>img{
-    width:9rem;
-    position: absolute;
-    top: 50%;
-    left:45%;
+
+#peanutCheck{
+    position:absolute;
+    top:10%;
+    left:30%;
 }
+
+#peanut-area{
+    position: relative;
+    max-width: 100%;
+}
+
+#peanut-area{animation: scaledown 2s forwards ;}
+@keyframes scaledown{
+    0%{transform: scale(0);
+        opacity: 1;}
+    100%{transform: scale(3);
+        opacity: 0;}
+}
+
 
 @media (max-width:500px) 
 {
-    .peanut>img{
-        width:3rem;
-    }
+   #main>img{
+    width:100%
+    
+   }
     
 }
