@@ -3,7 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+<settings>
+	<setting name="jdbcTypeForNull" value="NULL"/>
+	<!-- null값이 있으면 null로 제대로 인식하게 한다. -->
+</settings>
+
+<typeAliases>
+	<typeAlias type="com.kh.pilot.recipe.domain.Recipe" alias="Recipe"/>
+	<typeAlias type="com.kh.pilot.recipe.domain.RecipeStep" alias="RecipeStep"/>
+	<typeAlias type="com.kh.pilot.recipe.domain.RecipeMaterial" alias="RecipeMaterial"/>
+	<typeAlias type="com.kh.pilot.recipe.domain.RecipeTag" alias="RecipeTag"/>
+	<typeAlias type="com.kh.pilot.recipe.domain.RecipeComment" alias="RecipeComment"/>
+	<typeAlias type="com.kh.pilot.panda.domain.QA" alias="QA"/>
+	<typeAlias type="com.kh.pilot.panda.domain.QAComment" alias="QAComment"/>
+	<typeAlias type="com.kh.pilot.recipe.domain.Recommandation" alias="Recommandation"/>
+
+</typeAliases>
+
+
+
 <mappers>
 <mapper resource="mappers/member-mapper.xml"></mapper>
+<mapper resource="mappers/recipe-mapper.xml"></mapper>
+<mapper resource="mappers/qna-mapper.xml"></mapper>
 </mappers>
 </configuration>

@@ -1,1 +1,0 @@
-document.querySelector('#search-icon').src='/resources/img/header/icons8-search (2)-yellow.png'

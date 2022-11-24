@@ -42,11 +42,12 @@ cursor:pointer;
 </head>
 
 <body>
-
+${loginUser.memberEmail }
 	<section class="container">
 			<!-- 게시판 영역시작 -->
 		<div class="row container" >
 			<form action="/qna/Regist.do" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="memberEmail" value="${loginUser.memberEmail }">
 			<!-- 상단영역시작 -->
 			<div id="first">
 				<!-- 카테고리영역 -->
@@ -80,7 +81,7 @@ cursor:pointer;
 						<div class="form-check ">
 						  <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" style="width:1.5rem; height:1.5rem" name="qaSecret" >
 						  <label class="form-check-label mt-1 ms-1"  for="flexCheckDefault">
-						    비밀글
+						    비밀글 ${loginUser }
 					 	 </label>
 					  </div>
 					
