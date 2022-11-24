@@ -3,6 +3,13 @@ const toDoList = document.getElementById("todo-list");
 const todoInput = toDoForm.querySelector("input");
 
 
+const toDos = [];
+
+function saveToDos(){
+    localStorage.setItem("toDos", JSON.stringify(toDos)) //로컬스토리지에 해당 배열을 저장 JSON형식의 배열로 저장
+}
+
+
 function paintToDo(newTodo){
     const li = document.createElement('li'); //li태그 생성
     const span = document.createElement('span'); //span태그 생성
@@ -30,7 +37,10 @@ function handlToDoSubmit(event){
     event.preventDefault();
         const newTodo=todoInput.value;
     todoInput.value="";
-    paintToDo(newTodo)
+    toDos.push(newTodo); //리스트를 해당 배열의 ㅓ장
+    paintToDo(newTodo);
+    saveToDos();
+
 
 }
 
