@@ -57,7 +57,9 @@ const savedTodos= localStorage.getItem(TODOS_KEY); //현재는 null
 if(saveToDos){ //만약 saveToDos가 존재한다면
 
     const parsedToDos = JSON.parse(saveToDos) //문자열이 아니라 제대로 배열로 인식한다, 이렇게 인식하면 같은 값을 넣어줘도 제대로 더해진다.
-    parsedToDos.forEach((item) => console.log("thisis the turn of", item)); //parsedToDos length만큼 ()안의 값을 반복한다.
+    //parsedToDos.forEach((item) => console.log("thisis the turn of", item)); //parsedToDos length만큼 ()안의 값을 반복한다.
     //변수를 가져와서 => 뒤에 값을 실행한다. 가져온 변수를 이곳에서 사용할수 있다.
+
+    parsedToDos.forEach(paintToDo) //paserdTodo만큼 반복한다 paintTodo를
 
 }
