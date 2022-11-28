@@ -15,8 +15,9 @@ function saveToDos(){
 
 function paintToDo(newTodo){
     const li = document.createElement('li'); //li태그 생성
+    li.id= newTodo.id;
     const span = document.createElement('span'); //span태그 생성
-    span.innerText=newTodo;
+    span.innerText=newTodo.text;
     const button = document.createElement('button');
     button.className='delete';
     button.innerText='❌';
@@ -41,8 +42,13 @@ function handlToDoSubmit(event){
     event.preventDefault();
         const newTodo=todoInput.value;
     todoInput.value="";
-    toDos.push(newTodo); //리스트를 해당 배열의 ㅓ장
-    paintToDo(newTodo);
+    const newTodoObj={
+        text:newTodo,
+        id: Date.now(),
+    };
+    toDos.push(newTodoObj); //리스트를 해당 배열의 ㅓ장
+    paintToDo(newTodoObj);
+
     saveToDos();
 
 
@@ -54,7 +60,7 @@ function handlToDoSubmit(event){
 toDoForm.addEventListener("submit",handlToDoSubmit);
 
 const savedTodos= localStorage.getItem(TODOS_KEY); //현재는 null
-if(saveToDos){ //만약 saveToDos가 존재한다면
+if(saveToDos !== null){ //만약 saveToDos가 존재한다면
 
     const parsedToDos = JSON.parse(saveToDos) //문자열이 아니라 제대로 배열로 인식한다, 이렇게 인식하면 같은 값을 넣어줘도 제대로 더해진다.
     //parsedToDos.forEach((item) => console.log("thisis the turn of", item)); //parsedToDos length만큼 ()안의 값을 반복한다.
@@ -63,3 +69,4 @@ if(saveToDos){ //만약 saveToDos가 존재한다면
     parsedToDos.forEach(paintToDo) //paserdTodo만큼 반복한다 paintTodo를
 
 }
+
