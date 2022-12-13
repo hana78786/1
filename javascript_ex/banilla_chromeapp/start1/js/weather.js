@@ -5,10 +5,12 @@ function onGeoOk(position){
     
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metri`;
-    fetch(url).then(response => response.json().then(data =>{
-        console.log(data.weather[0].main)
-    } ));
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) =>{
+        const name = data.name, data.weather[0].main);
+         });
 }
 
 function onGeoError(){
