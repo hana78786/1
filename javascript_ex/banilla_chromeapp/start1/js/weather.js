@@ -11,10 +11,9 @@ function onGeoOk(position){
         .then((data) => {
         const weatherContainer = document.querySelector('#weather span:first-child');
         const cityContainer = document.querySelector('#weather span:last-child');
-        const name = data.name;
-        const weather =  data.weather[0].main;
-        weatherContainer.innerHTML= weather;
-       cityContainer.innerHTML=name;
+        weatherContainer.innerHTML= data.weather[0].main;
+       cityContainer.innerHTML=data.name;
+
         });
 }
 
