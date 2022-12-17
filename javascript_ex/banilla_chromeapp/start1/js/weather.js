@@ -13,6 +13,8 @@ function onGeoOk(position){
         const cityContainer = document.querySelector('#weather span:last-child');
         weatherContainer.innerHTML= data.weather[0].main;
        cityContainer.innerHTML=data.name;
+       document.querySelector('#weather span:first-child').style.fontSize='2rem';
+       document.querySelector('#weather span:last-child').style.fontSize='2rem';
 
         });
 }
@@ -24,4 +26,3 @@ function onGeoError(){
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError) //현재 와이파이 gps 등의 정보를 넘겨줌 ()안에 성공, 실패 함수를 넣어주어 실행한다.
 
 
-document.querySelector('#weather span:last-child').style.fontSize='2rem';
