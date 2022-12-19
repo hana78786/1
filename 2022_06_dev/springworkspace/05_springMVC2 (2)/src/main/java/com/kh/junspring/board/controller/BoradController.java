@@ -12,6 +12,8 @@ import javax.xml.ws.Response;
 
 import org.apache.ibatis.executor.ReuseExecutor;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.kh.junspring.HomeController;
 import com.kh.junspring.board.domain.Board;
 import com.kh.junspring.board.domain.Reply;
 import com.kh.junspring.board.service.BoradService;
@@ -34,6 +37,8 @@ import com.kh.junspring.member.domain.Member;
 
 @Controller
 public class BoradController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(BoradController.class);
 
 	@Autowired
 	BoradService bService;
