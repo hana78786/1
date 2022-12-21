@@ -225,8 +225,8 @@ public class BoradController {
 		// 삼항연상자 사용
 
 		int totalCount = bService.getTotalCount("", "");
-		int boardLimit = 10; // 한 화면에 출력할 게시물 수
-		int naviLimit = 5; // 한 화면에 출력할 게시판 페이지 수
+		int boardLimit = 12; // 한 화면에 출력할 게시물 수
+		int naviLimit = 7; // 한 화면에 출력할 게시판 페이지 수
 		int maxPage; // 게시판의 총 페이지 수
 		int startNavi; // 한 화면에 출력되는 게시판 페이지의 처음 수
 		int endNavi;// 한 화면에 출력되는 게시판 페이지의 마지막 수

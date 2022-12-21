@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<td>* 비밀번호</td>
-					<td><input type="password" name="memberPw" value="" required="required"></td>
+					<td><input type="password" name="memberPw" required="required"></td>
 				</tr>
 				<tr>
 					<td>* 이름</td>
@@ -29,11 +29,11 @@
 
 				<tr>
 					<td>* 이메일</td>
-					<td><input type="text" name="memberEmail" value="${member.memberEmail }"></td>
+					<td><input type="text" name="memberEmail" value="${member.memberEmail }" readonly></td>
 				</tr>
 				<tr>
 					<td>* 전화번호</td>
-					<td><input type="text" name="memberPhone" value="${member.memberPhone }"></td>
+					<td><input type="text" name="memberPhone" value="${member.memberPhone }" readonly></td>
 				</tr>
 				<tr>
 					<td>* 우편번호</td>
