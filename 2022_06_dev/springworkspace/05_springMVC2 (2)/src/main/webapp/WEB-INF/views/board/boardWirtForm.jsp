@@ -70,7 +70,6 @@
 			maxHeight : null, // set maximum height of editor
 			focus : true, // set focus to editable area after initializing summernote
 		});
-		$('[aria-label="Picture"]').css('display','none');
 	</script>
 </body>
 </html>
