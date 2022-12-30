@@ -5,19 +5,19 @@ import java.util.Scanner;
 public class Test1230 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int x = sc.nextInt();
-		int y = sc.nextInt();
-		if(x>=0&&y>=0) {
-			System.out.println("1");
-		}else if(x>=0&&y<0) {
-			System.out.println("4");
-			
-		}else if(x<0&&y<0) {
-			System.out.println("3");
-		}else if(x<0&&y>=0) {
-			System.out.println("2");
-			
-		}
-	}
-
+        int hour = sc.nextInt();
+        int min = sc.nextInt();
+        
+        if(min-45<0){
+        hour = hour - 1;
+        min = min+60-45;
+            if(hour<0){
+                hour=23;
+                
+            }
+        }
+        System.out.println(hour+" "+min);
+    }
 }
+
+
