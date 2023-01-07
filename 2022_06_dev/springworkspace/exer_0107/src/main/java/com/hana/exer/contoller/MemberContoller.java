@@ -20,6 +20,7 @@ public class MemberContoller {
 	@Autowired
 	MemberService mService;
 	
+	Sha256 sha256;
 	
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberContoller.class);
@@ -43,6 +44,8 @@ public class MemberContoller {
 	public ModelAndView memberReist(
 			ModelAndView mv, 
 			@ModelAttribute Member member) {
+		String newPw= sha256.testSHA256(member.getPw());
+		member.setPw(newPw);
 		
 		int result = mService.registMember(member);
 		
