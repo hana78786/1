@@ -15,7 +15,7 @@
 <c:if test="${empty Member}">
 	<c:if test="${msg == 'loginEror' }">
 		<script type="text/javascript">
-			alert(”아이디와 비밀번호를 확인하세요!”)
+			alert("아이디와 비밀번호를 확인하세요!");
 		</script>
 	</c:if>
 	<form action="/loginMember.do" method="post">
