@@ -6,5 +6,12 @@
 	<insert id="insertMember">
 		insert into member_tbl values(#{id},#{pw},#{name})
 	</insert>
+	
+	<resultMap type="member" id="memberResultMap">
+	
+	</resultMap>
+	<select id="selectOneMember" resultMap="memberResultMap">
+	select id,name from member_tbl where id =#{id} and pw = #{pw}
+	</select>
 
 </mapper>

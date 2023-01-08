@@ -8,4 +8,6 @@ public interface MemberStore {
 
 	int insertMember(Member member, SqlSessionTemplate session);
 
+	Member selectOneMeber(Member member, SqlSessionTemplate session);
+
 }

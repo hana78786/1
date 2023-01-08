@@ -14,6 +14,12 @@ public class MemberStoreLogic implements MemberStore {
 		int result = session.insert("MemberMapper.insertMember",member);
 		return result;
 	}
+
+	@Override
+	public Member selectOneMeber(Member member, SqlSessionTemplate session) {
+		Member loginMember = session.selectOne("MemberMapper.selectOneMember",member);
+		return loginMember;
+	}
 	
 
 }

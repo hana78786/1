@@ -1,5 +1,9 @@
 package com.hana.exer.contoller;
 
+import javax.security.auth.login.LoginContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +52,36 @@ public class MemberContoller {
 		member.setPw(newPw);
 		
 		int result = mService.registMember(member);
+		mv.setViewName("redirect:/login.do");
+		
+		return mv;
+		
+	}
+	
+	
+
+	
+	@RequestMapping(value="/login.do", method = RequestMethod.GET)
+	public ModelAndView memberLoginView(ModelAndView mv) {
+		mv.setViewName("/member/login");
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/loginMember.do", method = RequestMethod.POST)
+	public ModelAndView memberLogin(ModelAndView mv, @ModelAttribute Member member, HttpServletRequest request) {		
+		member.setPw(sha256.testSHA256(member.getPw()));
+		Member loginMember = mService.loginMember(member);
+		if(loginMember == null) {
+			mv.addObject("msg", "loginEror");
+		}else {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginMember", loginMember);
+			mv.addObject("Member",loginMember);
+		}
+
+		
+		mv.setViewName("/member/login");
 		
 		return mv;
 		

@@ -21,4 +21,10 @@ public class MemberServiceLogic implements MemberService {
 		return result;
 	}
 
+	@Override
+	public Member loginMember(Member member) {
+		Member loginMember = mStore.selectOneMeber(member,session);
+		return loginMember;
+	}
+
 }

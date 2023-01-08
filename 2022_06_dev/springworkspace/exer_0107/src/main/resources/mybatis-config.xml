@@ -7,7 +7,12 @@
 	<setting name="jdbcTypeForNull" value="NULL"/>
 	<!-- null값이 있으면 null로 제대로 인식하게 한다. -->
 </settings>
+<typeAliases>
+ <typeAlias type="com.hana.exer.doamin.Member" alias="member"/>
+</typeAliases>
 <mappers>
+
 <mapper resource="/mappers/member-mapper.xml"></mapper>
 </mappers>
+
 </configuration>
