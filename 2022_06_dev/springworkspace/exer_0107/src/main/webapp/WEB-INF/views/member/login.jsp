@@ -29,7 +29,7 @@
 </c:if>
 <c:if test="${!empty Member}">
 	${Member.name }님 환영합니다!
-	<button onclick="location.href:'/loginout.do';">로그아웃</button>
+	<button onclick="location.href='/loginout.do'">로그아웃</button>
 </c:if>
 
 </body>

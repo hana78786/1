@@ -68,6 +68,15 @@ public class MemberContoller {
 		
 	}
 	
+	@RequestMapping(value="/loginout.do", method = RequestMethod.GET)
+	public ModelAndView logout(ModelAndView mv,  HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		mv.setViewName("redirect:/login.do");
+		return mv;
+		
+	}
+	
 	@RequestMapping(value="/loginMember.do", method = RequestMethod.POST)
 	public ModelAndView memberLogin(ModelAndView mv, @ModelAttribute Member member, HttpServletRequest request) {		
 		member.setPw(sha256.testSHA256(member.getPw()));
