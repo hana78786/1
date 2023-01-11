@@ -20,7 +20,7 @@
         <c:if test="${bbslist != null}">
             <c:forEach items="${bbslist}" var="list">
                 <tr>
-                    ${list.title}
+                    ${list.title} ${list.name}
                 </tr>
             </c:forEach>
         </c:if>

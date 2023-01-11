@@ -18,9 +18,10 @@ public class BbsController {
 	@Autowired
 	BbsSerivce bService;
 	
-	@RequestMapping(value="",method = RequestMethod.GET)
+	@RequestMapping(value="/bbsList.do",method = RequestMethod.GET)
 	public ModelAndView bbsList(ModelAndView mv) {
 		List<Bbs> bList = bService.bbsTitle();
+		mv.addObject("bbslist", bList);
 		mv.setViewName("/bbs/freebbs");
 		return mv;
 		

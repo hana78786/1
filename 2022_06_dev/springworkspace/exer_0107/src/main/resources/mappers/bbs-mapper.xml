@@ -12,4 +12,9 @@
 	<result property="date" column="bbs_date"/>
 	<result property="contents" column="contents"/>
 	</resultMap>
+	
+	<select id="selectTitle" resultMap="bbsResultMap">
+	select bbs_no, name, title, bbs_date from bbs
+	
+	</select>
 </mapper>
