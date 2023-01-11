@@ -6,7 +6,10 @@
 
 <resultMap type="bbs" id="bbsResultMap">
 	
-	<id property="" column=""/>
-	<result property="" column=""/>
+	<id property="bbsNo" column="bbs_no"/>
+	<result property="name" column="name"/>
+	<result property="title" column="title"/>
+	<result property="date" column="bbs_date"/>
+	<result property="contents" column="contents"/>
 	</resultMap>
 </mapper>
