@@ -9,10 +9,12 @@
 </settings>
 <typeAliases>
  <typeAlias type="com.hana.exer.doamin.Member" alias="member"/>
+ <typeAlias type="com.hana.exer.doamin.Bbs" alias="bbs"/>
 </typeAliases>
 <mappers>
 
 <mapper resource="/mappers/member-mapper.xml"></mapper>
+<mapper resource="/mappers/bbs-mapper.xml"></mapper>
 </mappers>
 
 </configuration>
