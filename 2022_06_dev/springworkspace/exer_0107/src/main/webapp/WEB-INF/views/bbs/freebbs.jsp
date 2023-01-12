@@ -16,11 +16,21 @@
 
                 제목
             </td>
+            <td>
+                이름
+            </td>
         </tr>
         <c:if test="${bbslist != null}">
             <c:forEach items="${bbslist}" var="list">
                 <tr>
-                    ${list.title} ${list.name}
+                    <td>
+
+                        ${list.title} 
+                    </td>
+                       <td>
+                           ${list.name}
+
+                       </td> 
                 </tr>
             </c:forEach>
         </c:if>
