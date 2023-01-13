@@ -39,7 +39,6 @@ public class MemberContoller {
 	
 	@RequestMapping(value="/registmember.do", method = RequestMethod.GET)
 	public ModelAndView memberRegistVeiw(ModelAndView mv) {
-		logger.info("회원가입 컨트롤러 진입");
 		mv.setViewName("/member/member_regist");
 		return mv;
 	}
