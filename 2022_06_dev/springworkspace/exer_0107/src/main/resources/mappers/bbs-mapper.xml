@@ -17,4 +17,8 @@
 	select bbs_no, name, title, bbs_date from bbs
 	
 	</select>
+	
+	<insert id="insertBbs">
+	insert into bbs values(bbsno.nextval,#{name},#{title},sysdate,#{contents})
+	</insert>
 </mapper>

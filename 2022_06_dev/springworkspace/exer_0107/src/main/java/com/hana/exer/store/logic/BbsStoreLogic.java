@@ -17,4 +17,10 @@ public class BbsStoreLogic implements BbsStore{
 		return bList;
 	}
 
+	@Override
+	public int insertBbs(SqlSessionTemplate session, Bbs bbs) {
+		int result = session.insert("bbsMapper.insertBbs",bbs);
+		return result;
+	}
+
 }

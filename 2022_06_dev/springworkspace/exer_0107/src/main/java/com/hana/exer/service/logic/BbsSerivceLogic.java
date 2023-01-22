@@ -22,6 +22,11 @@ public class BbsSerivceLogic implements BbsSerivce {
 		List<Bbs> bList = bStore.selectBbsTitle(session);
 		return bList;
 	}
+	@Override
+	public int resgitBbs(Bbs bbs) {
+		int result = bStore.insertBbs(session,bbs);
+		return result;
+	}
 	
 	
 }

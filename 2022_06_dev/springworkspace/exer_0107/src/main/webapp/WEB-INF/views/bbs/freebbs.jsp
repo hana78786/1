@@ -36,6 +36,6 @@
         </c:if>
         
     </table>
-    <button>글쓰기</button>
+    <button onclick="location.href='/registfree.do';">글쓰기</button>
 </body>
 </html>

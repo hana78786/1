@@ -10,4 +10,6 @@ public interface BbsStore {
 
 	List<Bbs> selectBbsTitle(SqlSessionTemplate session);
 
+	int insertBbs(SqlSessionTemplate session, Bbs bbs);
+
 }

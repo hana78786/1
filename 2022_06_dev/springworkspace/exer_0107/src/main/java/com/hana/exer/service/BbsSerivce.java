@@ -10,6 +10,8 @@ import com.hana.exer.doamin.Bbs;
 public interface BbsSerivce {
 
 	List<Bbs> bbsTitle();
+
+	int resgitBbs(Bbs bbs);
 	
 
 

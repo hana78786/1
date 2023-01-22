@@ -8,9 +8,10 @@
 </head>
 <body>
 
-    <form action="/registfree.do" method="post"></form>
-        <textarea name="contents" id="" cols="30" rows="10"></textarea>
-    <button>등록</button>
+    <form action="/registfree.do" method="post">
+	    	<input type="text" name ="title" placeholder="제목을 입력하세요">
+	        <textarea name="contents" id="" cols="30" rows="10"></textarea>
+	    <button>등록</button>
     </from>
 </body>
 </html>

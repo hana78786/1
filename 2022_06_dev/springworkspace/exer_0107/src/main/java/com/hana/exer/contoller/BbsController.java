@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,12 +32,26 @@ public class BbsController {
 	}
 
 	@RequestMapping(value="/registfree.do",method = RequestMethod.GET)
-	public ModelAndView registFree(ModelAndView mv, HttpSession session) {
+	public ModelAndView registFreeView(ModelAndView mv, HttpSession session) {
 		Member member = (Member)session.getAttribute("loginMember");
 		if(member==null) {
 			mv.setViewName("redirect:/login.do");
 		}else {
 		mv.setViewName("/bbs/registbbs");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="/registfree.do",method = RequestMethod.POST)
+	public ModelAndView registFree(ModelAndView mv, HttpSession session
+			,@ModelAttribute Bbs bbs) {
+		Member member = (Member)session.getAttribute("loginMember");
+		if(member==null) {
+			mv.setViewName("redirect:/login.do");
+		}else {
+			bbs.setName(member.getName());
+		int result = bService.resgitBbs(bbs);
+		mv.setViewName("redirct:/bbsList.do");
 		}
 		return mv;
 	}
