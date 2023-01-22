@@ -12,4 +12,6 @@ public interface BbsStore {
 
 	int insertBbs(SqlSessionTemplate session, Bbs bbs);
 
+	Bbs selectOneBbs(SqlSessionTemplate session, int bbsNo);
+
 }

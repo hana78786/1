@@ -12,7 +12,10 @@ public interface BbsSerivce {
 	List<Bbs> bbsTitle();
 
 	int resgitBbs(Bbs bbs);
-	
+
+	Bbs readBbsOne(int bbsNo);
+
+
 
 
 }

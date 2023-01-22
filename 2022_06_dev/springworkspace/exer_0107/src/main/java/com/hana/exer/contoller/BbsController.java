@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hana.exer.doamin.Bbs;
@@ -52,6 +53,22 @@ public class BbsController {
 			bbs.setName(member.getName());
 		int result = bService.resgitBbs(bbs);
 		mv.setViewName("redirct:/bbsList.do");
+		}
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/readbbs.do",method = RequestMethod.GET)
+	public ModelAndView readbbs(ModelAndView mv, HttpSession session
+			,@RequestParam int bbsNo
+		) {
+		Member member = (Member)session.getAttribute("loginMember");
+		if(member==null) {
+			mv.setViewName("redirect:/login.do");
+		}else {
+			Bbs bbs = bService.readBbsOne(bbsNo);
+			mv.addObject("bbs", bbs);
+		mv.setViewName("/bbs/readbbs");
 		}
 		return mv;
 	}

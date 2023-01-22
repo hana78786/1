@@ -9,6 +9,21 @@ public class Bbs {
 	private String title;
 	private Date date;
 	private String contents;
+	
+	
+	
+	
+	public int getBbsNo() {
+		return bbsNo;
+	}
+	public void setBbsNo(int bbsNo) {
+		this.bbsNo = bbsNo;
+	}
+	@Override
+	public String toString() {
+		return "Bbs [bbsNo=" + bbsNo + ", name=" + name + ", title=" + title + ", date=" + date + ", contents="
+				+ contents + "]";
+	}
 	public String getName() {
 		return name;
 	}

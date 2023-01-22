@@ -25,7 +25,7 @@
                 <tr>
                     <td>
 
-                        ${list.title} 
+                       <a href="/readbbs.do?bbsNo=${list.bbsNo }">${list.title} 
                     </td>
                        <td>
                            ${list.name}

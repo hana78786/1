@@ -21,4 +21,8 @@
 	<insert id="insertBbs">
 	insert into bbs values(bbsno.nextval,#{name},#{title},sysdate,#{contents})
 	</insert>
+	
+	<select id="selectOnebbs" resultMap="bbsResultMap">
+	select * from bbs where bbs_no = #{bbsNo}
+	</select>
 </mapper>

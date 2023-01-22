@@ -27,6 +27,11 @@ public class BbsSerivceLogic implements BbsSerivce {
 		int result = bStore.insertBbs(session,bbs);
 		return result;
 	}
+	@Override
+	public Bbs readBbsOne(int bbsNo) {
+		Bbs bbs = bStore.selectOneBbs(session, bbsNo);
+		return bbs;
+	}
 	
 	
 }

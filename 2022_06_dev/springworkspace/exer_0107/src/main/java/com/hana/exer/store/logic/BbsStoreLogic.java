@@ -23,4 +23,10 @@ public class BbsStoreLogic implements BbsStore{
 		return result;
 	}
 
+	@Override
+	public Bbs selectOneBbs(SqlSessionTemplate session, int bbsNo) {
+		Bbs bbs = session.selectOne("bbsMapper.selectOnebbs",bbsNo);
+		return bbs;
+	}
+
 }
