@@ -29,4 +29,16 @@ public class BbsStoreLogic implements BbsStore{
 		return bbs;
 	}
 
+	@Override
+	public int selectOneNameChek(SqlSessionTemplate session, String name) {
+		int result = session.selectOne("bbsMapper.selectOneNameCheck",name);
+		return result;
+	}
+
+	@Override
+	public int updateOnebbs(SqlSessionTemplate session, Bbs bbs) {
+		int result = session.update("bbsMapper.updateOnebbs",bbs);
+		return result;
+	}
+
 }

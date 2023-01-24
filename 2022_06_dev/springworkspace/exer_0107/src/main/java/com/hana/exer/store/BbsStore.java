@@ -14,4 +14,8 @@ public interface BbsStore {
 
 	Bbs selectOneBbs(SqlSessionTemplate session, int bbsNo);
 
+	int selectOneNameChek(SqlSessionTemplate session, String name);
+
+	int updateOnebbs(SqlSessionTemplate session, Bbs bbs);
+
 }

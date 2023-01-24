@@ -30,6 +30,7 @@
 <c:if test="${!empty Member}">
 	${Member.name }님 환영합니다!
 	<button onclick="location.href='/loginout.do'">로그아웃</button>
+	<a href="/bbsList.do">게시판</a>
 </c:if>
 
 </body>

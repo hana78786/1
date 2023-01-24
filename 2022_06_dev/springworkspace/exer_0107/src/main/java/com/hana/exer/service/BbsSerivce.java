@@ -15,6 +15,10 @@ public interface BbsSerivce {
 
 	Bbs readBbsOne(int bbsNo);
 
+	int checkName(String name);
+
+	int modifyOneBBs(Bbs bbs);
+
 
 
 

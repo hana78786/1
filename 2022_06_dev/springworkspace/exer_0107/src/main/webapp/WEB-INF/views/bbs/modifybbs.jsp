@@ -11,7 +11,10 @@
 </head>
 <body>
   작성자 : ${bbs.name} <br>
-  내용 : ${bbs.contents}<br>
-<button onclick="location.href='/freemodifyview.do?bbsNo=${bbs.bbsNo}';">수정</button>
+  <form action="/freemodify.do" method="post">
+  내용 : <textarea name="contents">${bbs.contents}</textarea><br>
+  <input type="hidden" name="bbsNo" value="${bbs.bbsNo}">
+  <button>수정</button>
+  </form>
 </body>
 </html>

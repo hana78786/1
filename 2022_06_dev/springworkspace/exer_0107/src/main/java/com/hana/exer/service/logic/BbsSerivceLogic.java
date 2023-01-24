@@ -32,6 +32,16 @@ public class BbsSerivceLogic implements BbsSerivce {
 		Bbs bbs = bStore.selectOneBbs(session, bbsNo);
 		return bbs;
 	}
+	@Override
+	public int checkName(String name) {
+		int result = bStore.selectOneNameChek(session,name);
+		return result;
+	}
+	@Override
+	public int modifyOneBBs(Bbs bbs) {
+		int result = bStore.updateOnebbs(session,bbs);
+		return result;
+	}
 	
 	
 }

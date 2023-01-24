@@ -16,32 +16,31 @@ public class Test0123_1 {
 		for (int i = 0; i < 30; i++) {
 			b[i] = i + 1;
 			int count = 0;
-			for(int j=0;j<28;j++) {
-				if(b[i] == a[j]) {
+			for (int j = 0; j < 28; j++) {
+				if (b[i] == a[j]) {
 					count++;
 				}
-				System.out.println("b "+b[i]+" count"+count);
-			
-				
 			}
-			if(count==0) {
-				if(c==0) {
-					c=b[i];
-					count =0;
-				}else {
-					d=b[i];
-					count =0;
+			if (count == 0) {
+				if (c == 0) {
+					c = b[i];
+					count = 0;
+				} else {
+					d = b[i];
+					count = 0;
 				}
 			}
-			
+
 		}
 
-		if(c>d) {System.out.println(c);
-		System.out.println(d);}else {
+		if (c > d) {
 			System.out.println(d);
 			System.out.println(c);
-			
+		} else {
+			System.out.println(c);
+			System.out.println(d);
+
 		}
-		
+
 	}
 }

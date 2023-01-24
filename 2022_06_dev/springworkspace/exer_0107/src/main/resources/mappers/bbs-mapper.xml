@@ -25,4 +25,12 @@
 	<select id="selectOnebbs" resultMap="bbsResultMap">
 	select * from bbs where bbs_no = #{bbsNo}
 	</select>
+	
+	<select id="selectOneNameCheck" resultType="_int">
+	select count(*) from bbs where name =#{name}
+	</select>
+	
+	<update id="updateOnebbs">
+	update bbs set contents = #{contents} where bbs_no = #{bbsNo}
+	</update>
 </mapper>

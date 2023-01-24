@@ -38,10 +38,11 @@ public class BbsController {
 		if(member==null) {
 			mv.setViewName("redirect:/login.do");
 		}else {
-		mv.setViewName("/bbs/registbbs");
+			mv.setViewName("/bbs/registbbs");
 		}
 		return mv;
 	}
+	
 	
 	@RequestMapping(value="/registfree.do",method = RequestMethod.POST)
 	public ModelAndView registFree(ModelAndView mv, HttpSession session
@@ -72,4 +73,41 @@ public class BbsController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value="/freemodifyview.do",method = RequestMethod.GET)
+	public ModelAndView freemodifyview(ModelAndView mv, HttpSession session
+			,@RequestParam int bbsNo
+			) {
+		Member member = (Member)session.getAttribute("loginMember");
+		if(member==null) {
+			mv.setViewName("redirect:/login.do");
+		}else {
+			Bbs bbs = bService.readBbsOne(bbsNo);
+			mv.addObject("bbs", bbs);
+			mv.setViewName("/bbs/modifybbs");
+		}
+		return mv;
+	}
+	@RequestMapping(value="/freemodify.do",method = RequestMethod.POST)
+	public ModelAndView freemodify(ModelAndView mv, HttpSession session
+			,@ModelAttribute Bbs bbs
+			) {
+		Member member = (Member)session.getAttribute("loginMember");
+		if(member==null) {
+			mv.setViewName("redirect:/login.do");
+		}else {
+			int result = bService.checkName(member.getName());
+			if(result==0) {
+				mv.setViewName("redirect:/login.do");
+			}else {
+				int result1 = bService.modifyOneBBs(bbs); 
+				mv.addObject("bbsNo", bbs.getBbsNo());
+				mv.setViewName("redirect:/readbbs.do");
+			}
+			
+		}
+		return mv;
+	}
+	
+	
 }
