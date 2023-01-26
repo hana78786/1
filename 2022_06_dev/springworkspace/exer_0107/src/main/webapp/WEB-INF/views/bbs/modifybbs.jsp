@@ -11,6 +11,7 @@
 </head>
 <body>
   작성자 : ${bbs.name} <br>
+  제목 : ${bbs.title}
   <form action="/freemodify.do" method="post">
   내용 : <textarea name="contents">${bbs.contents}</textarea><br>
   <input type="hidden" name="bbsNo" value="${bbs.bbsNo}">
