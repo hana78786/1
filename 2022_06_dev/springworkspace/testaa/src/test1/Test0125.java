@@ -8,7 +8,7 @@ public class Test0125 {
 		double[] arr = new double[sc.nextInt()];
 
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = sc.nextInt();
+			arr[i] = sc.nextDouble();
 
 		}
 		double max = arr[0];
@@ -30,7 +30,7 @@ public class Test0125 {
 			int mincount = 0;
 
 			if (mincount == 0 && min == arr[i]) {
-				double a = (min/max)*100;
+				arr[i] = (min/max)*100;
 				mincount++;
 			}
 
