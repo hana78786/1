@@ -30,17 +30,20 @@ public class Test0125 {
 			int mincount = 0;
 
 			if (mincount == 0 && min == arr[i]) {
-				arr[i] = (min/max)*100;
+				arr[i] = Math.round((min/max)*10000);
+				arr[i]= arr[i]/100;
 				mincount++;
 			}
 
 		}
-		int sum =0;
-		int avg=0;
+		double sum =0;
+		double avg=0;
 		for(int i =0;i<arr.length;i++) {
 			sum += arr[i];
 		}
 		avg = sum/arr.length;
+		avg = Math.round(avg*100);
+		avg = avg/100;
 		System.out.println(avg);
 		
 	}
