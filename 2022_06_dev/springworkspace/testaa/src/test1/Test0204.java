@@ -22,8 +22,8 @@ public class Test0204 {
 				}
 				
 			}
-			double per = (double)count/(double)x;
-			System.out.println((float)per*100);
+			double per = count/(double)x;
+			System.out.printf("%.3f\n", per * 100);
 		}
 	}
 
