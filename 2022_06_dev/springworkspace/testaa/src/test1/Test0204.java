@@ -8,7 +8,7 @@ public class Test0204 {
 		int num = sc.nextInt();
 		for(int i =0;i<num;i++) {
 			int x = sc.nextInt();
-			int[] score = new int[x];
+			double[] score = new double[x];
 			int avg=0;
 			for(int j=0;j<x;j++) {
 				score[j] = sc.nextInt();
