@@ -9,7 +9,7 @@ public class Test0204 {
 		for(int i =0;i<num;i++) {
 			int x = sc.nextInt();
 			double[] score = new double[x];
-			int avg=0;
+			double avg=0;
 			for(int j=0;j<x;j++) {
 				score[j] = sc.nextInt();
 				avg += score[j];				
