@@ -23,7 +23,7 @@ public class Test0204 {
 				
 			}
 			double per = count/(double)x;
-			System.out.printf("%.3f\n", per * 100);
+			System.out.printf("%.3f%%\n", per * 100);
 		}
 	}
 
