@@ -7,9 +7,12 @@ public class Test0216 {
 		Scanner sc = new Scanner(System.in);
 		int a = sc.nextInt();
 		int n = 0;
+		String b = a+"";
 		while(n<1000) {
-			String b = a+"";
 			int[] c = new int[b.length()];
+			for(int i=0;i<c.length;i++) {
+				c[i]=Integer.parseInt(b.substring(i, i));
+			}
 			n=n+a;
 			for(int i=0; i<c.length; i++) {
 				n+=c[i];
