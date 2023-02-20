@@ -1,11 +1,10 @@
 package test1;
 
-import java.util.Scanner;
+
 
 public class Test0216 {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
+
 		int n = 0;
 		String b = String.valueOf(a);
 		while(n<1000) {
