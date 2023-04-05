@@ -26,6 +26,5 @@ public class MvcMemberListServlet extends HttpServlet {
         String viewPath = "/WEB-INF/views/members.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(viewPath);
         requestDispatcher.forward(request, response);
-
     }
 }
